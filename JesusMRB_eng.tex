@@ -25,19 +25,18 @@
 
 % personal data
 \name{Jes\'{u}s Misr\'{a}yim}{Rueda-Becerril}
-\title{PhD candidate}                               % optional, remove / comment the line if not wanted
-%\address{2456 W 8th Ave., V5N 2S1}{Vancouver, BC}{Canada}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\title{PhD candidate}                             % optional, remove / comment the line if not wanted
+\address{Av. Paseo Rajolar 2, Piso 7}{46100, Burjassot}{Valencia, SPAIN}  % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
 \phone[mobile]{+34~61~572~8749}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
-%\phone[fixed]{+1~(604)~827~4442}
-%\phone[fax]{+3~(456)~789~012}
+%\phone[fixed]{}
+%\phone[fax]{}
 \email{jesus.rueda@uv.es}
-%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
-\social[linkedin]{Jesus Rueda-Becerril}                        % optional, remove / comment the line if not wanted
+%\homepage{}                         % optional, remove / comment the line if not wanted
+\social[linkedin]{Jesus Rueda-Becerril}          % optional, remove / comment the line if not wanted
 %\social[twitter]{jerue103}                             % optional, remove / comment the line if not wanted
 \social[github]{altjerue}                              % optional, remove / comment the line if not wanted
-%\extrainfo{\faTelegram jerube}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{...porque en ti me veo yo...}                                 % optional, remove / comment the line if not wanted
+%\quote{}                                 % optional, remove / comment the line if not wanted
 
 %%-----------------------------------  BIBLIOGRAPHY  -----------------------------------
 
@@ -77,8 +76,8 @@
 \patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item}{}{}
 \makeatother
 
-%%-------------------------------------------------------------------------------------------
-%%%New commands
+%%--------------------------------------------------------------------------
+%% Macros
 
 \newcommand{\UV}{Universitat de Val\`{e}ncia}
 \newcommand{\UVes}{Universidad de Valencia}
@@ -93,14 +92,14 @@
 \newcommand{\prd}{Phys. Rev. D}
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
 
-%----------------------------------------------------------------------------------
+%---------------------------------------------------------------------------
 %            content
-%----------------------------------------------------------------------------------
+%---------------------------------------------------------------------------
 %
 
 \begin{document}
 
-%----------       resume       ----------------------------------------------------
+% ---------------------       resume       ---------------------------------
 \makecvtitle%
 
 \section{Education}
@@ -148,7 +147,8 @@
 
 
 \section{Publications}           % ----- multibib -----
-%%\nocitebook{book1,book2}
+
+%% \nocitebook{book1,book2}
 %%\bibliographystylebook{plain}
 %%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
 
@@ -197,8 +197,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%\subsection{Teaching}
-% \cventry{2012--2014}{Asistente de Docencia}{Chemistry Department, UBC}{Vancouver}{Canada}{Instructor: Dr. Jason Wickenden
+% \subsection{Teaching}
+% \cventry{year--year}{}{}{}{}{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -206,19 +206,6 @@
 
 \section{Research experience}
 
-% \cventry{2015--2016}{Estancia Postdoctoral}{Chemistry Department, UBC}{Vancouver}{Canada}{Supervisor: Prof. Dan Bizzotto
-% \newline{} - Funcionalizaci\'on de pigmentos org\'anicos y su bioconjugaci\'on con olig\'omeros de ADN.
-% \newline - Preparaci\'on y an\'alisis de electroforesis de gel de poliacrilamida (PAGE).
-% \newline - Utilizaci\'on de NanoDrop para el an\'alisis de olig\'omeros de ADN \textit{via} espectroscop\'ia ultravioleta.
-% \newline - Uso de micropipetas para la preparaci\'on de muestras y soluciones de olig\'omeros de ADN.
-% \newline - Uso de la X-ray Doc Cam para analizar geles revelados que resulten de an\'alisis PAGE.
-% \newline - Colaboraci\'on en grupos multidisciplinarios.
-% \newline - Discusi\'on grupal de resulatos y planeaci\'on del proyecto.}
-
-% \newline{}- S\'intesis de m\'ultiples pasos de mol\'eculas org\'anicas, con \'enfasis en compuestos de fl\'uor.
-
-
-%\subsection{Research}
 %\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
 %Detailed achievements:%
 %\begin{itemize}%
@@ -346,16 +333,6 @@
 %\cvitem{hobby 2}{Description}
 %\cvitem{hobby 3}{Description}
 
-%\section{Extra 1}
-%\cvlistitem{Item 1}
-%\cvlistitem{Item 2}
-%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
-
-%\section{Extra 2}
-%\cvlistdoubleitem{Item 1}{Item 4}
-%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
-
 
 \section{References}
 
@@ -377,8 +354,6 @@
   IFM, UMSNH}
 
 
-
-
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
 %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
@@ -387,24 +362,10 @@
 %\bibliographystyle{plain}
 %\bibliography{Biblio}                        % 'publications' is the name of a BibTeX file
 
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
-\clearpage
-%-----       letter       ---------------------------------------------------------
-% recipient data
-\recipient{HR team}{University of Barcelona\\Las Ramblas\\Barcelona}
-\date{\today}
-\opening{Dear Sir or Madam,}
-\closing{Yours faithfully,}
-\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
-
+%\clearpage
+% ---------------------       letter       ---------------------------------
+%       recipient data
 %\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
 %\date{January 01, 1984}
 %\opening{Dear Sir or Madam,}
@@ -415,22 +376,17 @@
 %
 %Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
 %
-%As part of my PhD studies under the supervision of Prof. Glenn Sammis at \UBC~I studied the chemoselectivity of oxygen-centered radicals.
-%
 %Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
 %
 %
 %
 %\makeletterclosing
 %A ac
-%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 
 
 
 \end{document}
 
-
-%% end of file `template.tex'.
 
 %%% Local Variables:
 %%% mode: latex

@@ -14,10 +14,10 @@ $ llatex -b JesusMRB_eng.tex
 English version
 ---------------
 
-[Curriculum Vitae]()
+[Curriculum Vitae](https://github.com/altjerue/jmrb_cv/blob/master/JesusMRB_eng.pdf)
 
 Versión en Español
 ------------------
 
-[Curriculum Vitae]()
+Curriculum Vitae
 
