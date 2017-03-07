@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 
 % moderncv themes
@@ -9,13 +9,18 @@
 
 % character encoding
 %\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 \usepackage{url}
 \usepackage{uri}
+\usepackage[abbreviations=false]{siunitx}
+\sisetup{%
+  retain-unity-mantissa = false,% avoid 1 x 10^{4}
+  range-units = single,% do not repeat units, e.g.: 2,3 and 4 T
+  range-phrase = --% 
+}
 
-%\usepackage[latin1]{inputenc}   %para reconocer acentos en español
-
+\usepackage{amssymb}
+\usepackage{amsmath}
 
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
@@ -38,11 +43,11 @@
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{}                                 % optional, remove / comment the line if not wanted
 
-%%-----------------------------------  BIBLIOGRAPHY  -----------------------------------
+%% -------------------------------  BIBLIOGRAPHY  --------------------------
 
 %    bibliography with mutiple entries
 \usepackage{multibib}
-\newcites{jour,conf}{{Journals}, {Proceedings}}
+\newcites{jour,conf}{{Articles}, {Proceedings}}
 \usepackage[numbers]{natbib}
 
 %    to redefine the bibliography heading string ("Publications")
@@ -77,16 +82,21 @@
 \makeatother
 
 %%--------------------------------------------------------------------------
-%% Macros
+%% New macros
+\newcommand{\mbs}{Mag\-ne\-to\-brems\-strah\-lung}
 
-\newcommand{\UV}{Universitat de Val\`{e}ncia}
+\newcommand{\UVval}{Universitat de Val\`{e}ncia}
 \newcommand{\UVes}{Universidad de Valencia}
 \newcommand{\UVen}{University of Valencia}
-\newcommand{\IFM}{Instituto de F\'{\i}sica y Matem\'{a}ticas}
+\newcommand{\DAAval}{Departament d'Astronomia i Astrof\'{\i}sica}
+\newcommand{\DAAes}{Departamentento de Astronom\'{\i}a y Astrof\'{\i}sica}
+\newcommand{\DAAen}{Department of Astronomy and Astrophysics}
+\newcommand{\IFMes}{Instituto de F\'{\i}sica y Matem\'{a}ticas}
 \newcommand{\IFMen}{Institute of Physics and Mathematics}
-\newcommand{\UMSNH}{Universidad Michoacana de San Nicol\'{a}s de Hidalgo}
+\newcommand{\UMSNHes}{Universidad Michoacana de San Nicol\'{a}s de Hidalgo}
 \newcommand{\UMSNHen}{Michoacan University of Saint Nicholas of Hidalgo}
-\newcommand{\UAEMex}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
+\newcommand{\UAEMex}{UAEM\'{e}x}
+\newcommand{\UAEMes}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
 \newcommand{\UAEMen}{Autonomous University of the State of Mexico}
 
 \newcommand{\prd}{Phys. Rev. D}
@@ -99,56 +109,50 @@
 
 \begin{document}
 
-% ---------------------       resume       ---------------------------------
+% ---------------------------   resume   -----------------------------------
 \makecvtitle%
 
 \section{Education}
-% \cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
 
-\cventry{2011--}{PhD in Physics}{\UVen}{Valencia, Spain}{}{Supervisors:
-  Prof.\ Miguel\ \'{A}ngel Aloy Tor\'{a}s \& Dr.\ Petar\ Mimica \newline{}Tesis:
-  \textit{Radiation Transport in Relativistic Magnetized Fluids ---
-    Applications to Relativistic Outflows}}  % arguments 3 to 6 can be left empty
-
-\cventry{2009--2011}{MSc in Physics}{\IFMen, \UMSNHen}{Morelia,
-  Michoac\'{a}n, Mexico}{}{Supervisor: Prof.\ Jos\'{e} Antonio Gonz\'{a}lez Cervera
-  \newline{} Thesis: \textit{Study of TOV stars with the SPH method}}
-
-\cventry{2004--2009}{Licenciate in Physics}{\UAEMen}{Toluca,
-  State of Mexico, Mexico}{}{Supervisor: Prof.\ Francisco S. Guzm\'{a}n Murillo
-  \newline{}Thesis: \textit{Numerical solution of null geodesics for the
-    generation of gravitational lenses in spherically symmetric space-times}}
+\cventry{2011--}{PhD in Physics}{\UVval}{Valencia, Spain}{}{Supervisors:
+  Prof.\ Miguel\ \'{A}ngel Aloy Tor\'{a}s \& Dr.\ Petar\ Mimica \newline%
+  Tesis: \textit{Radiation Transport in Relativistic Magnetized Fluids ---
+    Applications to Relativistic Outflows}}
+%
+\cventry{2009--2011}{MSc in Physics}{\IFMes, \UMSNHes}{Morelia,
+  Michoacan, Mexico}{}{Supervisor: Prof.\ Jos\'{e} Antonio Gonz\'{a}lez
+  Cervera \newline%
+  Thesis: \textit{Study of TOV stars with the SPH method}}
+%
+\cventry{2004--2009}{BSc in Physics}{\UAEMes}{Toluca, State of
+  Mexico, Mexico}{}{Supervisor: Prof.\ Francisco S. Guzm\'{a}n Murillo
+  \newline%
+  Thesis: \textit{Numerical solution of null geodesics for the generation
+    of gravitational lenses in spherically symmetric space-times}}
+% arguments 3 to 6 can be left empty
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Languages}
-%\cvitemwithcomment{Language 3}{Skill level}{Comment}
-\cvitemwithcomment{Spanish}{Mother tongue}{}
-\cvitemwithcomment{English}{Proficient}{TOEFL certified.}
-\cvitemwithcomment{Catalan}{Basic}{}%IELTS and TOEFL certified.}
-\cvitemwithcomment{French}{Basic}{}%IELTS and TOEFL certified.}
-\cvitemwithcomment{German}{Basic}{}%IELTS and TOEFL certified.}
 
 
 \section{Computer skills}
-\cvitem{Proficient}{Unix (Linux, macOS), FORTRAN (77, 90, 95, 2003), Python,
-  Shell, Mathematica, \LaTeX, gnuplot, grace, OpenMP, GeoGebra, Emacs,
-  HDF5, Makefile, Git}
-\cvitem{Intermediate}{C, C++, R, Julia, Elisp, MPI, SageMath, yEd, OpenOffice,
-  Microsoft Office, iWork, DOT, TikZ/PGF}
+
+\cvitem{Proficient}{Unix (Linux, macOS), FORTRAN (77, 90, 95, 2003),
+  Python, Shell, Mathematica, \LaTeX, gnuplot, grace, OpenMP, GeoGebra,
+  Emacs, HDF5, Makefile, Git}
+%
+\cvitem{Intermediate}{C, C++, R, Julia, Elisp, MPI, SageMath, yEd,
+  OpenOffice, Microsoft Office, iWork, DOT, TikZ/PGF}
+%
 \cvitem{Basic}{HTML, Matlab, Maple, Java, Swift, Perl}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%  PUBLICATIONS  %%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PUBLICATIONS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Publications}           % ----- multibib -----
-
-%% \nocitebook{book1,book2}
+%%\nocitebook{book1,book2}
 %%\bibliographystylebook{plain}
 %%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
 
@@ -160,22 +164,27 @@
 \bibliographyconf{MyPapers}
 
 
-\section{Grants \& Awards}
-\cvitem{}{\begin{itemize}
-  \item \textbf{Scholarship for studies abroad} for PhD studies granted by
-    the Mexican Council of Science and Technology, 2014--2016.
-  \item \textbf{Santiago Grisol\'{\i}a} for PhD studies granted by the
-    Council of Education, Research, Culture and Sport of Valencia, 2011--2014.
-  \item \textbf{Scholarship for academic training} for MSc studies granted by
-    the Mexican Council of Science and Technology, 2009--2011.
-  \item \textbf{Prize} ``Lic. Juan Josafat Pichardo Cruz'', granted by the
-    \UAEMex, for finishing a thesis and graduating within a year after
-    completing the undergraduate credits, 2009.
-\end{itemize}}{}{}{}{}
+\section{Awards and Scholarships}
+\cvitem{2014--2016}{\textbf{Fellowship} for studies abroad granted by the
+  Mexican Council of Science and Technology.}
+%
+\cvitem{2011--2014}{
+  \textbf{Fellowship} ``Santiago Grisol\'{\i}a'' granted by the Council of
+  Education, Research, Culture and Sport of Valencia, Spain.}
+%
+\cvitem{2009--2011}{\textbf{Fellowship} for academic training for MSc
+  studies granted by the Mexican Council of Science and Technology.}
+%
+\cvitem{2009}{\textbf{Award} ``Lic. Juan Josafat Pichardo Cruz'', granted
+  by the \UAEMex, for finishing a thesis and graduating within a year after
+  completing the undergraduate credits.}
+%
+\cvitem{25 Jun--24 Aug 2007}{\textbf{Fellowship} for a temporary stay in a
+  research center under the XVII summer of scientific investigation program
+  by the Mexican Academia of Science.}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % \section{PhD thesis}
@@ -194,132 +203,305 @@
 %\cvitem{description}{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Interests}
+\cvitem{Blazars}{
+  \begin{itemize}
+  \item Acceleration processes in the emission region.
+  \item Location of the emission region.
+  \item The spectral effects due to different constituents of the material
+    in the emission region.
+  \end{itemize}
+}
+%
+\cvitem{Numerical Astrophysics}{
+  \begin{itemize}
+  \item Numerical solutions to the transport equation with astrophysical
+    applications.
+  \item Numerical treatment of internal shocks for blazars and GRBs.
+  \item Numerical treatment of the microphysics involved in the emission
+    region of blazars and in GRBs.
+  \end{itemize}
+}
+% \cvitem{hobby 3}{Description}
+
+
+\section{Research experience}
+
+\cventry{2011--}{Graduate research assistant}{DAA, UV}{Burjassot,
+  Spain}{}{PhD studies
+  \begin{itemize}
+  \item Parameter study using the code developed by Petar Mimica \& Miguel
+    A. Aloy for the internal shocks (IS) model.
+    \begin{itemize}
+    \item Development of software capable of automatizing the launch of
+      simulations of ISs
+    \item Development of software capable of automatizing the generation of
+      plots from the IS code.
+    \item Interpretation of lightcurves (LCs) and spectral energy
+      distributions (SEDs)
+    \item Identification and interpretation of the main physical parameters
+      in the shocks.
+    \item Identification of the physical parameters in the model which led
+      to observational data.
+    \end{itemize}
+  \item Processing and analysis of data from Fermi 2LAC catalogue.
+  \item Identification and interpretation of the main characteristics of
+    blazars SEDs (Compton dominance, syncrotron and Compton peaks, spectral
+    index).
+  \item Calculation of the spectral index from SED data, specifically in
+    the \SIrange{0.1}{10}{\giga\electronvolt} band.
+  \item Parabolic fitting of SEDs.
+  \item Injection of a hybrid thermal-nonthermal distribution of particles
+    in the IS model.
+  \item Calculation of \mbs\ tables of charged particles of arbitrary
+    velocity.
+  \item Calculation of the emissivity for isotropic distributions of
+    particles using \mbs\ tables.
+  \item Implementation of \mbs\ and hybrid distributions to the ISs code.
+  \item Contribution to the writing of two manuscript for publication in a
+    peer-reviewed journals.
+  \end{itemize}
+}
+%
+\cventry{2010--2011}{Graduate research assistant}{IFM, UMSNH}{Morelia,
+  Mexico}{}{Master thesis%
+  \begin{itemize}
+  \item Writing of a Newtonian SPH code.
+  \item Implementation of a Predictor-Corrector method for the time
+    evolution of the hydrodynamic equations.
+  \item Implementation of a Newton-Rapson method for the recovery of the
+    hydrodynamic primitive variables.
+  \item Solving of the Sod shock tube.
+  \item Solving of an isothermal collapse.
+  \item Writing of a relativistic SPH code.
+  \item Relativistic Sod shock tube resolved.
+  \item Writing of the TOV field equations.
+  \item Solution of the TOV equations with an RK4 code to generate the
+    initial conditions of the SPH code.
+  \end{itemize}
+}
+%
+\cventry{2008--2009}{Graduate research assistant}{Faculty of Sciences,
+  \UAEMex}{Toluca, Mexico}{}{Bachelor thesis%
+  \begin{itemize}
+  \item Writing of the geodesic equation for a spherically symmetric and
+    static space-time.
+  \item Writing of a fourth order Runge-Kutta solver (RK4)
+  \item Testing of the RK4 with ordinary differential equations with well
+    known analytic solution
+  \item Characterization of the RK4 code
+    \begin{itemize}
+    \item Convergence
+    \item Stability
+    \end{itemize}
+  \item Application of RK4 for the geodesics equation in a Schwarzschild
+    space-time
+  \item Implementation of a first order interpolation routine for the
+    Christoffel symbols from a numerical metric.
+  \item Implementation of the code to the Boson stars (numerical) solution
+    of Einstein's field equations.
+  \item Application of RK4 for the geodesics equation in a 
+  \item Characterization of gravitational lenses around:
+    \begin{itemize}
+    \item Black holes,
+    \item Boson stars.
+    \end{itemize}
+  \item Interpretation of light trajectories due to curved space-times.
+  \item Contributing to the writing of a manuscript for publication in a
+    peer-reviewed journal.
+  \end{itemize}
+}
+%
+\cventry{2007--2008}{Undergraduate research assistant}{Faculty of Sciences,
+  \UAEMex}{Toluca, Mexico}{}{Internship service\newline%
+  Supervisor: Prof.\ Jorge Orozco.%
+  \begin{itemize}
+  \item Writing the elliptic equations in finite differences form
+  \item Characterization of the typical kinds of boundary conditions:
+    \begin{itemize}
+    \item Dirichlet
+    \item Neumann
+    \end{itemize}
+  \item Writing of a code which solves the two-dimensional Laplace equation
+    with Dirichlet and Neumann boundary conditions.
+  \end{itemize}
+}
+%
+\cventry{25 Jun--24 Aug 2007}{Undergraduate research assistant}{Mexican
+  Academia of Science}{Morelia, Mexico}{}{National program for temporary
+  stays at national research centers for undergraduate science
+  student.\newline%
+  Supervisor: Prof.\ Francisco S. Guzm\'{a}n Murillo.%
+  \begin{itemize}%
+  \item Numerical solution of the wave equation with finite differences.
+  \item Numerical solution of Burgers' equation with finite differences.
+  \item Numerical solution of the general relativistic one-dimensional wave
+    equation in the 3+1 formalism with finite differences.
+  \end{itemize}
+}
+%
+\cventry{2005--2008}{Undergraduate researcher assistant}{Faculty of
+  Science, \UAEMex}{Toluca, Mexico}{}{Exposure of graphite samples to
+  microwaves%
+  Supervisor: Prof.\ Porfirio D. Rosendo-Francisco
+  \begin{itemize}
+  \item Ultrasonic cleaning of graphite samples.
+  \item Systematic exposure graphite samples to microwaves
+    ($\SI{2.45}{\giga\hertz}$).
+  \item Observation of the superficial effects using a metallographic
+    microscope.
+  \item Characterization of the structures observed.
+  % \item Results presented in a poster at the XLVIII National Physics
+  %   Meeting, Guadalajara, M\'{e}xico, 2005.
+  \end{itemize}
+  Exposure of graphite samples to elecric arcs%
+  \begin{itemize}
+  \item Ultrasonic cleaning of graphite samples.
+  \item Characterization of a Tesla coil.
+    \begin{itemize}
+    \item Input current.
+    \item Output flux of electrons.
+    \end{itemize}
+  \item Controlled handling of a Tesla coil.
+  \item Systematic exposure of the surface of graphite samples to a
+    perpendicular and tangential electric arc.
+  \item Observation of surface effects with a metallographic microscope.
+  \item Characterization of the zones around the contact region.
+  \item Characterization of the temperature around the contact region.
+  \item Characterization of the structures which appeared after the
+    exposure.
+  \item Analysis of X-rays spectra of the samples.
+  \item Identification of induced families of lattice planes.
+  % \item Results presented in a poster at the XLIX National Physics Meeting,
+  %   San Luis Potosi, M\'{e}xico, 2006.
+  % \item Results presented in a poster at the L National Physics
+  %   Meeting, Boca del R\'{\i}o, M\'{e}xico, 2007.
+  \end{itemize}
+}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2
+% \item Achievement 2, with sub-achievements:
+%   \begin{itemize}%
+%   \item Sub-achievement (a);
+%   \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
+%     \begin{itemize}
+%     \item Sub-sub-achievement i;
+%     \item Sub-sub-achievement ii;
+%     \item Sub-sub-achievement iii;
+%     \end{itemize}
+%   \item Sub-achievement (c);
+%   \end{itemize}
+% \item Achievement 3.
+% }
+%   \subsection{Miscellaneous}
+%   \cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % \subsection{Teaching}
 % \cventry{year--year}{}{}{}{}{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Research experience}
-
-%\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-%Detailed achievements:%
-%\begin{itemize}%
-%\item Achievement 1;
-%\item Achievement 2, with sub-achievements:
-%  \begin{itemize}%
-%  \item Sub-achievement (a);
-%  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-%    \begin{itemize}
-%    \item Sub-sub-achievement i;
-%    \item Sub-sub-achievement ii;
-%    \item Sub-sub-achievement iii;
-%    \end{itemize}
-%  \item Sub-achievement (c);
-%  \end{itemize}
-%\item Achievement 3.
-%\end{itemize}}
-%\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-%\subsection{Miscellaneous}
-%\cventry{year--year}{Job title}{Employer}{City}{}{Description}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Meetings and conferences}
 
-\subsection{Talks}
+\subsection{Oral presentations}
 
 \cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{``Numerical simulations of the internal shock model in
-  magnetized relativistic jets of blazars''}{IVICFA's Fridays: Computation
+    M.A.}}{Numerical simulations of the internal shock model in
+  magnetized relativistic jets of blazars}{IVICFA's Fridays: Computation
   in Physics}{Paterna, Spain, 17 October}{}
-
+%
 \cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{``Influence of the magnetic field on the spectral properties of
-  blazars in the internal shocks scenario''}{Extreme-Astrophysics in an
+    M.A.}}{Influence of the magnetic field on the spectral properties of
+  blazars in the internal shocks scenario}{Extreme-Astrophysics in an
   Ever-Changing Universe: Time-Domain Astronomy in the 21st
   Century}{Ier\'{a}petra, Greece, 16--20 June}{}
-
+%
 \cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{``Numerical study of broadband spectra caused by internal shocks
-  in magnetized relativistic jets''}{XXXIV Biennial meeting of the Royal
+    M.A.}}{Numerical study of broadband spectra caused by internal shocks
+  in magnetized relativistic jets}{XXXIV Biennial meeting of the Royal
   Spanish Society of Physics}{Valencia, Spain, 15--19 July}{}
+%
+\cventry{2009}{Rueda-Becerril, J.M}{\textquestiondown{}Dec\'{\i}a Einstein
+  la verdad?}{weekly colloquium of Physics students \emph{Caf\'{e}
+    Ciencias}}{Toluca, Mexico, 11 March}{}
 
-
-\subsection{Posters}
+\subsection{Poster presentations}
 
 \cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{``Numerical simulations of the internal shock model in
-  magnetized relativistic jets of blazars''}{Swift: 10 years of
+    M.A.}}{Numerical simulations of the internal shock model in
+  magnetized relativistic jets of blazars}{Swift: 10 years of
   Discovery}{Rome, Italy, 2--5 December}{}
-
+%
 \cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{``Numerical study of broadband spectra caused by internal shocks
-  in magnetized relativistic jets of blazars''}{The Innermost Regions of
+    M.A.}}{Numerical study of broadband spectra caused by internal shocks
+  in magnetized relativistic jets of blazars}{The Innermost Regions of
   Relativistic Jets and Their Magnetic Fields}{Granada, Spain, 10--14 June}{}
-
+%
 \cventry{2007}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.;
-    Garc\'{\i}a Santiba\~{n}ez, F.; Rosendo-Francisco, P.}}{``Analysis of
+    Garc\'{\i}a Santiba\~{n}ez, F.; Rosendo-Francisco, P.}}{Analysis of
   the superficial structure of graphite samples submitted to an electric
-  arc''}{XL National Physics Meeting}{Boca del R\'{\i}o, Mexico, 29
+  arc}{L National Physics Meeting}{Boca del R\'{\i}o, Mexico, 29
   October--2 November}{}
-
+%
 \cventry{2006}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.;
-    Garc\'{\i}a Molina, N.; Rosendo-Francisco, P.}}{``Modifications on the
-  superficial structure of graphite samples''}{XLIX National Physics
+    Garc\'{\i}a Molina, N.; Rosendo-Francisco, P.}}{Modifications on the
+  superficial structure of graphite samples}{XLIX National Physics
   Meeting}{San Luis Potos\'{\i}, Mexico, 16--19 October}{}
-
+%
 \cventry{2005}{Rueda-Becerril, J.M.\textnormal{; G\'{o}mez D\'{\i}az, A.;
-    Rosendo-Francisco, P.}}{``Studies of microwave effects of graphite
-  samples''}{XLVIII National Physics Meeting}{Guadalajara, Mexico, 17--21
+    Rosendo-Francisco, P.}}{Studies of microwave effects of graphite
+  samples}{XLVIII National Physics Meeting}{Guadalajara, Mexico, 17--21
   October}{}
 
 \subsection{Attendance only}
 
 \cvitem{2016}{CoCoNuT Meeting 2016, Burjassot, Spain, 14--16 December}
+%
+\cvitem{2008}{LI National Physics Meeting, Zacatecas, Mexico, 20--24
+  October}
 
 \subsection{Organization}
 
-\cvlistitem{Contribution to the organization of the X Scientific
-  Meeting of the Spanish Astronomical Society, Valencia, Spain, 14--16
-  December, 2012}
+\cvitem{2012}{Contribution to the organization of the X Scientific Meeting
+  of the Spanish Astronomical Society, Valencia, Spain, 14--16 December}
 
 
 \section{Professional development}
 
 \cventry{7--16 Feb 2017}{Data Analysis and Machine Learning with
-  Python}{\UV}{Burjassot}{Spain}{No.\ of hours: 8}
-
+  Python}{UV}{Burjassot}{Spain}{No.\ of hours: 8}
+%
 \cventry{23--16 May 2014}{The Universe in the light of PLANCK and
-  BICEP2}{\UV}{Burjassot}{Spain}{No.\ of credits: 2}
-
-\cventry{23--27 Sep 2013}{Dark Matter}{\UV}{Burjassot}{Spain}{No.\ of credits: 2}
-
+  BICEP2}{UV}{Burjassot}{Spain}{No.\ of credits: 2}
+%
+\cventry{23--27 Sep 2013}{Dark Matter}{UV}{Burjassot}{Spain}{No.\ of
+  credits: 2}
+%
 \cventry{23 Apr--8 May 2013}{International Cag\`{e}se School on Cosmic
   Accelerators}{Institut d'\'{E}tudes Scientifques de
   Carg\`{e}se}{Carg\`{e}se}{France}{}
-
+%
 \cventry{9--12 Apr 2012}{Introduction to C++
-  Programming}{\UV}{Burjassot}{Spain}{No.\ of credits: 6}
-
+  Programming}{UV}{Burjassot}{Spain}{No.\ of credits: 6}
+%
 \cventry{27 Mar--4 Apr 2012}{Numerical Relativistic
-  Astrophysics}{\UV}{Burjassot}{Spain}{No.\ of hours: 9}
-
+  Astrophysics}{UV}{Burjassot}{Spain}{No.\ of hours: 9}
+%
 \cventry{5--9 March 2012}{Fortran for Scientific Computing}{High
-  Performance Computing Center Sttutgart}{Stuttgart}{Germany}{No.\ of hours: 33}
-
-\cventry{25 Jun--24 Aug 2007}{XII Summer of Research an Science
-  Program}{Academia Mexicana de la Ciencia}{Morelia, Mexico}{under
-  supervision of Prof.\ Francisco S. Guzm\'{a}n Murillo}{National program
-  for temporary stays at national research centers for undergraduate
-  science student.}
-
-\cventry{Jun 2006}{Advanced Summer School}{CINVESTAV}{Ciudad de M\'{e}xico}{Mexico}{}
-
+  Performance Computing Center Sttutgart}{Stuttgart}{Germany}{No.\ of
+  hours: 33}
+%
+\cventry{Jun 2006}{Advanced Summer School}{CINVESTAV}{Ciudad de
+  M\'{e}xico}{Mexico}{}
+%
 \cventry{Aug 2006}{Advanced Summer School}{Instituto de F\'{\i}sica de la
   Universidad de Guanajuato}{Le\'{o}n}{Mexico}{}
 
@@ -328,10 +510,15 @@
 \cvitem{Aug 2007--May 2009}{Physics students representative at the
   Governing Council of the Faculty of Sciences of the \UAEMex}{}{}{}{}
 
-%\section{Interests}
-%\cvitem{hobby 1}{Description}
-%\cvitem{hobby 2}{Description}
-%\cvitem{hobby 3}{Description}
+
+\section{Languages}
+
+% \cvitemwithcomment{Language 3}{Skill level}{Comment}
+\cvitemwithcomment{Spanish}{Mother tongue}{}
+\cvitemwithcomment{English}{Proficient}{}
+\cvitemwithcomment{Catalan}{Basic}{}%IELTS and TOEFL certified.}
+\cvitemwithcomment{French}{Basic}{}%IELTS and TOEFL certified.}
+\cvitemwithcomment{German}{Basic}{}%IELTS and TOEFL certified.}
 
 
 \section{References}
@@ -339,20 +526,22 @@
 \cvlistitem{Prof.\ Miguel \'{A}ngel Aloy Tor\'{a}s\ \ $\cdotp$\ \ +34 96
   354 3080\ \ $\cdotp$\ \
   \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}\ \ $\cdotp$\ \ UV}
-
+%
 \cvlistitem{Dr.\ Petar Mimica\ \ $\cdotp$\ \ +34 96 354 3080\ \ $\cdotp$\ \
   \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}\ \ $\cdotp$\ \ UV} 
-
+%
 \cvlistitem{Prof.\ Francisco Siddhartha Guzm\'{a}n Murillo\ \ $\cdotp$\ \
   +52 443 322 3500 ext 1264\ \ $\cdotp$\ \
   \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}\ \ $\cdotp$\ \
   IFM, UMSNH}
-
+%
 \cvlistitem{Prof.\ Jos\'{e} Antonio Gonz\'{a}lez Cervera\ \ $\cdotp$\ \
   +52 443 322 3500 ext 1263\ \ $\cdotp$\ \
   \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}\ \ $\cdotp$\ \
   IFM, UMSNH}
-
+%
+\cvlistitem{Prof.\ Jorge Orozco Velasco\ \ $\cdot$\ \
+  \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}\ \ $\cdot$\ \ \UAEMex}
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
@@ -380,9 +569,6 @@
 %
 %
 %
-%\makeletterclosing
-%A ac
-
 
 
 \end{document}
