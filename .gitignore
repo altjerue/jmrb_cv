@@ -6,3 +6,6 @@
 *.aux
 auto
 *.log
+*.synctex.gz
+*.fls
+*latexmk

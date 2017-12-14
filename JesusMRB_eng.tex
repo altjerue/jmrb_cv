@@ -1,22 +1,26 @@
-\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 
-% moderncv themes
-\moderncvstyle{casual}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
-\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+%%% moderncv themes
+\moderncvstyle{classic}
+% style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+%%% color
+\moderncvcolor{red}
+% color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%%% font family
+% \renewcommand{\familydefault}{\sfdefault}
+% to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 
-% character encoding
-%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
-%\usepackage{url}
-%\usepackage{uri}
+% \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+
 \usepackage[abbreviations=false]{siunitx}
 \sisetup{%
-  retain-unity-mantissa = false,% avoid 1 x 10^{4}
-  range-units = single,% do not repeat units, e.g.: 2,3 and 4 T
-  range-phrase = --% 
+retain-unity-mantissa = false,% avoid 1 x 10^{4}
+range-units = single,% do not repeat units, e.g.: 2,3 and 4 T
+range-phrase = --%
 }
 
 %\usepackage{amssymb}
@@ -25,26 +29,29 @@
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
 \recomputelengths{}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{8cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
 \name{Jes\'{u}s Misr\'{a}yim}{Rueda-Becerril}
-\title{PhD}                             % optional, remove / comment the line if not wanted
-\address{Av. Paseo Rajolar 2, Piso 7}{46100, Burjassot}{Valencia, SPAIN}  % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
-\phone[mobile]{+34~615~728~749}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\title{Postdoctoral Research Associate}
+
+\address{Edificio C-3, Ciudad Universitaria}{58040, Morelia}{Michoacan, MEXICO}
+%\phone[mobile]{}
 %\phone[fixed]{}
 %\phone[fax]{}
-\email{jesus.rueda@uv.es}
-%\homepage{}                         % optional, remove / comment the line if not wanted
-\social[linkedin]{jeruebe}          % optional, remove / comment the line if not wanted
-%\social[twitter]{jerue103}                             % optional, remove / comment the line if not wanted
-\social[skype]{jesus\_mrb}                              % optional, remove / comment the line if not wanted
-\social[github]{altjerue}                              % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{}                                 % optional, remove / comment the line if not wanted
+\email{jesus@ifm.umich.mx}
+\homepage{altjerue.github.io}
+\social[linkedin]{jeruebe}
+%\social[twitter]{jerue103}
+%\social[skype]{jesus\_mrb}
+%\social[github]{altjerue}
 
-%% -------------------------------  BIBLIOGRAPHY  --------------------------
+%\photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+%\quote{}
+
+%%% ----------------------------  BIBLIOGRAPHY  --------------------------------
 %    bibliography with mutiple entries
 \usepackage{multibib}
 \newcites{jour,conf}{{Articles}, {Proceedings}}
@@ -62,27 +69,27 @@
 \usepackage{etoolbox}
 \makeatletter
 \AtBeginDocument{%%% natbib redefines the environment there
-  \renewenvironment{thebibliography}[1]
-  {%
-    \bibliographyhead{\refname}%
-    \begin{etaremune}
-      \@openbib@code%
-      \sloppy%
-      \clubpenalty4000%
-      \widowpenalty4000%
-      \sfcode`\.\@m%
-      \sfcode`\=1000\relax}%
-    {\bibitem@fin\bibpostamble%
-      \def\@noitemerr{\latex@warning{Empty `thebibliography' environment}}%
-    \end{etaremune}
-    \bibcleanup}
+\renewenvironment{thebibliography}[1]
+{%
+\bibliographyhead{\refname}%
+\begin{etaremune}
+  \@openbib@code%
+  \sloppy%
+  \clubpenalty4000%
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+  \sfcode`\=1000\relax}%
+  {\bibitem@fin\bibpostamble%
+  \def\@noitemerr{\latex@warning{Empty `thebibliography' environment}}%
+\end{etaremune}
+\bibcleanup}
 }%%% end of \AtBeginDocument
 %%% patch \@lbibitem to use only \item (for etaremune)
 \patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item}{}{}
 \makeatother
-%%--------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
 
-%% New macros
+%%% New macros
 \newcommand{\mbs}{Mag\-ne\-to\-brems\-strah\-lung}
 
 \newcommand{\UVval}{Universitat de Val\`{e}ncia}
@@ -95,350 +102,198 @@
 \newcommand{\IFMen}{Institute of Physics and Mathematics}
 \newcommand{\UMSNHes}{Universidad Michoacana de San Nicol\'{a}s de Hidalgo}
 \newcommand{\UMSNHen}{Michoacan University of Saint Nicholas of Hidalgo}
-\newcommand{\UAEMex}{UAEM\'{e}x}
+\newcommand{\UAEMex}{UAEMex}
 \newcommand{\UAEMes}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
 \newcommand{\UAEMen}{Autonomous University of the State of Mexico}
+\newcommand{\FCes}{Facultad de Ciencias}
+\newcommand{\FCen}{Faculty of Sciences}
 
 \newcommand{\prd}{Phys. Rev. D}
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
 
-%---------------------------------------------------------------------------
-%            content
-%---------------------------------------------------------------------------
-%
+
+% ==============================================================================
 
 \begin{document}
 
-% ---------------------------   resume   -----------------------------------
+
+%  ####   ####  #    # ###### #####     #      ###### ##### ##### ###### #####
+% #    # #    # #    # #      #    #    #      #        #     #   #      #    #
+% #      #    # #    # #####  #    #    #      #####    #     #   #####  #    #
+% #      #    # #    # #      #####     #      #        #     #   #      #####
+% #    # #    #  #  #  #      #   #     #      #        #     #   #      #   #
+%  ####   ####    ##   ###### #    #    ###### ######   #     #   ###### #    #
+
+%%%   Recipient Data
+% \recipient{Someone}{Somewhere}
+% \date{\today}
+% \opening{Dear,}
+% \closing{Best regards,}
+% \enclosure[Attached]{curriculum vit\ae{}} % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+% %
+% \makelettertitle%
+% %
+%
+% I have recently finished my PhD at the University of Valencia (SPAIN), under the supervision of Prof. Miguel \'{A}ngel Aloy and Dr. Petar Mimica. As part of my post-graduate studies I have investigated the nature of blazars connecting their measured spectral features and lightcurves to the physics of the underlying plasma. The working hypothesis of my PhD has been that the observed blazar variability can be explained with the so-called ``internal shock'' model. According to this model, shocks inside of an heterogeneous beam of relativistic plasma accelerate leptons (or even hadrons in some variants of the model) to high energies. Since the plasma is threaded by both small-scale (randomly oriented) and large-scale magnetic fields, magneto-bremsstrahlung (MBS) emission is naturally produced (in practice, this is synchrotron for high frequencies and relativistic electrons, though my formalism is general and deals with the cyclotron emission as well). Inverse Compton upscattering of either external photon fields or the produced MBS photons shapes the high-frequency emission of blazars in the working model. Due to the non-linear and complex character of the plasma dynamics (governed by the equations of relativistic magneto-hydrodynamics) as well as the processes of particle acceleration and MBS emission, a fully numerical modeling has been performed. During my PhD, I have improved the existing numerical tools available in my host group at the University of Valencia, both extending the previous plasma radiation mechanisms and the analysis tools to perform systematic parameter coverage of the physical properties of plasma from which the emission results (with special emphasis on the plasma magnetization). The kind of numerical simulations I have performed during my PhD involved solving the kinetic and radiative transfer equations in a magnetized medium (for further details see Rueda-Becerril et al. 2014, 2017).
+%
+% I am highly interested on the origins of high energy radiation from particle acceleration processes. I am convinced that the experience and knowledge I have acquired during my PhD studies will prove highly useful and valuable to your research program if I should be selected, in addition to further contribute to the advancement of this field.
+%
+% I can provide more details about any aspect of my work you are interested in. Also, I am available for a telephone or videoconference interview every weekday. I am looking forward to hearing from you soon.
+%
+% \makeletterclosing
+% \clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% #####  ######  ####  #    # #    # ######
+% #    # #      #      #    # ##  ## #
+% #    # #####   ####  #    # # ## # #####
+% #####  #           # #    # #    # #
+% #   #  #      #    # #    # #    # #
+% #    # ######  ####   ####  #    # ######
+
 \makecvtitle%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Profile}
 \cvitem{}{Doctor in Astrophysics with high expertise in programming, data
   analysis and problem solving. I am creative, innovative, analyst and hard
   worker.}
 %
-\cvitem{}{During my PhD studies I developed high programming skills in
-  several languages such as Python, R, FORTRAN 95, C, Shell and version
-  control tools like Git using platforms such as GitHub and Bitbucket. I
-  worked on developing sophisticated numerical tools which were implemented
-  to simulate blazar flares (prompt high energy radiation from relativistic
-  jets of active galactic nuclei). This has shown my fast learning skill of
-  new programming languages and develop efficient codes to solve the
-  problem posed.}
+\cvitem{}{During my PhD studies I developed high programming skills in several languages such as Python, R, FORTRAN 95, C, Shell and version control tools like Git using platforms such as GitHub and Bitbucket. I worked on developing sophisticated numerical tools which were implemented to simulate blazar flares (prompt high energy radiation from relativistic jets of active galactic nuclei). This has shown my fast learning skill of new programming languages and develop efficient codes to solve the problem posed.}
 %
-\cvitem{}{I am coauthor of three articles in peer reviewed scientific
-  journals and author of a doctoral thesis, qualified as innovative, in
-  which several numerical and programming issues were overcome, reason why
-  it received the distinction of excellent. In addition, I have good
-  English skills which makes me capable of discussing and interact fluently
-  in both Spanish and English.}
+\cvitem{}{I am coauthor of three articles in peer reviewed scientific journals and author of a doctoral thesis, qualified as innovative, in which several numerical and programming issues were overcome, reason why it received the distinction of excellent. In addition, I have good English skills which makes me capable of discussing and interact fluently in both Spanish and English.}
 %
-\cvitem{}{I want to apply my mathematical knowledge, programming skills and
-  data analysis experience to machine learning, data mining, decision
-  making and modelling.}
+\cvitem{}{I want to apply my mathematical knowledge, programming skills and data analysis experience to machine learning, data mining, decision making and modelling.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Employment}
+
+\cventry{2017--}{Posdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Education}
 
-\cventry{2011--2017}{PhD in Physics}{\UVval}{Valencia,
-  Spain}{\textit{Grade} Excellent distinction}{Supervisors: Prof.\ Miguel\
-  \'{A}ngel Aloy Tor\'{a}s and Dr.\ Petar\ Mimica \newline%
-  Thesis: \textit{Numerical treatment of radiation processes in the
-    internal shocks of magnetized relativistic outflows}}
+\cventry{2011--2017}{PhD in Physics}{\UVval}{Valencia, Spain}{\textbf{Grade:} Distinction \emph{Cum Laude}}{Supervisors: Prof. Miguel \'{A}ngel Aloy Tor\'{a}s and Dr. Petar Mimica\\%
+Thesis: \textit{Numerical treatment of radiation processes in the internal shocks of magnetized relativistic outflows}. Access: \url{http://roderic.uv.es/handle/10550/60003}}
 %
-\cventry{2009--2011}{MSc in Physics}{\IFMes, \UMSNHes}{Morelia,
-  Michoacan, Mexico}{}{Supervisor: Prof.\ Jos\'{e} Antonio Gonz\'{a}lez
-  Cervera \newline%
-  Thesis: \textit{Study of TOV stars with the SPH method}}
+\cventry{2009--2011}{MSc in Physics}{\IFMes}{Morelia, Michoacan Mexico}{}{Supervisor: Prof. Jos\'{e} Antonio Gonz\'{a}lez Cervera\\%
+Thesis: \textit{Study of TOV stars with the SPH method}}
 %
-\cventry{2004--2009}{BSc in Physics}{\UAEMes}{Toluca, State of
-  Mexico, Mexico}{}{Supervisor: Prof.\ Francisco S. Guzm\'{a}n Murillo
-  \newline%
-  Thesis: \textit{Numerical solution of null geodesics for the generation
-    of gravitational lenses in spherically symmetric space-times}}
+\cventry{2004--2009}{BSc in Physics}{\UAEMes}{Toluca, State of Mexico, Mexico}{}{Supervisor: Prof. Francisco S. Guzm\'{a}n Murillo\\%
+Thesis: \textit{Numerical solution of null geodesics for the generation of gravitational lenses in spherically symmetric space-times}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Interests}
+\section{Computer skills}
 
-\cvitem{High energy astrophysics}{
+\cvitem{Proficient}{Unix (Linux, macOS), Fortran (fixed and free format), OpenMP, Python, R, RStudio, Shell, Makefile, HDF5, Git, Mathematica, \LaTeX, Atom (text editor), Emacs, gnuplot, grace, GitHub}
+%
+\cvitem{Intermediate}{C, C++, Julia, Elisp, MPI, SageMath, yEd, OpenOffice, Microsoft Office (Word, Excel, PowerPoint), iWork (Pages, Numbers, Keynote), DOT, TikZ/PGF, GeoGebra}
+%
+\cvitem{Basic}{HTML, Matlab, Maple, Java, Swift, Perl, SQL, Java}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Experience}
+
+\cventry{2017--}{Postdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
+
+\cventry{2011--2017}{Graduate research assistant}{\UVval}{Burjassot, Spain}{}{
+\begin{itemize}
+  \item Automatized the launching of simulations, treatment of data and generation of plots for an extensive parameter space study of the internal shocks code developed by Petar Mimica and Miguel A. Aloy in order to find traces left in the spectra due to the magnetization of the shocked shells of plasma.
+  \item Extracted and interpreted from the simulations of the main characteristics of blazars SEDs, e.g. Compton dominance, syncrotron and Compton peaks, spectral index using \texttt{Python} and \texttt{Shell}.
+  \item Extracted, cleaned and processed data from the \emph{Fermi} LAT Second AGN Catalog database for the comparison with our simulations.
+  \item We confronted a challenge when we intended to include further microphysical phenomena in the simulations. To overcome this
   \begin{itemize}
-  \item Particles acceleration processes.
-  \item Active galactic nuclei (jet formation and composition, jet
-    magnetization, blazars, radio galaxies, quasars, TEDs).
-  \item Microquasars.
-  \item Gamma-ray bursts.
+    \item Implemented a routine for a more general distribution of particles (thermal-nonthermal) to be treated in the original code.
+    \item Calculated tables with the \mbs{} emission of charged particles of arbitrary velocity and the emissivity for isotropic distributions of electrons using a code that I developed from scratch.
   \end{itemize}
+  \item Contributed to the writing of and coauthored two manuscript for publication in a peer-reviewed journal.
+  \item Developed high expertise with \texttt{Python}, \texttt{R}, \texttt{RStudio}, \texttt{FORTRAN 95}, \texttt{Shell}, \texttt{git}, \texttt{GitHub}, \texttt{Bitbucket}.
+\end{itemize}
 }
 %
-\cvitem{Numerical Astrophysics}{
-  \begin{itemize}
-  \item Numerical solutions to the radiation transport equation with
-    astrophysical applications.
-  \item Numerical simulations of particle acceleration processes.
-  \item Numerical hydrodynamics and magnetohydrodynamics.
-  \item Performance, stability, convergence and accuracy of numerical
-    codes.
-  \end{itemize}
-}
-%
-\cvitem{Computer Sciences}{
-  \begin{itemize}
-  \item Decision-making optimization
-  \item Machine learning (supervised and unsupervised)
-  \item Neuronal networks
-  \item Text mining
-  \item Network analysis
-  \end{itemize}
-}
-
-%\clearpage%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Publications}           % ----- multibib -----
-%%\nocitebook{book1,book2}
-%%\bibliographystylebook{plain}
-%%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
-
-\nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
-\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
-\bibliographystylejour{unsrt}
-\bibliographystyleconf{unsrt}
-\bibliographyjour{MyPapers}
-\bibliographyconf{MyPapers}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Awards and Scholarships}
-
-\cvitem{2014--2016}{\textbf{Fellowship} from the Mexican Federal Government
-  to study abroad awarded by the National Council of Science and Technology
-  (CONACyT).}
-% 
-\cvitem{2011--2014}{ \textbf{Fellowship} ``Santiago Grisol\'{\i}a'' awarded
-  by the Council of Education, Research, Culture and Sport of the Valencian
-  Comunity.}
-%
-\cvitem{2009--2011}{\textbf{Fellowship} for academic training for MSc
-  studies granted by the Mexican Council of Science and Technology
-  (CONACyT).}
-%
-\cvitem{2009}{\textbf{Award} ``Lic. Juan Josafat Pichardo Cruz'', granted
-  by the \UAEMex, for finishing the BSc thesis and graduating within a year
-  after completing the undergraduate credits.}
-%
-\cvitem{25 Jun--24 Aug 2007}{\textbf{Fellowship} for a temporary stay in a
-  national research center under the XVII summer of scientific
-  investigation program awarded by the Mexican Academia of Science.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Meetings and conferences}
-
-\subsection{Oral presentations}
-
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{Numerical simulations of the internal shock model in
-  magnetized relativistic jets of blazars}{IVICFA's Fridays: Computation
-  in Physics}{Paterna, Spain, 17 October}{}
-%
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{Influence of the magnetic field on the spectral properties of
-  blazars in the internal shocks scenario}{Extreme-Astrophysics in an
-  Ever-Changing Universe: Time-Domain Astronomy in the 21st
-  Century}{Ier\'{a}petra, Greece, 16--20 June}{}
-%
-\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{Numerical study of broadband spectra caused by internal shocks
-  in magnetized relativistic jets}{XXXIV Biennial meeting of the Royal
-  Spanish Society of Physics}{Valencia, Spain, 15--19 July}{}
-%
-\cventry{2009}{Rueda-Becerril, J.M}{\textquestiondown{}Dec\'{\i}a Einstein
-  la verdad?}{weekly colloquium of Physics students \emph{Caf\'{e}
-    Ciencias}}{Toluca, Mexico, 11 March}{}
-
-\subsection{Poster presentations}
-
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{Numerical simulations of the internal shock model in
-  magnetized relativistic jets of blazars}{Swift: 10 years of
-  Discovery}{Rome, Italy, 2--5 December}{}
-%
-\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy,
-    M.A.}}{Numerical study of broadband spectra caused by internal shocks
-  in magnetized relativistic jets of blazars}{The Innermost Regions of
-  Relativistic Jets and Their Magnetic Fields}{Granada, Spain, 10--14 June}{}
-%
-\cventry{2007}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.;
-    Garc\'{\i}a Santiba\~{n}ez, F.; Rosendo-Francisco, P.}}{Analysis of
-  the superficial structure of graphite samples submitted to an electric
-  arc}{L National Physics Meeting}{Boca del R\'{\i}o, Mexico, 29
-  October--2 November}{}
-%
-\cventry{2006}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.;
-    Garc\'{\i}a Molina, N.; Rosendo-Francisco, P.}}{Modifications on the
-  superficial structure of graphite samples}{XLIX National Physics
-  Meeting}{San Luis Potos\'{\i}, Mexico, 16--19 October}{}
-%
-\cventry{2005}{Rueda-Becerril, J.M.\textnormal{; G\'{o}mez D\'{\i}az, A.;
-    Rosendo-Francisco, P.}}{Studies of microwave effects of graphite
-  samples}{XLVIII National Physics Meeting}{Guadalajara, Mexico, 17--21
-  October}{}
-
-\subsection{Attendance only}
-
-\cvitem{2016}{CoCoNuT Meeting 2016, Burjassot, Spain, 14--16 December}
-%
-\cvitem{2008}{LI National Physics Meeting, Zacatecas, Mexico, 20--24
-  October}
-
-\subsection{Organization}
-
-\cvitem{2012}{Contribution to the organization of the X Scientific Meeting
-  of the Spanish Astronomical Society, Valencia, Spain, 14--16 December}
-
-\clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Research experience}
-
-\cventry{2011--2017}{Graduate research assistant}{DAA, UV}{Burjassot,
-  Spain}{}{
-  \begin{itemize}
-  \item Automatized the launching of simulations, treatment of data and
-    generation of plots for an extensive parameter space study of the
-    internal shocks code developed by Petar Mimica and Miguel A. Aloy in
-    order to find traces left in the spectra due to the magnetization of
-    the shocked shells of plasma.
-  \item Extracted and interpreted from the simulations of the main
-    characteristics of blazars SEDs, e.g. Compton dominance, syncrotron and
-    Compton peaks, spectral index using \texttt{Python} and \texttt{Shell}.
-  \item Extracted, cleaned and processed data from the \emph{Fermi} LAT
-    Second AGN Catalog database for the comparison with our simulations.
-  \item We confronted a challenge when we intended to include further
-    microphysical phenomena in the simulations. To overcome this
-    \begin{itemize}
-    \item Implemented a routine for a more general distribution of
-      particles (thermal-nonthermal) to be treated in the original code.
-    \item Calculated tables with the \mbs\ emission of charged particles of
-      arbitrary velocity and the emissivity for isotropic distributions of
-      electrons using a code that I developed from scratch.
-    \end{itemize}
-  \item Contributed to the writing of and coauthored two manuscript for
-    publication in a peer-reviewed journal.
-  \item Developed high expertise with \texttt{Python}, \texttt{R},
-    \texttt{RStudio}, \texttt{FORTRAN 95}, \texttt{Shell}, \texttt{git},
-    \texttt{GitHub}, \texttt{Bitbucket}.
-  \end{itemize}
-}
-%
-\cventry{2010--2011}{Graduate research assistant}{IFM, UMSNH}{Morelia,
-  Mexico}{}{%
-  \begin{itemize}
-  \item A problem posed for master thesis was the simulation of a TOV star
-    using smoothed-particle hydrodynamics (SPH) numerical method. For this
-    I developed a newtonian and relativistic SPH codes in \texttt{FORTRAN
-      95}.
-  \item The evolution of the system was carried out using
-    Predictor-Corrector routine which I also wrote in \texttt{FORTRAN 95}.
-  \item For the initial conditions I used the numerical solution of the TOV
-    field equations, using a fourth order Runge-Kutta solver also written
-    in \texttt{FORTRAN 95}.
+\cventry{2010--2011}{Graduate research assistant}{\IFMes}{Morelia, Mexico}{}{%
+\begin{itemize}
+  \item A problem posed for master thesis was the simulation of a TOV star using smoothed-particle hydrodynamics (SPH) numerical method. For this I developed a newtonian and relativistic SPH codes in \texttt{FORTRAN 95}.
+  \item The evolution of the system was carried out using Predictor-Corrector routine which I also wrote in \texttt{FORTRAN 95}.
+  \item For the initial conditions I used the numerical solution of the TOV field equations, using a fourth order Runge-Kutta solver also written in \texttt{FORTRAN 95}.
   \item For the analysis and plotting I used and mastered \texttt{gnuplot}.
-  \end{itemize}
+\end{itemize}
 }
 %
-\cventry{2008--2009}{Graduate research assistant}{Faculty of Sciences,
-  \UAEMex}{Toluca, Mexico}{}{%
-  \begin{itemize}
-  \item Predict the trajectory of light around black holes and similar
-    objects such as Boson stars was the problem posed for the bachelor
-    degree thesis. To solve such problem I wrote the geodesic equation for
-    a spherically symmetric and static space-time and solved them using a
-    RK4 routine, written in \texttt{FORTRAN 95}. I characterized such
-    routine studying its convergence and stability for both an analytic and
-    numeric metrics.
-  \item I interpreted light trajectories due to curved space-times and
-    characterized such trajectories for gravitational lenses.
-  \item Contributing to the writing of and coauthored a manuscript for
-    publication in a peer-reviewed journal.
-  \end{itemize}
+\cventry{2008--2009}{Graduate research assistant}{\UAEMes}{Toluca, Mexico}{}{%
+\begin{itemize}
+  \item Predict the trajectory of light around black holes and similar objects such as Boson stars was the problem posed for the bachelor degree thesis. To solve such problem I wrote the geodesic equation for a spherically symmetric and static space-time and solved them using a RK4 routine, written in \texttt{FORTRAN 95}. I characterized such routine studying its convergence and stability for both an analytic and numeric metrics.
+  \item I interpreted light trajectories due to curved space-times and characterized such trajectories for gravitational lenses.
+  \item Contributing to the writing of and coauthored a manuscript for publication in a peer-reviewed journal.
+\end{itemize}
 }
 %
-\cventry{2007--2008}{Undergraduate research assistant}{Faculty of Sciences,
-  \UAEMex}{Toluca, Mexico}{}{Internship service project\newline%
-  Supervisor: Prof.\ Jorge Orozco Velasco.%
-  \begin{itemize}
+\cventry{2007--2008}{Undergraduate research assistant}{\UAEMes}{Toluca, Mexico}{}{Internship service project, supervised by Prof. Jorge Orozco Velasco.%
+\begin{itemize}
   \item Writing the elliptic equations in finite differences form
   \item Characterization of the typical kinds of boundary conditions:
-    \begin{itemize}
+  \begin{itemize}
     \item Dirichlet
     \item Neumann
-    \end{itemize}
-  \item Writing of a code which solves the two-dimensional Laplace equation
-    in Cartesian coordinates with Dirichlet and Neumann boundary
-    conditions.
   \end{itemize}
+  \item Writing of a code which solves the two-dimensional Laplace equation in Cartesian coordinates with Dirichlet and Neumann boundary conditions.
+\end{itemize}
 }
 %
-\cventry{25 Jun--24 Aug 2007}{Undergraduate research assistant}{Mexican
-  Academia of Science}{Morelia, Mexico}{}{National program for temporary
-  stays at national research centers for undergraduate science
-  students.\newline%
-  Supervisor: Prof.\ Francisco S. Guzm\'{a}n Murillo.%
-  \begin{itemize}%
+\cventry{25 Jun--24 Aug 2007}{Undergraduate research assistant}{Mexican Academia of Science}{Morelia, Mexico}{}{National program for temporary stays at national research centers for undergraduate science students.\newline%
+Supervisor: Prof. Francisco S. Guzm\'{a}n Murillo.
+\begin{itemize}
   \item Numerical solution of the wave equation with finite differences.
   \item Numerical solution of Burgers' equation with finite differences.
-  \item Numerical solution of the general relativistic one-dimensional wave
-    equation in the 3+1 formalism with finite differences.
-  \end{itemize}
+  \item Numerical solution of the general relativistic one-dimensional wave equation in the 3+1 formalism with finite differences.
+\end{itemize}
 }
 %
-\cventry{2005--2008}{Undergraduate researcher assistant}{Faculty of
-  Sciences, \UAEMex}{Toluca, Mexico}{}{Volunteer work in a faculty research
-  project\newline%
-  Supervisor: Prof.\ Porfirio D. Rosendo-Francisco
-  \begin{itemize}
+\cventry{2005--2008}{Undergraduate researcher assistant}{\UAEMes}{Toluca, Mexico}{}{Volunteer work in a faculty research project\newline%
+Supervisor: Prof. Porfirio D. Rosendo-Francisco
+\begin{itemize}
   \item Exposure of graphite samples to microwaves
-    \begin{itemize}
+  \begin{itemize}
     \item Ultrasonic cleaning of graphite samples.
-    \item Systematic exposure graphite samples to microwaves
-      ($\SI{2.45}{\giga\hertz}$).
-    \item Observation of the superficial effects using a metallographic
-      microscope.
+    \item Systematic exposure graphite samples to microwaves ($\SI{2.45}{\giga\hertz}$).
+    \item Observation of the superficial effects using a metallographic microscope.
     \item Characterization of the structures observed.
-      % \item Results presented in a poster at the XLVIII National Physics
-      %   Meeting, Guadalajara, M\'{e}xico, 2005.
-    \end{itemize}
+    % \item Results presented in a poster at the XLVIII National Physics
+    %   Meeting, Guadalajara, M\'{e}xico, 2005.
+  \end{itemize}
   \item Exposure of graphite samples to elecric arcs%
-    \begin{itemize}
+  \begin{itemize}
     \item Ultrasonic cleaning of graphite samples.
     \item Characterization of a Tesla coil.
-      \begin{itemize}
+    \begin{itemize}
       \item Input current.
       \item Output flux of electrons.
-      \end{itemize}
+    \end{itemize}
     \item Controlled handling of a Tesla coil.
-    \item Systematic exposure of the surface of graphite samples to a
-      perpendicular and tangential electric arc.
+    \item Systematic exposure of the surface of graphite samples to a perpendicular and tangential electric arc.
     \item Observation of surface effects with a metallographic microscope.
     \item Characterization of the zones around the contact region.
     \item Characterization of the temperature around the contact region.
-    \item Characterization of the structures which appeared after the
-      exposure.
+    \item Characterization of the structures which appeared after the exposure.
     \item Analysis of X-rays spectra of the samples.
     \item Identification of induced families of lattice planes.
-      % \item Results presented in a poster at the XLIX National Physics Meeting,
-      %   San Luis Potosi, M\'{e}xico, 2006.
-      % \item Results presented in a poster at the L National Physics
-      %   Meeting, Boca del R\'{\i}o, M\'{e}xico, 2007.
-    \end{itemize}
+    % \item Results presented in a poster at the XLIX National Physics Meeting, San Luis Potosi, M\'{e}xico, 2006.
+    % \item Results presented in a poster at the L National Physics Meeting, Boca del R\'{\i}o, M\'{e}xico, 2007.
   \end{itemize}
+\end{itemize}
 }
 %
 % \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2
@@ -455,107 +310,89 @@
 %   \end{itemize}
 % \item Achievement 3.
 % }
-%   \subsection{Miscellaneous}
-%   \cventry{year--year}{Job title}{Employer}{City}{}{Description}
+%
+% \subsection{Miscellaneous}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \subsection{Teaching}
-% \cventry{year--year}{}{}{}{}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Professional development}
-
-\cventry{7--16 Feb 2017}{Data Analysis and Machine Learning with
-  Python}{UV}{Burjassot}{Spain}{No.\ of hours: 8}
+\cventry{5 Sep 2017}{Using Python to Access Web Data}{University of Michigan on Coursera}{}{}{Certificate earned on September 5, 2017}
 %
-\cventry{23--16 May 2014}{The Universe in the light of PLANCK and
-  BICEP2}{UV}{Burjassot}{Spain}{No.\ of credits: 2}
+\cventry{7--16 Feb 2017}{Data Analysis and Machine Learning with Python}{\UVval}{Burjassot}{Spain}{No. of hours: 8}
 %
-\cventry{23--27 Sep 2013}{Dark Matter}{UV}{Burjassot}{Spain}{No.\ of
-  credits: 2}
+\cventry{23--16 May 2014}{The Universe in the light of PLANCK and BICEP2}{\UVval}{Burjassot}{Spain}{No. of credits: 2}
 %
-\cventry{23 Apr--8 May 2013}{International Cag\`{e}se School on Cosmic
-  Accelerators}{Institut d'\'{E}tudes Scientifques de
-  Carg\`{e}se}{Carg\`{e}se}{France}{}
+\cventry{23--27 Sep 2013}{Dark Matter}{\UVval}{Burjassot}{Spain}{No. of credits: 2}
 %
-\cventry{9--12 Apr 2012}{Introduction to C++
-  Programming}{UV}{Burjassot}{Spain}{No.\ of credits: 6}
+\cventry{23 Apr--8 May 2013}{International Cag\`{e}se School on Cosmic Accelerators}{Institut d'\'{E}tudes Scientifques de Carg\`{e}se}{Carg\`{e}se}{France}{}
 %
-\cventry{27 Mar--4 Apr 2012}{Numerical Relativistic
-  Astrophysics}{UV}{Burjassot}{Spain}{No.\ of hours: 9}
+\cventry{9--12 Apr 2012}{Introduction to C++ Programming}{\UVval}{Burjassot}{Spain}{No. of credits: 6}
 %
-\cventry{5--9 March 2012}{Fortran for Scientific Computing}{High
-  Performance Computing Center Sttutgart}{Stuttgart}{Germany}{No.\ of
-  hours: 33}
+\cventry{27 Mar--4 Apr 2012}{Numerical Relativistic Astrophysics}{\UVval}{Burjassot}{Spain}{No. of hours: 9}
 %
-\cventry{Jun 2006}{Advanced Summer School}{CINVESTAV}{Ciudad de
-  M\'{e}xico}{Mexico}{}
+\cventry{5--9 March 2012}{Fortran for Scientific Computing}{High Performance Computing Center Sttutgart}{Stuttgart}{Germany}{No. of hours: 33}
 %
-\cventry{Aug 2006}{Advanced Summer School}{Instituto de F\'{\i}sica of the
-  Universidad de Guanajuato}{Le\'{o}n}{Mexico}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Computer skills}
-
-\cvitem{Proficient}{Unix (Linux, macOS), FORTRAN (77, 90, 95, 2003),
-  Python, Shell, Mathematica, \LaTeX, gnuplot, grace, OpenMP, GeoGebra,
-  Emacs, HDF5, Makefile, Git, GitHub, R, RStudio}
+\cventry{Jun 2006}{Advanced Summer School}{CINVESTAV}{Ciudad de M\'{e}xico}{Mexico}{}
 %
-\cvitem{Intermediate}{C, C++, Julia, Elisp, MPI, SageMath, yEd, OpenOffice,
-  Microsoft Office (Word, Excel, PowerPoint), iWork (Pages, Numbers,
-  Keynote), DOT, TikZ/PGF}
+\cventry{Aug 2006}{Advanced Summer School}{Instituto de F\'{\i}sica of the Universidad de Guanajuato}{Le\'{o}n}{Mexico}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Interests}
+
+\cvitem{High energy astrophysics}{
+\begin{itemize}
+  \item Cosmic rays
+  \item Particles acceleration processes
+  \item Active galactic nuclei
+  \begin{itemize}
+    \item Relativistic jet: formation, composition, magnetization
+    \item Blazars
+    \item Radio galaxies
+    \item Quasars
+    \item TEDs
+  \end{itemize}
+  \item Microquasars.
+  \item Gamma-ray bursts.
+\end{itemize}
+}
 %
-\cvitem{Basic}{HTML, Matlab, Maple, Java, Swift, Perl}
+\cvitem{Numerical Astrophysics}{
+\begin{itemize}
+  \item Numerical solutions to the radiation transport equation with astrophysical applications.
+  \item Numerical simulations of particle acceleration processes.
+  \item Numerical hydrodynamics and magnetohydrodynamics.
+  \item Performance, stability, convergence and accuracy of numerical codes.
+\end{itemize}
+}
+%
+\cvitem{Computer Sciences}{
+\begin{itemize}
+  \item Decision-making optimization
+  \item Machine learning (supervised and unsupervised)
+  \item Neuronal networks
+  \item Text mining
+  \item Network analysis
+\end{itemize}
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Other activities}
-\cvitem{Aug 2007--May 2009}{Physics students representative at the
-  Governing Council of the Faculty of Sciences of the \UAEMex}{}{}{}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Languages}
+\section{Publications}           % ----- multibib -----
+%%\nocitebook{book1,book2}
+%%\bibliographystylebook{plain}
+%%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
 
-% \cvitemwithcomment{Language 3}{Skill level}{Comment}
-\cvitemwithcomment{Spanish}{Mother tongue}{}
-\cvitemwithcomment{English}{Proficient}{}
-\cvitemwithcomment{Catalan}{Basic}{}%IELTS and TOEFL certified.}
-\cvitemwithcomment{French}{Basic}{}%IELTS and TOEFL certified.}
-\cvitemwithcomment{German}{Basic}{}%IELTS and TOEFL certified.}
-
-
-% \section{References}
-
-% \cvlistitem{Prof.\ Miguel \'{A}ngel Aloy Tor\'{a}s\ \ $\cdotp$\ \ +34 96
-%   354 3080\ \ $\cdotp$\ \
-%   \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}\ \ $\cdotp$\ \ UV}
-% %
-% \cvlistitem{Dr.\ Petar Mimica\ \ $\cdotp$\ \ +34 96 354 3080\ \ $\cdotp$\ \
-%   \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}\ \ $\cdotp$\ \ UV} 
-% %
-% \cvlistitem{Prof.\ Francisco Siddhartha Guzm\'{a}n Murillo\ \ $\cdotp$\ \
-%   +52 443 322 3500 ext 1264\ \ $\cdotp$\ \
-%   \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}\ \ $\cdotp$\ \
-%   IFM, UMSNH}
-% %
-% \cvlistitem{Prof.\ Jos\'{e} Antonio Gonz\'{a}lez Cervera\ \ $\cdotp$\ \
-%   +52 443 322 3500 ext 1263\ \ $\cdotp$\ \
-%   \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}\ \ $\cdotp$\ \
-%   IFM, UMSNH}
-% %
-% \cvlistitem{Prof.\ Jorge Orozco Velasco\ \ $\cdot$\ \
-%   \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}\ \ $\cdot$\ \ \UAEMex}
-% %
-% \cvlistitem{Prof.\ Porfirio Rosendo Francisco\ \ $\cdotp$\ \ +52 722 296
-%   5554 ext 56\ \ $\cdotp$\ \
-%   \href{mailto:rosendop@uaemex.mx}{rosendop@uaemex.mx}\ \ $\cdotp$\ \
-%   \UAEMex}
+\nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
+\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
+\bibliographystylejour{unsrt}
+\bibliographystyleconf{unsrt}
+\bibliographyjour{MyPapers}
+\bibliographyconf{MyPapers}
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
@@ -563,69 +400,127 @@
 
 %\nocite{*}
 %\bibliographystyle{plain}
-%\bibliography{Biblio}        % 'publications' is the name of a BibTeX file
+%\bibliography{Biblio}  % 'publications' is the name of a BibTeX file
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Awards and Scholarships}
 
-
-% ---------------------      Cover Letter       ----------------------------
-%       recipient data
-\recipient{Someone}{Somewhere}
-\date{\today}
-\opening{Dear,}
-\closing{Best regards,}
-\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+\cvitem{2014--2016}{\textbf{Fellowship} from the Mexican Federal Government to study abroad awarded by the National Council of Science and Technology (CONACyT).}
 %
-\makelettertitle%
+\cvitem{2011--2014}{ \textbf{Fellowship} \textit{Santiago Grisol\'{\i}a} awarded by the Council of Education, Research, Culture and Sport of the Valencian Comunity.}
 %
+\cvitem{2009--2011}{\textbf{Fellowship} for academic training for MSc studies granted by the Mexican Council of Science and Technology (CONACyT).}
+%
+\cvitem{2009}{\textbf{Award} \textit{Lic. Juan Josafat Pichardo Cruz}, granted by the \UAEMex, for finishing the BSc thesis and graduating within a year after completing the undergraduate credits.}
+%
+\cvitem{25 Jun--24 Aug 2007}{\textbf{Fellowship} for a temporary stay in a national research center under the XVII summer of scientific investigation program awarded by the Mexican Academia of Science.}
 
-I have recently finished my PhD at the University of Valencia (SPAIN),
-under the supervision of Prof.\ Miguel \'{A}ngel Aloy and Dr.\ Petar
-Mimica. As part of my post-graduate studies I have investigated the nature
-of blazars connecting their measured spectral features and lightcurves to
-the physics of the underlying plasma. The working hypothesis of my PhD has
-been that the observed blazar variability can be explained with the
-so-called ``internal shock'' model. According to this model, shocks inside
-of an heterogeneous beam of relativistic plasma accelerate leptons (or even
-hadrons in some variants of the model) to high energies. Since the plasma
-is threaded by both small-scale (randomly oriented) and large-scale
-magnetic fields, magneto-bremsstrahlung (MBS) emission is naturally
-produced (in practice, this is synchrotron for high frequencies and
-relativistic electrons, though my formalism is general and deals with the
-cyclotron emission as well). Inverse Compton upscattering of either
-external photon fields or the produced MBS photons shapes the
-high-frequency emission of blazars in the working model. Due to the
-non-linear and complex character of the plasma dynamics (governed by the
-equations of relativistic magneto-hydrodynamics) as well as the processes
-of particle acceleration and MBS emission, a fully numerical modeling has
-been performed. During my PhD, I have improved the existing numerical tools
-available in my host group at the University of Valencia, both extending
-the previous plasma radiation mechanisms and the analysis tools to perform
-systematic parameter coverage of the physical properties of plasma from
-which the emission results (with special emphasis on the plasma
-magnetization). The kind of numerical simulations I have performed during
-my PhD involved solving the kinetic and radiative transfer equations in a
-magnetized medium (for further details see Rueda-Becerril et al. 2014,
-2017).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-I am highly interested on the origins of high energy radiation from
-particle acceleration processes. I am convinced that the experience and
-knowledge I have acquired during my PhD studies will prove highly useful
-and valuable to your research program if I should be selected, in addition
-to further contribute to the advancement of this field.
 
-I can provide more details about any aspect of my work you are interested
-in. Also, I am available for a telephone or videoconference interview every
-weekday. I am looking forward to hearing from you soon.
+\section{Meetings and conferences}
 
-\makeletterclosing%
+\subsection{Oral presentations}
+
+\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical simulations of the internal shock model in magnetized relativistic jets of blazars}{IVICFA's Fridays: Computation in Physics}{Paterna, Spain, 17 October}{}
+%
+\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Influence of the magnetic field on the spectral properties of blazars in the internal shocks scenario}{Extreme-Astrophysics in an Ever-Changing Universe: Time-Domain Astronomy in the 21st Century}{Ier\'{a}petra, Greece, 16--20 June}{}
+%
+\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical study of broadband spectra caused by internal shocks in magnetized relativistic jets}{XXXIV Biennial meeting of the Royal Spanish Society of Physics}{Valencia, Spain, 15--19 July}{}
+%
+\cventry{2009}{Rueda-Becerril, J.M}{\textquestiondown{}Dec\'{\i}a Einstein la verdad?}{weekly colloquium of Physics students \emph{Caf\'{e} Ciencias}}{Toluca, Mexico, 11 March}{}
+
+
+\subsection{Poster presentations}
+
+\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical simulations of the internal shock model in magnetized relativistic jets of blazars}{Swift: 10 years of Discovery}{Rome, Italy, 2--5 December}{}
+%
+\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical study of broadband spectra caused by internal shocks in magnetized relativistic jets of blazars}{The Innermost Regions of Relativistic Jets and Their Magnetic Fields}{Granada, Spain, 10--14 June}{}
+%
+\cventry{2007}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.; Garc\'{\i}a Santiba\~{n}ez, F.; Rosendo-Francisco, P.}}{Analysis of the superficial structure of graphite samples submitted to an electric arc}{L National Physics Meeting}{Boca del R\'{\i}o, Mexico, 29 October--2 November}{}
+%
+\cventry{2006}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.; Garc\'{\i}a Molina, N.; Rosendo-Francisco, P.}}{Modifications on the superficial structure of graphite samples}{XLIX National Physics Meeting}{San Luis Potos\'{\i}, Mexico, 16--19 October}{}
+%
+\cventry{2005}{Rueda-Becerril, J.M.\textnormal{; G\'{o}mez D\'{\i}az, A.; Rosendo-Francisco, P.}}{Studies of microwave effects of graphite samples}{XLVIII National Physics Meeting}{Guadalajara, Mexico, 17--21 October}{}
+
+
+\subsection{Attendance only}
+
+\cvitem{2016}{CoCoNuT Meeting 2016, Burjassot, Spain, 14--16 December}
+%
+\cvitem{2008}{LI National Physics Meeting, Zacatecas, Mexico, 20--24 October}
+
+
+\subsection{Organization}
+
+\cvitem{2012}{Contribution to the organization of the X Scientific Meeting of the Spanish Astronomical Society, Valencia, Spain, 14--16 December}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \subsection{Teaching}
+% \cventry{year--year}{}{}{}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Other activities}
+\cvitem{Aug 2007--May 2009}{Physics students representative at the Governing Council of the Faculty of Sciences of the \UAEMex}{}{}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Languages}
+
+% \cvitemwithcomment{Language 3}{Skill level}{Comment}
+\cvitemwithcomment{Spanish}{Mother tongue}{}
+\cvitemwithcomment{English}{Proficient}{TOEFL certified.}
+\cvitemwithcomment{Catalan}{Basic}{}
+\cvitemwithcomment{French}{Basic}{}
+\cvitemwithcomment{German}{Basic}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{References}
+\cvlistitem{\textbf{Prof. Miguel \'{A}ngel Aloy Tor\'{a}s}\\
+\DAAen\\
+\UVen\\
+phone: phone: +34 963 543 080\\
+e-mail: \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}}
+%
+\cvlistitem{\textbf{Dr. Petar Mimica}\\
+\DAAen\\
+\UVen\\
+phone: +34 963 543 358\\
+e-mail: \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}}
+%
+\cvlistitem{\textbf{Prof. Francisco Siddhartha Guzm\'{a}n Murillo}\\
+\IFMen\\
+\UMSNHen\\
+phone: +52 443 322 3500 ext 1264\\
+e-mail: \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}}
+%
+\cvlistitem{\textbf{Prof. Jos\'{e} Antonio Gonz\'{a}lez Cervera}\\
+\IFMen\\
+\UMSNHen\\
+phone: +52 443 322 3500 ext 1263\\
+e-mail: \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}}
+%
+\cvlistitem{\textbf{Prof. Jorge Orozco Velasco}\\
+\FCen\\
+\UAEMen\\
+e-mail: \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}}
+%
+\cvlistitem{\textbf{Prof. Porfirio Rosendo Francisco}\\
+\FCen\\
+\UAEMen\\
+phone: +52 722 296 5554 ext 56\\
+e-mail: \href{mailto:rosendop@uaemex.mx}{rosendop@uaemex.mx}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
