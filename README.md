@@ -1,23 +1,17 @@
-# Compilation #
+# README
 
-I suggest using
-my [latex compiler](https://github.com/altjerue/latex-compiler)
-(latex-compiler) which already includes the routine for multiple
-bibliographies.
+In this repository I will
+
+## Compilation
+
+I suggest using my [latex compiler](https://github.com/altjerue/latex-compiler) (latex-compiler) which already includes the routine for multiple bibliographies.
 
 ``` shell
 $ llatex -b JesusMRB_eng.tex
 ```
 
-# My Curriculum #
+## My Resume
 
-English version
----------------
+### [English version](https://github.com/altjerue/jmrb_cv/blob/master/JesusMRB_eng.pdf)
 
-[Curriculum Vitae](https://github.com/altjerue/jmrb_cv/blob/master/JesusMRB_eng.pdf)
-
-Versión en Español
-------------------
-
-Curriculum Vitae
-
+### [Versión en Español]()
