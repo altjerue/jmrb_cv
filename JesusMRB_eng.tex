@@ -1,5 +1,6 @@
 \documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
+\usepackage{verbatim}
 
 %%% moderncv themes
 \moderncvstyle{classic}
@@ -11,10 +12,14 @@
 % \renewcommand{\familydefault}{\sfdefault}
 % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 
-%\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+\usepackage{lastpage}
 
-% \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
 
+% \usepackage[style=numeric-comp,sorting=none,defernumbers=true]{biblatex} %mod.
+% \DeclareBibliographyCategory{cited}
+% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+% \addbibresource{publications.bib}
 
 \usepackage[abbreviations=false]{siunitx}
 \sisetup{%
@@ -23,39 +28,21 @@ range-units = single,% do not repeat units, e.g.: 2,3 and 4 T
 range-phrase = --%
 }
 
-%\usepackage{amssymb}
-%\usepackage{amsmath}
 
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
 \recomputelengths{}
-\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{8cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-
-% personal data
-\name{Jes\'{u}s Misr\'{a}yim}{Rueda-Becerril}
-\title{Postdoctoral Research Associate}
-
-\address{Edificio C-3, Ciudad Universitaria}{58040, Morelia}{Michoacan, MEXICO}
-%\phone[mobile]{}
-%\phone[fixed]{}
-%\phone[fax]{}
-\email{jesus@ifm.umich.mx}
-\homepage{altjerue.github.io}
-\social[linkedin]{jeruebe}
-%\social[twitter]{jerue103}
-%\social[skype]{jesus\_mrb}
-%\social[github]{altjerue}
-
-%\photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-
-%\quote{}
+\setlength{\hintscolumnwidth}{3cm} % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
 
 %%% ----------------------------  BIBLIOGRAPHY  --------------------------------
-%    bibliography with mutiple entries
-\usepackage{multibib}
+
+% --- Begin use with Multibib ----
+\usepackage[resetlabels]{multibib}
 \newcites{jour,conf}{{Articles}, {Proceedings}}
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
 
 %    to redefine the bibliography heading string ("Publications")
 % \renewcommand{\refname}{Articles}
@@ -89,6 +76,28 @@ range-phrase = --%
 \makeatother
 %%------------------------------------------------------------------------------
 
+% personal data
+\name{Jes\'{u}s Misr\'{a}yim}{Rueda-Becerril, PhD}
+\title{Postdoctoral Research Associate\newline \IFMes\newline \UMSNHes}
+
+\address{Edificio C-3, Ciudad Universitaria}{58040, Morelia}{Michoacan, MEXICO}
+%\phone[mobile]{}
+%\phone[fixed]{}
+%\phone[fax]{}
+\email{jesus@ifm.umich.mx}
+\homepage{altjerue.github.io}
+\social[linkedin]{jeruebe}
+\social[twitter]{jerue103}
+%\social[skype]{jesus\_mrb}
+\social[github]{altjerue}
+
+%\photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+\quote{Last Updated: \today}
+
+% \extrainfo{Telegram: \url{t.me/jerube}} % optional, remove the line if not wanted
+
+
 %%% New macros
 \newcommand{\mbs}{Mag\-ne\-to\-brems\-strah\-lung}
 
@@ -110,7 +119,10 @@ range-phrase = --%
 
 \newcommand{\prd}{Phys. Rev. D}
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
+%%%-----------------------------------------------------------------------------
 
+% Could never get the page numbers to work so added them by hand with \rfoot
+% \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % ==============================================================================
 
@@ -164,7 +176,7 @@ range-phrase = --%
   analysis and problem solving. I am creative, innovative, analyst and hard
   worker.}
 %
-\cvitem{}{During my PhD studies I developed high programming skills in several languages such as Python, R, FORTRAN 95, C, Shell and version control tools like Git using platforms such as GitHub and Bitbucket. I worked on developing sophisticated numerical tools which were implemented to simulate blazar flares (prompt high energy radiation from relativistic jets of active galactic nuclei). This has shown my fast learning skill of new programming languages and develop efficient codes to solve the problem posed.}
+\cvitem{}{During my PhD studies I developed high programming skills in several languages such as Python, R, Fortran 95, C, Shell and version control tools like Git using platforms such as GitHub and Bitbucket. I worked on developing sophisticated numerical tools which were implemented to simulate blazar flares (prompt high energy radiation from relativistic jets of active galactic nuclei). This has shown my fast learning skill of new programming languages and develop efficient codes to solve the problem posed.}
 %
 \cvitem{}{I am coauthor of three articles in peer reviewed scientific journals and author of a doctoral thesis, qualified as innovative, in which several numerical and programming issues were overcome, reason why it received the distinction of excellent. In addition, I have good English skills which makes me capable of discussing and interact fluently in both Spanish and English.}
 %
@@ -173,9 +185,50 @@ range-phrase = --%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\section{Interests}
+
+\cvitem{High energy astrophysics}{
+\begin{itemize}
+  \item Cosmic rays
+  \item Particles acceleration processes
+  \item Active galactic nuclei
+  \begin{itemize}
+    \item Relativistic jet: formation, composition, magnetization
+    \item Blazars
+    \item Radio galaxies
+    \item Quasars
+    \item TEDs
+  \end{itemize}
+  \item Microquasars.
+  \item Gamma-ray bursts.
+\end{itemize}
+}
+%
+\cvitem{Numerical Astrophysics}{
+\begin{itemize}
+  \item Numerical solutions to the radiation transport equation with astrophysical applications.
+  \item Numerical simulations of particle acceleration processes.
+  \item Numerical hydrodynamics and magnetohydrodynamics.
+  \item Performance, stability, convergence and accuracy of numerical codes.
+\end{itemize}
+}
+%
+\cvitem{Computer Sciences}{
+\begin{itemize}
+  \item Decision-making optimization
+  \item Machine learning (supervised and unsupervised)
+  \item Neuronal networks
+  \item Text mining
+  \item Network analysis
+\end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Employment}
 
-\cventry{2017--}{Posdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
+\cventry{2017--Present}{Posdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -207,7 +260,7 @@ Thesis: \textit{Numerical solution of null geodesics for the generation of gravi
 
 \section{Experience}
 
-\cventry{2017--}{Postdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
+\cventry{2017--Present}{Postdoctoral Research Associate}{\IFMes, \UMSNHes}{Morelia, Mexico}{}{}
 
 \cventry{2011--2017}{Graduate research assistant}{\UVval}{Burjassot, Spain}{}{
 \begin{itemize}
@@ -217,7 +270,7 @@ Thesis: \textit{Numerical solution of null geodesics for the generation of gravi
   \item We confronted a challenge when we intended to include further microphysical phenomena in the simulations. To overcome this
   \begin{itemize}
     \item Implemented a routine for a more general distribution of particles (thermal-nonthermal) to be treated in the original code.
-    \item Calculated tables with the \mbs{} emission of charged particles of arbitrary velocity and the emissivity for isotropic distributions of electrons using a code that I developed from scratch.
+    \item Calculated tables with the \mbs\ emission of charged particles of arbitrary velocity and the emissivity for isotropic distributions of electrons using a code that I developed from scratch.
   \end{itemize}
   \item Contributed to the writing of and coauthored two manuscript for publication in a peer-reviewed journal.
   \item Developed high expertise with \texttt{Python}, \texttt{R}, \texttt{RStudio}, \texttt{Fortran 95}, \texttt{Shell}, \texttt{git}, \texttt{GitHub}, \texttt{Bitbucket}.
@@ -226,16 +279,16 @@ Thesis: \textit{Numerical solution of null geodesics for the generation of gravi
 %
 \cventry{2010--2011}{Graduate research assistant}{\IFMes}{Morelia, Mexico}{}{%
 \begin{itemize}
-  \item A problem posed for master thesis was the simulation of a TOV star using smoothed-particle hydrodynamics (SPH) numerical method. For this I developed a newtonian and relativistic SPH codes in \texttt{FORTRAN 95}.
-  \item The evolution of the system was carried out using Predictor-Corrector routine which I also wrote in \texttt{FORTRAN 95}.
-  \item For the initial conditions I used the numerical solution of the TOV field equations, using a fourth order Runge-Kutta solver also written in \texttt{FORTRAN 95}.
+  \item A problem posed for master thesis was the simulation of a TOV star using smoothed-particle hydrodynamics (SPH) numerical method. For this I developed a newtonian and relativistic SPH codes in \texttt{Fortran 95}.
+  \item The evolution of the system was carried out using Predictor-Corrector routine which I also wrote in \texttt{Fortran 95}.
+  \item For the initial conditions I used the numerical solution of the TOV field equations, using a fourth order Runge-Kutta solver also written in \texttt{Fortran 95}.
   \item For the analysis and plotting I used and mastered \texttt{gnuplot}.
 \end{itemize}
 }
 %
 \cventry{2008--2009}{Graduate research assistant}{\UAEMes}{Toluca, Mexico}{}{%
 \begin{itemize}
-  \item Predict the trajectory of light around black holes and similar objects such as Boson stars was the problem posed for the bachelor degree thesis. To solve such problem I wrote the geodesic equation for a spherically symmetric and static space-time and solved them using a RK4 routine, written in \texttt{FORTRAN 95}. I characterized such routine studying its convergence and stability for both an analytic and numeric metrics.
+  \item Predict the trajectory of light around black holes and similar objects such as Boson stars was the problem posed for the bachelor degree thesis. To solve such problem I wrote the geodesic equation for a spherically symmetric and static space-time and solved them using a RK4 routine, written in \texttt{Fortran 95}. I characterized such routine studying its convergence and stability for both an analytic and numeric metrics.
   \item I interpreted light trajectories due to curved space-times and characterized such trajectories for gravitational lenses.
   \item Contributing to the writing of and coauthored a manuscript for publication in a peer-reviewed journal.
 \end{itemize}
@@ -341,57 +394,16 @@ Supervisor: Prof. Porfirio D. Rosendo-Francisco
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Interests}
-
-\cvitem{High energy astrophysics}{
-\begin{itemize}
-  \item Cosmic rays
-  \item Particles acceleration processes
-  \item Active galactic nuclei
-  \begin{itemize}
-    \item Relativistic jet: formation, composition, magnetization
-    \item Blazars
-    \item Radio galaxies
-    \item Quasars
-    \item TEDs
-  \end{itemize}
-  \item Microquasars.
-  \item Gamma-ray bursts.
-\end{itemize}
-}
-%
-\cvitem{Numerical Astrophysics}{
-\begin{itemize}
-  \item Numerical solutions to the radiation transport equation with astrophysical applications.
-  \item Numerical simulations of particle acceleration processes.
-  \item Numerical hydrodynamics and magnetohydrodynamics.
-  \item Performance, stability, convergence and accuracy of numerical codes.
-\end{itemize}
-}
-%
-\cvitem{Computer Sciences}{
-\begin{itemize}
-  \item Decision-making optimization
-  \item Machine learning (supervised and unsupervised)
-  \item Neuronal networks
-  \item Text mining
-  \item Network analysis
-\end{itemize}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \section{Publications}           % ----- multibib -----
 %%\nocitebook{book1,book2}
 %%\bibliographystylebook{plain}
 %%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
 
 \nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
-\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
-\bibliographystylejour{unsrt}
-\bibliographystyleconf{unsrt}
+\bibliographystylejour{nature-bfname}
 \bibliographyjour{MyPapers}
+\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
+\bibliographystyleconf{nature-bfname}
 \bibliographyconf{MyPapers}
 
 % Publications from a BibTeX file without multibib
@@ -484,41 +496,41 @@ Supervisor: Prof. Porfirio D. Rosendo-Francisco
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{References}
-\cvlistitem{\textbf{Prof. Miguel \'{A}ngel Aloy Tor\'{a}s}\\
-\DAAen\\
-\UVen\\
-phone: phone: +34 963 543 080\\
-e-mail: \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}}
-%
-\cvlistitem{\textbf{Dr. Petar Mimica}\\
-\DAAen\\
-\UVen\\
-phone: +34 963 543 358\\
-e-mail: \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}}
-%
-\cvlistitem{\textbf{Prof. Francisco Siddhartha Guzm\'{a}n Murillo}\\
-\IFMen\\
-\UMSNHen\\
-phone: +52 443 322 3500 ext 1264\\
-e-mail: \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}}
-%
-\cvlistitem{\textbf{Prof. Jos\'{e} Antonio Gonz\'{a}lez Cervera}\\
-\IFMen\\
-\UMSNHen\\
-phone: +52 443 322 3500 ext 1263\\
-e-mail: \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}}
-%
-\cvlistitem{\textbf{Prof. Jorge Orozco Velasco}\\
-\FCen\\
-\UAEMen\\
-e-mail: \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}}
-%
-\cvlistitem{\textbf{Prof. Porfirio Rosendo Francisco}\\
-\FCen\\
-\UAEMen\\
-phone: +52 722 296 5554 ext 56\\
-e-mail: \href{mailto:rosendop@uaemex.mx}{rosendop@uaemex.mx}}
+% \section{References}
+% \cvlistitem{\textbf{Prof. Miguel \'{A}ngel Aloy Tor\'{a}s}\\
+% \DAAen\\
+% \UVen\\
+% phone: phone: +34 963 543 080\\
+% e-mail: \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}}
+% %
+% \cvlistitem{\textbf{Dr. Petar Mimica}\\
+% \DAAen\\
+% \UVen\\
+% phone: +34 963 543 358\\
+% e-mail: \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}}
+% %
+% \cvlistitem{\textbf{Prof. Francisco Siddhartha Guzm\'{a}n Murillo}\\
+% \IFMen\\
+% \UMSNHen\\
+% phone: +52 443 322 3500 ext 1264\\
+% e-mail: \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}}
+% %
+% \cvlistitem{\textbf{Prof. Jos\'{e} Antonio Gonz\'{a}lez Cervera}\\
+% \IFMen\\
+% \UMSNHen\\
+% phone: +52 443 322 3500 ext 1263\\
+% e-mail: \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}}
+% %
+% \cvlistitem{\textbf{Prof. Jorge Orozco Velasco}\\
+% \FCen\\
+% \UAEMen\\
+% e-mail: \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}}
+% %
+% \cvlistitem{\textbf{Prof. Porfirio Rosendo Francisco}\\
+% \FCen\\
+% \UAEMen\\
+% phone: +52 722 296 5554 ext 56\\
+% e-mail: \href{mailto:rosendop@uaemex.mx}{rosendop@uaemex.mx}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
