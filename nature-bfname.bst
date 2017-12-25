@@ -48,7 +48,7 @@ ENTRY
     chapter
     edition
     editor
-    eprint
+    doi
     howpublished
     institution
     journal
@@ -617,10 +617,10 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
-FUNCTION {format.eprint}
-{ eprint duplicate$ empty$
+FUNCTION {format.doi}
+{ doi duplicate$ empty$
     'skip$
-    { "\eprint"
+    { "\doi"
       archive empty$
         'skip$
         { "[" * archive * "]" * }
@@ -1172,7 +1172,7 @@ FUNCTION {article}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 FUNCTION {book}
@@ -1208,7 +1208,7 @@ FUNCTION {book}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 FUNCTION {booklet}
@@ -1224,7 +1224,7 @@ FUNCTION {booklet}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1263,7 +1263,7 @@ FUNCTION {inbook}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1290,7 +1290,7 @@ FUNCTION {incollection}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1320,7 +1320,7 @@ FUNCTION {inproceedings}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1359,7 +1359,7 @@ FUNCTION {manual}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1378,7 +1378,7 @@ FUNCTION {mastersthesis}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1394,7 +1394,7 @@ FUNCTION {misc}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
   empty.misc.check
 }
@@ -1413,7 +1413,7 @@ FUNCTION {phdthesis}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1453,7 +1453,7 @@ FUNCTION {proceedings}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1472,7 +1472,7 @@ FUNCTION {techreport}
   format.url output
   new.block
   format.note output
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1486,7 +1486,7 @@ FUNCTION {unpublished}
   format.url output
   new.block
   format.note "note" output.check
-  format.eprint output
+  format.doi output
   fin.entry
 }
 
@@ -1526,7 +1526,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\bibinfo}[2]{#2}"
   write$ newline$
-  "\providecommand{\eprint}[2][]{\url{#2}}"
+  "\providecommand{\doi}[2][]{\url{#2}}"
   write$ newline$
 }
 EXECUTE {begin.bib}

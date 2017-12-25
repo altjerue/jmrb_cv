@@ -1,0 +1,27 @@
+%    this produces the bibliography to be numbered decreasingly, fully
+%    compatible with natbib and multibib
+\newlength{\lmar}
+\setlength{\lmar}{\hintscolumnwidth}
+\addtolength{\lmar}{\separatorcolumnwidth}
+\usepackage[topsep=0pt,leftmargin=\lmar]{etaremune}
+\usepackage{etoolbox}
+\makeatletter
+\AtBeginDocument{%%% natbib redefines the environment there
+\renewenvironment{thebibliography}[1]
+{%
+\bibliographyhead{\refname}%
+\begin{etaremune}
+  \@openbib@code%
+  \sloppy%
+  \clubpenalty4000%
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+  \sfcode`\=1000\relax}%
+  {\bibitem@fin\bibpostamble%
+  \def\@noitemerr{\latex@warning{Empty `thebibliography' environment}}%
+\end{etaremune}
+\bibcleanup}
+}%%% end of \AtBeginDocument
+%%% patch \@lbibitem to use only \item (for etaremune)
+\patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item}{}{}
+\makeatother
