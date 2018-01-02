@@ -1,26 +1,21 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,roman,letterpaper]{moderncv}
+%%%%%%% possible options:
+%%% font size: 10pt, 11pt, 12pt
+%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
+%%%%% font family: sans, roman
 
+% \usepackage{pdfpages}
 \usepackage{verbatim}
 \usepackage{fontawesome}
 
-%%% moderncv themes
 \moderncvstyle{classic}
-% style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
-%%% color
+%%%%% themes: casual (default), classic, banking, oldstyle, fancy
 \moderncvcolor{red}
-% color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
-%%% font family
-% \renewcommand{\familydefault}{\sfdefault}
-% to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
+\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
-\usepackage{lastpage}
 
 \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
-
-% \usepackage[style=numeric-comp,sorting=none,defernumbers=true]{biblatex} %mod.
-% \DeclareBibliographyCategory{cited}
-% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
-% \addbibresource{publications.bib}
 
 \usepackage[abbreviations=false]{siunitx}
 \sisetup{%
@@ -32,48 +27,96 @@ range-phrase = --%
 
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
-\recomputelengths{}
+\recomputelengths%
 \setlength{\hintscolumnwidth}{3cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 %\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
-%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
 
-%%% ----------------------------  BIBLIOGRAPHY  --------------------------------
+
+%%% --------------------------------  BIBLIOGRAPHY  ----------------------------
+
+% \usepackage[style=numeric-comp,sorting=none,defernumbers=true]{biblatex} %mod.
+% \DeclareBibliographyCategory{cited}
+% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+% \addbibresource{publications.bib}
 
 % --- Begin use with Multibib ----
 \usepackage[resetlabels]{multibib}
 \newcites{jour,conf}{{Articles}, {Proceedings}}
 \usepackage[numbers]{natbib}
 
-%    to redefine the bibliography heading string ("Publications")
-% \renewcommand{\refname}{Articles}
+%    this produces the bibliography to be numbered decreasingly, fully
+%    compatible with natbib and multibib
+\newlength{\lmar}
+\setlength{\lmar}{\hintscolumnwidth}
+\addtolength{\lmar}{\separatorcolumnwidth}
+\usepackage[topsep=0pt,leftmargin=\lmar]{etaremune}
+\usepackage{etoolbox}
+\makeatletter
+\AtBeginDocument{%%% natbib redefines the environment there
+\renewenvironment{thebibliography}[1]
+{%
+\bibliographyhead{\refname}%
+\begin{etaremune}
+  \@openbib@code%
+  \sloppy%
+  \clubpenalty4000%
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+  \sfcode`\=1000\relax}%
+  {\bibitem@fin\bibpostamble%
+  \def\@noitemerr{\latex@warning{Empty `thebibliography' environment}}%
+\end{etaremune}
+\bibcleanup}
+}%%% end of \AtBeginDocument
+%%% patch \@lbibitem to use only \item (for etaremune)
+\patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item}{}{}
+\makeatother
 
-\input{bib_descending}
+%%%% Number the Publications
+% \makeatletter
+% \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+% \makeatother
+% \renewcommand*{\bibliographyitemlabel}{\arabic{enumiv}.}
+% --- END use with Multibib ---
 
-%%------------------------------------------------------------------------------
 
-% personal data
-\name{Jes\'{u}s Misr\'{a}yim}{Rueda-Becerril, PhD}
-\title{Postdoctoral Research Associate\newline\IFMes\newline\UMSNHes}
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+% \makeatletter
+% \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+% \makeatother
+%%% ----------------------------------------------------------------------------
 
-\address{Edificio C-3, Ciudad Universitaria}{58040, Morelia}{Michoacan, MEXICO}
-%\phone[mobile]{}
-%\phone[fixed]{}
-%\phone[fax]{}
-\email{jesus@ifm.umich.mx}
-\homepage{altjerue.github.io}
-\social[linkedin]{jeruebe}
-\social[twitter]{jerue103}
-\social[skype]{jesus\_mrb}
-\social[github]{altjerue}
-\extrainfo{{\scriptsize\faicon{paper-plane}} \url{t.me/jerube}}
 
-%\photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% Define \cvdoublecolumn, which sets its arguments in two columns without any labels
 
-\quote{Last Updated: \today}
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvitem[0.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
+    }%
+}
 
-%%% New macros
-\newcommand{\mbs}{Mag\-ne\-to\-brems\-strah\-lung}
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
+
+\newcommand{\cvreference}[7]{%
+\textbf{#1}\newline% Name
+\ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+\ifthenelse{\equal{#3}{}}{}{#3\newline}%
+\ifthenelse{\equal{#4}{}}{}{#4\newline}%
+\ifthenelse{\equal{#5}{}}{}{#5\newline}%
+\ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+\ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}%
+}
+
+%%%------------------------------- New macros ----------------------------------
+\newcommand*{\mbs}{mag\-ne\-to\-brems\-strah\-lung\ }
 
 \newcommand{\UVval}{Universitat de Val\`{e}ncia}
 \newcommand{\UVes}{Universidad de Valencia}
@@ -88,16 +131,34 @@ range-phrase = --%
 \newcommand{\UAEMex}{UAEMex}
 \newcommand{\UAEMes}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
 \newcommand{\UAEMen}{Autonomous University of the State of Mexico}
-\newcommand{\FCes}{Facultad de Ciencias}
-\newcommand{\FCen}{Faculty of Sciences}
 
 \newcommand{\prd}{Phys. Rev. D}
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
+\newcommand{\apj}{Astrophys. J.}
+\newcommand{\aap}{Astron. Astrophys.}
 %%%-----------------------------------------------------------------------------
 
-% \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+% personal data
+\name{Jes\'{u}s~M.}{Rueda-Becerril}
+\title{CV}%Postdoctoral Researcher at\newline\IFMes\newline\UMSNHes}
 
-% ==============================================================================
+\address{Edificio C-3, Ciudad Universitaria}{58040 Morelia}{Michoacan, Mexico}
+%\phone[mobile]{}
+%\phone[fixed]{}
+%\phone[fax]{}
+\email{jesus@ifm.umich.mx}
+\homepage{altjerue.github.io}
+\social[linkedin]{jeruebe}
+\social[twitter]{jerue103}
+\social[skype]{jesus\_mrb}
+\social[github]{altjerue}
+\extrainfo{{\scriptsize\faicon{paper-plane}}~\url{t.me/jerube}}
+
+% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+\quote{Last Updated: \today}
+
+%%% ============================================================================
 
 \begin{document}
 
@@ -109,10 +170,8 @@ range-phrase = --%
 % #    # #    #  #  #  #      #   #     #      #        #     #   #      #   #
 %  ####   ####    ##   ###### #    #    ###### ######   #     #   ###### #    #
 
-% \input{CoverLetter}
-% \clearpage
+\include{Sections/CoverLetter}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -129,156 +188,16 @@ range-phrase = --%
 \input{Sections/interests}
 \input{Sections/employ}
 \input{Sections/education}
+\input{Sections/publications}
+\input{Sections/meetings}
 \input{Sections/skills}
 \input{Sections/experience}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Publications}           % ----- multibib -----
-%%\nocitebook{book1,book2}
-%%\bibliographystylebook{plain}
-%%\bibliographybook{publications}         % 'publications' is the name of a BibTeX file
-
-\nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
-\bibliographystylejour{nature-bfname}
-\bibliographyjour{MyPapers}
-\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
-\bibliographystyleconf{nature-bfname}
-\bibliographyconf{MyPapers}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{Biblio}  % 'publications' is the name of a BibTeX file
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Awards and Scholarships}
-
-\cvitem{2014--2016}{\textbf{Fellowship} from the Mexican Federal Government to study abroad awarded by the National Council of Science and Technology (CONACyT).}
-%
-\cvitem{2011--2014}{ \textbf{Fellowship} \textit{Santiago Grisol\'{\i}a} awarded by the Council of Education, Research, Culture and Sport of the Valencian Comunity.}
-%
-\cvitem{2009--2011}{\textbf{Fellowship} for academic training for MSc studies granted by the Mexican Council of Science and Technology (CONACyT).}
-%
-\cvitem{2009}{\textbf{Award} \textit{Lic. Juan Josafat Pichardo Cruz}, granted by the \UAEMex, for finishing the BSc thesis and graduating within a year after completing the undergraduate credits.}
-%
-\cvitem{25 Jun--24 Aug 2007}{\textbf{Fellowship} for a temporary stay in a national research center under the XVII summer of scientific investigation program awarded by the Mexican Academia of Science.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Meetings and conferences}
-
-\subsection{Oral presentations}
-
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical simulations of the internal shock model in magnetized relativistic jets of blazars}{IVICFA's Fridays: Computation in Physics}{Paterna, Spain, 17 October}{}
-%
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Influence of the magnetic field on the spectral properties of blazars in the internal shocks scenario}{Extreme-Astrophysics in an Ever-Changing Universe: Time-Domain Astronomy in the 21st Century}{Ier\'{a}petra, Greece, 16--20 June}{}
-%
-\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical study of broadband spectra caused by internal shocks in magnetized relativistic jets}{XXXIV Biennial meeting of the Royal Spanish Society of Physics}{Valencia, Spain, 15--19 July}{}
-
-
-\subsection{Poster presentations}
-
-\cventry{2014}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical simulations of the internal shock model in magnetized relativistic jets of blazars}{Swift: 10 years of Discovery}{Rome, Italy, 2--5 December}{}
-%
-\cventry{2013}{Rueda-Becerril, J.M.\textnormal{; Mimica, P.; Aloy, M.A.}}{Numerical study of broadband spectra caused by internal shocks in magnetized relativistic jets of blazars}{The Innermost Regions of Relativistic Jets and Their Magnetic Fields}{Granada, Spain, 10--14 June}{}
-%
-\cventry{2007}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.; Garc\'{\i}a Santiba\~{n}ez, F.; Rosendo-Francisco, P.}}{Analysis of the superficial structure of graphite samples submitted to an electric arc}{L National Physics Meeting}{Boca del R\'{\i}o, Mexico, 29 October--2 November}{}
-%
-\cventry{2006}{Rueda-Becerril, J.M.\textnormal{; Leyte Gonz\'{a}lez, R.; Garc\'{\i}a Molina, N.; Rosendo-Francisco, P.}}{Modifications on the superficial structure of graphite samples}{XLIX National Physics Meeting}{San Luis Potos\'{\i}, Mexico, 16--19 October}{}
-%
-\cventry{2005}{Rueda-Becerril, J.M.\textnormal{; G\'{o}mez D\'{\i}az, A.; Rosendo-Francisco, P.}}{Studies of microwave effects of graphite samples}{XLVIII National Physics Meeting}{Guadalajara, Mexico, 17--21 October}{}
-
-
-\subsection{Attendance only}
-
-\cvitem{2016}{CoCoNuT Meeting 2016, Burjassot, Spain, 14--16 December}
-%
-\cvitem{2008}{LI National Physics Meeting, Zacatecas, Mexico, 20--24 October}
-
-
-\subsection{Organization}
-
-\cvitem{2012}{Contribution to the organization of the X Scientific Meeting of the Spanish Astronomical Society, Valencia, Spain, 14--16 December}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Outreach}
-
-\cventry{2009}{Rueda-Becerril, J.~M.}{\textquestiondown{}Dec\'{\i}a Einstein la verdad? (Was Einstein saying the truth?)}{oral presentation at the weekly colloquium of Physics students: \emph{Caf\'{e} Ciencias}}{Toluca, Mexico, 11 March}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \subsection{Teaching}
-% \cventry{year--year}{}{}{}{}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Other activities}
-\cvitem{Aug 2007--May 2009}{Physics students representative at the Governing Council of the Faculty of Sciences of the \UAEMex}{}{}{}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Languages}
-
-% \cvitemwithcomment{Language 3}{Skill level}{Comment}
-\cvitemwithcomment{Spanish}{Mother tongue}{}
-\cvitemwithcomment{English}{Proficient}{TOEFL certified.}
-\cvitemwithcomment{Catalan}{Basic}{}
-\cvitemwithcomment{French}{Basic}{}
-\cvitemwithcomment{German}{Basic}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \section{References}
-% \cvlistitem{\textbf{Prof. Miguel \'{A}ngel Aloy Tor\'{a}s}\\
-% \DAAen\\
-% \UVen\\
-% phone: phone: +34 963 543 080\\
-% e-mail: \href{mailto:Miguel.A.Aloy@uv.es}{Miguel.A.Aloy@uv.es}}
-% %
-% \cvlistitem{\textbf{Dr. Petar Mimica}\\
-% \DAAen\\
-% \UVen\\
-% phone: +34 963 543 358\\
-% e-mail: \href{mailto:Petar.Mimica@uv.es}{Petar.Mimica@uv.es}}
-% %
-% \cvlistitem{\textbf{Prof. Francisco Siddhartha Guzm\'{a}n Murillo}\\
-% \IFMen\\
-% \UMSNHen\\
-% phone: +52 443 322 3500 ext 1264\\
-% e-mail: \href{mailto:guzman@ifm.umich.mx}{guzman@ifm.umich.mx}}
-% %
-% \cvlistitem{\textbf{Prof. Jos\'{e} Antonio Gonz\'{a}lez Cervera}\\
-% \IFMen\\
-% \UMSNHen\\
-% phone: +52 443 322 3500 ext 1263\\
-% e-mail: \href{mailto:gonzalez@ifm.umich.mx}{gonzalez@ifm.umich.mx}}
-% %
-% \cvlistitem{\textbf{Prof. Jorge Orozco Velasco}\\
-% \FCen\\
-% \UAEMen\\
-% e-mail: \href{mailto:jov@uaemex.mx}{jov@uaemex.mx}}
-% %
-% \cvlistitem{\textbf{Prof. Porfirio Rosendo Francisco}\\
-% \FCen\\
-% \UAEMen\\
-% phone: +52 722 296 5554 ext 56\\
-% e-mail: \href{mailto:rosendop@uaemex.mx}{rosendop@uaemex.mx}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/awards}
+\input{Sections/outreach}
+%\input{Sections/teaching}
+\input{Sections/other}
+\clearpage%
+\input{Sections/languages}
+\input{Sections/references}
 
 \end{document}
