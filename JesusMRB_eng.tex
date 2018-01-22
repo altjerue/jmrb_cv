@@ -28,119 +28,25 @@ range-phrase = --%
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
 \recomputelengths%
-\setlength{\hintscolumnwidth}{3cm} % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{2.6cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 %\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
-\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+% \AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
 
+\input{biblio_setup} % Bibliography setup
+\input{newmacros} %  New macros
 
-%%% --------------------------------  BIBLIOGRAPHY  ----------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \usepackage[style=numeric-comp,sorting=none,defernumbers=true]{biblatex} %mod.
-% \DeclareBibliographyCategory{cited}
-% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
-% \addbibresource{publications.bib}
+% #####  ###### #####   ####   ####  #    #   ##   #
+% #    # #      #    # #      #    # ##   #  #  #  #
+% #    # #####  #    #  ####  #    # # #  # #    # #
+% #####  #      #####       # #    # #  # # ###### #
+% #      #      #   #  #    # #    # #   ## #    # #
+% #      ###### #    #  ####   ####  #    # #    # ######
 
-% --- Begin use with Multibib ----
-\usepackage[resetlabels]{multibib}
-\newcites{jour,conf}{{Articles}, {Proceedings}}
-\usepackage[numbers]{natbib}
-
-%    this produces the bibliography to be numbered decreasingly, fully
-%    compatible with natbib and multibib
-\newlength{\lmar}
-\setlength{\lmar}{\hintscolumnwidth}
-\addtolength{\lmar}{\separatorcolumnwidth}
-\usepackage[topsep=0pt,leftmargin=\lmar]{etaremune}
-\usepackage{etoolbox}
-\makeatletter
-\AtBeginDocument{%%% natbib redefines the environment there
-\renewenvironment{thebibliography}[1]
-{%
-\bibliographyhead{\refname}%
-\begin{etaremune}
-  \@openbib@code%
-  \sloppy%
-  \clubpenalty4000%
-  \widowpenalty4000%
-  \sfcode`\.\@m%
-  \sfcode`\=1000\relax}%
-  {\bibitem@fin\bibpostamble%
-  \def\@noitemerr{\latex@warning{Empty `thebibliography' environment}}%
-\end{etaremune}
-\bibcleanup}
-}%%% end of \AtBeginDocument
-%%% patch \@lbibitem to use only \item (for etaremune)
-\patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item}{}{}
-\makeatother
-
-%%%% Number the Publications
-% \makeatletter
-% \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-% \makeatother
-% \renewcommand*{\bibliographyitemlabel}{\arabic{enumiv}.}
-% --- END use with Multibib ---
-
-
-% to show numerical labels in the bibliography; only useful if you make citations in your resume
-% \makeatletter
-% \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-% \makeatother
-%%% ----------------------------------------------------------------------------
-
-
-% Define \cvdoublecolumn, which sets its arguments in two columns without any labels
-
-\newcommand{\cvdoublecolumn}[2]{%
-  \cvitem[0.75em]{}{%
-    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
-    \hfill%
-    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
-    }%
-}
-
-% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
-% Everything but the name is optional
-% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
-% (Per default, \addresssymbol isn't specified, the other two are specified.)
-% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
-
-\newcommand{\cvreference}[7]{%
-\textbf{#1}\newline% Name
-\ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
-\ifthenelse{\equal{#3}{}}{}{#3\newline}%
-\ifthenelse{\equal{#4}{}}{}{#4\newline}%
-\ifthenelse{\equal{#5}{}}{}{#5\newline}%
-\ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
-\ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}%
-}
-
-%%%------------------------------- New macros ----------------------------------
-\newcommand*{\mbs}{mag\-ne\-to\-brems\-strah\-lung\ }
-
-\newcommand{\UVval}{Universitat de Val\`{e}ncia}
-\newcommand{\UVes}{Universidad de Valencia}
-\newcommand{\UVen}{University of Valencia}
-\newcommand{\DAAval}{Departament d'Astronomia i Astrof\'{\i}sica}
-\newcommand{\DAAes}{Departamentento de Astronom\'{\i}a y Astrof\'{\i}sica}
-\newcommand{\DAAen}{Department of Astronomy and Astrophysics}
-\newcommand{\IFMes}{Instituto de F\'{\i}sica y Matem\'{a}ticas}
-\newcommand{\IFMen}{Institute of Physics and Mathematics}
-\newcommand{\UMSNHes}{Universidad Michoacana de San Nicol\'{a}s de Hidalgo}
-\newcommand{\UMSNHen}{Michoacan University of Saint Nicholas of Hidalgo}
-\newcommand{\UAEMex}{UAEMex}
-\newcommand{\UAEMes}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
-\newcommand{\UAEMen}{Autonomous University of the State of Mexico}
-
-\newcommand{\prd}{Phys. Rev. D}
-\newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
-\newcommand{\apj}{Astrophys. J.}
-\newcommand{\aap}{Astron. Astrophys.}
-%%%-----------------------------------------------------------------------------
-
-% personal data
 \name{Jes\'{u}s~M.}{Rueda-Becerril}
-\title{CV}%Postdoctoral Researcher at\newline\IFMes\newline\UMSNHes}
+\title{Postdoctoral Researcher}
 
 \address{Edificio C-3, Ciudad Universitaria}{58040 Morelia}{Michoacan, Mexico}
 %\phone[mobile]{}
@@ -158,9 +64,11 @@ range-phrase = --%
 
 \quote{Last Updated: \today}
 
-%%% ============================================================================
-
+% ==============================================================================
+% ==============================================================================
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %  ####   ####  #    # ###### #####     #      ###### ##### ##### ###### #####
@@ -196,7 +104,7 @@ range-phrase = --%
 \input{Sections/outreach}
 %\input{Sections/teaching}
 \input{Sections/other}
-\clearpage%
+%\clearpage%
 \input{Sections/languages}
 \input{Sections/references}
 
