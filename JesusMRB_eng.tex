@@ -65,7 +65,6 @@ range-phrase = --%
 \quote{Last Updated: \today}
 
 % ==============================================================================
-% ==============================================================================
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +95,6 @@ range-phrase = --%
 \input{Sections/interests}
 \input{Sections/employ}
 \input{Sections/education}
-\input{Sections/publications}
 \input{Sections/meetings}
 \input{Sections/skills}
 \input{Sections/experience}
@@ -104,8 +102,41 @@ range-phrase = --%
 \input{Sections/outreach}
 %\input{Sections/teaching}
 \input{Sections/other}
-%\clearpage%
 \input{Sections/languages}
 \input{Sections/references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% #####  #    # #####  #      #  ####    ##   ##### #  ####  #    #  ####  
+% #    # #    # #    # #      # #    #  #  #    #   # #    # ##   # #      
+% #    # #    # #####  #      # #      #    #   #   # #    # # #  #  ####  
+% #####  #    # #    # #      # #      ######   #   # #    # #  # #      # 
+% #      #    # #    # #      # #    # #    #   #   # #    # #   ## #    # 
+% #       ####  #####  ###### #  ####  #    #   #   #  ####  #    #  ####  
+
+\section{Publications}
+%%\nocitebook{book1,book2}
+%%\bibliographystylebook{plain}
+%%\bibliographybook{publications} % 'publications' is the name of a BibTeX file
+
+\nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
+\bibliographystylejour{nature-bfname}
+\bibliographyjour{MyPapers}
+\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
+\bibliographystyleconf{nature-bfname}
+\bibliographyconf{MyPapers}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{Biblio}  % 'publications' is the name of a BibTeX file
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \includepdf[pages=-,pagecommand={}]{proposal.pdf}
 
 \end{document}
