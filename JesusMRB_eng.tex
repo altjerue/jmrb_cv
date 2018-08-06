@@ -26,9 +26,9 @@ range-phrase = --%
 
 
 % adjust the page margins
-\usepackage[scale=0.8]{geometry}
+\usepackage[scale=0.85]{geometry}
 \recomputelengths%
-\setlength{\hintscolumnwidth}{2.6cm} % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{2.7cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 %\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
 % \AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
@@ -91,53 +91,22 @@ range-phrase = --%
 
 \makecvtitle%
 
-\input{Sections/profile}
-\input{Sections/interests}
-\input{Sections/employ}
-\input{Sections/education}
-\input{Sections/meetings}
-\input{Sections/skills}
+\input{Sections/profile}       % <--- Profile
+\input{Sections/interests}     % <--- Interests
+\input{Sections/employ}        % <--- Employment
+\input{Sections/education}     % <--- Education
+\input{Sections/skills}        % <--- Computer skills
+\input{Sections/publications}  % <--- Publications
+\input{Sections/meetings}      % <--- Meetings and conferences
+\input{Sections/profes}        % <--- Professional development
+\input{Sections/experience}    % <--- Research experience
+\input{Sections/awards}        % <--- Awards and Scholarship
 \newpage
-\input{Sections/profes}
-\input{Sections/experience}
-\input{Sections/awards}
-\input{Sections/outreach}
-%\input{Sections/teaching}
-\input{Sections/other}
-\input{Sections/languages}
-\input{Sections/references}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% #####  #    # #####  #      #  ####    ##   ##### #  ####  #    #  ####  
-% #    # #    # #    # #      # #    #  #  #    #   # #    # ##   # #      
-% #    # #    # #####  #      # #      #    #   #   # #    # # #  #  ####  
-% #####  #    # #    # #      # #      ######   #   # #    # #  # #      # 
-% #      #    # #    # #      # #    # #    #   #   # #    # #   ## #    # 
-% #       ####  #####  ###### #  ####  #    #   #   #  ####  #    #  ####  
-
-\section{Publications}
-%%\nocitebook{book1,book2}
-%%\bibliographystylebook{plain}
-%%\bibliographybook{publications} % 'publications' is the name of a BibTeX file
-
-\nocitejour{Rueda:2017hd,Rueda:2014mn,Guzman:2009bk}
-\bibliographystylejour{nature-bfname}
-\bibliographyjour{MyPapers}
-\nociteconf{Rueda:2014sw,Rueda:2013ep,Mimica:2013iu}
-\bibliographystyleconf{nature-bfname}
-\bibliographyconf{MyPapers}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-
-%\nocite{*}
-%\bibliographystyle{plain}
-%\bibliography{Biblio}  % 'publications' is the name of a BibTeX file
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/outreach}      % <--- Outreach
+%\input{Sections/teaching}     % <--- Teaching
+\input{Sections/other}         % <--- Other activities
+\input{Sections/languages}     % <--- Languages
+\input{Sections/references}    % <--- References
 
 % \includepdf[pages=-,pagecommand={}]{proposal.pdf}
 
