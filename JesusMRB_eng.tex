@@ -1,40 +1,44 @@
-\documentclass[11pt,letterpaper]{moderncv}
+\documentclass[10pt,letterpaper]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
 %%%%% font family: sans, roman
 
-% \usepackage{pdfpages}
 \usepackage{verbatim}
 \usepackage{fontawesome}
 
-\moderncvstyle{classic}
+\moderncvstyle{banking}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
 \moderncvcolor{red}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
-
 \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
-
-\usepackage[abbreviations=false]{siunitx}
-\sisetup{%
-retain-unity-mantissa = false,% avoid 1 x 10^{4}
-range-units = single,% do not repeat units, e.g.: 2,3 and 4 T
-range-phrase = --%
-}
-
 
 % adjust the page margins
 \usepackage[scale=0.85]{geometry}
 \recomputelengths%
-\setlength{\hintscolumnwidth}{2.7cm} % if you want to change the width of the column with the dates
+%\setlength{\hintscolumnwidth}{2.7cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+% \AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
 % \AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
 
-\input{biblio_setup} % Bibliography setup
-\input{newmacros} %  New macros
+%%%   Bibliography   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[style=numeric-comp,sorting=none,defernumbers=true]{biblatex} %mod.
+% \DeclareBibliographyCategory{cited}
+% \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+% \addbibresource{publications.bib}
+
+% --- Begin use with Multibib ----
+\usepackage[resetlabels]{multibib}
+\newcites{jour,conf}{{Articles}, {Proceedings}}
+\usepackage[numbers]{natbib}
+\input{biblio_setup2} % Bibliography setup
+
+%%%  New macros
+%%%%%%%%%%%%%%%%
+\input{newmacros}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -46,7 +50,7 @@ range-phrase = --%
 % #      ###### #    #  ####   ####  #    # #    # ######
 
 \name{Jes\'{u}s~M.}{Rueda-Becerril}
-\title{Postdoctoral Researcher}
+\title{PhD}
 \address{525 Northwestern Avenue}{West Lafayette}{IN 47907, USA}
 %\phone[mobile]{}
 %\phone[fixed]{}
@@ -57,7 +61,6 @@ range-phrase = --%
 \social[twitter]{jerue103}
 \social[skype]{jesus\_mrb}
 \social[github]{altjerue}
-\extrainfo{{\scriptsize\faicon{paper-plane}}~\url{t.me/jerube}}
 
 % \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 
@@ -95,7 +98,7 @@ range-phrase = --%
 \input{Sections/employ}        % <--- Employment
 \input{Sections/education}     % <--- Education
 \input{Sections/skills}        % <--- Computer skills
-\newpage
+%\newpage
 \input{Sections/publications}  % <--- Publications
 \input{Sections/meetings}      % <--- Meetings and conferences
 \input{Sections/profes}        % <--- Professional development
