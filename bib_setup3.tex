@@ -1,0 +1,13 @@
+\makeatletter
+\newcounter{num}
+\newcommand{\MyNbOfPub}{5}%input your number of publications here
+\newcommand{\mybibitem}[1]{\stepcounter{num}\setcounter{\@listctr}{\MyNbOfPub-\value{num}}\bibitem{#1}}
+\makeatother
+
+%%%% Number the Publications
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%\makeatother
+% \renewcommand*{\bibliographyitemlabel}{\arabic{enumiv}.}
+% --- END use with Multibib ---
