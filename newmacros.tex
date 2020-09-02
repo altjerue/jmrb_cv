@@ -15,33 +15,35 @@
 % If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
 
 \newcommand{\cvreference}[7]{%
-\textbf{#1}\newline% Name
-\ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
-\ifthenelse{\equal{#3}{}}{}{#3\newline}%
-\ifthenelse{\equal{#4}{}}{}{#4\newline}%
-\ifthenelse{\equal{#5}{}}{}{#5\newline}%
-\ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
-\ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}%
+  \textbf{#1}\newline% Name
+  \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+  \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+  \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+  \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+  \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+  \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}%
 }
 
-\newcommand*{\mbs}{mag\-ne\-to\-brems\-strah\-lung\ }
+
+\newcommand*{\mbs}{mag\-ne\-to\-brems\-strah\-lung}
 
 %%%%% Institutions
-\newcommand{\UVval}{Universitat de Val\`{e}ncia}
+\newcommand{\UVval}{Universitat de València}
 \newcommand{\UVes}{Universidad de Valencia}
 \newcommand{\UVen}{University of Valencia}
-\newcommand{\DAAval}{Departament d'Astronomia i Astrof\'{\i}sica}
-\newcommand{\DAAes}{Departamentento de Astronom\'{\i}a y Astrof\'{\i}sica}
+\newcommand{\DAAval}{Departament d'Astronomia i Astrofísica}
+\newcommand{\DAAes}{Departamentento de Astronomía y Astrofísica}
 \newcommand{\DAAen}{Department of Astronomy and Astrophysics}
-\newcommand{\IFMes}{Instituto de F\'{\i}sica y Matem\'{a}ticas}
+\newcommand{\IFMes}{Instituto de Física y Matemáticas}
 \newcommand{\IFMen}{Institute of Physics and Mathematics}
-\newcommand{\UMSNHes}{Universidad Michoacana de San Nicol\'{a}s de Hidalgo}
+\newcommand{\UMSNHes}{Universidad Michoacana de San Nicolás de Hidalgo}
 \newcommand{\UMSNHen}{Michoacan University of Saint Nicholas of Hidalgo}
+\newcommand{\UMSNHab}{Michoacan University}
 \newcommand{\UAEMex}{UAEMex}
-\newcommand{\UAEMes}{Universidad Aut\'{o}noma del Estado de M\'{e}xico}
+\newcommand{\UAEMes}{Universidad Autónoma del Estado de México}
 \newcommand{\UAEMen}{Autonomous University of the State of Mexico}
 \newcommand{\FCes}{Facultad de Ciencias}
-\newcommand{\FCen}{Faculty of Sciences}
+\newcommand{\FCen}{Department of Sciences}
 \newcommand{\Purdue}{Purdue University}
 \newcommand{\DPA}{Department of Physics and Astronomy}
 
@@ -53,3 +55,5 @@
 \newcommand{\apjs}{ApJS}
 \newcommand{\aap}{A\&A}
 \newcommand{\araa}{ARA\&A}
+
+
