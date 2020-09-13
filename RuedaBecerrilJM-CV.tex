@@ -1,0 +1,97 @@
+\documentclass[10pt,letterpaper,roman]{moderncv}
+%%%%%%% possible options:
+%%% font size: 10pt, 11pt, 12pt
+%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
+%%%%% font family: sans, roman
+
+\usepackage{verbatim}
+\usepackage{fontawesome}
+
+\moderncvstyle{banking}
+%%%%% themes: casual (default), classic, banking, oldstyle, fancy
+\moderncvcolor{red}
+%%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
+\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+% \AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+ \AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+
+%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+%---- Begin use with Multibib ----
+% bibliography with mutiple entries
+\usepackage[resetlabels]{multibib}
+\newcites{jour,conf}{{Articles},{Proceedings}}
+%\usepackage[numbers,square]{natbib}
+\input{bib_setup3} % Bibliography setup
+
+%%%  New macros
+%%%%%%%%%%%%%%%%
+\input{newmacros} % New macros
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\name{Jes\'{u}s~M.}{Rueda-Becerril}
+\title{PhD}
+\address{525 Northwestern Avenue}{West Lafayette}{IN 47907, USA}
+%\phone[mobile]{}
+%\phone[fixed]{}
+%\phone[fax]{}
+\email{jruedabe@purdue.edu}
+\homepage{altjerue.github.io}
+\social[linkedin]{jeruebe}
+\social[twitter]{jerue103}
+%\social[skype]{jesus\_mrb}
+\social[github]{altjerue}
+\extrainfo{Nationality: Mexican}
+
+% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+\quote{Last Updated: \today}
+
+\AfterPreamble{\hypersetup{
+    colorlinks=true,
+    citecolor=blue,
+    urlcolor=magenta,
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%\include{Sections/CoverLetter}
+
+\makecvtitle%
+%\vspace{-15pt}
+
+\input{Sections/profile}       % <--- Profile
+\input{Sections/interests}     % <--- Interests
+\input{Sections/experience}    % <--- Research experience
+\input{Sections/education}     % <--- Education
+\input{Sections/publications}  % <--- Publications
+\input{Sections/grants}        % <--- Grants & Fellowships
+\input{Sections/awards}        % <--- Awards
+\input{Sections/meetings}      % <--- Meetings and conferences
+\input{Sections/teaching}      % <--- Teaching
+\input{Sections/skills}        % <--- Computer skills
+\input{Sections/outreach}      % <--- Outreach
+\input{Sections/profes}        % <--- Professional development
+\input{Sections/other}         % <--- Other activities
+\input{Sections/languages}     % <--- Languages
+\input{Sections/references}    % <--- References
+
+\end{document}
