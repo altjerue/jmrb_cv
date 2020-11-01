@@ -14,6 +14,7 @@
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
 \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage[spanish]{babel}
 
 % adjust the page margins
 \usepackage[scale=0.85]{geometry}
@@ -36,7 +37,7 @@
 %---- Begin use with Multibib ----
 % bibliography with mutiple entries
 \usepackage[resetlabels]{multibib}
-\newcites{jour,conf}{{Articles},{Proceedings}}
+\newcites{jour,conf}{{Artículos},{Memorias}}
 %\usepackage[numbers,square]{natbib}
 \input{bib_setup3} % Bibliography setup
 
@@ -46,7 +47,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\name{Jesús~M.}{Rueda-Becerril}
+% personal data
+\name{Jesús~M.}{Rueda Becerril}
 \title{PhD}
 \address{Calle Ignacio Allende 125}{Centro, Tenango del Valle}{52300, México, México}
 %\phone[mobile]{}
@@ -62,7 +64,7 @@
 
 % \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 
-\quote{Last Updated: \today}
+\quote{Última actualización: \today}
 
 \AfterPreamble{\hypersetup{
     colorlinks=true,
@@ -78,20 +80,20 @@
 \makecvtitle%
 %\vspace{-15pt}
 
-\input{Sections/profile}       % <--- Profile
-\input{Sections/interests}     % <--- Interests
-\input{Sections/experience}    % <--- Research experience
-\input{Sections/education}     % <--- Education
-\input{Sections/publications}  % <--- Publications
-\input{Sections/grants}        % <--- Grants & Fellowships
-\input{Sections/awards}        % <--- Awards
-\input{Sections/skills}        % <--- Computer skills
-\input{Sections/meetings}      % <--- Meetings and conferences
-\input{Sections/teaching}      % <--- Teaching
-\input{Sections/profes}        % <--- Professional development
-\input{Sections/outreach}      % <--- Outreach
-\input{Sections/other}         % <--- Other activities
-\input{Sections/languages}     % <--- Languages
-\input{Sections/references}    % <--- References
+\input{Secciones/profile}       % <--- Profile
+\input{Secciones/interests}     % <--- Interests
+\input{Secciones/experience}    % <--- Research experience
+\input{Secciones/education}     % <--- Education
+\input{Secciones/publications}  % <--- Publications
+\input{Secciones/grants}        % <--- Grants & Fellowships
+\input{Secciones/awards}        % <--- Awards
+\input{Secciones/skills}        % <--- Computer skills
+\input{Secciones/meetings}      % <--- Meetings and conferences
+\input{Secciones/teaching}      % <--- Teaching
+\input{Secciones/profes}        % <--- Professional development
+\input{Secciones/outreach}      % <--- Outreach
+\input{Secciones/other}         % <--- Other activities
+\input{Secciones/languages}     % <--- Languages
+\input{Secciones/references}    % <--- References
 
 \end{document}
