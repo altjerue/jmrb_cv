@@ -1,22 +1,22 @@
-\documentclass[11pt,letterpaper,roman]{moderncv}
+\documentclass[11pt,letterpaper,sans]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
 %%%%% font family: sans, roman
 
 \usepackage{verbatim}
-\usepackage{fontawesome}
+%\usepackage{fontawesome}
 
-\moderncvstyle{banking}
+\moderncvstyle{banking2}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
-\moderncvcolor{red}
+\moderncvcolor{burgundy}
 %%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
 \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
 
 % adjust the page margins
-\usepackage[scale=0.85]{geometry}
+\usepackage[total={7.6in, 10.1in}]{geometry}
 %\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 % \AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
@@ -47,27 +47,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \name{Jesús~M.}{Rueda-Becerril}
-\title{PhD}
-\address{Calle Ignacio Allende 125}{Centro, Tenango del Valle}{52300, México, México}
+\title{Ph.D.}
+\address{3902 S Ferdinand St}{Seattle WA}{98118 USA}
 %\phone[mobile]{}
 %\phone[fixed]{}
 %\phone[fax]{}
+\social[fax][]{}
+\extrainfo{\faMapMarker{} Seattle, WA}
 \email{jm.ruebe@gmail.com}
 \homepage{altjerue.github.io}
 \social[linkedin]{jeruebe}
-\social[twitter]{jerue103}
-%\social[skype]{jesus\_mrb}
+%\social[twitter]{jerue103}
 \social[github]{altjerue}
-%\extrainfo{Nationality: Mexican}
+\social[portfolio][www.datacamp.com/portfolio/jmruebe]{\faBriefcase{} DataCamp}
 
 % \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 
-\quote{Last Updated: \today}
+%\quote{Last Updated: \today}
 
 \AfterPreamble{\hypersetup{
     colorlinks=true,
-    citecolor=blue,
-    urlcolor=magenta,
+    citecolor=magenta,
+    urlcolor=blue,
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,22 +77,23 @@
 %\include{Sections/CoverLetter}
 
 \makecvtitle%
-%\vspace{-15pt}
+\vspace{-35pt}
 
 \input{Sections/profile}       % <--- Profile
-\input{Sections/interests}     % <--- Interests
-\input{Sections/experience}    % <--- Research experience
+%\input{Sections/interests}    % <--- Interests
 \input{Sections/education}     % <--- Education
+\input{Sections/skills}        % <--- Computer skills
+\input{Sections/experience3}    % <--- Research experience
 \input{Sections/publications}  % <--- Publications
 \input{Sections/grants}        % <--- Grants & Fellowships
 \input{Sections/awards}        % <--- Awards
-\input{Sections/skills}        % <--- Computer skills
 \input{Sections/meetings}      % <--- Meetings and conferences
 \input{Sections/teaching}      % <--- Teaching
 \input{Sections/profes}        % <--- Professional development
+\input{Sections/certif}        % <--- Certifications and Credentials
 \input{Sections/outreach}      % <--- Outreach
 \input{Sections/other}         % <--- Other activities
 \input{Sections/languages}     % <--- Languages
-\input{Sections/references}    % <--- References
+%\input{Sections/references}    % <--- References
 
 \end{document}

@@ -1,25 +1,24 @@
-\documentclass[10pt,letterpaper,roman]{moderncv}
+\documentclass[11pt,letterpaper,sans]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
 %%%%% font family: sans, roman
 
 \usepackage{verbatim}
-\usepackage{fontawesome}
 
 \moderncvstyle{banking}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
-\moderncvcolor{red}
+\moderncvcolor{blue}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
 \usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
 
 % adjust the page margins
-\usepackage[scale=0.85]{geometry}
+\usepackage[total={7.3in, 10in}]{geometry}
 %\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-% \AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
 \AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
  
 
@@ -35,10 +34,10 @@
 
 %---- Begin use with Multibib ----
 % bibliography with mutiple entries
-\usepackage[resetlabels]{multibib}
-\newcites{jour,conf}{{Articles},{Proceedings}}
+%\usepackage[resetlabels]{multibib}
+%\newcites{jour,conf}{{Articles}, {Proceedings}}
 %\usepackage[numbers,square]{natbib}
-\input{bib_setup3} % Bibliography setup
+%\input{bib_setup3} % Bibliography setup
 
 %%%  New macros
 %%%%%%%%%%%%%%%%
@@ -46,26 +45,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\name{Jes\'{u}s~M.}{Rueda-Becerril}
-\title{PhD}
-\address{525 Northwestern Avenue}{West Lafayette}{IN 47907, USA}
-%\phone[mobile]{}
-%\phone[fixed]{}
-%\phone[fax]{}
+\name{Jesús~M.}{Rueda-Becerril}
+\title{Ph.D.}
+\address{Astrophysicist}{Data Scientist}{Software Engineer}
+\social[fax][]{}
+\extrainfo{\faMapMarker{} Seattle, WA}
 \email{jm.ruebe@gmail.com}
 \homepage{altjerue.github.io}
 \social[linkedin]{jeruebe}
 \social[twitter]{jerue103}
-%\social[skype]{jesus\_mrb}
 \social[github]{altjerue}
-\extrainfo{Nationality: Mexican}
+\social[portfolio][www.datacamp.com/portfolio/jmruebe]{\faBriefcase{} DataCamp}
+\phone[mobile]{+1 (765) 430-2330}
 
 % \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 
-\quote{Last Updated: \today}
+%\quote{Last Updated: \today}
 
 \AfterPreamble{\hypersetup{
-    colorlinks=true,
+    colorlinks=false,
     citecolor=blue,
     urlcolor=magenta,
 }}
@@ -74,15 +72,24 @@
 
 \begin{document}
 
+%\include{Sections/CoverLetter}
+%\renewcommand{\xingsocialsymbol}{\faBriefcase\,}
+
 \makecvtitle%
 
 \vspace{-20pt}
-
-\input{Sections/experience2}   % <--- Research experience
-\input{Sections/education}     % <--- Education
-\input{Sections/grants}        % <--- Awards and Scholarship
-\input{Sections/publications}  % <--- Publications
-
-\include{Sections/CoverLetter}
+\input{Sections/profile}             % <--- Research experience
+%\vspace{-10pt}
+\input{Sections/education2}          % <--- Education
+%\vspace{-10pt}
+\input{Sections/skills2}             % <--- Computer skills
+%\vspace{-10pt}
+\input{Sections/experience3}         % <--- Research experience
+%\input{Sections/publications}        % <--- Publications
+%\input{Sections/profes}              % <--- Computer skills
+%\vspace{-10pt}
+%\input{Sections/grants}              % <--- Computer skills
+%\input{Sections/languages}
+\input{Sections/certif}
 
 \end{document}
