@@ -1,37 +1,3 @@
-\AfterPreamble{\hypersetup{%
-    colorlinks=true,%
-    citecolor=blue,%
-    urlcolor=purple%magenta
-  }
-}
-
-% Define \cvdoublecolumn, which sets its arguments in two columns without any labels
-
-\newcommand{\cvdoublecolumn}[2]{%
-  \cvitem[0.75em]{}{%
-    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
-    \hfill%
-    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
-    }%
-}
-
-% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
-% Everything but the name is optional
-% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
-% (Per default, \addresssymbol isn't specified, the other two are specified.)
-% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
-
-\newcommand{\cvreference}[7]{%
-  \textbf{#1}\newline% Name
-  \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
-  \ifthenelse{\equal{#3}{}}{}{#3\newline}%
-  \ifthenelse{\equal{#4}{}}{}{#4\newline}%
-  \ifthenelse{\equal{#5}{}}{}{#5\newline}%
-  \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
-  \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}%
-}
-
-
 \newcommand*{\mbs}{mag\-ne\-to\-brems\-strah\-lung}
 
 %%%%% Institutions
@@ -43,6 +9,7 @@
 \newcommand{\DAAen}{Department of Astronomy and Astrophysics}
 \newcommand{\IFMes}{Instituto de Física y Matemáticas}
 \newcommand{\IFMen}{Institute of Physics and Mathematics}
+\newcommand{\UMSNH}{UMSNH}
 \newcommand{\UMSNHes}{Universidad Michoacana de San Nicolás de Hidalgo}
 \newcommand{\UMSNHen}{Michoacan University of Saint Nicholas of Hidalgo}
 \newcommand{\UMSNHab}{Michoacan University}
@@ -57,7 +24,7 @@
 \newcommand{\DPAes}{Departamento de Física y Astronomía}
 \newcommand{\RIT}{Rochester Institute of Technology}
 \newcommand{\CCRG}{Center of Computational Relativity and Gravitation}
-\newcommand{\Paychex}{\textnormal{Paychex, Inc.}}
+\newcommand{\PYX}{Paychex}
 
 %%%%% Journals
 \newcommand{\prd}{Phys.~Rev.~D}
