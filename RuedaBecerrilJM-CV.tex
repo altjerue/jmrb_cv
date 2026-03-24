@@ -1,4 +1,4 @@
-\documentclass[11pt,letterpaper,roman,colorlinks,linkcolor=true]{moderncv}
+\documentclass[11pt,letterpaper,sans,colorlinks,linkcolor=true]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
@@ -8,8 +8,8 @@
 
 \moderncvstyle{banking}
 %\moderncvstyle[norules]{banking}
-%%%%% themes: casual (default), classic, banking, oldstyle, fancy
-\moderncvcolor{burgundy}
+%%%%% themes: casual (default), classic, banking, oldstyle, fancy\include{Sections/references}
+\moderncvcolor{blue}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -50,19 +50,19 @@
 
 \name{Jesús~M.}{Rueda-Becerril}
 \title{Ph.D.}
-%\address{Seattle, WA, USA}{}{}
+\address{Seattle, WA, USA}{}{}
 %\address{3902 S Ferdinand St}{}{Seattle, 98118 WA}
-\address{Data Scientist}{Research Scientist}{}
+%\address{Data Scientist}{Research Scientist}{}
 
 %%%  Social icons
 %\social[fax][]{}
-\extrainfo{\faMapMarker{} Seattle, WA}
+%\extrainfo{\faMapMarker{} Seattle, WA}
 \email{jm.ruebe@gmail.com}
 \homepage{altjerue.github.io}
 \social[linkedin]{jeruebe}
 %\social[twitter]{jerue103}
 \social[github]{altjerue}
-\social[portfolio][www.datacamp.com/portfolio/jmruebe]{{\color{black}\faBriefcase{}} DataCamp}
+%\social[portfolio][www.datacamp.com/portfolio/jmruebe]{{\color{black}\faBriefcase{}} DataCamp}
 \phone[mobile]{+1 (765) 430-2330}
 %\social[xing]{john\_doe}
 %\social[gitlab]{jdoe}
@@ -93,12 +93,13 @@
 %\include{Sections/CoverLetter}
 
 \makecvtitle%
-%\vspace{-40pt}
+\vspace{-25pt}
 
 \input{Sections/profile}       % <--- Profile
 %\input{Sections/interests}     % <--- Interests
 \input{Sections/education}     % <--- Education
 \input{Sections/experience}    % <--- Research experience
+\newpage
 \input{Sections/skills}        % <--- Computer skills
 \input{Sections/publications}  % <--- Publications
 \input{Sections/grants}        % <--- Grants & Fellowships
