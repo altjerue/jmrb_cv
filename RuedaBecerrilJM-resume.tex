@@ -39,7 +39,8 @@
 %%%  labels in the bibliography (default is to show no labels)
 \makeatletter
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+\renewcommand*{\bibliographyitemlabel}{\labelitemii}
 \setlength{\hintscolumnwidth}{0pt}
 \makeatother
 %%% CONSIDER MERGING WITH PREAMBLE PART
@@ -57,7 +58,8 @@
 %%%%%%%%%%  New macros  %%%%%%%%%
 \input{newmacros} % New macros
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 
 \name{Jesús~M.}{Rueda-Becerril}
 \title{Ph.D.}
@@ -101,14 +103,15 @@
     urlcolor=blue,
 }}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 
 \begin{document}
 
 \makecvtitle%
-\vspace{-5pt}
+\vspace{-25pt}
 
-\input{Sections/profile_short}       % <--- Profile
+\input{Sections/profile}             % <--- Profile
 \input{Sections/skills2}             % <--- Computer skills
 \input{Sections/experience_resume}   % <--- Experience
 \input{Sections/projects}            % <--- Projects
