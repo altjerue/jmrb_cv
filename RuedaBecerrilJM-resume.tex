@@ -1,82 +1,98 @@
-\documentclass[11pt,letterpaper,roman,colorlinks,linkcolor=true]{moderncv}
+\documentclass[10pt,letterpaper,sans,colorlinks,linkcolor=true]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
-%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
-%%%%% font family: sans, roman
+%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper,
+%%%             landscape
+%%% font family: sans, roman
 
 \usepackage{verbatim}
 
-\moderncvstyle{banking}
+\moderncvstyle{resume}
 %\moderncvstyle[norules]{banking}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
-\moderncvcolor{black}
+\moderncvcolor{blue}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
-\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs
+%                % longer than one page
 
-\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace
+%                           % by the encoding you are using
 \usepackage{lmodern}
 
 % adjust the page margins
 \usepackage[margin=0.5in]{geometry}
-%\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
-\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+%\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the
+%%% column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want
+%%%  to force the width allocated to your name and avoid line breaks. be
+%%%  careful though, the length is normally calculated to avoid any overlap
+%%%  with your personal info; use this at your own typographical risks...
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic
+%%%  theme, if you want to change the width of your name placeholder (to leave
+%%%  more space for your address details
+\AtBeginDocument{\recomputelengths} % required when changes are made to page
+%%% layout lengths
 
 %%%%%%%%% BIBLIOGRAPHY %%%%%%%%
-% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
-%   to show numerical labels in the bibliography (default is to show no labels)
-%\makeatletter
+%%%  bibliography adjustements (only useful if you make citations in your
+%%%  resume, or print a list of publications using BibTeX) to show numerical
+%%%  labels in the bibliography (default is to show no labels)
+\makeatletter
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
-%\makeatother
-%   to redefine the bibliography heading string ("Publications")
-%\renewcommand{\refname}{Articles}
-
-%---- Begin use with Multibib ----
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+\setlength{\hintscolumnwidth}{0pt}
+\makeatother
+%%% CONSIDER MERGING WITH PREAMBLE PART
+%%%  to redefine the bibliography heading string ("Publications")
+\renewcommand{\refname}{Selected Publications (9 total, 2 first-author)}
+%%%---- Begin use with Multibib ----
 % bibliography with mutiple entries
-\usepackage[resetlabels]{multibib}
-\newcites{jour,conf}{{Articles},{Proceedings}}
+%\usepackage[resetlabels]{multibib}
+%\newcites{jour,conf}{{Articles},{Proceedings}}
 %\usepackage[numbers,square]{natbib}
-\input{bib_setup3} % Bibliography setup
+%\input{bib_setup3} % Bibliography setup
+%\AtBeginEnvironment{thebibliography}{\setlength{\bibindent}{24pt}\setlength
+%{\bibhang}{24pt}\setlength{\bibsep}{12pt}}
 
-%%%  New macros
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%  New macros  %%%%%%%%%
 \input{newmacros} % New macros
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \name{Jesús~M.}{Rueda-Becerril}
 \title{Ph.D.}
-\address{Seattle, WA, USA}{}{}
+%\address{Seattle, WA, USA}{}{}
 %\address{3902 S Ferdinand St}{}{Seattle, 98118 WA}
 %\address{}{Data Scientist}{}
 
 %%%  Social icons
 %\social[fax][]{}
-%\extrainfo{\faMapMarker{} Seattle, WA}
+\extrainfo{\faMapMarker{} Seattle, WA}
 \email{jm.ruebe@gmail.com}
 \homepage{altjerue.github.io}
 \social[linkedin]{jeruebe}
 %\social[twitter]{jerue103}
 \social[github]{altjerue}
-%\social[portfolio][www.datacamp.com/portfolio/jmruebe]{{\color{black}\faBriefcase{}} DataCamp}
-%\phone[mobile]{+1 (765) 430-2330}
+%\social[portfolio][https://github.com/altjerue/Portfolio]{{\color{black
+%}\faBriefcase{}} Portfolio}
+\phone[mobile]{+1 (765) 430-2330}
 %\social[xing]{john\_doe}
 %\social[gitlab]{jdoe}
 %\social[stackoverflow]{0000000/johndoe}
 % \social[bitbucket]{jdoe}
 % \social[skype]{jdoe}
-\social[orcid]{0000-0003-1988-1912}
+%\social[orcid]{0000-0003-1988-1912}
 % \social[researchgate]{jdoe}
 % \social[researcherid]{jdoe}
 % \social[telegram]{jdoe}
 % \social[whatsapp]{12345678901}
 % \social[signal]{12345678901}
 % \social[matrix]{@johndoe:matrix.org}
-\social[googlescholar]{jm.ruebe}
+%\social[googlescholar]{jm.ruebe}
 
-% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be
+%%%  resized to, 0.4pt is the thickness of the frame around it (put it to 0pt
+%%%  for no frame) and 'picture' is the name of the picture file
 
 %\quote{Last Updated: \today}
 
@@ -90,16 +106,16 @@
 \begin{document}
 
 \makecvtitle%
-\vspace{-30pt}
+\vspace{-5pt}
 
-\input{Sections/profile_short}     % <--- Profile
-\input{Sections/skills2}           % <--- Computer skills
-\input{Sections/experience_resume} % <--- Experience
-\input{Sections/education_resume}  % <--- Education
-%\input{Sections/projects}          % <--- Projects
-%\input{Sections/certif}            % <--- Certifications
-%\input{Sections/languages}        % <--- Languages
+\input{Sections/profile_short}       % <--- Profile
+\input{Sections/skills2}             % <--- Computer skills
+\input{Sections/experience_resume}   % <--- Experience
+\input{Sections/projects}            % <--- Projects
+\input{Sections/education_resume}    % <--- Education
+\input{Sections/publications_short}  % <--- Publications
+%\input{Sections/certif}             % <--- Certifications
+%\input{Sections/languages}          % <--- Languages
 %\newpage
-%\input{Sections/publications}      % <--- Publications
 
 \end{document}
