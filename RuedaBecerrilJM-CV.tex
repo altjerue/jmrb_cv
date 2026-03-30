@@ -1,33 +1,44 @@
-\documentclass[11pt,letterpaper,sans,colorlinks,linkcolor=true]{moderncv}
+\documentclass[10pt,letterpaper,sans,colorlinks,linkcolor=true]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
-%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper, landscape
+%%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper,
+%%              landscape
 %%%%% font family: sans, roman
 
 \usepackage{verbatim}
 
 \moderncvstyle{banking}
 %\moderncvstyle[norules]{banking}
-%%%%% themes: casual (default), classic, banking, oldstyle, fancy\include{Sections/references}
-\moderncvcolor{blue}
+%%%%% themes: casual (default), classic, banking, oldstyle, fancy
+\moderncvcolor{black}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
-\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs
+%%               % longer than one page
 
-\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace
+%%                          % by the encoding you are using
 \usepackage{lmodern}
 
 % adjust the page margins
 \usepackage[margin=0.5in]{geometry}
-%\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
-\AtBeginDocument{\recomputelengths} % required when changes are made to page layout lengths
+%\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the
+%%                                    % column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want
+%% to force the width allocated to your name and avoid line breaks. be careful
+%% though, the length is normally calculated to avoid any overlap with your
+%% personal info; use this at your own typographical risks...
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic
+%% theme, if you want to change the width of your name placeholder (to leave
+%% more space for your address details
+\AtBeginDocument{\recomputelengths} % required when changes are made to page
+%% layout lengths
 
 
 %% BIBLIOGRAPHY
 %%%%%%%%%%%%%%%%%
-% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
-%   to show numerical labels in the bibliography (default is to show no labels)
+% bibliography adjustements (only useful if you make citations in your resume,
+%%   or print a list of publications using BibTeX) to show numerical labels in
+%%   the bibliography (default is to show no labels)
 %\makeatletter
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 %\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
@@ -50,19 +61,19 @@
 
 \name{Jesús~M.}{Rueda-Becerril}
 \title{Ph.D.}
-\address{Seattle, WA, USA}{}{}
 %\address{3902 S Ferdinand St}{}{Seattle, 98118 WA}
 %\address{Data Scientist}{Research Scientist}{}
 
 %%%  Social icons
 %\social[fax][]{}
-%\extrainfo{\faMapMarker{} Seattle, WA}
+\extrainfo{\faMapMarker{} Seattle, WA}
 \email{jm.ruebe@gmail.com}
 \homepage{altjerue.github.io}
 \social[linkedin]{jeruebe}
 %\social[twitter]{jerue103}
 \social[github]{altjerue}
-%\social[portfolio][www.datacamp.com/portfolio/jmruebe]{{\color{black}\faBriefcase{}} DataCamp}
+\social[portfolio][www.datacamp.com/portfolio/jmruebe]{%
+  {\color{black}\faBriefcase{}} DataCamp}
 \phone[mobile]{+1 (765) 430-2330}
 %\social[xing]{john\_doe}
 %\social[gitlab]{jdoe}
@@ -78,7 +89,9 @@
 % \social[matrix]{@johndoe:matrix.org}
 \social[googlescholar]{jm.ruebe}
 
-% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \photo[64pt][0.4pt]{picture}   % '64pt' is the height the picture must be
+%% resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for
+%% no frame) and 'picture' is the name of the picture file
 
 %\quote{Last Updated: \today}
 
@@ -97,10 +110,9 @@
 
 \input{Sections/profile}       % <--- Profile
 %\input{Sections/interests}     % <--- Interests
+\input{Sections/skills}        % <--- Computer skills
 \input{Sections/education}     % <--- Education
 \input{Sections/experience}    % <--- Research experience
-\newpage
-\input{Sections/skills}        % <--- Computer skills
 \input{Sections/publications}  % <--- Publications
 \input{Sections/grants}        % <--- Grants & Fellowships
 \input{Sections/projects}      % <--- Projects
