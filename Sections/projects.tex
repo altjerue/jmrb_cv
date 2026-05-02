@@ -9,12 +9,12 @@
 \begin{itemize}
   \item Applying classical ML and Bayesian inference to the Fermi-LAT 4LAC-DR3
   catalog (3,407 sources) to recover physical jet parameters from
-  multi-wavelength observational data; inverse problem methodology directly
-  analogous to ice dynamics parameter estimation from remote sensing
-  observables.
-  \item Developing neural surrogate model (Tleco emulator) to replace expensive
-  Fokker-Planck numerical integration across a high-dimensional parameter
-  space, enabling fast inference over physically motivated priors.
+  multi-wavelength observational data.
+  \item Building a neural network to learn the mapping from physical jet
+  parameters to observable SEDs accurately enough to compare with Tleco
+  results.
+  \item Forecasting blazar gamma-ray flares using a general-purpose time series
+  foundation model, fine-tuned with Tleco-generated synthetic light curves.
 \end{itemize}
 }
 %—————————————————
@@ -26,10 +26,10 @@
 {}%
 {%
 \begin{itemize}
-  \item Developed C++ library implementing Lagrangian particle dispersion,
-  atmospheric turbulence, and fluid flow over complex hilly terrain with forest
-  canopy, based on analytical models (Massman \& Weil 1999; Finnigan \& Belcher
-  2004).
+  \item Developing C++ library implementing Lagrangian particle dispersion,
+  atmospheric turbulence, and fluid flow over complex hilly terrains with
+  forest canopy, based on analytical models (Massman \& Weil 1999; Finnigan
+  \& Belcher 2004).
   \item Parallelized particle tracking using RcppParallel and OpenMP; designed
   for scalability to tens of thousands of particles across kilometer-scale
   domains.
@@ -38,7 +38,7 @@
 %—————————————————
 \cventry{\href{https://github.com/zkdavis/Tleco}{GitHub}}%
 {Tleco}%
-{Open-Source Physics Simulation Library}%
+{Open-Source Physics Simulation Library (Python/Rust)}%
 {Jan 2024 — Sep 2024}%
 {}%
 {%
@@ -69,8 +69,25 @@
 {}%
 {%
 \begin{itemize}
-\item Led upgrade of production C-based MHD simulation code for HPC
-environments; added physics features while maintaining performance at Frontera
-supercomputer scale.
+  \item Led upgrade of production C-based MHD simulation code for HPC
+  environments; added physics features while maintaining performance at
+  Frontera supercomputer scale.
 \end{itemize}
 }
+%%—————————————————
+%\cventry{\href{https://mexiciencia.github.io}{Homepage}}%
+%{Group of Mexican Scientists bridging science and public knowledge}%
+%{Co-Founder, Mexican Scientists Abroad}%
+%{Aug 2019 — Feb 2021}%
+%{}%
+%{%
+%\begin{itemize}
+%  \item Collaborated on Python scripts for
+%  \href{https://mexiciencia.github.io/post/covid19/}{COVID-19 modeling and
+%  forecasting} in Mexico.
+%  \item Authored
+%  \href{https://mexiciencia.github.io/post/modelo-sir/}{blogposts} and
+%  \href{https://mexiciencia.github.io/post/anita/}{infographics} to combat
+%  misinformation.
+%\end{itemize}
+%}
