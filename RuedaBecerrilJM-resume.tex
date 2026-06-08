@@ -8,9 +8,10 @@
 \usepackage{verbatim}
 
 \moderncvstyle{resume}
+%\moderncvstyle{banking}
 %\moderncvstyle[norules]{banking}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
-\moderncvcolor{blue}
+\moderncvcolor{black}
 %%%%% color: black, blue (default), burgundy, green, grey, orange, purple, red
 \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs
 %                % longer than one page
@@ -20,7 +21,7 @@
 \usepackage{lmodern}
 
 % adjust the page margins
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 %\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the
 %%% column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want
@@ -33,27 +34,25 @@
 \AtBeginDocument{\recomputelengths} % required when changes are made to page
 %%% layout lengths
 
-%%%%%%%%% BIBLIOGRAPHY %%%%%%%%
-%%%  bibliography adjustements (only useful if you make citations in your
-%%%  resume, or print a list of publications using BibTeX) to show numerical
-%%%  labels in the bibliography (default is to show no labels)
-\makeatletter
+%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%
+% bibliography adjustements (only useful if you make citations in your resume,
+%%   or print a list of publications using BibTeX) to show numerical labels in
+%%   the bibliography (default is to show no labels)
+%\makeatletter
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 %\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
-\renewcommand*{\bibliographyitemlabel}{\labelitemii}
-\setlength{\hintscolumnwidth}{0pt}
-\makeatother
-%%% CONSIDER MERGING WITH PREAMBLE PART
-%%%  to redefine the bibliography heading string ("Publications")
-\renewcommand{\refname}{Selected Publications (9 total, 2 first-author)}
-%%%---- Begin use with Multibib ----
+%\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+%---- Begin use with Multibib ----
 % bibliography with mutiple entries
 %\usepackage[resetlabels]{multibib}
 %\newcites{jour,conf}{{Articles},{Proceedings}}
-%\usepackage[numbers,square]{natbib}
+\usepackage[numbers,square]{natbib}
 %\input{bib_setup3} % Bibliography setup
-%\AtBeginEnvironment{thebibliography}{\setlength{\bibindent}{24pt}\setlength
-%{\bibhang}{24pt}\setlength{\bibsep}{12pt}}
+
 
 %%%%%%%%%%  New macros  %%%%%%%%%
 \input{newmacros} % New macros
@@ -107,16 +106,18 @@
 \begin{document}
 
 \makecvtitle%
-\vspace{-2pt}
+\vspace{-20pt}
 
-\input{Sections/profile}             % <--- Profile
-\input{Sections/skills2}             % <--- Computer skills
-\input{Sections/experience_resume}   % <--- Experience
-\input{Sections/projects}            % <--- Projects
-\input{Sections/education_resume}    % <--- Education
-\input{Sections/publications_short}  % <--- Publications
-%\input{Sections/certif}             % <--- Certifications
-%\input{Sections/languages}          % <--- Languages
+\input{Sections/profile}              % <--- Profile
+\input{Sections/skills2}              % <--- Computer skills
+\input{Sections/experience_resume}    % <--- Experience
+\input{Sections/projects}             % <--- Projects
+\input{Sections/education_resume}     % <--- Education
+%\input{Sections/publications_short}   % <--- Publications
+\newpage
+\input{Sections/publications}         % <--- Publications
+%\input{Sections/certif}              % <--- Certifications
+%\input{Sections/languages}           % <--- Languages
 %\newpage
 
 \end{document}
