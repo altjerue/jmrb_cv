@@ -10,5 +10,3 @@ auto
 *.fls
 *latexmk
 *.sty
-!moderncvstyleresume.sty
-!moderncvstylebanking2.sty
