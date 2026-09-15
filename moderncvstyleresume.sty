@@ -50,6 +50,13 @@
 \moderncvhead{3}
 \moderncvbody{4}
 
+% \namefont/\titlefont default to \Huge, whose 30pt \baselineskip is what
+% moderncv uses to space the line break before the contact-info line below
+% the name -- that 30pt gap is much bigger than the small addressfont line
+% actually needs. Keep the same 25pt visual size but with a tighter skip.
+\renewcommand*{\namefont}{\fontsize{25pt}{20pt}\selectfont\bfseries\upshape}
+\renewcommand*{\titlefont}{\fontsize{25pt}{20pt}\selectfont\mdseries\upshape}
+
 
 % Add a full-width rule below each section title
 \RenewDocumentCommand{\section}{sm}{%
