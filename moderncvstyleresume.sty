@@ -61,14 +61,47 @@
 % \vadjust to the next line break, i.e. exactly this one).
 \renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
 
+% moderncvbodyiv's \cventry always appends a "." after the title box, even
+% when #4/#5/#6 (the fields normally inline-appended after the title) are all
+% empty -- which they are throughout this resume, since the
+% company/institution now goes on its own line below via #7 instead. Redefine
+% it to only append the period when at least one of those fields is used.
+\renewcommand*{\cventry}[7][.1em]{%
+  \savebox{\cventryyearbox}{%
+    \hspace*{2\separatorcolumnwidth}%
+    \hintstyle{#2}}%
+  \setlength{\cventrytitleboxwidth}{\widthof{\usebox{\cventryyearbox}}}%
+  \setlength{\cventrytitleboxwidth}{\maincolumnwidth-\cventrytitleboxwidth}%
+  \begin{minipage}{\maincolumnwidth}%
+    \parbox[t]{\cventrytitleboxwidth}{%
+      \strut%
+      {\bfseries#3}%
+      \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+      \ifthenelse{\equal{#5}{}}{}{, #5}%
+      \ifthenelse{\equal{#6}{}}{}{, #6}%
+      \ifboolexpr{test {\ifstrempty{#4}} and test {\ifstrempty{#5}} and
+        test {\ifstrempty{#6}}}{}{.}%
+      \strut}%
+    \usebox{\cventryyearbox}%
+  \end{minipage}\strut%
+  \ifx&#7&%
+    \else{%
+      \newline{}%
+      \strut%
+      \begin{minipage}[t]{\maincolumnwidth}%
+        \small%
+        #7%
+      \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
 % Add a full-width rule below each section title
 \RenewDocumentCommand{\section}{sm}{%
-  \par\addvspace{2.5ex}%
+  \par\addvspace{1.5ex}%
   \phantomsection{}%
   \addcontentsline{toc}{section}{#2}%
   \strut\sectionstyle{#2}%
   \sectionrule
-  \par\nobreak\addvspace{1ex}\@afterheading}
+  \par\nobreak\addvspace{.5ex}\@afterheading}
 
 % Add a full-width rule below each section title
 \newcommand*{\sectionrule}{%
