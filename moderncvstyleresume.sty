@@ -1,0 +1,85 @@
+%% start of file `moderncvstyleresume.sty'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstyleresume}[2015/07/28 v2.0.0 modern curriculum vitae and letter style scheme: resume]
+
+\DeclareOption*{}% avoid choking on unknown options
+\ExecuteOptions{}
+\ProcessOptions*\relax% \ProcessOptions* processes the options in the order provided (i.e., with the later ones possibly overriding the former ones), while \ProcessOptions processes them in the order of the package
+
+
+%-------------------------------------------------------------------------------
+%                fonts & icons
+%-------------------------------------------------------------------------------
+% TeX Gyre Pagella font
+%\ifxetexorluatex
+%  \setmainfont{Tex-Gyre Pagella}
+%  \setsansfont{Tex-Gyre Pagella}
+%  \setmathfont{Tex-Gyre Pagella}
+%  \setmathfont[range=\mathit,\mathsfit]{Tex-Gyre Pagella Italic}
+%  \setmathfont[range=\mathbfup,\mathbfsfup]{Tex-Gyre Pagella Bold}
+%  \setmathfont[range=\mathbfit,\mathbfsfit]{Tex-Gyre Pagella Bold Italic}
+%\else
+  \IfFileExists{tgpagella.sty}%
+    {%
+      \RequirePackage{tgpagella}%
+      \renewcommand*{\familydefault}{\rmdefault}}%
+    {}
+%\fi
+
+
+% symbols
+% 'letters' avoids the FontAwesome icon glyphs (Private-Use-Area codepoints
+% that many ATS resume parsers cannot render) in favor of plain text labels
+\moderncvicons{letters}
+
+
+%-------------------------------------------------------------------------------
+%                header, body & footer
+%-------------------------------------------------------------------------------
+%\moderncvhead{3}
+\moderncvhead{3}
+\moderncvbody{4}
+
+
+% Add a full-width rule below each section title
+\RenewDocumentCommand{\section}{sm}{%
+  \par\addvspace{2.5ex}%
+  \phantomsection{}%
+  \addcontentsline{toc}{section}{#2}%
+  \strut\sectionstyle{#2}%
+  \sectionrule
+  \par\nobreak\addvspace{1ex}\@afterheading}
+
+% Add a full-width rule below each section title
+\newcommand*{\sectionrule}{%
+  \par\nobreak\vspace*{-.7\baselineskip}%
+  \leavevmode{\color{color1}\leaders\hbox{\rule{1pt}{0.4pt}}\hfill\kern0pt}}
+
+\colorlet{skillmatrixfullcolor}{color1}
+\colorlet{skillmatrixemptycolor}{color2!30}
+
+\colorlet{lastnamecolor}{color2}
+\colorlet{namecolor}{lastnamecolor}
+\colorlet{headrulecolor}{lastnamecolor!50}
+\colorlet{firstnamecolor}{lastnamecolor!50}
+\colorlet{titlecolor}{color2}
+\colorlet{addresscolor}{color2}
+
+\colorlet{sectioncolor}{color1}
+\colorlet{subsectioncolor}{color1}
+\colorlet{hintstylecolor}{color0}
+
+\endinput
+
+
+%% end of file `moderncvstyleresume.sty'.
