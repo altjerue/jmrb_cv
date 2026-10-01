@@ -49,15 +49,23 @@
 %\fi
 
 % symbols
-\moderncvicons{awesome}
+% 'awesome' draws the contact-detail and bullet icons with FontAwesome glyphs,
+% which extract from the PDF as stray characters that confuse ATS parsers
+\moderncvicons{letters}
 
 
 %-------------------------------------------------------------------------------
 %                header, body & footer
 %-------------------------------------------------------------------------------
-%\moderncvhead{3}
-\moderncvhead{1}
+% head 3 is a single centered block (name, then contact lines below); head 1
+% puts the contact details in a column beside the name, so text extraction
+% reads them before the name
+\moderncvhead{3}
 \moderncvbody[\moderncvstylebodyoptions]{3}
+
+% close the oversized gap between the name and the first contact line (see
+% the same fix in moderncvstyleresume.sty for why it has to go here)
+\renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
 
 
 %-------------------------------------------------------------------------------
