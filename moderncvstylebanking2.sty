@@ -52,6 +52,9 @@
 % 'awesome' draws the contact-detail and bullet icons with FontAwesome glyphs,
 % which extract from the PDF as stray characters that confuse ATS parsers
 \moderncvicons{letters}
+% 'letters' draws list bullets with a marvosym glyph that has no Unicode
+% mapping and extracts as "{"; \textbullet extracts as a real U+2022 bullet
+\renewcommand*{\labelitemi}{\strut\textbullet}
 
 
 %-------------------------------------------------------------------------------
