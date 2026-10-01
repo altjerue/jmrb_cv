@@ -70,6 +70,12 @@
 % the same fix in moderncvstyleresume.sty for why it has to go here)
 \renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
 
+% the default (mixedrules) subsection rule is a row of "." characters, which
+% extracts from the PDF as a long string of periods after every subsection
+% title; draw the same dotted line with tiny rules instead, which carry no text
+\renewcommand*{\subsectionrule}{\leavevmode{\color{bodyrulecolor}%
+  \xleaders\hbox to 0.35em{\hss\rule[0.2ex]{0.45pt}{0.45pt}\hss}\hfill}}
+
 
 %-------------------------------------------------------------------------------
 %                colors (same palette as moderncv's own banking style)
