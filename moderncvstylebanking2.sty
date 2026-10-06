@@ -66,9 +66,31 @@
 \moderncvhead{3}
 \moderncvbody[\moderncvstylebodyoptions]{3}
 
-% close the oversized gap between the name and the first contact line (see
-% the same fix in moderncvstyleresume.sty for why it has to go here)
-\renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
+% moderncvheadiii lays the contact details out in a 0.8\textwidth box; a
+% contact line wider than that makes \makehead emit an empty line first, which
+% left a large gap under the name. Widen the box (same fix as in
+% moderncvstyleresume.sty; it replaces an earlier \vspace{-10pt} workaround).
+\patchcmd{\makehead}{0.8\textwidth}{0.9\textwidth}{}%
+  {\PackageWarning{moderncvstylebanking2}{could not widen the header details box}}
+
+% left text, then right text flush right on the same line if there is at least
+% 1em to spare, otherwise flush right on the next line, never broken
+\newcommand*{\cvleftright}[2]{{#1\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}%
+  \nobreak\hfil\mbox{#2}\parfillskip=0pt\par}}
+
+% Same look as moderncvbodyiii's \cventry (bold #4 / #5 line, italic #3 / #2
+% line, small description), but built from paragraphs instead of a tabular*,
+% so long titles wrap instead of running off the line, the description can
+% break across pages, and the heading lines stay with the description.
+%   \cventry[spacing]{#2 right of line 2}{#3 line 2}{#4 line 1}{#5 right of line 1}{#6 appended to #3}{#7 description}
+\renewcommand*{\cventry}[7][.25em]{%
+  \par
+  \ifboolexpr{test {\ifstrempty{#4}} and test {\ifstrempty{#5}}}{}%
+    {\cvleftright{\bfseries #4}{\bfseries #5}\nopagebreak}%
+  \ifboolexpr{test {\ifstrempty{#3}} and test {\ifstrempty{#2}}}{}%
+    {\cvleftright{\itshape #3\ifstrempty{#6}{}{, #6}}{\itshape #2}}%
+  \ifx&#7&\else\nopagebreak{\small #7\par}\fi
+  \par\addvspace{#1}}
 
 % the default (mixedrules) subsection rule is a row of "." characters, which
 % extracts from the PDF as a long string of periods after every subsection

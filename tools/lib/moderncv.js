@@ -8,22 +8,34 @@ const { texEscape, tex, contactLines, LEFTRIGHT_MACRO, lineWithRight } = require
 const STYLES = {
   // moderncvstyleresume.sty: body 4 with the \cventry redefined there --
   //   \cventry{right}{heading}{}{}{}{description}
-  // where `right` is drawn flush right on the heading line.
+  // where `right` is drawn flush right on the heading line; the italic sub
+  // line goes at the top of the description.
   resume: {
     classOptions: '10pt,letterpaper,roman,colorlinks,linkcolor=true',
     margin: '0.55in',
     titleGap: '-20pt',
-    entry: (e, desc) => `\\cventry{${tex(e.right)}}{${tex(e.heading)}}{}{}{}{${desc}}`,
+    preamble: '\\setlength{\\hintscolumnwidth}{0pt}',
+    entry: (e) => `\\cventry{${tex(e.right)}}{${tex(e.heading)}}{}{}{}{${entryDescription(e, true)}}`,
+  },
+  // moderncvstylebanking2.sty, with the \cventry redefined there --
+  //   \cventry{sub_right}{sub}{heading}{right}{}{description}
+  // draws a bold heading/right line, then an italic sub/sub_right line.
+  banking2: {
+    classOptions: '10pt,letterpaper,roman,colorlinks,linkcolor=true',
+    margin: '0.55in',
+    titleGap: '-30pt',
+    preamble: '',
+    entry: (e) => `\\cventry{${tex(e.sub_right)}}{${tex(e.sub)}}{${tex(e.heading)}}{${tex(e.right)}}{}{${entryDescription(e, false)}}`,
   },
 };
 
-// Everything below the entry's heading line: the italic sub line, intro,
-// detail lines and bullets, in the same order as the plain version.
-// moderncv defines \cventry with \renewcommand* (no \par allowed in its
-// arguments), so paragraph ends are written as \endgraf, its synonym.
-function entryDescription(e) {
+// Everything below the entry's heading line(s): optionally the italic sub
+// line, then intro, detail lines and bullets, in the same order as the plain
+// version. moderncv defines \cventry with \renewcommand* (no \par allowed in
+// its arguments), so paragraph ends are written as \endgraf, its synonym.
+function entryDescription(e, withSub) {
   const out = [];
-  if (e.sub || e.sub_right) out.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right, '\\endgraf'));
+  if (withSub && (e.sub || e.sub_right)) out.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right, '\\endgraf'));
   if (e.intro) out.push(`${tex(e.intro)}\\endgraf`);
   for (const d of e.details || []) out.push(`${tex(d)}\\endgraf`);
   if (e.bullets && e.bullets.length) {
@@ -36,7 +48,7 @@ function sectionBody(s, style) {
   const out = [];
   if (s.paragraph) out.push(`\\cvitem{}{${tex(s.paragraph)}}`);
   for (const k of s.skills || []) out.push(`\\cvitem{${tex(k.label)}}{${tex(k.text)}}`);
-  for (const e of s.entries || []) out.push(style.entry(e, entryDescription(e)));
+  for (const e of s.entries || []) out.push(style.entry(e));
   // plain itemize, so list bullets match the entry bullets (moderncv's
   // \cvlistitem sizes its bullet column for the icon set's original symbol)
   if (s.list && s.list.length) {
@@ -61,7 +73,14 @@ function buildModerncv(doc, srcName) {
   const files = [];
   const inputs = [];
   for (const s of doc.sections) {
-    if (!s.file) throw new Error(`section "${s.title}" needs a \`file:\` for the moderncv output`);
+    // `manual: <file>` -- the moderncv version \inputs that hand-edited file
+    // as-is (e.g. a bibliography with its own macros); the plain and Word
+    // versions still render the section from the YAML.
+    if (s.manual) {
+      inputs.push(`\\input{${dir}/${s.manual}}`);
+      continue;
+    }
+    if (!s.file) throw new Error(`section "${s.title}" needs a \`file:\` (or \`manual:\`) for the moderncv output`);
     files.push({
       path: `${dir}/${s.file}.tex`,
       content: `${banner(srcName)}\\section{${tex(s.title)}}\n${sectionBody(s, style)}\n`,
@@ -89,14 +108,14 @@ function buildModerncv(doc, srcName) {
 \\usepackage{lmodern}
 \\usepackage[margin=${style.margin}]{geometry}
 \\AtBeginDocument{\\recomputelengths}
-\\setlength{\\hintscolumnwidth}{0pt}
+${style.preamble}
 
 % map every glyph (including ligatures) to Unicode so text extraction is exact
 \\input{glyphtounicode}
 \\pdfgentounicode=1
 
 ${LEFTRIGHT_MACRO}
-
+${cfg.preamble ? `\n% from the YAML's moderncv.preamble\n${cfg.preamble.join('\n')}\n` : ''}
 \\name{}{${texEscape(doc.name).replace(/ /g, '~')}}
 \\title{${texEscape(doc.credentials)}}
 ${contact}
