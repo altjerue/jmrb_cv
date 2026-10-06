@@ -1,0 +1,128 @@
+%% start of file `moderncvstyleresume.sty'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstyleresume}[2015/07/28 v2.0.0 modern curriculum vitae and letter style scheme: resume]
+
+\DeclareOption*{}% avoid choking on unknown options
+\ExecuteOptions{}
+\ProcessOptions*\relax% \ProcessOptions* processes the options in the order provided (i.e., with the later ones possibly overriding the former ones), while \ProcessOptions processes them in the order of the package
+
+
+%-------------------------------------------------------------------------------
+%                fonts & icons
+%-------------------------------------------------------------------------------
+% TeX Gyre Pagella font
+%\ifxetexorluatex
+%  \setmainfont{Tex-Gyre Pagella}
+%  \setsansfont{Tex-Gyre Pagella}
+%  \setmathfont{Tex-Gyre Pagella}
+%  \setmathfont[range=\mathit,\mathsfit]{Tex-Gyre Pagella Italic}
+%  \setmathfont[range=\mathbfup,\mathbfsfup]{Tex-Gyre Pagella Bold}
+%  \setmathfont[range=\mathbfit,\mathbfsfit]{Tex-Gyre Pagella Bold Italic}
+%\else
+  \IfFileExists{tgpagella.sty}%
+    {%
+      \RequirePackage{tgpagella}%
+      \renewcommand*{\familydefault}{\rmdefault}}%
+    {}
+%\fi
+
+
+% symbols
+% 'letters' avoids the FontAwesome icon glyphs (Private-Use-Area codepoints
+% that many ATS resume parsers cannot render) in favor of plain text labels
+\moderncvicons{letters}
+
+
+%-------------------------------------------------------------------------------
+%                header, body & footer
+%-------------------------------------------------------------------------------
+%\moderncvhead{3}
+\moderncvhead{3}
+\moderncvbody{4}
+
+% moderncvheadiii's \makehead breaks the line between the name/title and the
+% single-line \extrainfo contact row with a plain "\\", whose interline glue
+% ends up much larger than that short addressfont line needs (independent of
+% \namefont/\titlefont, since \firstnamestyle/\titlestyle apply those fonts
+% inside their own local group, which closes -- and so no longer affects
+% \baselineskip -- before the "\\" is reached). \addressfont is the first
+% thing invoked on the line below the break, so a leading negative \vspace
+% there closes most of that gap (\vspace in horizontal mode defers via
+% \vadjust to the next line break, i.e. exactly this one).
+\renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
+
+% moderncvbodyiv's \cventry always appends a "." after the title box, even
+% when #4/#5/#6 (the fields normally inline-appended after the title) are all
+% empty -- which they are throughout this resume, since the
+% company/institution now goes on its own line below via #7 instead. Redefine
+% it to only append the period when at least one of those fields is used.
+\renewcommand*{\cventry}[7][.1em]{%
+  \savebox{\cventryyearbox}{%
+    \hspace*{2\separatorcolumnwidth}%
+    \hintstyle{#2}}%
+  \setlength{\cventrytitleboxwidth}{\widthof{\usebox{\cventryyearbox}}}%
+  \setlength{\cventrytitleboxwidth}{\maincolumnwidth-\cventrytitleboxwidth}%
+  \begin{minipage}{\maincolumnwidth}%
+    \parbox[t]{\cventrytitleboxwidth}{%
+      \strut%
+      {\bfseries#3}%
+      \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+      \ifthenelse{\equal{#5}{}}{}{, #5}%
+      \ifthenelse{\equal{#6}{}}{}{, #6}%
+      \ifboolexpr{test {\ifstrempty{#4}} and test {\ifstrempty{#5}} and
+        test {\ifstrempty{#6}}}{}{.}%
+      \strut}%
+    \usebox{\cventryyearbox}%
+  \end{minipage}\strut%
+  \ifx&#7&%
+    \else{%
+      \newline{}%
+      \strut%
+      \begin{minipage}[t]{\maincolumnwidth}%
+        \small%
+        #7%
+      \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+% Add a full-width rule below each section title
+\RenewDocumentCommand{\section}{sm}{%
+  \par\addvspace{1.5ex}%
+  \phantomsection{}%
+  \addcontentsline{toc}{section}{#2}%
+  \strut\sectionstyle{#2}%
+  \sectionrule
+  \par\nobreak\addvspace{.5ex}\@afterheading}
+
+% Add a full-width rule below each section title
+\newcommand*{\sectionrule}{%
+  \par\nobreak\vspace*{-.7\baselineskip}%
+  \leavevmode{\color{color1}\leaders\hbox{\rule{1pt}{0.4pt}}\hfill\kern0pt}}
+
+\colorlet{skillmatrixfullcolor}{color1}
+\colorlet{skillmatrixemptycolor}{color2!30}
+
+\colorlet{lastnamecolor}{color2}
+\colorlet{namecolor}{lastnamecolor}
+\colorlet{headrulecolor}{lastnamecolor!50}
+\colorlet{firstnamecolor}{lastnamecolor!50}
+\colorlet{titlecolor}{color2}
+\colorlet{addresscolor}{color2}
+
+\colorlet{sectioncolor}{color1}
+\colorlet{subsectioncolor}{color1}
+\colorlet{hintstylecolor}{color0}
+
+\endinput
+
+
+%% end of file `moderncvstyleresume.sty'.
