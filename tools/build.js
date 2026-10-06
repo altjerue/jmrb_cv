@@ -63,6 +63,7 @@ function texEntry(e) {
   out.push(lineWithRight(`\\textbf{${tex(e.heading)}}`, e.right));
   if (e.sub || e.sub_right) out.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right));
   if (e.intro) out.push(`${tex(e.intro)}\\par\\nopagebreak`);
+  for (const d of e.details || []) out.push(`${tex(d)}\\par`);
   if (e.bullets && e.bullets.length) {
     out.push('\\begin{itemize}');
     for (const b of e.bullets) out.push(`  \\item ${tex(b)}`);
@@ -71,20 +72,33 @@ function texEntry(e) {
   return out.join('\n') + '\n\\entrygap\n';
 }
 
-function texSection(s) {
-  const out = [`\\cvsection{${tex(s.title)}}`];
+// Content shared by sections and subsections.
+function texBody(s) {
+  const out = [];
   if (s.paragraph) out.push(`${tex(s.paragraph)}\\par`);
   if (s.skills) {
     for (const k of s.skills) out.push(`\\textbf{${tex(k.label)}:} ${tex(k.text)}\\par`);
   }
   if (s.entries) for (const e of s.entries) out.push(texEntry(e));
   if (s.list) {
-    out.push('\\begin{itemize}');
+    // unbulleted lists (e.g. publications that carry their own [n] labels)
+    // get a hanging indent instead of a bullet
+    out.push(s.unbulleted
+      ? '\\begin{itemize}[label={}, leftmargin=1.5em, itemindent=-1.5em, labelwidth=0pt, labelsep=0pt]'
+      : '\\begin{itemize}');
     for (const item of s.list) out.push(`  \\item ${tex(item)}`);
     out.push('\\end{itemize}');
   }
+  for (const sub of s.subsections || []) {
+    out.push(`\\cvsubsection{${tex(sub.title)}}`, texBody(sub));
+  }
   return out.join('\n');
 }
+
+const texSection = (s) => `\\cvsection{${tex(s.title)}}\n${texBody(s)}`;
+
+// `contact` is either one list (one line) or a list of lists (several lines)
+const contactLines = (contact) => (Array.isArray(contact[0]) ? contact : [contact]);
 
 function buildTex(doc) {
   const header = `${texEscape(doc.name)}, ${texEscape(doc.credentials)}`;
@@ -110,13 +124,15 @@ function buildTex(doc) {
 \\newcommand{\\cvsection}[1]{%
   \\vspace{5pt}{\\large\\bfseries #1}\\par\\nopagebreak\\vspace{2pt}\\hrule
   \\nopagebreak\\vspace{3pt}\\nopagebreak}
+\\newcommand{\\cvsubsection}[1]{%
+  \\vspace{3pt}{\\bfseries #1}\\par\\nopagebreak\\vspace{2pt}\\nopagebreak}
 \\newcommand{\\entrygap}{\\vspace{3pt}}
 
 \\begin{document}
 
 \\begin{center}
   {\\LARGE\\bfseries ${header}}\\\\[3pt]
-  ${doc.contact.map(tex).join(' \\textbar{} ')}
+  ${contactLines(doc.contact).map((line) => line.map(tex).join(' \\textbar{} ')).join('\\\\\n  ')}
 \\end{center}
 
 ${doc.sections.map(texSection).join('\n\n')}
@@ -157,8 +173,14 @@ const bullet = (text) => new Paragraph({
   children: runs(text), numbering: { reference: 'bullets', level: 0 }, spacing: { after: 20 },
 });
 
-function docxSection(s) {
-  const out = [new Paragraph({ text: s.title, heading: HeadingLevel.HEADING_1 })];
+// Unbulleted list item with a hanging indent (mirrors the LaTeX version).
+const plainItem = (text) => new Paragraph({
+  children: runs(text), indent: { left: 300, hanging: 300 }, spacing: { after: 20 },
+});
+
+// Content shared by sections and subsections.
+function docxBody(s) {
+  const out = [];
   if (s.paragraph) out.push(new Paragraph({ children: runs(s.paragraph) }));
   if (s.skills) {
     for (const k of s.skills) {
@@ -173,20 +195,33 @@ function docxSection(s) {
       out.push(lineParagraph(e.heading, e.right, { bold: true }));
       if (e.sub || e.sub_right) out.push(lineParagraph(e.sub, e.sub_right, { italics: true }));
       if (e.intro) out.push(new Paragraph({ children: runs(e.intro), keepNext: true, spacing: { after: 20 } }));
+      for (const d of e.details || []) out.push(new Paragraph({ children: runs(d), spacing: { after: 0 } }));
       for (const b of e.bullets || []) out.push(bullet(b));
       out.push(new Paragraph({ children: [], spacing: { after: 0 }, style: 'EntryGap' }));
     }
   }
-  if (s.list) for (const item of s.list) out.push(bullet(item));
+  if (s.list) for (const item of s.list) out.push(s.unbulleted ? plainItem(item) : bullet(item));
+  for (const sub of s.subsections || []) {
+    out.push(new Paragraph({ text: sub.title, heading: HeadingLevel.HEADING_2 }), ...docxBody(sub));
+  }
   return out;
 }
 
+const docxSection = (s) => [
+  new Paragraph({ text: s.title, heading: HeadingLevel.HEADING_1 }), ...docxBody(s),
+];
+
 function buildDocx(doc) {
   const header = `${doc.name}, ${doc.credentials}`;
-  const contactRuns = [];
-  doc.contact.forEach((c, i) => {
-    if (i) contactRuns.push(new TextRun({ text: '  |  ' }));
-    contactRuns.push(...runs(c));
+  const contactParagraphs = contactLines(doc.contact).map((line, n, all) => {
+    const children = [];
+    line.forEach((c, i) => {
+      if (i) children.push(new TextRun({ text: '  |  ' }));
+      children.push(...runs(c));
+    });
+    return new Paragraph({
+      alignment: AlignmentType.CENTER, spacing: { after: n === all.length - 1 ? 60 : 0 }, children,
+    });
   });
   return new Document({
     creator: doc.name,
@@ -201,6 +236,11 @@ function buildDocx(doc) {
             spacing: { before: 140, after: 60 }, keepNext: true, outlineLevel: 0,
             border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: '000000', space: 1 } },
           },
+        },
+        {
+          id: 'Heading2', name: 'Heading 2', basedOn: 'Normal', next: 'Normal', quickFormat: true,
+          run: { font: FONT, size: BODY_SIZE, bold: true, color: '000000' },
+          paragraph: { spacing: { before: 80, after: 40 }, keepNext: true, outlineLevel: 1 },
         },
         {
           id: 'EntryGap', name: 'Entry Gap', basedOn: 'Normal',
@@ -229,7 +269,7 @@ function buildDocx(doc) {
           alignment: AlignmentType.CENTER, spacing: { after: 40 },
           children: [new TextRun({ text: header, bold: true, size: 36 })],
         }),
-        new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 }, children: contactRuns }),
+        ...contactParagraphs,
         ...doc.sections.flatMap(docxSection),
       ],
     }],
