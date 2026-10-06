@@ -6,7 +6,7 @@ build writes every version of it, all with identical text:
 | Content file  | Generates |
 |---------------|-----------|
 | `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-resume.tex/.pdf` with its `Sections/*.tex` files |
-| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx` (the moderncv CV is not generated yet) |
+| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-CV.tex/.pdf` with its `Sections/*.tex` files (except the hand-edited `Sections/publications.tex`) |
 
 - `<output>.tex` (then `.pdf`): plain single-column LaTeX, `article` class,
   no tables
@@ -50,6 +50,8 @@ node tools/build.js content/resume.yaml
 pdflatex RuedaBecerrilJM-resume-plain.tex
 pdflatex RuedaBecerrilJM-resume.tex
 ```
+
+(The moderncv CV needs two `pdflatex` runs; `npm run build:cv` does both.)
 
 Commit the YAML together with every regenerated file (`.tex`, `Sections/*.tex`,
 `.pdf`, `.docx`).
@@ -95,9 +97,30 @@ section file, e.g. `file: experience_resume` writes
 the sections appear in the YAML. The moderncv header fits at most two
 contact lines.
 
-Supported styles: `resume` (`moderncvstyleresume.sty`). Each style maps the
-generic entry fields onto that style's `\cventry` arguments in
-`tools/lib/moderncv.js`.
+A section can instead say `manual: <file>`: the moderncv version then
+`\input`s that hand-edited `Sections/<file>.tex` unchanged and never
+overwrites it, while the plain and Word versions still render the section
+from the YAML. The CV does this for `publications`, whose bibliography uses
+its own macros. Keep the two in sync by hand, including the `[n]` numbers
+that other sections cite.
+
+`preamble:` (a list of raw LaTeX lines, not escaped) is added to the moderncv
+main file; the CV uses it for the macros `publications.tex` needs:
+
+```yaml
+moderncv:
+  preamble:
+    - \input{bib_setup3}
+    - \input{newmacros}
+```
+
+Supported styles, each mapping the generic entry fields onto that style's
+`\cventry` arguments in `tools/lib/moderncv.js`:
+
+| `style`    | Style file                  | Used by |
+|------------|-----------------------------|---------|
+| `resume`   | `moderncvstyleresume.sty`   | resume  |
+| `banking2` | `moderncvstylebanking2.sty` | CV      |
 
 ### Sections
 

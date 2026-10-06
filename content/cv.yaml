@@ -2,6 +2,16 @@
 #   node tools/build.js content/cv.yaml
 
 output: RuedaBecerrilJM-CV-plain
+# moderncv version (see content/README.md)
+moderncv:
+  output: RuedaBecerrilJM-CV
+  style: banking2
+  sections_dir: Sections
+  # raw LaTeX for the hand-edited Sections/publications.tex: \mybibitem and
+  # the journal abbreviations (\apj, \mnras, ...)
+  preamble:
+    - \input{bib_setup3}
+    - \input{newmacros}
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -16,6 +26,7 @@ contact:
 
 sections:
   - title: Professional Summary
+    file: profile
     paragraph: >-
       Computational physicist who turns complex physical models into fast,
       tested software and turns large scientific datasets into calibrated
@@ -28,6 +39,7 @@ sections:
       articles and Co-I on a funded NASA Fermi Guest Investigator grant.
 
   - title: Skills
+    file: skills
     skills:
       - label: ML & Data
         text: >-
@@ -53,6 +65,7 @@ sections:
           ParaView, VisIt
 
   - title: Experience
+    file: experience
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
@@ -244,6 +257,7 @@ sections:
           - Published 2 first-author papers in MNRAS [2, 3].
 
   - title: Education
+    file: education
     entries:
       - heading: Ph.D. in Physics
         right: Oct 2011 – Jul 2017
@@ -275,6 +289,8 @@ sections:
           - Lic. Juan Josafat Pichardo Cruz Award
 
   - title: Publications
+    # the moderncv CV uses the hand-edited bibliography instead of this list
+    manual: publications
     subsections:
       - title: Articles (9 published, 3 first-author; 3 in preparation)
         unbulleted: true
@@ -377,6 +393,7 @@ sections:
             [arXiv:1211.1794](https://arxiv.org/abs/1211.1794).
 
   - title: Grants and Fellowships
+    file: grants
     subsections:
       - title: Research Grants
         entries:
@@ -414,6 +431,7 @@ sections:
             sub: Mexican Academy of Sciences
 
   - title: Software and Projects
+    file: projects
     entries:
       - heading: Blazar Population ML
         right: Jan 2026 – Present
@@ -470,6 +488,7 @@ sections:
             overhead.
 
   - title: Awards
+    file: awards
     entries:
       - heading: Marcos Moshinsky Award for Best Poster
         right: Sep 2020
@@ -485,6 +504,7 @@ sections:
             the undergraduate coursework.
 
   - title: Presentations
+    file: meetings
     subsections:
       - title: Invited Talks
         entries:
@@ -574,6 +594,7 @@ sections:
             sub_right: Granada, Spain
 
   - title: Teaching and Mentoring
+    file: teaching
     entries:
       - heading: Zachary Davis, graduate student
         right: 2018 – 2022
@@ -601,6 +622,7 @@ sections:
         sub_right: Substitute Instructor
 
   - title: Professional Development
+    file: profes
     entries:
       - heading: High Performance Computing on Frontera
         right: May – Jun 2021
@@ -650,6 +672,7 @@ sections:
         sub_right: Workshop, 33 hours
 
   - title: Certifications
+    file: certif
     entries:
       - heading: Gen AI Intensive
         right: "[Kaggle](https://www.kaggle.com/certification/badges/jmrb103/96)"
@@ -668,6 +691,7 @@ sections:
         sub: Python programming, data science, data communication, machine learning
 
   - title: Outreach
+    file: outreach
     entries:
       - heading: >-
           Los más rápidos y los más furiosos (The Fastest and the Most
@@ -727,6 +751,7 @@ sections:
         sub_right: Talk
 
   - title: Service
+    file: other
     entries:
       - heading: Organizing contributor
         right: Dec 2012
@@ -738,6 +763,7 @@ sections:
         sub_right: Toluca, Mexico
 
   - title: Languages
+    file: languages
     paragraph: >-
       Spanish (native), English (full professional proficiency), Catalan
       (basic), Nahuatl (basic)
