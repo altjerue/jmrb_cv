@@ -56,22 +56,22 @@ function tex(str) {
 
 // \leftright puts the right-hand text (dates, location) on the same line when
 // it fits, otherwise flush right on the next line, never broken or touching
-// the left text. \nopagebreak keeps an entry's heading lines with its body.
+// the left text.
 const lineWithRight = (left, right) =>
-  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}\\par`) + '\\nopagebreak';
+  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}\\par`);
 
 function texEntry(e) {
-  const out = [];
-  out.push(lineWithRight(`\\textbf{${tex(e.heading)}}`, e.right));
-  if (e.sub || e.sub_right) out.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right));
-  if (e.intro) out.push(`${tex(e.intro)}\\par\\nopagebreak`);
-  for (const d of e.details || []) out.push(`${tex(d)}\\par`);
+  // The heading lines are glued (\nopagebreak) to whatever follows them in the
+  // same entry, but nothing is glued after the entry's last line: otherwise
+  // consecutive short entries (e.g. Education) chain into one unbreakable block.
+  const head = [lineWithRight(`\\textbf{${tex(e.heading)}}`, e.right)];
+  if (e.sub || e.sub_right) head.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right));
+  if (e.intro) head.push(`${tex(e.intro)}\\par`);
+  const body = (e.details || []).map((d) => `${tex(d)}\\par`);
   if (e.bullets && e.bullets.length) {
-    out.push('\\begin{itemize}');
-    for (const b of e.bullets) out.push(`  \\item{} ${tex(b)}`);
-    out.push('\\end{itemize}');
+    body.push(['\\begin{itemize}', ...e.bullets.map((b) => `  \\item{} ${tex(b)}`), '\\end{itemize}'].join('\n'));
   }
-  return out.join('\n') + '\n\\entrygap\n';
+  return [...head, ...body].join('\\nopagebreak\n') + '\n\\entrygap\n';
 }
 
 // Content shared by sections and subsections.
