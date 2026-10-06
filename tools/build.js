@@ -176,7 +176,7 @@ function lineParagraph(left, right, leftStyle, keepNext = true) {
 }
 
 const bullet = (text) => new Paragraph({
-  children: runs(text), numbering: { reference: 'bullets', level: 0 }, spacing: { after: 20 },
+  children: runs(text), numbering: { reference: 'bullets', level: 0 }, spacing: { after: 10 },
 });
 
 // Unbulleted list item with a hanging indent (mirrors the LaTeX version).
@@ -192,7 +192,7 @@ function docxBody(s) {
     for (const k of s.skills) {
       out.push(new Paragraph({
         children: [new TextRun({ text: `${k.label}: `, bold: true }), ...runs(k.text)],
-        spacing: { after: 30 },
+        spacing: { after: 20 },
       }));
     }
   }
@@ -233,7 +233,9 @@ function buildDocx(doc) {
     creator: doc.name,
     title: header,
     styles: {
-      default: { document: { run: { font: FONT, size: BODY_SIZE } } },
+      // line: 230 (~0.96 x single) offsets Calibri's tall default line
+      // height so the Word resume fits the same 2 pages as the LaTeX one
+      default: { document: { run: { font: FONT, size: BODY_SIZE }, paragraph: { spacing: { line: 230 } } } },
       paragraphStyles: [
         {
           id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true,
