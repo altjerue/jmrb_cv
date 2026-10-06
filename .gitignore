@@ -10,3 +10,4 @@ auto
 *.fls
 *latexmk
 *.sty
+node_modules/
