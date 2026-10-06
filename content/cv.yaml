@@ -64,8 +64,8 @@ sections:
         bullets:
           - >-
             Reviewed 50+ expert-level problems in physics, hydrodynamics,
-            astrophysics, and cosmology, and wrote prompts that stumped
-            frontier models.
+            astrophysics, and cosmology; wrote original prompts that stumped
+            frontier models and co-developed others with fellow writers.
           - >-
             Diagnose failure modes in model reasoning and write structured
             feedback to improve scientific accuracy.
@@ -130,9 +130,9 @@ sections:
             Built Java Kafka consumers that moved data between enterprise
             databases, deployed through Jenkins and OpenShift CI/CD pipelines.
           - >-
-            Created Splunk dashboards tracking the users shared between
-            enterprise systems and Oracle EBS, with alerts that flagged
-            production incidents.
+            Created Splunk dashboards tracking the 200–400 users shared
+            between enterprise systems and Oracle EBS, with alerts that
+            flagged production incidents.
           - >-
             Wrote full test suites for 5+ Python services in the CI pipeline,
             keeping production defect rates low.
@@ -154,9 +154,9 @@ sections:
             Added black-hole spin to the simulations with under 5% runtime
             overhead.
           - >-
-            Designed the simulation experiments and ran and benchmarked the
-            code on TACC's Frontera supercomputer, identifying performance
-            optimization opportunities.
+            Designed and ran benchmark simulations of the new features on
+            TACC's Frontera supercomputer (about 1,200 node-hours),
+            identifying performance optimization opportunities.
           - >-
             Calibrated Paramo model parameters against Fermi-LAT gamma-ray
             spectra with gradient-based optimization, and supervised a
@@ -177,8 +177,8 @@ sections:
           - >-
             Architected Paramo, an open-source Fortran 95 library that solves
             the Fokker–Planck equation coupled to radiative transfer;
-            parallelized it with OpenMP for a 20× speedup over the serial
-            code on 10 cores.
+            parallelized and optimized it with OpenMP, making it about 20×
+            faster than the original serial code on 5 cores.
           - >-
             Paramo has been adopted by other research groups, including in
             Combi & Siegel (2023).
@@ -457,8 +457,9 @@ sections:
         bullets:
           - >-
             Fokker–Planck and radiative-transfer solver for relativistic
-            particle distributions; 20× OpenMP speedup on 10 cores; used by
-            other groups, including Combi & Siegel (2023).
+            particle distributions; about 20× faster than the original serial
+            code on 5 cores after OpenMP parallelization and optimization;
+            used by other groups, including Combi & Siegel (2023).
       - heading: PatchworkMHD
         right: Feb 2021 – Apr 2022
         sub: Large-scale MHD simulation code (NSF project)
