@@ -1,0 +1,743 @@
+# Single source for the plain long-form CV. See content/README.md.
+#   node tools/build.js content/cv.yaml
+
+output: RuedaBecerrilJM-CV-plain
+name: Jesús M. Rueda-Becerril
+credentials: Ph.D.
+contact:
+  - - Seattle, WA
+    - "[jm.ruebe@gmail.com](mailto:jm.ruebe@gmail.com)"
+    - +1 (765) 430-2330
+    - "[linkedin.com/in/jeruebe](https://linkedin.com/in/jeruebe)"
+  - - "[altjerue.github.io](https://altjerue.github.io)"
+    - "[github.com/altjerue](https://github.com/altjerue)"
+    - "[orcid.org/0000-0003-1988-1912](https://orcid.org/0000-0003-1988-1912)"
+    - "[Google Scholar](https://scholar.google.com/citations?user=hrld5zgAAAAJ)"
+
+sections:
+  - title: Professional Summary
+    paragraph: >-
+      Computational physicist who turns complex physical models into fast,
+      tested software and turns large scientific datasets into calibrated
+      models. Ph.D. in Physics and ten years building simulation codes and the
+      data pipelines around them: author of Paramo, an open-source
+      Fortran/OpenMP radiative-transfer library used by other research groups;
+      led a 7-person upgrade of the PatchworkMHD black-hole simulation code on
+      the Frontera supercomputer; mapped wetland probability across a
+      2,160 km² watershed with random-forest models. Nine peer-reviewed
+      articles and Co-I on a funded NASA Fermi Guest Investigator grant.
+
+  - title: Skills
+    skills:
+      - label: ML & Data
+        text: >-
+          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
+          Pandas, Astropy, random forest, SVM, neural networks,
+          gradient-based optimization, parameter estimation, uncertainty
+          quantification, synthetic dataset generation
+      - label: Scientific Computing & HPC
+        text: >-
+          Numerical PDEs (Fokker–Planck, advection–diffusion), radiative
+          transfer, relativistic MHD, Lagrangian particle dynamics,
+          finite-difference/finite-volume methods, numerical linear algebra,
+          OpenMP, MPI, OpenACC, SLURM, PBS, HDF5
+      - label: Geospatial & Remote Sensing
+        text: >-
+          Sentinel-1/2 multispectral imagery, DEM terrain analysis,
+          raster/vector pipelines, QGIS, geospatial feature engineering
+      - label: Languages
+        text: Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell
+      - label: Tools
+        text: >-
+          Git, Docker, Azure, Jenkins, OpenShift, Kafka, Splunk, Jira,
+          ParaView, VisIt
+
+  - title: Experience
+    entries:
+      - heading: Independent Contractor
+        right: Jan 2026 – Present
+        sub: Mercor
+        sub_right: Remote
+        intro: >-
+          Physics subject-matter expert evaluating frontier language models
+          for a leading AI lab.
+        bullets:
+          - >-
+            Reviewed 50+ expert-level problems in physics, hydrodynamics,
+            astrophysics, and cosmology; wrote original prompts that stumped
+            frontier models and co-developed others with fellow writers.
+          - >-
+            Diagnose failure modes in model reasoning and write structured
+            feedback to improve scientific accuracy.
+          - >-
+            Benchmark model performance and quality-check solutions to
+            complex STEM problems.
+
+      - heading: Spatial Data Scientist
+        right: May 2025 – Jan 2026
+        sub: TealWaters
+        sub_right: Seattle, WA
+        intro: >-
+          Built geospatial ML pipelines and optimized terrain-analysis code
+          for wetland mapping.
+        bullets:
+          - >-
+            Mapped wetland probability across the 2,160 km² Skykomish
+            watershed with the Wetland Intrinsic Potential (WIP) random-forest
+            model, reaching >75% accuracy.
+          - >-
+            Optimized the terrain-modeling code that computes elevation
+            derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving
+            its computational performance.
+          - >-
+            Engineered features from Sentinel-1/2 multispectral imagery and
+            terrain derivatives for ML land-cover and wetland models; built
+            Python processing tools and QGIS visualizations.
+          - >-
+            Presented results to managers and decision-makers, trained 2
+            colleagues on the WIP tool, and worked with software engineers to
+            move prototype tools into production.
+
+      - heading: Independent Researcher & Open-Source Developer
+        right: Jan 2024 – May 2025
+        sub: Self-directed
+        sub_right: Seattle, WA
+        intro: >-
+          Continued simulation research and open-source development between
+          industry roles.
+        bullets:
+          - >-
+            Co-developed Tleco, a Rust/Python toolkit that models radiation
+            from relativistic outflows by solving the Fokker–Planck equation
+            coupled to radiative transfer; published in ApJ (2024) [9].
+          - >-
+            Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
+            library that simulates wind-driven spore dispersal over forested,
+            hilly terrain, parallelized with RcppParallel and OpenMP.
+          - >-
+            Invited talk on machine learning in environmental science at the
+            University of Washington (2024).
+
+      - heading: Software Engineer
+        right: Apr 2022 – Jan 2024
+        sub: Paychex
+        sub_right: Remote
+        intro: >-
+          Built and tested data-integration services between enterprise
+          systems and Oracle E-Business Suite.
+        bullets:
+          - >-
+            Built Java Kafka consumers that moved data between enterprise
+            databases, deployed through Jenkins and OpenShift CI/CD pipelines.
+          - >-
+            Created Splunk dashboards tracking the 200–400 users shared
+            between enterprise systems and Oracle EBS, with alerts that
+            flagged production incidents.
+          - >-
+            Wrote full test suites for 5+ Python services in the CI pipeline,
+            keeping production defect rates low.
+          - Prepared, validated, and analyzed Oracle EBS data with SQL.
+
+      - heading: Postdoctoral Research Associate
+        right: Feb 2021 – Apr 2022
+        sub: Rochester Institute of Technology
+        sub_right: Rochester, NY
+        intro: >-
+          HPC simulations of supermassive black-hole binaries in an
+          NSF-funded project.
+        bullets:
+          - >-
+            Led a 7-person team upgrading PatchworkMHD, a C code for
+            magnetohydrodynamic simulations of supermassive black-hole
+            binaries.
+          - >-
+            Added black-hole spin to the simulations with under 5% runtime
+            overhead.
+          - >-
+            Designed and ran benchmark simulations of the new features on
+            TACC's Frontera supercomputer (about 1,200 node-hours),
+            identifying performance optimization opportunities.
+          - >-
+            Calibrated Paramo model parameters against Fermi-LAT gamma-ray
+            spectra with gradient-based optimization, and supervised a
+            graduate student applying gradient descent to the same problem.
+          - >-
+            Co-authored 2 papers from a multi-institution study of binary
+            neutron-star mergers [6, 7] and a third on blazar heating and
+            cooling [8].
+
+      - heading: Postdoctoral Research Fellow
+        right: Oct 2018 – Nov 2020
+        sub: Purdue University
+        sub_right: West Lafayette, IN
+        intro: >-
+          Radiative-transfer modeling of relativistic jets (blazars and
+          gamma-ray burst afterglows).
+        bullets:
+          - >-
+            Architected Paramo, an open-source Fortran 95 library that solves
+            the Fokker–Planck equation coupled to radiative transfer;
+            parallelized and optimized it with OpenMP, making it about 20×
+            faster than the original serial code on 5 cores.
+          - >-
+            Paramo has been adopted by other research groups, including in
+            Combi & Siegel (2023).
+          - >-
+            Co-I on two NASA Fermi Guest Investigator proposals; one was
+            funded ($68K) and supported the finding that blazar jets are
+            launched with similar energy per baryon, independently of their
+            power [5].
+          - >-
+            Added numerical-integration and OpenMP features to Paramo and
+            built Python tools to compute energy losses and spectra of
+            high-energy particles in gamma-ray burst afterglows [4].
+          - >-
+            Mentored 3 graduate students (1 M.S., 2 Ph.D.), co-authoring
+            papers with each.
+          - >-
+            Wrote Python scripts for statistical modeling of the COVID-19
+            outbreak in Mexico with a multidisciplinary group, and co-wrote
+            Spanish-language infographics and blog posts against
+            misinformation.
+
+      - heading: Postdoctoral Research Fellow
+        right: Jan 2018 – Sep 2018
+        sub: Universidad Michoacana de San Nicolás de Hidalgo
+        sub_right: Morelia, Mexico
+        bullets:
+          - >-
+            Built a Python pipeline that turned GRTrans black-hole simulation
+            images into training data for an SVM classifier of black-hole
+            spin (grayscale conversion, intensity normalization, spatial
+            feature extraction).
+          - >-
+            Released an open-source Python tool for computing
+            radiative-transfer spectra and light curves in relativistic
+            astrophysics.
+          - >-
+            Organized an HDF5 workshop to train graduate students in
+            high-volume data storage.
+
+      - heading: Graduate Research Assistant
+        right: Oct 2011 – Jul 2017
+        sub: Universitat de València
+        sub_right: Valencia, Spain
+        bullets:
+          - >-
+            Automated runs of the C-SPEV radiative-transfer code with Shell
+            and Python pipelines: 10–60 simulations per project and tens of
+            GB of HDF5 output, with data-quality checks for downstream
+            analysis.
+          - >-
+            Analyzed multi-wavelength observations from the NASA Fermi-LAT
+            telescope and the Very Long Baseline Array (VLBA), including
+            cross-matching sources across catalogs by sky coordinates and
+            fitting log-parabola spectra.
+          - >-
+            Fit C-SPEV simulation models to telescope data, identifying
+            spectral and light-curve patterns that quantify the magnetization
+            of plasma in blazars.
+          - >-
+            Extended C-SPEV to compute discrete and continuous spectra from
+            particle distributions of arbitrary shape, without affecting
+            simulation runtime.
+          - Published 2 first-author papers in MNRAS [2, 3].
+
+  - title: Education
+    entries:
+      - heading: Ph.D. in Physics
+        right: Oct 2011 – Jul 2017
+        sub: Universitat de València
+        sub_right: Valencia, Spain
+        details:
+          - Excellent *cum laude*
+          - "Advisors: Prof. Miguel A. Aloy and Dr. Petar Mimica"
+          - >-
+            Thesis: [Numerical treatment of radiation processes in the
+            internal shocks of magnetized relativistic outflows](http://roderic.uv.es/handle/10550/60003)
+      - heading: M.Sc. in Physics
+        right: Aug 2009 – Sep 2011
+        sub: Universidad Michoacana de San Nicolás de Hidalgo
+        sub_right: Morelia, Mexico
+        details:
+          - "Advisor: Prof. José A. Cervera"
+          - "Thesis: *Study of TOV stars with the SPH method*"
+      - heading: B.Sc. in Physics
+        right: Aug 2004 – Dec 2008
+        sub: Universidad Autónoma del Estado de México
+        sub_right: Toluca, Mexico
+        details:
+          - "Advisor: Prof. Francisco S. Guzmán"
+          - >-
+            Thesis: *Numerical solution of null geodesics for the generation
+            of gravitational lenses produced by spherically-symmetric and
+            static spacetimes*
+          - Lic. Juan Josafat Pichardo Cruz Award
+
+  - title: Publications
+    subsections:
+      - title: Articles (9 published, 3 first-author; 3 in preparation)
+        unbulleted: true
+        list:
+          - >-
+            [12] Winkowski, S., **Rueda-Becerril, J. M.**, & Willing, C.
+            *Using Numerical Simulations of Wind on Hilly Terrain to Model
+            Propagule Dispersal*, in prep.
+          - >-
+            [11] Holzman, L., **Rueda-Becerril, J. M.**, Creamer, C., &
+            Willing, C. *Random Forest Link Landscape Position to Drought
+            Resilience in Giant Sequoia Forests*, in prep.
+          - >-
+            [10] **Rueda-Becerril, J. M.**, Winkowski, S., & Willing, C.
+            *WindsOfChange: A New Toolkit for Modeling Spore Dispersal in
+            Hilly Terrains*, in prep.
+          - >-
+            [9] Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D. *Tleco: A
+            Toolkit for Modeling Radiative Signatures from Relativistic
+            Outflows*, [ApJ 976, 182 (2024)](https://doi.org/10.3847/1538-4357/ad8bc2),
+            [arXiv:2405.17581](https://arxiv.org/abs/2405.17581).
+          - >-
+            [8] Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D.
+            *Balancing Turbulent Heating with Radiative Cooling in Blazars*,
+            [MNRAS 513, 5766–5779 (2022)](https://doi.org/10.1093/mnras/stac1282),
+            [arXiv:2201.07790](https://arxiv.org/abs/2201.07790).
+          - >-
+            [7] Lopez-Armengol, F. G., Etienne, Z. B., [...],
+            **Rueda-Becerril, J. M.**, [...] *Handing off the outcome of
+            binary neutron star mergers for accurate and long-term postmerger
+            simulations*, [Phys. Rev. D 106, 083015 (2022)](https://doi.org/10.1103/PhysRevD.106.083015),
+            [arXiv:2112.09817](https://arxiv.org/abs/2112.09817).
+          - >-
+            [6] Murguia-Berthier, A., Noble, S., [...],
+            **Rueda-Becerril, J. M.**, [...] *HARM3D+NUC: A New Method for
+            Simulating the Post-merger Phase of Binary Neutron Star Mergers
+            with GRMHD, Tabulated EOS, and Neutrino Leakage*,
+            [ApJ 919, 95 (2021)](https://doi.org/10.3847/1538-4357/ac1119),
+            [arXiv:2106.05356](https://arxiv.org/abs/2106.05356).
+          - >-
+            [5] **Rueda-Becerril, J. M.**, Harrison, A. O., & Giannios, D.
+            *Blazar jets launched with similar energy per baryon,
+            independently of their power*,
+            [MNRAS 501, 4092–4102 (2021)](https://doi.org/10.1093/mnras/staa3925),
+            [arXiv:2009.02273](https://arxiv.org/abs/2009.02273).
+          - >-
+            [4] Zhang, H., Christie, I., Petropoulou, M.,
+            **Rueda-Becerril, J. M.**, & Giannios, D. *Inverse Compton
+            Signatures of Gamma-Ray Burst Afterglows*,
+            [MNRAS 496, 974–986 (2020)](https://doi.org/10.1093/mnras/staa1583),
+            [arXiv:1910.14049](https://arxiv.org/abs/1910.14049).
+          - >-
+            [3] **Rueda-Becerril, J. M.**, Mimica, P., & Aloy, M. A. *On the
+            influence of a hybrid thermal–non-thermal distribution in the
+            internal shocks model for blazars*,
+            [MNRAS 468, 1169–1182 (2017)](https://doi.org/10.1093/mnras/stx476),
+            [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
+          - >-
+            [2] **Rueda-Becerril, J. M.**, Mimica, P., & Aloy, M. A. *The
+            influence of the magnetic field on the spectral properties of
+            blazars*, [MNRAS 438, 1856–1869 (2014)](https://doi.org/10.1093/mnras/stt2335),
+            [arXiv:1310.5441](https://arxiv.org/abs/1310.5441).
+          - >-
+            [1] Guzmán, F. S., & **Rueda-Becerril, J. M.** *Spherical boson
+            stars as black hole mimickers*,
+            [Phys. Rev. D 80, 084023 (2009)](https://doi.org/10.1103/PhysRevD.80.084023),
+            [arXiv:1009.1250](https://arxiv.org/abs/1009.1250).
+      - title: Conference Proceedings
+        unbulleted: true
+        list:
+          - >-
+            [P5] **Rueda-Becerril, J. M.** *A numerical approach for radiative
+            cooling in relativistic outflows*,
+            [Astron. Nachr. 342, 277–282 (2021)](https://doi.org/10.1002/asna.202113919),
+            9th International Workshop on Astronomy and Relativistic
+            Astrophysics, [arXiv:2011.13797](https://arxiv.org/abs/2011.13797).
+          - >-
+            [P4] **Rueda-Becerril, J. M.**, Harrison, A. O., & Giannios, D.
+            *The blazar sequence revised*,
+            [Astron. Nachr. 342, 147–152 (2021)](https://doi.org/10.1002/asna.202113895),
+            9th International Workshop on Astronomy and Relativistic
+            Astrophysics, [arXiv:2011.13805](https://arxiv.org/abs/2011.13805).
+          - >-
+            [P3] **Rueda-Becerril, J. M.**, Mimica, P., & Aloy, M. A.
+            *Numerical simulations of the internal shock model in magnetized
+            relativistic jets of blazars*,
+            [PoS(SWIFT 10) 233, 159 (2014)](https://doi.org/10.22323/1.233.0159),
+            [arXiv:1502.07882](https://arxiv.org/abs/1502.07882).
+          - >-
+            [P2] **Rueda-Becerril, J. M.**, Mimica, P., Aloy, M. A., & Aloy, C.
+            *Numerical study of broadband spectra caused by internal shocks in
+            magnetized relativistic jets of blazars*,
+            [EPJ Web Conf. 61, 02007 (2013)](https://doi.org/10.1051/epjconf/20136102007),
+            [arXiv:1309.4612](https://arxiv.org/abs/1309.4612).
+          - >-
+            [P1] Mimica, P., Aloy, M. A., **Rueda-Becerril, J. M.**, Tabik, S.,
+            & Aloy, C. *Numerical simulations of dynamics and emission from
+            relativistic astrophysical jets*,
+            [J. Phys.: Conf. Ser. 454, 012001 (2013)](https://doi.org/10.1088/1742-6596/454/1/012001),
+            [arXiv:1211.1794](https://arxiv.org/abs/1211.1794).
+
+  - title: Grants and Fellowships
+    subsections:
+      - title: Research Grants
+        entries:
+          - heading: NASA Fermi Guest Investigator Program, Cycle 12
+            right: "2019"
+            sub: A simple model to understand the blazar sequence
+            sub_right: "Grant #121077, $68K"
+            details:
+              - "PI: D. Giannios; Co-I: J. M. Rueda-Becerril"
+      - title: Fellowships
+        entries:
+          - heading: International Postdoctoral Fellowship
+            right: Oct 2018 – Nov 2020
+            sub: National Council of Science and Technology (CONACyT), Mexico
+          - heading: Postdoctoral Fellowship
+            right: Jan 2018 – Sep 2018
+            sub: >-
+              Secretariat of Public Education, Mexico (Program for the
+              Professional Development of Higher Education Institutions)
+          - heading: Study-Abroad Fellowship
+            right: Sep 2014 – Aug 2016
+            sub: National Council of Science and Technology (CONACyT), Mexico
+          - heading: Santiago Grisolía Fellowship
+            right: Oct 2011 – Jun 2014
+            sub: >-
+              Council of Education, Research, Culture and Sport, Valencian
+              Community, Spain
+          - heading: M.Sc. Fellowship
+            right: Sep 2009 – Aug 2011
+            sub: >-
+              CONACyT, at the Institute of Physics and Mathematics,
+              Universidad Michoacana de San Nicolás de Hidalgo
+          - heading: Summer Research Fellowship (XVII Summer of Scientific Research)
+            right: Jun 2007 – Aug 2007
+            sub: Mexican Academy of Sciences
+
+  - title: Software and Projects
+    entries:
+      - heading: Blazar Population ML
+        right: Jan 2026 – Present
+        sub: Scientific ML (Python, scikit-learn, PyTorch)
+        sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
+        bullets:
+          - >-
+            Applying classical ML and Bayesian inference to the Fermi-LAT
+            4LAC-DR3 catalog (3,407 sources) to recover physical jet
+            parameters from multi-wavelength data.
+          - >-
+            Building a neural network that maps physical jet parameters to
+            observable spectral energy distributions accurately enough to
+            compare with Tleco results.
+          - >-
+            Forecasting blazar gamma-ray flares with a time-series foundation
+            model fine-tuned on Tleco-generated synthetic light curves.
+      - heading: WindsOfChange
+        right: Aug 2024 – Present
+        sub: Lagrangian particle-dispersion library (C++/R)
+        sub_right: "[github.com/UW-ForestMycobiomeLab/WindSporesHills](https://github.com/UW-ForestMycobiomeLab/WindSporesHills)"
+        bullets:
+          - >-
+            Simulates particle dispersion, atmospheric turbulence, and flow
+            over hilly terrain with forest canopy, based on analytical models
+            (Massman & Weil 1999; Finnigan & Belcher 2004); designed to scale
+            to tens of thousands of particles over kilometer-scale domains.
+      - heading: Tleco
+        right: Jan 2024 – Sep 2024
+        sub: Radiative-transfer toolkit (Rust/Python)
+        sub_right: "[github.com/zkdavis/Tleco](https://github.com/zkdavis/Tleco)"
+        bullets:
+          - >-
+            Numerical PDE solvers, particle-distribution algorithms, and
+            spectral calculations for relativistic plasmas; successor to
+            Paramo [9].
+      - heading: Paramo
+        right: Oct 2018 – Apr 2022
+        sub: Radiative-transfer library (Fortran 95, OpenMP)
+        sub_right: "[github.com/altjerue/paramo](https://github.com/altjerue/paramo)"
+        bullets:
+          - >-
+            Fokker–Planck and radiative-transfer solver for relativistic
+            particle distributions; about 20× faster than the original serial
+            code on 5 cores after OpenMP parallelization and optimization;
+            used by other groups, including Combi & Siegel (2023).
+      - heading: PatchworkMHD
+        right: Feb 2021 – Apr 2022
+        sub: Large-scale MHD simulation code (NSF project)
+        bullets:
+          - >-
+            Led a 7-person upgrade of this production C code for HPC
+            environments, adding black-hole spin with under 5% runtime
+            overhead.
+
+  - title: Awards
+    entries:
+      - heading: Marcos Moshinsky Award for Best Poster
+        right: Sep 2020
+        sub: >-
+          9th International Workshop on Astronomy and Relativistic
+          Astrophysics (IWARA 2020), video conference
+      - heading: Lic. Juan Josafat Pichardo Cruz Award
+        right: "2009"
+        sub: Universidad Autónoma del Estado de México
+        details:
+          - >-
+            For defending a licentiate thesis within a year of completing
+            the undergraduate coursework.
+
+  - title: Presentations
+    subsections:
+      - title: Invited Talks
+        entries:
+          - heading: The Role of Machine Learning in Environmental Science
+            right: Mar 2024
+            sub: Seminar on Climate Change Ecology, University of Washington
+            sub_right: Seattle, WA
+          - heading: >-
+              Morphology of the spectra from numerical simulations of the
+              internal shocks model for blazars
+            right: Feb 2019
+            sub: Astrophysics Seminar, Purdue University
+            sub_right: West Lafayette, IN
+          - heading: >-
+              Numerical simulations of the internal shocks model in
+              magnetized relativistic jets of blazars
+            right: Jun 2018
+            sub: DATA Group Weekly Seminar, Instituto de Astronomía, UNAM
+            sub_right: Mexico City, Mexico
+          - heading: >-
+              Numerical treatment of non-thermal radiation in the internal
+              shocks model for blazars
+            right: Mar 2018
+            sub: >-
+              Weekly Seminar, Instituto de Física y Matemáticas, Universidad
+              Michoacana de San Nicolás de Hidalgo
+            sub_right: Morelia, Mexico
+          - heading: >-
+              Numerical simulations of the internal shock model in magnetized
+              relativistic jets of blazars
+            right: Oct 2014
+            sub: "IVICFA's Fridays: Computation in Physics, IFIC"
+            sub_right: Paterna, Spain
+      - title: Contributed Talks
+        entries:
+          - heading: >-
+              Simulations of supermassive binary black holes accretion
+              dynamics in the spinning case
+            right: Apr 2022
+            sub: APS April Meeting 2022
+            sub_right: New York, NY
+          - heading: >-
+              A numerical approach to the Klein-Nishina corrections of
+              radiative cooling in relativistic outflows
+            right: Apr 2021
+            sub: APS April Meeting 2021
+            sub_right: Online
+          - heading: The blazar sequence revised
+            right: Sep 2020
+            sub: 9th International Workshop on Astronomy and Relativistic Astrophysics
+            sub_right: Online
+            details:
+              - "Video: [youtube.com/watch?v=BAZNWLNT69M](https://www.youtube.com/watch?v=BAZNWLNT69M)"
+          - heading: >-
+              Influence of the magnetic field on the spectral properties of
+              blazars in the internal shocks scenario
+            right: Jun 2014
+            sub: Extreme-Astrophysics in an Ever-Changing Universe
+            sub_right: Ierápetra, Greece
+          - heading: >-
+              Numerical study of broadband spectra caused by internal shocks
+              in magnetized relativistic jets
+            right: Jul 2013
+            sub: XXXIV Biennial Meeting of the Royal Spanish Society of Physics
+            sub_right: Valencia, Spain
+      - title: Posters
+        entries:
+          - heading: A numerical approach for radiative cooling in relativistic outflows
+            right: Sep 2020
+            sub: 9th International Workshop on Astronomy and Relativistic Astrophysics
+            sub_right: Online
+            details:
+              - >-
+                Marcos Moshinsky Award for Best Poster. Video:
+                [youtube.com/watch?v=0TJiKg7kOPI](https://www.youtube.com/watch?v=0TJiKg7kOPI)
+          - heading: >-
+              Numerical simulations of the internal shock model in magnetized
+              relativistic jets of blazars
+            right: Dec 2014
+            sub: "Swift: 10 Years of Discovery"
+            sub_right: Rome, Italy
+          - heading: >-
+              Numerical study of broadband spectra caused by internal shocks
+              in magnetized relativistic jets
+            right: Jun 2013
+            sub: The Innermost Regions of Relativistic Jets and Their Magnetic Fields
+            sub_right: Granada, Spain
+
+  - title: Teaching and Mentoring
+    entries:
+      - heading: Zachary Davis, graduate student
+        right: 2018 – 2022
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored papers [8, 9]
+      - heading: Amanda O. Harrison, graduate student
+        right: 2018 – 2020
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored paper [5]
+      - heading: Hao Zhang, graduate student
+        right: 2018 – 2019
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored paper [4]
+      - heading: Thermodynamics (graduate level)
+        right: Jun 2018
+        sub: >-
+          Instituto de Física y Matemáticas, Universidad Michoacana de San
+          Nicolás de Hidalgo
+        sub_right: Substitute Instructor
+
+  - title: Professional Development
+    entries:
+      - heading: High Performance Computing on Frontera
+        right: May – Jun 2021
+        sub: Jason Allison et al., TACC, Austin, TX
+        sub_right: Lecture series
+      - heading: Writing Winning Grants
+        right: Nov 2019
+        sub: Dr. Lauren Broyles, Purdue University
+        sub_right: Lecture
+      - heading: "XSEDE HPC Workshop: Summer Boot Camp"
+        right: Jun 2019
+        sub: John Urbanic, Purdue University
+        sub_right: Workshop
+      - heading: Data Analysis and Machine Learning with Python
+        right: Feb 2017
+        sub: Dr. Alejandro Torres, Universitat de València
+        sub_right: Workshop
+      - heading: >-
+          Numerical Relativity Simulations of BBH Coalescence Using the
+          Einstein Toolkit
+        right: Jul 2016
+        sub: Dr. Vassilios Mewes, Universitat de València
+        sub_right: Workshop, 8 hours
+      - heading: The Universe in the Light of PLANCK and BICEP2
+        right: May 2014
+        sub: Prof. Nick Mavromatos, Universitat de València
+        sub_right: Lecture series, 2 credits
+      - heading: Dark Matter
+        right: Sep 2013
+        sub: Prof. Alejandro Ibarra, Universitat de València
+        sub_right: Lecture series, 2 credits
+      - heading: International Cargèse School on Cosmic Accelerators
+        right: Apr – May 2013
+        sub: Institut d'Études Scientifiques de Cargèse, France
+        sub_right: Summer school
+      - heading: Introduction to C++ Programming
+        right: Apr 2012
+        sub: Dr. Jacek Generowicz, Universitat de València
+        sub_right: Workshop, 6 credits
+      - heading: Numerical Relativistic Astrophysics
+        right: Mar – Apr 2012
+        sub: Prof. Luciano Rezzolla, Universitat de València
+        sub_right: Lecture series, 9 hours
+      - heading: Fortran for Scientific Computing
+        right: Mar 2012
+        sub: HLRS, University of Stuttgart, Germany
+        sub_right: Workshop, 33 hours
+
+  - title: Certifications
+    entries:
+      - heading: Gen AI Intensive
+        right: "[Kaggle](https://www.kaggle.com/certification/badges/jmrb103/96)"
+        sub: Generative AI
+      - heading: Data Scientist Professional with Python
+        right: DataCamp
+        sub: Python programming, data science, data communication, machine learning
+      - heading: Machine Learning Scientist with Python
+        right: DataCamp
+        sub: Machine learning, NLP, deep learning, image processing, big data
+      - heading: Mathematical Foundations of Machine Learning
+        right: "[Udemy](https://www.udemy.com/certificate/UC-605df108-ae80-4297-8c8f-6bc15b967511/)"
+        sub: Python programming, data science, statistics, machine learning
+      - heading: Python for Statistical Analysis
+        right: "[Udemy](https://www.udemy.com/certificate/UC-e8557ac8-13f9-41bf-ab46-f196a041b725/)"
+        sub: Python programming, data science, data communication, machine learning
+
+  - title: Outreach
+    entries:
+      - heading: >-
+          Los más rápidos y los más furiosos (The Fastest and the Most
+          Furious)
+        right: Sep 2020
+        sub: >-
+          Community of Undergraduate Physics Students, Juárez Autonomous
+          University of Tabasco
+        sub_right: Online talk
+      - heading: >-
+          Una simulación de la física y la astrofísica (A Simulation of
+          Physics and Astrophysics)
+        right: Aug 2020
+        sub: >-
+          Community of Undergraduate Physics Students, Juárez Autonomous
+          University of Tabasco
+        sub_right: Online talk
+      - heading: >-
+          ANITA y la teoría de los universos paralelos (ANITA and the Theory
+          of Parallel Universes)
+        right: May 2020
+        sub: Científicos Mexicanos en el Extranjero
+        sub_right: Blog post
+        details:
+          - "[mexiciencia.github.io/post/anita](https://mexiciencia.github.io/post/anita/)"
+      - heading: ¿Qué es el modelo SIR? (What is the SIR Model?)
+        right: May 2020
+        sub: Científicos Mexicanos en el Extranjero
+        sub_right: Blog post
+        details:
+          - "[mexiciencia.github.io/post/modelo-sir](https://mexiciencia.github.io/post/modelo-sir/)"
+      - heading: >-
+          Evolución del brote epidémico de COVID-19 (Evolution of the
+          COVID-19 Epidemic Outbreak)
+        right: Apr 2020
+        sub: Científicos Mexicanos en el Extranjero
+        sub_right: Blog post
+        details:
+          - >-
+            Data analysis and modeling collaborator.
+            [mexiciencia.github.io/post/covid19](https://mexiciencia.github.io/post/covid19/)
+      - heading: Annual Department of Physics and Astronomy Poster Event
+        right: Nov 2019
+        sub: Purdue University
+        sub_right: 3 posters
+      - heading: "Post-Doc Panel Q&A: What Happens When We Complete Our PhDs?"
+        right: Apr 2019
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Panelist
+      - heading: Annual Department of Physics and Astronomy Poster Event
+        right: Nov 2018
+        sub: Purdue University
+        sub_right: Poster
+      - heading: ¿Decía Einstein la verdad? (Was Einstein Telling the Truth?)
+        right: Mar 2009
+        sub: Facultad de Ciencias, Universidad Autónoma del Estado de México
+        sub_right: Talk
+
+  - title: Service
+    entries:
+      - heading: Organizing contributor
+        right: Dec 2012
+        sub: X Scientific Meeting of the Spanish Astronomical Society
+        sub_right: Valencia, Spain
+      - heading: Student representative, Governing Council of the Faculty of Sciences
+        right: Aug 2007 – May 2009
+        sub: Universidad Autónoma del Estado de México
+        sub_right: Toluca, Mexico
+
+  - title: Languages
+    paragraph: >-
+      Spanish (native), English (full professional proficiency), Catalan
+      (basic), Nahuatl (basic)

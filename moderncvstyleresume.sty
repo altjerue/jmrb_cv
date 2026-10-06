@@ -41,6 +41,9 @@
 % 'letters' avoids the FontAwesome icon glyphs (Private-Use-Area codepoints
 % that many ATS resume parsers cannot render) in favor of plain text labels
 \moderncvicons{letters}
+% 'letters' draws list bullets with a marvosym glyph that has no Unicode
+% mapping and extracts as "{"; \textbullet extracts as a real U+2022 bullet
+\renewcommand*{\labelitemi}{\strut\textbullet}
 
 
 %-------------------------------------------------------------------------------
