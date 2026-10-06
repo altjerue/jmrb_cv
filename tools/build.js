@@ -54,9 +54,11 @@ function tex(str) {
   }).join('');
 }
 
-// \nopagebreak keeps an entry's heading lines on the same page as its body
+// \leftright puts the right-hand text (dates, location) on the same line when
+// it fits, otherwise flush right on the next line, never broken or touching
+// the left text. \nopagebreak keeps an entry's heading lines with its body.
 const lineWithRight = (left, right) =>
-  `${left}${right ? `\\hfill ${tex(right)}` : ''}\\par\\nopagebreak`;
+  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}\\par`) + '\\nopagebreak';
 
 function texEntry(e) {
   const out = [];
@@ -66,7 +68,7 @@ function texEntry(e) {
   for (const d of e.details || []) out.push(`${tex(d)}\\par`);
   if (e.bullets && e.bullets.length) {
     out.push('\\begin{itemize}');
-    for (const b of e.bullets) out.push(`  \\item ${tex(b)}`);
+    for (const b of e.bullets) out.push(`  \\item{} ${tex(b)}`);
     out.push('\\end{itemize}');
   }
   return out.join('\n') + '\n\\entrygap\n';
@@ -86,7 +88,7 @@ function texBody(s) {
     out.push(s.unbulleted
       ? '\\begin{itemize}[label={}, leftmargin=1.5em, itemindent=-1.5em, labelwidth=0pt, labelsep=0pt]'
       : '\\begin{itemize}');
-    for (const item of s.list) out.push(`  \\item ${tex(item)}`);
+    for (const item of s.list) out.push(`  \\item{} ${tex(item)}`);
     out.push('\\end{itemize}');
   }
   for (const sub of s.subsections || []) {
@@ -127,6 +129,10 @@ function buildTex(doc) {
 \\newcommand{\\cvsubsection}[1]{%
   \\vspace{3pt}{\\bfseries #1}\\par\\nopagebreak\\vspace{2pt}\\nopagebreak}
 \\newcommand{\\entrygap}{\\vspace{3pt}}
+% left text, then right text flush right on the same line if there is at
+% least 1em to spare, otherwise flush right on the next line (TeXbook \\signed)
+\\newcommand{\\leftright}[2]{{#1\\unskip\\nobreak\\hfil\\penalty50\\hskip1em\\hbox{}%
+  \\nobreak\\hfil\\mbox{#2}\\parfillskip=0pt\\par}}
 
 \\begin{document}
 
