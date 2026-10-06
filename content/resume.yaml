@@ -23,8 +23,8 @@ sections:
       Paramo, an open-source Fortran library that solves the Fokker-Planck
       equation coupled to radiative transfer. Led an upgrade of the PatchworkMHD
       code on Frontera and used gradient-based optimization to calibrate model
-      parameters against observations. Nine publications, three as first author,
-      and Co-I on a funded NASA Fermi grant.
+      parameters against observations. Nine publications and a NASA grant won
+      and led as a postdoc.
 
   - title: Skills
     skills:
@@ -123,7 +123,7 @@ sections:
             overhead.
           - >-
             Benchmarked new features on TACC's Frontera supercomputer (about
-            1,200 node-hours) to find performance bottlenecks.
+            10,000 node-hours) to find performance bottlenecks.
           - >-
             Calibrated Paramo against Fermi-LAT spectra with gradient-based
             optimization; supervised a graduate student on the same problem.
