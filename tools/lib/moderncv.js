@@ -37,7 +37,11 @@ function sectionBody(s, style) {
   if (s.paragraph) out.push(`\\cvitem{}{${tex(s.paragraph)}}`);
   for (const k of s.skills || []) out.push(`\\cvitem{${tex(k.label)}}{${tex(k.text)}}`);
   for (const e of s.entries || []) out.push(style.entry(e, entryDescription(e)));
-  for (const item of s.list || []) out.push(`\\cvlistitem{${tex(item)}}`);
+  // plain itemize, so list bullets match the entry bullets (moderncv's
+  // \cvlistitem sizes its bullet column for the icon set's original symbol)
+  if (s.list && s.list.length) {
+    out.push(['\\cvitem{}{\\begin{itemize}', ...s.list.map((i) => `  \\item{} ${tex(i)}`), '\\end{itemize}}'].join('\n'));
+  }
   for (const sub of s.subsections || []) {
     out.push(`\\subsection{${tex(sub.title)}}`, sectionBody(sub, style));
   }

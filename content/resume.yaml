@@ -6,6 +6,12 @@
 # escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
 output: RuedaBecerrilJM-resume-plain
+# moderncv version: writes <output>.tex plus <sections_dir>/<file>.tex for
+# each section below (every section needs a `file:`).
+moderncv:
+  output: RuedaBecerrilJM-resume
+  style: resume
+  sections_dir: Sections
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -17,6 +23,7 @@ contact:
 
 sections:
   - title: Professional Summary
+    file: profile_resume
     paragraph: >-
       Computational physicist who turns complex physical models into fast,
       tested software and turns large scientific datasets into calibrated
@@ -29,6 +36,7 @@ sections:
       articles and Co-I on a funded NASA Fermi Guest Investigator grant.
 
   - title: Skills
+    file: skills2
     skills:
       - label: ML & Data
         text: >-
@@ -52,6 +60,7 @@ sections:
           ParaView, VisIt
 
   - title: Experience
+    file: experience_resume
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
@@ -203,6 +212,7 @@ sections:
           - Published 2 first-author papers in MNRAS.
 
   - title: Projects
+    file: projects_resume
     entries:
       - heading: Blazar Population ML
         right: Jan 2026 – Present
@@ -222,6 +232,7 @@ sections:
             model fine-tuned on Tleco-generated synthetic light curves.
 
   - title: Selected Publications (9 peer-reviewed articles, 3 first-author)
+    file: publications_short
     list:
       - >-
         Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D. *Tleco: A Toolkit
@@ -240,6 +251,7 @@ sections:
         [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
 
   - title: Education
+    file: education_resume
     entries:
       - heading: Universitat de València
         right: Valencia, Spain

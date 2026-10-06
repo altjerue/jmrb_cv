@@ -3,7 +3,7 @@
   "private": true,
   "description": "Generates the plain-LaTeX and Word versions of the resume and CV from YAML content files",
   "scripts": {
-    "build:resume": "node build.js ../content/resume.yaml && cd .. && pdflatex -interaction=nonstopmode RuedaBecerrilJM-resume-plain.tex",
+    "build:resume": "node build.js ../content/resume.yaml && cd .. && pdflatex -interaction=nonstopmode RuedaBecerrilJM-resume-plain.tex && pdflatex -interaction=nonstopmode RuedaBecerrilJM-resume.tex",
     "build:cv": "node build.js ../content/cv.yaml && cd .. && pdflatex -interaction=nonstopmode RuedaBecerrilJM-CV-plain.tex",
     "build": "npm run build:resume && npm run build:cv"
   },

@@ -1,23 +1,25 @@
-# Plain resume and CV from YAML
+# Resume and CV from YAML
 
-Each YAML file here is the single source for one plain, ATS-friendly document:
+Each YAML file here is the single source of wording for one document. One
+build writes every version of it, all with identical text:
 
-| Content file  | Generates                                   |
-|---------------|---------------------------------------------|
-| `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx` (2-page resume) |
-| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx` (full CV) |
+| Content file  | Generates |
+|---------------|-----------|
+| `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-resume.tex/.pdf` with its `Sections/*.tex` files |
+| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx` (the moderncv CV is not generated yet) |
 
-One command turns a YAML file into two files with identical text:
-
-- `<output>.tex` (then `.pdf`): single-column LaTeX, `article` class, no
-  tables
+- `<output>.tex` (then `.pdf`): plain single-column LaTeX, `article` class,
+  no tables
 - `<output>.docx`: Word version for application portals that ask for one
+- moderncv version (when the YAML has a `moderncv:` block): the main `.tex`
+  plus one `Sections/<file>.tex` per section, in the look set by the
+  `moderncvstyle*.sty` file
 
-Both are written to the repo root. **Edit the YAML, not the generated `.tex`**:
-the `.tex` is overwritten on every build.
-
-The moderncv documents (`RuedaBecerrilJM-resume.tex`, `RuedaBecerrilJM-CV.tex`)
-are separate and are not affected by any of this.
+Everything is written relative to the repo root. **Edit the YAML, never the
+generated `.tex` files**: they are all overwritten on every build, and each
+one starts with a comment saying which YAML it came from. The layout itself
+(fonts, spacing, header) lives in the generators under `tools/lib/` and in
+the `moderncvstyle*.sty` files, not in the YAML.
 
 ## Requirements
 
@@ -40,15 +42,17 @@ npm run build:cv       # CV only
 npm run build          # both
 ```
 
-Each one generates the `.tex` and `.docx`, then runs `pdflatex` to produce the
-PDF. To do the steps by hand from the repo root:
+Each one generates all the `.tex` files and the `.docx`, then runs `pdflatex`
+to produce the PDFs. To do the steps by hand from the repo root:
 
 ```bash
 node tools/build.js content/resume.yaml
 pdflatex RuedaBecerrilJM-resume-plain.tex
+pdflatex RuedaBecerrilJM-resume.tex
 ```
 
-Commit the YAML together with the regenerated `.tex`, `.pdf`, and `.docx`.
+Commit the YAML together with every regenerated file (`.tex`, `Sections/*.tex`,
+`.pdf`, `.docx`).
 
 ## Editing the YAML
 
@@ -61,6 +65,7 @@ Commit the YAML together with the regenerated `.tex`, `.pdf`, and `.docx`.
 | `credentials` | Shown after the name: `Jesús M. Rueda-Becerril, Ph.D.`          |
 | `contact`     | Items joined with `\|` under the name (see below)              |
 | `sections`    | List of sections, rendered in order                            |
+| `moderncv`    | Optional: also generate the moderncv version (see below)       |
 
 `contact` is either one list (one line) or a list of lists (one line each):
 
@@ -74,6 +79,25 @@ contact:                      # two lines
     - "[jm.ruebe@gmail.com](mailto:jm.ruebe@gmail.com)"
   - - "[github.com/altjerue](https://github.com/altjerue)"
 ```
+
+### The moderncv version
+
+```yaml
+moderncv:
+  output: RuedaBecerrilJM-resume   # main moderncv .tex (no extension)
+  style: resume                    # moderncvstyle<style>.sty to use
+  sections_dir: Sections           # where the section files go
+```
+
+With this block, every section also needs a `file:` naming its moderncv
+section file, e.g. `file: experience_resume` writes
+`Sections/experience_resume.tex`. The main file `\input`s them in the order
+the sections appear in the YAML. The moderncv header fits at most two
+contact lines.
+
+Supported styles: `resume` (`moderncvstyleresume.sty`). Each style maps the
+generic entry fields onto that style's `\cventry` arguments in
+`tools/lib/moderncv.js`.
 
 ### Sections
 
