@@ -12,7 +12,7 @@ contact:
   - - "[altjerue.github.io](https://altjerue.github.io)"
     - "[github.com/altjerue](https://github.com/altjerue)"
     - "[orcid.org/0000-0003-1988-1912](https://orcid.org/0000-0003-1988-1912)"
-    - "[Google Scholar](https://scholar.google.com/citations?user=jm.ruebe)"
+    - "[Google Scholar](https://scholar.google.com/citations?user=hrld5zgAAAAJ)"
 
 sections:
   - title: Professional Summary
@@ -158,9 +158,9 @@ sections:
             code on TACC's Frontera supercomputer, identifying performance
             optimization opportunities.
           - >-
-            Supervised a graduate student calibrating Paramo model parameters
-            against Fermi-LAT gamma-ray spectra with gradient-based
-            optimization.
+            Calibrated Paramo model parameters against Fermi-LAT gamma-ray
+            spectra with gradient-based optimization, and supervised a
+            graduate student applying gradient descent to the same problem.
           - >-
             Co-authored 2 papers from a multi-institution study of binary
             neutron-star mergers [6, 7] and a third on blazar heating and
@@ -246,7 +246,7 @@ sections:
   - title: Education
     entries:
       - heading: Ph.D. in Physics
-        right: Jul 2017
+        right: Oct 2011 – Jul 2017
         sub: Universitat de València
         sub_right: Valencia, Spain
         details:
@@ -256,12 +256,14 @@ sections:
             Thesis: [Numerical treatment of radiation processes in the
             internal shocks of magnetized relativistic outflows](http://roderic.uv.es/handle/10550/60003)
       - heading: M.Sc. in Physics
+        right: Aug 2009 – Sep 2011
         sub: Universidad Michoacana de San Nicolás de Hidalgo
         sub_right: Morelia, Mexico
         details:
           - "Advisor: Prof. José A. Cervera"
           - "Thesis: *Study of TOV stars with the SPH method*"
       - heading: B.Sc. in Physics
+        right: Aug 2004 – Dec 2008
         sub: Universidad Autónoma del Estado de México
         sub_right: Toluca, Mexico
         details:
@@ -279,7 +281,7 @@ sections:
         list:
           - >-
             [12] Winkowski, S., **Rueda-Becerril, J. M.**, & Willing, C.
-            *Using Numerical Simulations of Wind on Hilly Terrain to Module
+            *Using Numerical Simulations of Wind on Hilly Terrain to Model
             Propagule Dispersal*, in prep.
           - >-
             [11] Holzman, L., **Rueda-Becerril, J. M.**, Creamer, C., &
@@ -352,7 +354,7 @@ sections:
           - >-
             [P4] **Rueda-Becerril, J. M.**, Harrison, A. O., & Giannios, D.
             *The blazar sequence revised*,
-            [Astron. Nachr. 342, 147–152 (2021)](https://doi.org/10.1002/asna.202113919),
+            [Astron. Nachr. 342, 147–152 (2021)](https://doi.org/10.1002/asna.202113895),
             9th International Workshop on Astronomy and Relativistic
             Astrophysics, [arXiv:2011.13805](https://arxiv.org/abs/2011.13805).
           - >-
@@ -371,7 +373,7 @@ sections:
             [P1] Mimica, P., Aloy, M. A., **Rueda-Becerril, J. M.**, Tabik, S.,
             & Aloy, C. *Numerical simulations of dynamics and emission from
             relativistic astrophysical jets*,
-            [J. Phys.: Conf. Ser. 42, 012001 (2013)](https://doi.org/10.1088/1742-6596/454/1/012001),
+            [J. Phys.: Conf. Ser. 454, 012001 (2013)](https://doi.org/10.1088/1742-6596/454/1/012001),
             [arXiv:1211.1794](https://arxiv.org/abs/1211.1794).
 
   - title: Grants and Fellowships

@@ -148,8 +148,8 @@ sections:
             Ran and benchmarked the code on TACC's Frontera supercomputer,
             identifying performance optimization opportunities.
           - >-
-            Calibrated Paramo model parameters against Fermi-LAT gamma-ray
-            spectra with gradient-based optimization.
+            Calibrated Paramo against Fermi-LAT spectra with gradient-based
+            optimization; supervised a graduate student on the same problem.
           - >-
             Co-authored 2 papers from a multi-institution study of binary
             neutron-star mergers.
