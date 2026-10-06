@@ -8,7 +8,7 @@
 {%
 \textit{Mercor}
 \begin{itemize}
-  \item Provide deep expertise in physics and numerical methods to improve LLM models for a top AI lab.
+  \item Reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models.
 \end{itemize}
 }
 %--------------------
@@ -20,8 +20,8 @@
 {%
 \textit{TealWaters}
 \begin{itemize}
-  \item Led optimization of scientific code for topographic terrain modeling, improving computational performance of elevation derivative calculations.
-  \item Engineered Python tools for geospatial data processing and analysis; applied random forest ML for wetland probability mapping.
+  \item Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
+  \item Mapped wetland probability across the 2,160 km\textsuperscript{2} Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching \textgreater75\% accuracy.
 \end{itemize}
 }
 %--------------------
@@ -37,20 +37,18 @@
 \end{itemize}
 }
 %--------------------
-%\cventry{Jan 2024 — May 2025}%
-%{Independent Research/Open-Source Developer}%
-%{}%
-%{}%
-%{}%
-%{%
-%\begin{cvcolumns}
-%  \cvcolumn{Tleco}{Combines Rust and Python functions from the Fortran code
-%  \texttt{Paramo} to simulate relativistic plasma particles and radiation rise
-%  from accelerating particles.}
-%  \cvcolumn{WindsOfChange}{R package, written in C++ that simulates canopy
-%  spore dispersion in hilly terrains.}
-%\end{cvcolumns}\vspace{-15pt}
-%}
+\cventry{Jan 2024 — May 2025}%
+{Independent Researcher \& Open-Source Developer}%
+{}%
+{}%
+{}%
+{%
+\textit{Self-directed}
+\begin{itemize}
+  \item Co-developed Tleco, a Rust/Python toolkit that solves the Fokker--Planck equation coupled to radiative transfer for relativistic outflows (ApJ 2024).
+  \item Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library for wind-driven spore dispersal over hilly forest terrain (RcppParallel, OpenMP).
+\end{itemize}
+}
 %--------------------
 \cventry{Feb 2021 — Apr 2022}%
 {Postdoctoral Research Associate}%
@@ -60,9 +58,9 @@
 {%
 \textit{Rochester Institute of Technology}
 \begin{itemize}
-  \item Led an NSF-sponsored upgrade of PatchworkMHD, a C code for MHD simulations of supermassive black hole binaries, adding black hole spin without increasing runtime.
-  \item Ran and benchmarked large production simulations on Frontera (TACC) and identified performance bottlenecks in the parallel code.
-  \item Calibrated Paramo parameters against Fermi-LAT observations using gradient-based optimization, comparing simulation output with data and updating the model automatically.
+  \item Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a C code for MHD simulations of supermassive black hole binaries, adding black hole spin with under 5\% runtime overhead.
+  \item Ran and benchmarked large production simulations on Frontera (TACC), about 1,200 node-hours, and identified performance bottlenecks in the parallel code.
+  \item Calibrated Paramo parameters against Fermi-LAT observations using gradient-based optimization, comparing simulation output with data and updating the model automatically; supervised a graduate student on the same problem.
   \item Collaborated on a multi-institutional HPC project on binary neutron star mergers, resulting in 2 publications.
 \end{itemize}
 }
@@ -75,9 +73,9 @@
 {%
 \textit{\Purdue}
 \begin{itemize}
-\item Designed and wrote Paramo, an open-source Fortran 95 library that solves the Fokker-Planck equation for relativistic particle distributions coupled to radiative transfer. Parallelized with OpenMP and tested GPU offload with OpenACC.
-\item Implemented implicit PDE solvers, numerical integration, and support for particle distributions of arbitrary shape without slowing the simulation.
-\item Wrote Python tools to analyze Paramo output and run parameter optimization.
+\item Designed and wrote Paramo, an open-source Fortran 95 library that solves the Fokker-Planck equation for relativistic particle distributions coupled to radiative transfer. OpenMP gives about 20$\times$ speedup on 5 cores; GPU offload tested with OpenACC.
+\item Implemented implicit PDE solvers, numerical integration, and arbitrary-shape particle distributions without slowing the simulation.
+\item Wrote Python tools to analyze Paramo output and run parameter optimization; other groups have adopted Paramo, including Combi \& Siegel (2023).
 \item Co-I on two NASA Fermi Guest Investigator proposals, one funded (\$68K) to model blazar radiation; mentored 3 graduate students and published 2 peer-reviewed papers.
 \end{itemize}
 }
@@ -102,7 +100,7 @@
 {%
 \textit{\UVval}
 \begin{itemize}
-  \item Independently developed Shell and Python pipelines to run the C-SPEV radiative transfer simulation code and process large HDF5 output datasets.
+  \item Independently developed Shell and Python pipelines to run the C-SPEV radiative transfer simulation code and process large HDF5 output datasets: 10--60 simulations per project and tens of GB of output.
   \item Implemented numerical tools and data handling extensions to C-SPEV for computing both discrete and continuous spectra from particle distributions with arbitrary shape.
   \item Published 2 first-author papers on numerical simulations of relativistic plasma dynamics.
 \end{itemize}

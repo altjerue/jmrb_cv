@@ -17,7 +17,7 @@ const {
   HeadingLevel, LevelFormat, BorderStyle, Tab, TabStopType,
 } = require('docx');
 
-// ---------------------------------------------------------------- inline markup
+// --------------------------------------------------------------- inline markup
 
 // Splits "**bold**, *italic*, [text](url)" into styled segments.
 function parseInline(str) {
@@ -36,7 +36,7 @@ function parseInline(str) {
   return segments;
 }
 
-// ---------------------------------------------------------------- LaTeX
+// ----------------------------------------------------------------------- LaTeX
 
 const TEX_ESCAPES = {
   '\\': '\\textbackslash{}', '&': '\\&', '%': '\\%', '$': '\\$', '#': '\\#',
@@ -150,7 +150,7 @@ ${doc.sections.map(texSection).join('\n\n')}
 `;
 }
 
-// ---------------------------------------------------------------- Word
+// ------------------------------------------------------------------------ Word
 
 const FONT = 'Calibri';
 const BODY_SIZE = 20; // half-points: 10 pt
@@ -287,7 +287,7 @@ function buildDocx(doc) {
   });
 }
 
-// ---------------------------------------------------------------- main
+// ------------------------------------------------------------------------ main
 
 async function main() {
   const args = process.argv.slice(2);
