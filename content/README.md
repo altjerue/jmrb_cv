@@ -41,11 +41,11 @@ npm run build          # both
 ```
 
 Each one generates the `.tex` and `.docx`, then runs `pdflatex` to produce the
-PDF. To do the steps by hand from the repo root:
+PDF. The aux, out and log files go to the hidden folder `.tex_tmp/`; only the
+PDF is copied to the repo root. To run it by hand from the repo root:
 
 ```bash
-node tools/build.js content/resume.yaml
-pdflatex RuedaBecerrilJM-resume-plain.tex
+node tools/build.js content/resume.yaml            # add --no-pdf to skip pdflatex
 ```
 
 Commit the YAML together with the regenerated `.tex`, `.pdf`, and `.docx`.
