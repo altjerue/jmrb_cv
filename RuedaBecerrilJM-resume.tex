@@ -1,4 +1,4 @@
-\documentclass[10pt,letterpaper,roman,colorlinks,linkcolor=false]{moderncv}
+\documentclass[10pt,letterpaper,roman,colorlinks]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper,
@@ -46,7 +46,7 @@
 \makeatother
 %%% CONSIDER MERGING WITH PREAMBLE PART
 %%%  to redefine the bibliography heading string ("Publications")
-\renewcommand{\refname}{Selected Publications (9 total, 2 first-author)}
+\renewcommand{\refname}{Selected Publications (9 total, 3 first-author)}
 %%%---- Begin use with Multibib ----
 % bibliography with mutiple entries
 %\usepackage[resetlabels]{multibib}
@@ -101,7 +101,7 @@
 
 \AfterPreamble{\hypersetup{
     citecolor=black,
-    urlcolor=black,
+    urlcolor=blue,
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,7 +112,7 @@
 \vspace{-20pt}
 
 \input{Sections/profile_resume}      % <--- Profile
-\input{Sections/skills2}             % <--- Computer skills
+\input{Sections/skills_resume}       % <--- Computer skills
 \input{Sections/experience_resume}   % <--- Experience
 \input{Sections/projects_resume}     % <--- Projects
 \input{Sections/publications_short}  % <--- Publications

@@ -36,22 +36,21 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational physicist who turns complex physical models into fast, tested software and turns large scientific datasets into calibrated models. Ph.D. in Physics and ten years building simulation codes and the data pipelines around them: author of Paramo, an open-source Fortran/OpenMP radiative-transfer library used by other research groups; led a 7-person upgrade of the PatchworkMHD black-hole simulation code on the Frontera supercomputer; mapped wetland probability across a 2,160 km² watershed with random-forest models. Nine peer-reviewed articles and Co-I on a funded NASA Fermi Guest Investigator grant.\par
+Computational physicist with a PhD in Physics and ten years of experience building and running simulation codes for relativistic plasmas. Author of Paramo, an open-source Fortran library that solves the Fokker-Planck equation coupled to radiative transfer. Led an upgrade of the PatchworkMHD code on Frontera and used gradient-based optimization to calibrate model parameters against observations. Nine publications and a NASA grant won and led as a postdoc.\par
 
 \cvsection{Skills}
-\textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, random forest, SVM, neural networks, gradient-based optimization, parameter estimation\par
-\textbf{Scientific Computing \& HPC:} Numerical PDEs (Fokker–Planck, advection–diffusion), radiative transfer, finite-difference/finite-volume methods, OpenMP, MPI, OpenACC, SLURM, PBS, HDF5\par
-\textbf{Geospatial \& Remote Sensing:} Sentinel-1/2 multispectral imagery, DEM terrain analysis, raster/vector pipelines, QGIS, geospatial feature engineering\par
+\textbf{Simulation:} Kinetic plasma modeling (Fokker–Planck), radiative processes (synchrotron, inverse Compton), radiative transfer, relativistic MHD, Lagrangian particle dynamics, numerical PDEs, finite-difference/finite-volume methods, numerical linear algebra, parameter estimation, uncertainty quantification\par
+\textbf{HPC \& Parallel:} OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5\par
+\textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, random forest, SVM, neural networks, gradient-based optimization, parameter estimation\par
 \textbf{Languages:} Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell\par
-\textbf{Tools:} Git, Docker, Azure, Jenkins, OpenShift, Kafka, Splunk, Jira, ParaView, VisIt\par
+\textbf{Tools:} Git, Docker, Jenkins, QGIS, ParaView, VisIt\par
 
 \cvsection{Experience}
 \leftright{\textbf{Independent Contractor}}{Jan 2026 – Present}\nopagebreak
 \leftright{\textit{Mercor}}{Remote}\nopagebreak
 Physics subject-matter expert evaluating frontier language models for a leading AI lab.\par\nopagebreak
 \begin{itemize}
-  \item{} Reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models and co-developed others with fellow writers.
-  \item{} Diagnose failure modes in model reasoning and write structured feedback to improve scientific accuracy.
+  \item{} Reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models.
 \end{itemize}
 \entrygap
 
@@ -59,10 +58,8 @@ Physics subject-matter expert evaluating frontier language models for a leading 
 \leftright{\textit{TealWaters}}{Seattle, WA}\nopagebreak
 Built geospatial ML pipelines and optimized terrain-analysis code for wetland mapping.\par\nopagebreak
 \begin{itemize}
-  \item{} Mapped wetland probability across the 2,160 km² Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching >75\% accuracy.
   \item{} Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
-  \item{} Engineered features from Sentinel-1/2 multispectral imagery and terrain derivatives for ML land-cover and wetland models.
-  \item{} Trained 2 colleagues on the WIP tool and worked with software engineers to move prototype tools into production.
+  \item{} Mapped wetland probability across the 2,160 km² Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching >75\% accuracy.
 \end{itemize}
 \entrygap
 
@@ -79,10 +76,7 @@ Continued simulation research and open-source development between industry roles
 \leftright{\textit{Paychex}}{Remote}\nopagebreak
 Built and tested data-integration services between enterprise systems and Oracle E-Business Suite.\par\nopagebreak
 \begin{itemize}
-  \item{} Built Java Kafka consumers that moved data between enterprise databases, deployed through Jenkins and OpenShift CI/CD pipelines.
-  \item{} Created Splunk dashboards tracking the 200–400 users shared between enterprise systems and Oracle EBS, with alerts that flagged production incidents.
-  \item{} Wrote full test suites for 5+ Python services in the CI pipeline, keeping production defect rates low.
-  \item{} Prepared, validated, and analyzed Oracle EBS data with SQL.
+  \item{} Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
 \end{itemize}
 \entrygap
 
@@ -92,7 +86,7 @@ HPC simulations of supermassive black-hole binaries in an NSF-funded project.\pa
 \begin{itemize}
   \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black-hole binaries.
   \item{} Added black-hole spin to the simulations with under 5\% runtime overhead.
-  \item{} Benchmarked new features on TACC's Frontera supercomputer (about 1,200 node-hours) to find performance bottlenecks.
+  \item{} Benchmarked new features on TACC's Frontera supercomputer (about 10,000 node-hours) to find performance bottlenecks.
   \item{} Calibrated Paramo against Fermi-LAT spectra with gradient-based optimization; supervised a graduate student on the same problem.
   \item{} Co-authored 2 papers from a multi-institution study of binary neutron-star mergers.
 \end{itemize}
@@ -112,8 +106,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textbf{Postdoctoral Research Fellow}}{Jan 2018 – Sep 2018}\nopagebreak
 \leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
 \begin{itemize}
-  \item{} Built a Python pipeline that turned GRTrans black-hole simulation images into training data for an SVM classifier of black-hole spin.
-  \item{} Organized an HDF5 workshop to train graduate students in high-volume data storage.
+  \item{} Studied how magnetization of shocked plasma shapes the radiation spectra of relativistic internal shocks, using the C-SPEV simulation code.
 \end{itemize}
 \entrygap
 

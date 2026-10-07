@@ -4,17 +4,20 @@
 //   node tools/build.js content/resume.yaml
 //
 // Writes <output>.tex and <output>.docx next to the content/ directory
-// (i.e. the repo root). Compile the .tex with pdflatex as usual.
+// (i.e. the repo root), then compiles the .tex with pdflatex. The aux, out and
+// log files go to the hidden folder .tex_tmp/; only the PDF is copied back to
+// the repo root. Pass --no-pdf to skip the compile step.
 
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 const yaml = require('js-yaml');
 const {
   Document, Packer, Paragraph, TextRun, ExternalHyperlink, AlignmentType,
   HeadingLevel, LevelFormat, BorderStyle, Tab, TabStopType,
 } = require('docx');
 
-// ---------------------------------------------------------------- inline markup
+// --------------------------------------------------------------- inline markup
 
 // Splits "**bold**, *italic*, [text](url)" into styled segments.
 function parseInline(str) {
@@ -33,7 +36,7 @@ function parseInline(str) {
   return segments;
 }
 
-// ---------------------------------------------------------------- LaTeX
+// ----------------------------------------------------------------------- LaTeX
 
 const TEX_ESCAPES = {
   '\\': '\\textbackslash{}', '&': '\\&', '%': '\\%', '$': '\\$', '#': '\\#',
@@ -147,7 +150,7 @@ ${doc.sections.map(texSection).join('\n\n')}
 `;
 }
 
-// ---------------------------------------------------------------- Word
+// ------------------------------------------------------------------------ Word
 
 const FONT = 'Calibri';
 const BODY_SIZE = 20; // half-points: 10 pt
@@ -284,12 +287,14 @@ function buildDocx(doc) {
   });
 }
 
-// ---------------------------------------------------------------- main
+// ------------------------------------------------------------------------ main
 
 async function main() {
-  const src = process.argv[2];
+  const args = process.argv.slice(2);
+  const skipPdf = args.includes('--no-pdf');
+  const src = args.find((a) => !a.startsWith('--'));
   if (!src) {
-    console.error('usage: node tools/build.js content/<file>.yaml');
+    console.error('usage: node tools/build.js content/<file>.yaml [--no-pdf]');
     process.exit(1);
   }
   const doc = yaml.load(fs.readFileSync(src, 'utf8'));
@@ -297,6 +302,23 @@ async function main() {
   fs.writeFileSync(`${outBase}.tex`, buildTex(doc));
   fs.writeFileSync(`${outBase}.docx`, await Packer.toBuffer(buildDocx(doc)));
   console.log(`wrote ${outBase}.tex and ${outBase}.docx`);
+  if (!skipPdf) compilePdf(outBase);
+}
+
+function compilePdf(outBase) {
+  const root = path.dirname(outBase);
+  const tmp = path.join(root, '.tex_tmp');
+  fs.mkdirSync(tmp, { recursive: true });
+  const r = spawnSync('pdflatex', [
+    '-interaction=nonstopmode', `-output-directory=${tmp}`, `${outBase}.tex`,
+  ], { cwd: root, stdio: 'inherit' });
+  const pdf = path.join(tmp, `${path.basename(outBase)}.pdf`);
+  if (r.error || !fs.existsSync(pdf)) {
+    console.error('pdflatex failed; see .tex_tmp/ for the log');
+    process.exit(1);
+  }
+  fs.copyFileSync(pdf, `${outBase}.pdf`);
+  console.log(`wrote ${outBase}.pdf (aux/out/log in ${tmp})`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });

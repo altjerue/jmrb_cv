@@ -1,4 +1,4 @@
-\documentclass[10pt,letterpaper,roman,colorlinks,linkcolor=true]{moderncv}
+\documentclass[10pt,letterpaper,roman,colorlinks]{moderncv}
 %%%%%%% possible options:
 %%% font size: 10pt, 11pt, 12pt
 %%% paper size: a4paper, letterpaper, a5paper, legalpaper, executivepaper,
@@ -7,7 +7,7 @@
 
 \usepackage{verbatim}
 
-\moderncvstyle{banking2}
+\moderncvstyle{banking}
 %\moderncvstyle[norules]{banking}
 %%%%% themes: casual (default), classic, banking, oldstyle, fancy
 \moderncvcolor{black}
@@ -20,7 +20,7 @@
 \usepackage{lmodern}
 
 % adjust the page margins
-\usepackage[margin=0.55in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 %\setlength{\hintscolumnwidth}{3.5cm} % if you want to change the width of the
 %%                                    % column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want
@@ -59,7 +59,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\name{Jesús~M.}{Rueda-Becerril}
+\name{}{Jesús~M.~Rueda-Becerril}
 \title{Ph.D.}
 %%%  Plain-text contact lines. moderncv's head 3 prints \address on its own
 %%%  line and \extrainfo on the line below it, so they are used here as two
@@ -82,7 +82,7 @@
 
 \AfterPreamble{\hypersetup{
   citecolor=black,
-  urlcolor=black,
+  urlcolor=blue,
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,7 +91,7 @@
 %\include{Sections/CoverLetter}
 
 \makecvtitle%
-\vspace{-30pt}
+\vspace{-20pt}
 
 \input{Sections/profile}       % <--- Profile
 %\input{Sections/interests}     % <--- Interests
@@ -105,10 +105,10 @@
 \input{Sections/meetings}      % <--- Meetings and conferences
 \input{Sections/teaching}      % <--- Teaching
 \input{Sections/profes}        % <--- Professional development
-\input{Sections/certif}        % <--- Certifications and Credentials
+%\input{Sections/certif}       % <--- Certifications (kept in the data-scientist variant)
 \input{Sections/outreach}      % <--- Outreach
 \input{Sections/other}         % <--- Other activities
 \input{Sections/languages}     % <--- Languages
-%\input{Sections/references}
+%\input{Sections/references}    % <--- References 
 
 \end{document}

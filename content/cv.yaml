@@ -17,30 +17,31 @@ contact:
 sections:
   - title: Professional Summary
     paragraph: >-
-      Computational physicist who turns complex physical models into fast,
-      tested software and turns large scientific datasets into calibrated
-      models. Ph.D. in Physics and ten years building simulation codes and the
-      data pipelines around them: author of Paramo, an open-source
-      Fortran/OpenMP radiative-transfer library used by other research groups;
-      led a 7-person upgrade of the PatchworkMHD black-hole simulation code on
-      the Frontera supercomputer; mapped wetland probability across a
-      2,160 km² watershed with random-forest models. Nine peer-reviewed
-      articles and Co-I on a funded NASA Fermi Guest Investigator grant.
+      Computational physicist with a PhD in Physics and 10+ years developing
+      high-performance numerical algorithms and simulation software for
+      relativistic plasmas. Author of the open-source Paramo library for kinetic
+      particle evolution and radiative transfer. Experience with MHD codes on
+      leadership-class HPC systems and with machine learning for calibrating
+      physical models. Peer-reviewed publications, competitive grants, and
+      collaboration across interdisciplinary teams.
 
   - title: Skills
     skills:
+      - label: Simulation
+        text: >-
+          Kinetic plasma modeling (Fokker–Planck), radiative processes
+          (synchrotron, inverse Compton), radiative transfer, relativistic
+          MHD, Lagrangian particle dynamics, numerical PDEs (advection–diffusion,
+          Fokker–Planck), finite-difference/finite-volume methods,
+          numerical linear algebra, parameter estimation, uncertainty
+          quantification, synthetic dataset generation
+      - label: HPC & Parallel
+        text: OpenMP, MPI, OpenACC, SLURM, PBS, HDF5
       - label: ML & Data
         text: >-
           Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
           Pandas, Astropy, random forest, SVM, neural networks,
-          gradient-based optimization, parameter estimation, uncertainty
-          quantification, synthetic dataset generation
-      - label: Scientific Computing & HPC
-        text: >-
-          Numerical PDEs (Fokker–Planck, advection–diffusion), radiative
-          transfer, relativistic MHD, Lagrangian particle dynamics,
-          finite-difference/finite-volume methods, numerical linear algebra,
-          OpenMP, MPI, OpenACC, SLURM, PBS, HDF5
+          gradient-based optimization, parameter estimation
       - label: Geospatial & Remote Sensing
         text: >-
           Sentinel-1/2 multispectral imagery, DEM terrain analysis,
@@ -648,24 +649,6 @@ sections:
         right: Mar 2012
         sub: HLRS, University of Stuttgart, Germany
         sub_right: Workshop, 33 hours
-
-  - title: Certifications
-    entries:
-      - heading: Gen AI Intensive
-        right: "[Kaggle](https://www.kaggle.com/certification/badges/jmrb103/96)"
-        sub: Generative AI
-      - heading: Data Scientist Professional with Python
-        right: DataCamp
-        sub: Python programming, data science, data communication, machine learning
-      - heading: Machine Learning Scientist with Python
-        right: DataCamp
-        sub: Machine learning, NLP, deep learning, image processing, big data
-      - heading: Mathematical Foundations of Machine Learning
-        right: "[Udemy](https://www.udemy.com/certificate/UC-605df108-ae80-4297-8c8f-6bc15b967511/)"
-        sub: Python programming, data science, statistics, machine learning
-      - heading: Python for Statistical Analysis
-        right: "[Udemy](https://www.udemy.com/certificate/UC-e8557ac8-13f9-41bf-ab46-f196a041b725/)"
-        sub: Python programming, data science, data communication, machine learning
 
   - title: Outreach
     entries:
