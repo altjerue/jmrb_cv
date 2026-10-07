@@ -11,3 +11,4 @@ auto
 *latexmk
 *.sty
 node_modules/
+.tex_tmp/

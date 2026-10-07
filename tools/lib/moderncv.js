@@ -11,7 +11,7 @@ const STYLES = {
   // where `right` is drawn flush right on the heading line; the italic sub
   // line goes at the top of the description.
   resume: {
-    classOptions: '10pt,letterpaper,roman,colorlinks,linkcolor=true',
+    classOptions: '10pt,letterpaper,roman,colorlinks',
     margin: '0.55in',
     titleGap: '-20pt',
     preamble: '\\setlength{\\hintscolumnwidth}{0pt}',
@@ -21,9 +21,9 @@ const STYLES = {
   //   \cventry{sub_right}{sub}{heading}{right}{}{description}
   // draws a bold heading/right line, then an italic sub/sub_right line.
   banking2: {
-    classOptions: '10pt,letterpaper,roman,colorlinks,linkcolor=true',
-    margin: '0.55in',
-    titleGap: '-30pt',
+    classOptions: '10pt,letterpaper,roman,colorlinks',
+    margin: '0.6in',
+    titleGap: '-20pt',
     preamble: '',
     entry: (e) => `\\cventry{${tex(e.sub_right)}}{${tex(e.sub)}}{${tex(e.heading)}}{${tex(e.right)}}{}{${entryDescription(e, false)}}`,
   },
@@ -52,7 +52,7 @@ function sectionBody(s, style) {
   // plain itemize, so list bullets match the entry bullets (moderncv's
   // \cvlistitem sizes its bullet column for the icon set's original symbol)
   if (s.list && s.list.length) {
-    out.push(['\\cvitem{}{\\begin{itemize}', ...s.list.map((i) => `  \\item{} ${tex(i)}`), '\\end{itemize}}'].join('\n'));
+    out.push(['\\cvitem{}{\\begin{itemize}', ...s.list.map((i) => `  \\item{} ${tex(typeof i === 'string' ? i : i.text)}`), '\\end{itemize}}'].join('\n'));
   }
   for (const sub of s.subsections || []) {
     out.push(`\\subsection{${tex(sub.title)}}`, sectionBody(sub, style));
@@ -120,7 +120,7 @@ ${cfg.preamble ? `\n% from the YAML's moderncv.preamble\n${cfg.preamble.join('\n
 \\title{${texEscape(doc.credentials)}}
 ${contact}
 
-\\AfterPreamble{\\hypersetup{citecolor=black, urlcolor=black,
+\\AfterPreamble{\\hypersetup{citecolor=black, urlcolor=blue,
   pdftitle={${title}}, pdfauthor={${texEscape(doc.name)}}}}
 
 \\begin{document}

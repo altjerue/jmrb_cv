@@ -25,39 +25,29 @@ sections:
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
-      Computational physicist who turns complex physical models into fast,
-      tested software and turns large scientific datasets into calibrated
-      models. Ph.D. in Physics and ten years building simulation codes and the
-      data pipelines around them: author of Paramo, an open-source
-      Fortran/OpenMP radiative-transfer library used by other research groups;
-      led a 7-person upgrade of the PatchworkMHD black-hole simulation code on
-      the Frontera supercomputer; mapped wetland probability across a
-      2,160 km² watershed with random-forest models. Nine peer-reviewed
-      articles and Co-I on a funded NASA Fermi Guest Investigator grant.
+      Computational Scientist with a PhD in Physics and over ten years of
+      experience building and running high-performance numerical algorithms and
+      physics-based simulations. Expertise in scientific machine learning and
+      geospatial data analysis. Strong mathematical foundations with a track
+      record of architecting open-source simulation libraries, leading funded
+      research projects, and translating complex physical models into
+      production-quality scientific software. Experienced working across
+      cross-functional research and engineering teams.
 
   - title: Skills
-    file: skills2
+    file: skills_resume
     skills:
+      - label: Languages
+        text: C/C++, Python, Fortran 95, Rust, R, Java, SQL, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
-          Pandas, random forest, SVM, neural networks, gradient-based
-          optimization, parameter estimation
-      - label: Scientific Computing & HPC
-        text: >-
-          Numerical PDEs (Fokker–Planck, advection–diffusion), radiative
-          transfer, finite-difference/finite-volume methods, OpenMP, MPI,
-          OpenACC, SLURM, PBS, HDF5
-      - label: Geospatial & Remote Sensing
-        text: >-
-          Sentinel-1/2 multispectral imagery, DEM terrain analysis,
-          raster/vector pipelines, QGIS, geospatial feature engineering
-      - label: Languages
-        text: Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell
+          Scientific machine learning, PyTorch, TensorFlow, scikit-learn,
+          NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation,
+          gradient-based optimization, SVM, random forest, neural networks
+      - label: HPC & Parallel
+        text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
       - label: Tools
-        text: >-
-          Git, Docker, Azure, Jenkins, OpenShift, Kafka, Splunk, Jira,
-          ParaView, VisIt
+        text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt
 
   - title: Experience
     file: experience_resume
@@ -73,10 +63,7 @@ sections:
           - >-
             Reviewed 50+ expert-level problems in physics, hydrodynamics,
             astrophysics, and cosmology; wrote original prompts that stumped
-            frontier models and co-developed others with fellow writers.
-          - >-
-            Diagnose failure modes in model reasoning and write structured
-            feedback to improve scientific accuracy.
+            frontier models.
 
       - heading: Spatial Data Scientist
         right: May 2025 – Jan 2026
@@ -87,19 +74,13 @@ sections:
           for wetland mapping.
         bullets:
           - >-
-            Mapped wetland probability across the 2,160 km² Skykomish
-            watershed with the Wetland Intrinsic Potential (WIP) random-forest
-            model, reaching >75% accuracy.
-          - >-
             Optimized the terrain-modeling code that computes elevation
             derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving
             its computational performance.
           - >-
-            Engineered features from Sentinel-1/2 multispectral imagery and
-            terrain derivatives for ML land-cover and wetland models.
-          - >-
-            Trained 2 colleagues on the WIP tool and worked with software
-            engineers to move prototype tools into production.
+            Mapped wetland probability across the 2,160 km² Skykomish
+            watershed with the Wetland Intrinsic Potential (WIP) random-forest
+            model, reaching >75% accuracy.
 
       - heading: Independent Researcher & Open-Source Developer
         right: Jan 2024 – May 2025
@@ -110,13 +91,13 @@ sections:
           industry roles.
         bullets:
           - >-
-            Co-developed Tleco, a Rust/Python toolkit that models radiation
-            from relativistic outflows by solving the Fokker–Planck equation
-            coupled to radiative transfer; published in ApJ (2024).
+            Co-developed Tleco, a Rust/Python toolkit that solves the
+            Fokker–Planck equation coupled to radiative transfer for
+            relativistic outflows (ApJ 2024).
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
-            library that simulates wind-driven spore dispersal over forested,
-            hilly terrain, parallelized with RcppParallel and OpenMP.
+            library for wind-driven spore dispersal over hilly forest terrain
+            (RcppParallel, OpenMP).
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
@@ -126,17 +107,7 @@ sections:
           Built and tested data-integration services between enterprise
           systems and Oracle E-Business Suite.
         bullets:
-          - >-
-            Built Java Kafka consumers that moved data between enterprise
-            databases, deployed through Jenkins and OpenShift CI/CD pipelines.
-          - >-
-            Created Splunk dashboards tracking the 200–400 users shared
-            between enterprise systems and Oracle EBS, with alerts that
-            flagged production incidents.
-          - >-
-            Wrote full test suites for 5+ Python services in the CI pipeline,
-            keeping production defect rates low.
-          - Prepared, validated, and analyzed Oracle EBS data with SQL.
+          - Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
 
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
@@ -147,21 +118,21 @@ sections:
           NSF-funded project.
         bullets:
           - >-
-            Led a 7-person team upgrading PatchworkMHD, a C code for
-            magnetohydrodynamic simulations of supermassive black-hole
-            binaries.
+            Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a
+            C code for MHD simulations of supermassive black hole binaries,
+            adding black hole spin with under 5% runtime overhead.
           - >-
-            Added black-hole spin to the simulations with under 5% runtime
-            overhead.
+            Ran and benchmarked large production simulations on Frontera
+            (TACC), about 10,000 node-hours, and identified performance
+            bottlenecks in the parallel code.
           - >-
-            Benchmarked new features on TACC's Frontera supercomputer (about
-            1,200 node-hours) to find performance bottlenecks.
+            Calibrated Paramo parameters against Fermi-LAT observations using
+            gradient-based optimization, comparing simulation output with data
+            and updating the model automatically; supervised a graduate
+            student on the same problem.
           - >-
-            Calibrated Paramo against Fermi-LAT spectra with gradient-based
-            optimization; supervised a graduate student on the same problem.
-          - >-
-            Co-authored 2 papers from a multi-institution study of binary
-            neutron-star mergers.
+            Collaborated on a multi-institutional HPC project on binary
+            neutron star mergers, resulting in 2 publications.
 
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
@@ -172,17 +143,22 @@ sections:
           gamma-ray burst afterglows).
         bullets:
           - >-
-            Architected Paramo, an open-source Fortran 95 Fokker–Planck and
-            radiative-transfer library; parallelized and optimized it with
-            OpenMP to run about 20× faster than serial on 5 cores.
+            Designed and wrote Paramo, an open-source Fortran 95 library that
+            solves the Fokker–Planck equation for relativistic particle
+            distributions coupled to radiative transfer. OpenMP gives about
+            20× speedup on 5 cores; GPU offload tested with OpenACC.
           - >-
-            Paramo has been adopted by other research groups, including in
-            Combi & Siegel (2023).
+            Implemented implicit PDE solvers, numerical integration, and
+            arbitrary-shape particle distributions without slowing the
+            simulation.
           - >-
-            Co-I on two NASA Fermi Guest Investigator proposals; one was
-            funded ($68K) to model blazar radiation.
+            Wrote Python tools to analyze Paramo output and run parameter
+            optimization; other groups have adopted Paramo, including Combi &
+            Siegel (2023).
           - >-
-            Mentored 3 graduate students, co-authoring papers with each.
+            Co-I on two NASA Fermi Guest Investigator proposals, one funded
+            ($68K) to model blazar radiation; mentored 3 graduate students and
+            published 2 peer-reviewed papers.
 
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
@@ -190,12 +166,13 @@ sections:
         sub_right: Morelia, Mexico
         bullets:
           - >-
-            Built a Python pipeline that turned GRTrans black-hole simulation
-            images into training data for an SVM classifier of black-hole
-            spin.
+            Developed a Python pipeline to process black hole simulation
+            outputs from the GRTrans numerical code, generating SVM training
+            data for radio image prediction.
           - >-
-            Organized an HDF5 workshop to train graduate students in
-            high-volume data storage.
+            Built open-source data analysis and visualization tools in Python
+            for radiative transfer phenomena in relativistic astrophysics
+            scenarios.
 
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
@@ -203,13 +180,9 @@ sections:
         sub_right: Valencia, Spain
         bullets:
           - >-
-            Automated runs of the C-SPEV radiative-transfer code with Shell
-            and Python pipelines: 10–60 simulations per project and tens of
-            GB of HDF5 output.
-          - >-
-            Extended C-SPEV to compute discrete and continuous spectra from
-            particle distributions of arbitrary shape.
-          - Published 2 first-author papers in MNRAS.
+            Studied how magnetization of shocked plasma shapes the radiation
+            spectra of relativistic internal shocks, using the C-SPEV
+            simulation code.
 
   - title: Projects
     file: projects_resume

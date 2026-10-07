@@ -35,23 +35,22 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational physicist who turns complex physical models into fast, tested software and turns large scientific datasets into calibrated models. Ph.D. in Physics and ten years building simulation codes and the data pipelines around them: author of Paramo, an open-source Fortran/OpenMP radiative-transfer library used by other research groups; led a 7-person upgrade of the PatchworkMHD black-hole simulation code on the Frontera supercomputer; mapped wetland probability across a 2,160 km² watershed with random-forest models. Nine peer-reviewed articles and Co-I on a funded NASA Fermi Guest Investigator grant.\par
+Computational Scientist with a PhD in Physics and 10+ years developing high-performance numerical algorithms and physics-based simulations. Expertise in scientific machine learning and geospatial data analysis. Strong mathematical foundations with a track record of architecting open-source simulation libraries, leading funded research projects, and translating complex physical models into production-quality scientific software. Experienced working across cross-functional research and engineering teams.\par
 
 \cvsection{Skills}
-\textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, random forest, SVM, neural networks, gradient-based optimization, parameter estimation, uncertainty quantification, synthetic dataset generation\par
-\textbf{Scientific Computing \& HPC:} Numerical PDEs (Fokker–Planck, advection–diffusion), radiative transfer, relativistic MHD, Lagrangian particle dynamics, finite-difference/finite-volume methods, numerical linear algebra, OpenMP, MPI, OpenACC, SLURM, PBS, HDF5\par
-\textbf{Geospatial \& Remote Sensing:} Sentinel-1/2 multispectral imagery, DEM terrain analysis, raster/vector pipelines, QGIS, geospatial feature engineering\par
-\textbf{Languages:} Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell\par
-\textbf{Tools:} Git, Docker, Azure, Jenkins, OpenShift, Kafka, Splunk, Jira, ParaView, VisIt\par
+\textbf{Languages:} Python, C/C++, Fortran 95, R, SQL, Shell, Rust, Java, Julia\par
+\textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation, gradient-based optimization, SVM, random forest, neural networks\par
+\textbf{Geospatial \& Remote Sensing:} Sentinel-1/2 multispectral processing, raster/vector data pipelines, QGIS, geospatial feature engineering for ML\par
+\textbf{HPC \& Parallel:} OpenMP, MPI, OpenACC, SLURM, PBS, HDF5, large-scale parallel CPU computing\par
+\textbf{Simulation:} Physics simulation (multiscale/multiphysics modeling, radiative transfer, relativistic MHD, Lagrangian particle dynamics), numerical PDEs (advection–diffusion, Fokker–Planck), finite difference/volume methods, numerical linear algebra, synthetic dataset generation, uncertainty quantification, parameter estimation\par
+\textbf{Tools:} Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt\par
 
 \cvsection{Experience}
 \leftright{\textbf{Independent Contractor}}{Jan 2026 – Present}\nopagebreak
 \leftright{\textit{Mercor}}{Remote}\nopagebreak
-Physics subject-matter expert evaluating frontier language models for a leading AI lab.\par\nopagebreak
 \begin{itemize}
-  \item{} Reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models and co-developed others with fellow writers.
+  \item{} Physics expert for a leading AI lab: reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models.
   \item{} Diagnose failure modes in model reasoning and write structured feedback to improve scientific accuracy.
-  \item{} Benchmark model performance and quality-check solutions to complex STEM problems.
 \end{itemize}
 \entrygap
 
@@ -61,7 +60,7 @@ Built geospatial ML pipelines and optimized terrain-analysis code for wetland ma
 \begin{itemize}
   \item{} Mapped wetland probability across the 2,160 km² Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching >75\% accuracy.
   \item{} Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
-  \item{} Engineered features from Sentinel-1/2 multispectral imagery and terrain derivatives for ML land-cover and wetland models; built Python processing tools and QGIS visualizations.
+  \item{} Engineered features from Sentinel-1/2 imagery and terrain derivatives for ML land-cover and wetland models; built Python tools and QGIS visualizations.
   \item{} Presented results to managers and decision-makers, trained 2 colleagues on the WIP tool, and worked with software engineers to move prototype tools into production.
 \end{itemize}
 \entrygap
@@ -72,7 +71,6 @@ Continued simulation research and open-source development between industry roles
 \begin{itemize}
   \item{} Co-developed Tleco, a Rust/Python toolkit that models radiation from relativistic outflows by solving the Fokker–Planck equation coupled to radiative transfer; published in ApJ (2024) [9].
   \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library that simulates wind-driven spore dispersal over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
-  \item{} Invited talk on machine learning in environmental science at the University of Washington (2024).
 \end{itemize}
 \entrygap
 
@@ -81,9 +79,8 @@ Continued simulation research and open-source development between industry roles
 Built and tested data-integration services between enterprise systems and Oracle E-Business Suite.\par\nopagebreak
 \begin{itemize}
   \item{} Built Java Kafka consumers that moved data between enterprise databases, deployed through Jenkins and OpenShift CI/CD pipelines.
-  \item{} Created Splunk dashboards tracking the 200–400 users shared between enterprise systems and Oracle EBS, with alerts that flagged production incidents.
+  \item{} Created Splunk dashboards tracking the 200–400 users shared between enterprise systems and Oracle EBS, with alerts for production incidents; prepared and validated Oracle EBS data with SQL.
   \item{} Wrote full test suites for 5+ Python services in the CI pipeline, keeping production defect rates low.
-  \item{} Prepared, validated, and analyzed Oracle EBS data with SQL.
 \end{itemize}
 \entrygap
 
@@ -91,9 +88,9 @@ Built and tested data-integration services between enterprise systems and Oracle
 \leftright{\textit{Rochester Institute of Technology}}{Rochester, NY}\nopagebreak
 HPC simulations of supermassive black-hole binaries in an NSF-funded project.\par\nopagebreak
 \begin{itemize}
-  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black-hole binaries.
-  \item{} Added black-hole spin to the simulations with under 5\% runtime overhead.
-  \item{} Designed and ran benchmark simulations of the new features on TACC's Frontera supercomputer (about 1,200 node-hours), identifying performance optimization opportunities.
+  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black hole binaries, in an NSF-funded project.
+  \item{} Added black hole spin to the simulations with under 5\% runtime overhead.
+  \item{} Ran and benchmarked large production simulations on Frontera (TACC), about 10,000 node-hours, and identified performance bottlenecks in the parallel code.
   \item{} Calibrated Paramo model parameters against Fermi-LAT gamma-ray spectra with gradient-based optimization, and supervised a graduate student applying gradient descent to the same problem.
   \item{} Co-authored 2 papers from a multi-institution study of binary neutron-star mergers [6, 7] and a third on blazar heating and cooling [8].
 \end{itemize}
@@ -104,11 +101,11 @@ HPC simulations of supermassive black-hole binaries in an NSF-funded project.\pa
 Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst afterglows).\par\nopagebreak
 \begin{itemize}
   \item{} Architected Paramo, an open-source Fortran 95 library that solves the Fokker–Planck equation coupled to radiative transfer; parallelized and optimized it with OpenMP, making it about 20× faster than the original serial code on 5 cores.
-  \item{} Paramo has been adopted by other research groups, including in Combi \& Siegel (2023).
+  \item{} Paramo has been adopted by other groups, including Combi \& Siegel (2023).
   \item{} Co-I on two NASA Fermi Guest Investigator proposals; one was funded (\$68K) and supported the finding that blazar jets are launched with similar energy per baryon, independently of their power [5].
   \item{} Added numerical-integration and OpenMP features to Paramo and built Python tools to compute energy losses and spectra of high-energy particles in gamma-ray burst afterglows [4].
   \item{} Mentored 3 graduate students (1 M.S., 2 Ph.D.), co-authoring papers with each.
-  \item{} Wrote Python scripts for statistical modeling of the COVID-19 outbreak in Mexico with a multidisciplinary group, and co-wrote Spanish-language infographics and blog posts against misinformation.
+  \item{} Modeled the COVID-19 outbreak in Mexico (Python) and co-wrote Spanish-language infographics against misinformation.
 \end{itemize}
 \entrygap
 
@@ -116,7 +113,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
 \begin{itemize}
   \item{} Built a Python pipeline that turned GRTrans black-hole simulation images into training data for an SVM classifier of black-hole spin (grayscale conversion, intensity normalization, spatial feature extraction).
-  \item{} Released an open-source Python tool for computing radiative-transfer spectra and light curves in relativistic astrophysics.
+  \item{} Released an open-source Python tool for radiative-transfer spectra and light curves.
   \item{} Organized an HDF5 workshop to train graduate students in high-volume data storage.
 \end{itemize}
 \entrygap
@@ -125,8 +122,8 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textit{Universitat de València}}{Valencia, Spain}\nopagebreak
 \begin{itemize}
   \item{} Automated runs of the C-SPEV radiative-transfer code with Shell and Python pipelines: 10–60 simulations per project and tens of GB of HDF5 output, with data-quality checks for downstream analysis.
-  \item{} Analyzed multi-wavelength observations from the NASA Fermi-LAT telescope and the Very Long Baseline Array (VLBA), including cross-matching sources across catalogs by sky coordinates and fitting log-parabola spectra.
-  \item{} Fit C-SPEV simulation models to telescope data, identifying spectral and light-curve patterns that quantify the magnetization of plasma in blazars.
+  \item{} Analyzed Fermi-LAT and VLBA multi-wavelength observations, cross-matching sources across catalogs and fitting log-parabola spectra.
+  \item{} Fit C-SPEV models to telescope data, finding spectral and light-curve patterns that quantify plasma magnetization in blazars.
   \item{} Extended C-SPEV to compute discrete and continuous spectra from particle distributions of arbitrary shape, without affecting simulation runtime.
   \item{} Published 2 first-author papers in MNRAS [2, 3].
 \end{itemize}
@@ -386,28 +383,6 @@ Co-authored paper [4]\par
 
 \leftright{\textbf{Fortran for Scientific Computing}}{Mar 2012}\nopagebreak
 \leftright{\textit{HLRS, University of Stuttgart, Germany}}{Workshop, 33 hours}
-\entrygap
-
-
-\cvsection{Certifications}
-\leftright{\textbf{Gen AI Intensive}}{\href{https://www.kaggle.com/certification/badges/jmrb103/96}{Kaggle}}\nopagebreak
-\textit{Generative AI}\par
-\entrygap
-
-\leftright{\textbf{Data Scientist Professional with Python}}{DataCamp}\nopagebreak
-\textit{Python programming, data science, data communication, machine learning}\par
-\entrygap
-
-\leftright{\textbf{Machine Learning Scientist with Python}}{DataCamp}\nopagebreak
-\textit{Machine learning, NLP, deep learning, image processing, big data}\par
-\entrygap
-
-\leftright{\textbf{Mathematical Foundations of Machine Learning}}{\href{https://www.udemy.com/certificate/UC-605df108-ae80-4297-8c8f-6bc15b967511/}{Udemy}}\nopagebreak
-\textit{Python programming, data science, statistics, machine learning}\par
-\entrygap
-
-\leftright{\textbf{Python for Statistical Analysis}}{\href{https://www.udemy.com/certificate/UC-e8557ac8-13f9-41bf-ab46-f196a041b725/}{Udemy}}\nopagebreak
-\textit{Python programming, data science, data communication, machine learning}\par
 \entrygap
 
 

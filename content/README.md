@@ -42,16 +42,15 @@ npm run build:cv       # CV only
 npm run build          # both
 ```
 
-Each one generates all the `.tex` files and the `.docx`, then runs `pdflatex`
-to produce the PDFs. To do the steps by hand from the repo root:
+Each one generates all the `.tex` files and the `.docx`, then compiles every
+main `.tex` with `pdflatex` (two passes, so citations settle). The aux, out
+and log files go to the hidden folder `.tex_tmp/`; only the PDFs are copied
+to the repo root, and the build prints each PDF's page count plus any LaTeX
+errors or overfull boxes. To run it by hand from the repo root:
 
 ```bash
-node tools/build.js content/resume.yaml
-pdflatex RuedaBecerrilJM-resume-plain.tex
-pdflatex RuedaBecerrilJM-resume.tex
+node tools/build.js content/resume.yaml            # add --no-pdf to skip pdflatex
 ```
-
-(The moderncv CV needs two `pdflatex` runs; `npm run build:cv` does both.)
 
 Commit the YAML together with every regenerated file (`.tex`, `Sections/*.tex`,
 `.pdf`, `.docx`).
@@ -101,8 +100,8 @@ A section can instead say `manual: <file>`: the moderncv version then
 `\input`s that hand-edited `Sections/<file>.tex` unchanged and never
 overwrites it, while the plain and Word versions still render the section
 from the YAML. The CV does this for `publications`, whose bibliography uses
-its own macros. Keep the two in sync by hand, including the `[n]` numbers
-that other sections cite.
+its own macros. Keep the two in sync by hand: same papers, same order, and
+the same `key:` as the `\bibitem`/`\mybibitem` key (see Citations below).
 
 `preamble:` (a list of raw LaTeX lines, not escaped) is added to the moderncv
 main file; the CV uses it for the macros `publications.tex` needs:
@@ -156,14 +155,27 @@ Every section has a `title` and one or more kinds of content:
     - title: Articles
       unbulleted: true        # hanging indent, no bullet
       list:
-        - >-
-          [2] Item that carries its own label.
+        - key: Davis:2024ru   # optional; makes the item citable
+          text: >-
+            [2] Item that carries its own label.
 ```
 
 Use `unbulleted: true` for lists whose items carry their own labels, like the
-CV's numbered publications (`[12]` … `[1]`). The numbers are plain text, so
-when you add a paper, renumber the list and any references to it (the CV's
-Experience and Teaching entries cite papers as `[5]`, `[8, 9]`).
+CV's numbered publications (`[12]` … `[1]`). A list item is either plain text
+or a `key:` + `text:` pair; the key lets other text cite it.
+
+### Citations
+
+Write `[@Davis:2024ru]`, or `[@Murguia:2021no, @Lopez:2022et]` for several,
+anywhere in a text field:
+
+- moderncv version: `\cite{Davis:2024ru}`, numbered by the bibliography
+- plain and Word versions: the label at the start of that item's text, e.g.
+  `[9]`, or `[6, 7]`
+
+So when you add a paper, renumber the labels in the YAML list (and the
+hand-edited bibliography); every citation follows automatically. A key that
+no list item defines stops the build with an error.
 
 ### Entries
 
@@ -201,6 +213,7 @@ Any text field accepts:
 | `**Rueda-Becerril, J. M.**`   | bold                   |
 | `*Tleco: A Toolkit*`          | italic                 |
 | `[arXiv:2405.17581](https://arxiv.org/abs/2405.17581)` | link |
+| `[@Davis:2024ru]`             | citation (see Citations) |
 
 Write plain Unicode characters (`–`, `×`, `²`, `é`). LaTeX special characters
 (`& % $ # _ ~ ^ \ { }`) are escaped automatically, so write `$68K` and
