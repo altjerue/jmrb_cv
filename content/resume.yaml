@@ -1,0 +1,228 @@
+# Single source for the plain resume. `node tools/build.js content/resume.yaml`
+# writes <output>.tex and <output>.docx from it.
+#
+# Inline markup (works in every text field): **bold**, *italic*,
+# [link text](https://url). Write plain Unicode (–, ×, ², é); the build
+# escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
+
+output: RuedaBecerrilJM-resume-plain
+name: Jesús M. Rueda-Becerril
+credentials: Ph.D.
+contact:
+  - Seattle, WA
+  - "[jm.ruebe@gmail.com](mailto:jm.ruebe@gmail.com)"
+  - +1 (765) 430-2330
+  - "[linkedin.com/in/jeruebe](https://linkedin.com/in/jeruebe)"
+  - "[altjerue.github.io](https://altjerue.github.io)"
+
+sections:
+  - title: Professional Summary
+    paragraph: >-
+      Computational Scientist with a PhD in Physics and over ten years of
+      experience building and running high-performance numerical algorithms and
+      physics-based simulations. Expertise in scientific machine learning and
+      geospatial data analysis. Strong mathematical foundations with a track
+      record of architecting open-source simulation libraries, leading funded
+      research projects, and translating complex physical models into
+      production-quality scientific software. Experienced working across
+      cross-functional research and engineering teams.
+
+  - title: Skills
+    skills:
+      - label: Simulation
+        text: >-
+          Kinetic plasma modeling (Fokker–Planck), radiative processes
+          (synchrotron, inverse Compton), radiative transfer, relativistic
+          MHD, Lagrangian particle dynamics, numerical PDEs,
+          finite-difference/finite-volume methods, numerical linear algebra,
+          parameter estimation, uncertainty quantification
+      - label: HPC & Parallel
+        text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
+      - label: ML & Data
+        text: >-
+          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
+          Pandas, Astropy, random forest, SVM, neural networks,
+          gradient-based optimization, parameter estimation
+      - label: Languages
+        text: Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell
+      - label: Tools
+        text: Git, Docker, Jenkins, QGIS, ParaView, VisIt
+
+  - title: Experience
+    entries:
+      - heading: Independent Contractor
+        right: Jan 2026 – Present
+        sub: Mercor
+        sub_right: Remote
+        intro: >-
+          Physics subject-matter expert evaluating frontier language models
+          for a leading AI lab.
+        bullets:
+          - >-
+            Reviewed 50+ expert-level problems in physics, hydrodynamics,
+            astrophysics, and cosmology; wrote original prompts that stumped
+            frontier models.
+
+      - heading: Spatial Data Scientist
+        right: May 2025 – Jan 2026
+        sub: TealWaters
+        sub_right: Seattle, WA
+        intro: >-
+          Built geospatial ML pipelines and optimized terrain-analysis code
+          for wetland mapping.
+        bullets:
+          - >-
+            Optimized the terrain-modeling code that computes elevation
+            derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving
+            its computational performance.
+          - >-
+            Mapped wetland probability across the 2,160 km² Skykomish
+            watershed with the Wetland Intrinsic Potential (WIP) random-forest
+            model, reaching >75% accuracy.
+
+      - heading: Independent Researcher & Open-Source Developer
+        right: Jan 2024 – May 2025
+        sub: Self-directed
+        sub_right: Seattle, WA
+        intro: >-
+          Continued simulation research and open-source development between
+          industry roles.
+        bullets:
+          - >-
+            Co-developed Tleco, a Rust/Python toolkit that models radiation
+            from relativistic outflows by solving the Fokker–Planck equation
+            coupled to radiative transfer; published in ApJ (2024).
+          - >-
+            Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
+            library that simulates wind-driven spore dispersal over forested,
+            hilly terrain, parallelized with RcppParallel and OpenMP.
+
+      - heading: Software Engineer
+        right: Apr 2022 – Jan 2024
+        sub: Paychex
+        sub_right: Remote
+        intro: >-
+          Built and tested data-integration services between enterprise
+          systems and Oracle E-Business Suite.
+        bullets:
+          - Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
+
+      - heading: Postdoctoral Research Associate
+        right: Feb 2021 – Apr 2022
+        sub: Rochester Institute of Technology
+        sub_right: Rochester, NY
+        intro: >-
+          HPC simulations of supermassive black-hole binaries in an
+          NSF-funded project.
+        bullets:
+          - >-
+            Led a 7-person team upgrading PatchworkMHD, a C code for
+            magnetohydrodynamic simulations of supermassive black-hole
+            binaries.
+          - >-
+            Added black-hole spin to the simulations with under 5% runtime
+            overhead.
+          - >-
+            Benchmarked new features on TACC's Frontera supercomputer (about
+            10,000 node-hours) to find performance bottlenecks.
+          - >-
+            Calibrated Paramo against Fermi-LAT spectra with gradient-based
+            optimization; supervised a graduate student on the same problem.
+          - >-
+            Co-authored 2 papers from a multi-institution study of binary
+            neutron-star mergers.
+
+      - heading: Postdoctoral Research Fellow
+        right: Oct 2018 – Nov 2020
+        sub: Purdue University
+        sub_right: West Lafayette, IN
+        intro: >-
+          Radiative-transfer modeling of relativistic jets (blazars and
+          gamma-ray burst afterglows).
+        bullets:
+          - >-
+            Architected Paramo, an open-source Fortran 95 Fokker–Planck and
+            radiative-transfer library; parallelized and optimized it with
+            OpenMP to run about 20× faster than serial on 5 cores.
+          - >-
+            Paramo has been adopted by other research groups, including in
+            Combi & Siegel (2023).
+          - >-
+            Co-I on two NASA Fermi Guest Investigator proposals; one was
+            funded ($68K) to model blazar radiation.
+          - >-
+            Mentored 3 graduate students, co-authoring papers with each.
+
+      - heading: Postdoctoral Research Fellow
+        right: Jan 2018 – Sep 2018
+        sub: Universidad Michoacana de San Nicolás de Hidalgo
+        sub_right: Morelia, Mexico
+        bullets:
+          - >-
+            Studied how magnetization of shocked plasma shapes the radiation
+            spectra of relativistic internal shocks, using the C-SPEV
+            simulation code.
+
+      - heading: Graduate Research Assistant
+        right: Oct 2011 – Jul 2017
+        sub: Universitat de València
+        sub_right: Valencia, Spain
+        bullets:
+          - >-
+            Automated runs of the C-SPEV radiative-transfer code with Shell
+            and Python pipelines: 10–60 simulations per project and tens of
+            GB of HDF5 output.
+          - >-
+            Extended C-SPEV to compute discrete and continuous spectra from
+            particle distributions of arbitrary shape.
+          - Published 2 first-author papers in MNRAS.
+
+  - title: Projects
+    entries:
+      - heading: Blazar Population ML
+        right: Jan 2026 – Present
+        sub: Scientific ML (Python, scikit-learn, PyTorch)
+        sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
+        bullets:
+          - >-
+            Applying classical ML and Bayesian inference to the Fermi-LAT
+            4LAC-DR3 catalog (3,407 sources) to recover physical jet
+            parameters from multi-wavelength data.
+          - >-
+            Building a neural network that maps physical jet parameters to
+            observable spectral energy distributions accurately enough to
+            compare with Tleco results.
+          - >-
+            Forecasting blazar gamma-ray flares with a time-series foundation
+            model fine-tuned on Tleco-generated synthetic light curves.
+
+  - title: Selected Publications (9 peer-reviewed articles, 3 first-author)
+    list:
+      - >-
+        Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D. *Tleco: A Toolkit
+        for Modeling Radiative Signatures from Relativistic Outflows*,
+        [ApJ 976, 182 (2024)](https://doi.org/10.3847/1538-4357/ad8bc2),
+        [arXiv:2405.17581](https://arxiv.org/abs/2405.17581).
+      - >-
+        **Rueda-Becerril, J. M.**, Harrison, A. O., & Giannios, D. *Blazar jets
+        launched with similar energy per baryon, independently of their
+        power*, [MNRAS 501, 4092–4102 (2021)](https://doi.org/10.1093/mnras/staa3925),
+        [arXiv:2009.02273](https://arxiv.org/abs/2009.02273).
+      - >-
+        **Rueda-Becerril, J. M.**, Mimica, P., & Aloy, M. A. *On the influence
+        of a hybrid thermal–non-thermal distribution in the internal shocks
+        model for blazars*, [MNRAS 468, 1169–1182 (2017)](https://doi.org/10.1093/mnras/stx476),
+        [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
+
+  - title: Education
+    entries:
+      - heading: Universitat de València
+        right: Valencia, Spain
+        sub: Ph.D. in Physics, Excellent Cum Laude
+        sub_right: "2017"
+      - heading: Universidad Michoacana de San Nicolás de Hidalgo
+        right: Morelia, Mexico
+        sub: M.Sc. in Physics
+      - heading: Universidad Autónoma del Estado de México
+        right: Toluca, Mexico
+        sub: B.Sc. in Physics

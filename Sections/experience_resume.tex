@@ -1,113 +1,99 @@
 \section{Experience}
 %--------------------
 \cventry{Jan 2026 — Present}%
-{Mercor}%
 {Independent Contractor}%
+{Mercor}%
 {}%
 {}%
 {%
 \begin{itemize}
-  \item Evaluate physics reasoning in AI model outputs for technical
-  accuracy, identifying failure modes and providing structured feedback.
+  \item Evaluate physics reasoning in AI model outputs for technical accuracy, identifying failure modes and providing structured feedback.
 \end{itemize}
 }
 %--------------------
 %\cventry{May 2025 — Jan 2026}%
 %{Spatial Data Scientist}%
-%{}%
+%{TealWaters}%
 %{}%
 %{}%
 %{%
-%\textit{TealWaters}
 %\begin{itemize}
-%  \item Led optimization of scientific code for topographic terrain modeling,
-%  improving computational performance of elevation derivative calculations.
-%  \item Engineered Python tools for geospatial data processing and analysis;
-%  applied random forest ML for wetland probability mapping.
-%  \item Performed EDA, feature engineering, and geospatial data preparation
-%  including multispectral (Sentinel-1/2) processing for ML/AI land-cover
-%  models.
-%  \item Collaborated with software engineers and scientific team to transition
-%  prototype simulation tools into production.
+%  \item Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
+%  \item Mapped wetland probability across the 2,160 km\textsuperscript{2} Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching \textgreater75\% accuracy.
 %\end{itemize}
 %}
-%--------------------
+%%--------------------
 %\cventry{Apr 2022 — Jan 2024}%
 %{Software Engineer}%
-%{}%
+%{\PYX}%
 %{}%
 %{}%
 %{%
-%\textit{\PYX}
 %\begin{itemize}
-%  \item Developed Java Kafka consumers for high-throughput data transfer
-%  across enterprise databases; deployed to production via Jenkins and
-%  OpenShift using CI/CD pipelines.
-%  \item Conducted SQL data preparation, validation, and analysis from Oracle
-%  EBS datasets; built Splunk dashboards for production monitoring.
-%  \item Developed Python tests ensuring software quality and continuous
-%  integration standards.
+%  \item Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
+%\end{itemize}
+%}
+%%--------------------
+%\cventry{Jan 2024 — May 2025}%
+%{Independent Researcher \& Open-Source Developer}%
+%{Self-directed}%
+%{}%
+%{}%
+%{%
+%\begin{itemize}
+%  \item Co-developed Tleco, a Rust/Python toolkit that solves the Fokker--Planck equation coupled to radiative transfer for relativistic outflows (ApJ 2024).
+%  \item Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library for wind-driven spore dispersal over hilly forest terrain (RcppParallel, OpenMP).
 %\end{itemize}
 %}
 %--------------------
-\cventry{Oct 2018 -- Nov 2020}%
-{\Purdue}%
-{Postdoctoral Research Fellow}%
+\cventry{Feb 2021 — Apr 2022}%
+{Postdoctoral Research Associate}%
+{Rochester Institute of Technology}%
 {}%
 {}%
 {%
 \begin{itemize}
-  \item Obtained and led a NASA-funded grant studying radiation from active
-  galaxies.
-  \item Mentored three graduate researchers; two are now postdoctoral
-  researchers.
-  \item Published 3 peer-reviewed papers.
+  \item Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a C code for MHD simulations of supermassive black hole binaries, adding black hole spin with under 5\% runtime overhead.
+  \item Ran and benchmarked large production simulations on Frontera (TACC), about 10,000 node-hours, and identified performance bottlenecks in the parallel code.
+  \item Calibrated Paramo parameters against Fermi-LAT observations using gradient-based optimization, comparing simulation output with data and updating the model automatically; supervised a graduate student on the same problem.
+  \item Collaborated on a multi-institutional HPC project on binary neutron star mergers, resulting in 2 publications.
 \end{itemize}
 }
 %--------------------
-\cventry{Feb 2021 — Apr 2022}%
-{\RIT}%
-{Postdoctoral Research Associate}%
+\cventry{Oct 2018 -- Nov 2020}%
+{Postdoctoral Research Fellow}%
+{\Purdue}%
 {}%
 {}%
 {%
 \begin{itemize}
-  \item Led an NSF-sponsored project upgrading a high-performance simulation
-  code for modeling black hole binaries.
-  \item Collaborated on a multi-institutional study of binary neutron star
-  mergers, resulting in 2 publications.
+  \item Designed and wrote Paramo, an open-source Fortran 95 library that solves the Fokker-Planck equation for relativistic particle distributions coupled to radiative transfer. OpenMP gives about 20$\times$ speedup on 5 cores; GPU offload tested with OpenACC.
+  \item Implemented implicit PDE solvers, numerical integration, and arbitrary-shape particle distributions without slowing the simulation.
+  \item Wrote Python tools to analyze Paramo output and run parameter optimization; other groups have adopted Paramo, including Combi \& Siegel (2023).
+  \item Co-I on two NASA Fermi Guest Investigator proposals, one funded (\$68K) to model blazar radiation; mentored 3 graduate students and published 2 peer-reviewed papers.
 \end{itemize}
 }
 %--------------------
 \cventry{Jan -- Sep 2018}%
-{\UMSNHes}%
 {Postdoctoral Research Fellow}%
+{\UMSNHes}%
 {}%
 {}%
 {%
 \begin{itemize}
-  \item Developed a Python pipeline to process black hole simulation outputs
-  from the GRTrans numerical code, generating SVM training data for radio
-  image prediction.
-  \item Built open-source data analysis and visualization tools in Python for
-  radiative transfer phenomena in relativistic astrophysics scenarios.
+  \item Developed a Python pipeline to process black hole simulation outputs from the GRTrans numerical code, generating SVM training data for radio image prediction.
+  \item Built open-source data analysis and visualization tools in Python for radiative transfer phenomena in relativistic astrophysics scenarios.
 \end{itemize}
 }
 %--------------------
-%\cventry{Oct 2011 -- Jul 2017}%
-%{Graduate Research Assistant}%
-%{}%
-%{}%
-%{}%
-%{%
-%\textit{\UVval}
-%\begin{itemize}
-%  \item Independently developed Shell and Python pipelines to run the C-SPEV
-%  radiative transfer simulation code and process large HDF5 output datasets.
-%  \item Implemented numerical tools and data handling extensions to C-SPEV for
-%  computing both discrete and continuous spectra from particle distributions
-%  with arbitrary shape.
-%  \item Published 2 first-author papers on numerical simulations of
-%  relativistic plasma dynamics.
-%\end{itemize}
-%}
+%\newpage
+\cventry{Oct 2011 -- Jul 2017}%
+{Graduate Research Assistant}%
+{\UVval}%
+{}%
+{}%
+{%
+\begin{itemize}
+  \item Studied how magnetization of shocked plasma shapes the radiation spectra of relativistic internal shocks, using the C-SPEV simulation code.
+  \end{itemize}
+}

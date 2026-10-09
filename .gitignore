@@ -10,3 +10,5 @@ auto
 *.fls
 *latexmk
 *.sty
+node_modules/
+.tex_tmp/

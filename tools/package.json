@@ -1,0 +1,14 @@
+{
+  "name": "jmrb-cv-tools",
+  "private": true,
+  "description": "Generates the plain-LaTeX and Word versions of the resume and CV from YAML content files",
+  "scripts": {
+    "build:resume": "node build.js ../content/resume.yaml",
+    "build:cv": "node build.js ../content/cv.yaml",
+    "build": "npm run build:resume && npm run build:cv"
+  },
+  "dependencies": {
+    "docx": "^9.5.1",
+    "js-yaml": "^4.1.0"
+  }
+}

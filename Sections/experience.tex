@@ -8,12 +8,8 @@
 {Seattle, WA, USA}%
 {%
 \begin{itemize}
-  \item Provide expert-level knowledge in Physics, Astrophysics, and
-  Mathematics to improve models for a top AI research lab
-  \item Assess model reasoning quality, identify failure modes, and provide
-  structured feedback to improve scientific accuracy
-  \item Apply understanding of mathematical foundations to benchmark model
-  performance, and quality assurance on complex STEM problems
+  \item Physics expert for a leading AI lab: reviewed 50+ expert-level problems in physics, hydrodynamics, astrophysics, and cosmology; wrote original prompts that stumped frontier models.
+  \item Diagnose failure modes in model reasoning and write structured feedback to improve scientific accuracy.
 \end{itemize}
 }
 %-----------------------------------
@@ -24,34 +20,24 @@
 {Seattle, WA, USA}%
 {%
 \begin{itemize}
-  \item Lead project to optimize code for topographic terrain modeling and
-  elevation derivative calculation.
-  \item Engineered Python tools for geospatial data processing and analysis,
-  utilizing QGIS for visualization and analysis.
-  \item Utilize Wetland Intrinsic Potential (WIP) tool with random forest for
-  wetland probability mapping in Skykomish watershed.
-  \item Performed EDA, feature engineering, and geospatial data
-  preparation, including multispectral (Sentinel 1/2) processing for ML
-  land-cover and wetland probability models.
-  \item Share knowledge and results with managers and decision-makers, train
-  team members on WIP tool usage, and collaborate with software engineers and
-  scientific team to transition prototypes into production.
+  \item Mapped wetland probability across the 2,160~km\textsuperscript{2} Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching \textgreater75\% accuracy.
+  \item Optimized the terrain-modeling code that computes elevation derivatives from 1~m, 3~m, and 10~m DEMs over 20 tiles, improving its computational performance.
+  \item Engineered features from Sentinel-1/2 imagery and terrain derivatives for ML land-cover and wetland models; built Python tools and QGIS visualizations.
+  \item Presented results to managers and decision-makers, trained 2 colleagues on the WIP tool, and worked with software engineers to move prototype tools into production.
 \end{itemize}
 }
 %-----------------------------------
-%\cventry{}%
-%{\vspace{-10pt}}%
-%{Independent Research/Open-Source Developer}%
-%{Jan 2024 — May 2025}%
-%{}%
-%{%
-%\begin{cvcolumns}
-%  \cvcolumn{Tleco}{Combines Rust and Python functions from the Fortran code
-%  from accelerating particles.}
-%  \cvcolumn{WindsOfChange}{R package, written in C++ that simulates canopy
-%  spore dispersion in hilly terrains.}
-%\end{cvcolumns}
-%}
+\cventry{}%
+{Self-directed}%
+{Independent Researcher \& Open-Source Developer}%
+{Jan 2024 — May 2025}%
+{Seattle, WA, USA}%
+{%
+\begin{itemize}
+  \item Co-developed Tleco, a Rust/Python toolkit that models radiation from relativistic outflows by solving the Fokker--Planck equation coupled to radiative transfer; published in ApJ (2024) \cite{Davis:2024ru}.
+  \item Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library that simulates wind-driven spore dispersal over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+\end{itemize}
+}
 %-----------------------------------
 \cventry{}%
 {\PYX}%
@@ -60,13 +46,9 @@
 {Rochester NY, USA; based in Seattle, WA, USA}%
 {%
 \begin{itemize}
-  \item Developed Java Kafka consumers for high-throughput data transfer across
-  enterprise databases, and deployed to production via Jenkins and OpenShift
-  using CI/CD pipelines.
-  \item Developed Python tests and CI pipelines ensuring software quality
-  standards.
-  \item Conducted SQL data preparation, validation, and analysis from Oracle
-  EBS datasets.
+  \item Built Java Kafka consumers that moved data between enterprise databases, deployed through Jenkins and OpenShift CI/CD pipelines.
+  \item Created Splunk dashboards tracking the 200--400 users shared between enterprise systems and Oracle EBS, with alerts for production incidents; prepared and validated Oracle EBS data with SQL.
+  \item Wrote full test suites for 5+ Python services in the CI pipeline, keeping production defect rates low.
 \end{itemize}
 }
 %-----------------------------------
@@ -77,27 +59,11 @@
 {Rochester, NY, USA}%
 {%
 \begin{itemize}
-  \item Led a team of specialists on a NSF-sponsored project to upgrade the C
-  code \texttt{PatchworkMHD} to perform HPC simulations using state-of-the-art
-  numerical techniques to model supermassive black hole binaries.
-  \item Implemented a new feature (black hole spin) to \texttt{PatchworkMHD},
-  making more realistic binary black hole simulations without impacting
-  runtime.
-  \item Designed the experiments and evaluated state-of-the-art mathematic and
-  numerical algorithms implemented in \texttt{PatchworkMHD} by running
-  simulations at \emph{Frontera} supercomputer (TACC, UT at Austin).
-  \item Worked in a detail-oriented manner to successfully benchmark and
-  identify performance optimization opportunities of the scientific code.
-  \item Supervised a graduate student applying gradient descent optimization
-  to fit Paramo model parameters to blazar spectral energy distributions
-  observed by the Fermi-LAT telescope, demonstrating ML-assisted parameter
-  estimation workflows for complex astrophysical systems.
-  \item Participated in a multi-institutional collaboration to study binary
-  Neutron Star mergers through HPC simulations, resulting in 2 publications
-  that provided critical breakthrough insights of the physics underlying these
-  events.
-  \item Published 3 co-authored papers and mentored graduate students (2
-Ph.D.).
+  \item Led a 7-person team upgrading \texttt{PatchworkMHD}, a C code for magnetohydrodynamic simulations of supermassive black hole binaries, in an NSF-funded project.
+  \item Added black hole spin to the simulations with under 5\% runtime overhead.
+  \item Designed and ran benchmark simulations of the new features on TACC's \emph{Frontera} supercomputer (about 1,200 node-hours), identifying performance optimization opportunities.
+  \item Calibrated Paramo model parameters against Fermi-LAT gamma-ray spectra with gradient-based optimization, and supervised a graduate student applying gradient descent to the same problem.
+  \item Co-authored 2 papers from a multi-institution study of binary neutron-star mergers \cite{Murguia:2021no,Lopez:2022et} and a third on blazar heating and cooling \cite{Davis:2021ru}.
 \end{itemize}
 }
 %-----------------------------------
@@ -108,23 +74,12 @@ Ph.D.).
 {West Lafayette, IN, USA}%
 {%
 \begin{itemize}
-  \item Developed the open-source code, \texttt{Paramo}, a numerical code in
-  Fortran 95 optimized with OpenMP to perform radiative transfer simulations in
-  relativistic astrophysics scenarios.
-  \item Served as a Co-I on two NASA Fermi Guest Investigator Program 
-  proposals, one granted. The awarded grant helped with research on our
-  understanding of the two main types of blazars, identifying that important
-  physical constraints applied to both objects.
-  \item Developed Python tools to calculate the loss of energy due of
-  high-energy particles due to interactions spectrum and evolution in the
-  context of gamma-ray burst afterglows by developing sophisticated numerical
-  integration, and OpenMP optimized features to \texttt{Paramo}.
-  \item Collaborated with a group of multidisciplinary scientists to develop
-  Python scripts for statistically modeling the COVID-19 outbreak in Mexico and
-  helped create scientific infographics and blogposts for Spanish-speaking
-  populations to reduce the spread of misinformation.
-  \item Published 1 first-author and 1 co-authored paper and mentored three
-  graduate students (1 M.S. and 2 Ph.D.).
+  \item Architected \texttt{Paramo}, an open-source Fortran 95 library that solves the Fokker--Planck equation coupled to radiative transfer; parallelized and optimized it with OpenMP, making it about 20$\times$ faster than the original serial code on 5 cores.
+  \item Paramo has been adopted by other groups, including Combi \& Siegel (2023).
+  \item Co-I on two NASA Fermi Guest Investigator proposals; one was funded (\$68K) and supported the finding that blazar jets are launched with similar energy per baryon, independently of their power \cite{RuedaBecerril:2021ha}.
+  \item Added numerical-integration and OpenMP features to Paramo and built Python tools to compute energy losses and spectra of high-energy particles in gamma-ray burst afterglows \cite{Zhang:2020ch}.
+  \item Mentored 3 graduate students (1 M.S., 2 Ph.D.), co-authoring papers with each.
+  \item Modeled the COVID-19 outbreak in Mexico (Python) and co-wrote Spanish-language infographics against misinformation.
 \end{itemize}
 }
 %-----------------------------------
@@ -135,16 +90,9 @@ Ph.D.).
 {Morelia, Michoacan, Mexico}%
 {%
 \begin{itemize}
-  \item Contributed to a Python pipeline to process 2D simulation images from
-  the GRTrans numerical code, converting outputs to grayscale, normalizing
-  pixel intensities, and extracting spatial features to generate training
-  data for an SVM classifier predicting black hole spin from radio image
-  morphology.
-  \item Developed an open-source data analysis and visualization tool in Python
-  to provide any user with accessible tools to calculate radiative transfer
-  phenomena (spectra and light-curves) in relativistic astrophysics.
-  \item Organized a workshop to train graduate students in the use of the
-  high-volume data storage tool HDF5.
+  \item Built a Python pipeline that turned GRTrans black-hole simulation images into training data for an SVM classifier of black-hole spin (grayscale conversion, intensity normalization, spatial feature extraction).
+  \item Released an open-source Python tool for radiative-transfer spectra and light curves.
+  \item Organized an HDF5 workshop to train graduate students in high-volume data storage.
 \end{itemize}
 }
 %-----------------------------------
@@ -155,29 +103,11 @@ Ph.D.).
 {Burjassot, Valencia, Spain}%
 {%
 \begin{itemize}
-  \item Independently developed Shell and Python scripts to build pipelines to
-  run simulation of the radiative transfer code \texttt{C-SPEV} and perform
-  data processing of output datasets in HDF5 format, ensuring data quality and
-  integrity for downstream analysis and model fit with observations.
-  \item Developed Python scripts to perform exploratory data analysis on
-  multi-wavelength observational datasets from the NASA Fermi-LAT telescope and
-  the Very Large Baseline Array (VLBA), including sky-coordinate-based source
-  cross-matching across catalogs and log-parabola spectral fitting to
-  characterize blazar emission.
-  \item Independently constructed models from \texttt{C-SPEV} simulations for
-  curve fitting, pattern recognition, and prediction of data from NASA
-  telescopes.
-  \item Conducted multiple analyses to identify patterns in spectra and
-  light-curves that allowed the quantification of magnetization of plasma in
-  blazars.
-%  \item Conducted an analysis that identified the importance of including both
-%  cyclotron and synchrotron radiation from non-relativistic to
-%  ultra-relativistic charged particles in blazar simulations.
-  \item Implemented sophisticated numerical tools and data handling to
-  \texttt{C-SPEV} that could calculate both discrete and continuous spectra
-  from particle distributions with arbitrary shape, without impacting
-  simulation runtime.
-  \item Published 2 first-author papers.
+  \item Automated runs of the \texttt{C-SPEV} radiative-transfer code with Shell and Python pipelines: 10--60 simulations per project and tens of GB of HDF5 output, with data-quality checks for downstream analysis.
+  \item Analyzed Fermi-LAT and VLBA multi-wavelength observations, cross-matching sources across catalogs and fitting log-parabola spectra.
+  \item Fit \texttt{C-SPEV} models to telescope data, finding spectral and light-curve patterns that quantify plasma magnetization in blazars.
+  \item Extended \texttt{C-SPEV} to compute discrete and continuous spectra from particle distributions of arbitrary shape, without affecting simulation runtime.
+  \item Published 2 first-author papers in MNRAS \cite{RuedaBecerril:2014mi,RuedaBecerril:2017mi}.
 \end{itemize}
 }
 %-----------------------------------
@@ -188,8 +118,7 @@ Ph.D.).
 %{\UMSNHes, Michoacan, Mexico}%
 %{%
 %\begin{itemize}
-%  \item Developed a SPH code to evolve a hydrodynamical system in curved
-%  space-times, with TOV initial conditions
+%  \item Developed a SPH code to evolve a hydrodynamical system in curved space-times, with TOV initial conditions
 %\end{itemize}
 %}
 %-----------------------------------
