@@ -1,0 +1,10 @@
+{
+  "name": "jmrb-cv",
+  "private": true,
+  "description": "Forwards to tools/ so the build can be run from the repo root",
+  "scripts": {
+    "build": "npm --prefix tools run build",
+    "build:resume": "npm --prefix tools run build:resume",
+    "build:cv": "npm --prefix tools run build:cv"
+  }
+}

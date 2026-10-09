@@ -6,6 +6,12 @@
 # escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
 output: RuedaBecerrilJM-resume-plain
+# moderncv version: writes <output>.tex plus <sections_dir>/<file>.tex for
+# each section below (every section needs a `file:`).
+moderncv:
+  output: RuedaBecerrilJM-resume
+  style: resume
+  sections_dir: Sections
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -17,6 +23,7 @@ contact:
 
 sections:
   - title: Professional Summary
+    file: profile_resume
     paragraph: >-
       Computational Scientist with a PhD in Physics and over ten years of
       experience building and running high-performance numerical algorithms and
@@ -28,27 +35,22 @@ sections:
       cross-functional research and engineering teams.
 
   - title: Skills
+    file: skills_resume
     skills:
-      - label: Simulation
-        text: >-
-          Kinetic plasma modeling (Fokker–Planck), radiative processes
-          (synchrotron, inverse Compton), radiative transfer, relativistic
-          MHD, Lagrangian particle dynamics, numerical PDEs,
-          finite-difference/finite-volume methods, numerical linear algebra,
-          parameter estimation, uncertainty quantification
-      - label: HPC & Parallel
-        text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
+      - label: Languages
+        text: C/C++, Python, Fortran 95, Rust, R, Java, SQL, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
-          Pandas, Astropy, random forest, SVM, neural networks,
-          gradient-based optimization, parameter estimation
-      - label: Languages
-        text: Python, C/C++, Fortran, Rust, R, SQL, Java, Julia, Shell
+          Scientific machine learning, PyTorch, TensorFlow, scikit-learn,
+          NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation,
+          gradient-based optimization, SVM, random forest, neural networks
+      - label: HPC & Parallel
+        text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
       - label: Tools
-        text: Git, Docker, Jenkins, QGIS, ParaView, VisIt
+        text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt
 
   - title: Experience
+    file: experience_resume
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
@@ -89,13 +91,13 @@ sections:
           industry roles.
         bullets:
           - >-
-            Co-developed Tleco, a Rust/Python toolkit that models radiation
-            from relativistic outflows by solving the Fokker–Planck equation
-            coupled to radiative transfer; published in ApJ (2024).
+            Co-developed Tleco, a Rust/Python toolkit that solves the
+            Fokker–Planck equation coupled to radiative transfer for
+            relativistic outflows (ApJ 2024).
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
-            library that simulates wind-driven spore dispersal over forested,
-            hilly terrain, parallelized with RcppParallel and OpenMP.
+            library for wind-driven spore dispersal over hilly forest terrain
+            (RcppParallel, OpenMP).
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
@@ -112,25 +114,25 @@ sections:
         sub: Rochester Institute of Technology
         sub_right: Rochester, NY
         intro: >-
-          HPC simulations of supermassive black-hole binaries in an
-          NSF-funded project.
+          HPC simulations of supermassive black hole binaries in an NSF-funded
+          project.
         bullets:
           - >-
-            Led a 7-person team upgrading PatchworkMHD, a C code for
-            magnetohydrodynamic simulations of supermassive black-hole
-            binaries.
+            Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a
+            C code for MHD simulations of supermassive black hole binaries,
+            adding black hole spin with under 5% runtime overhead.
           - >-
-            Added black-hole spin to the simulations with under 5% runtime
-            overhead.
+            Ran and benchmarked large production simulations on Frontera
+            (TACC), about 10,000 node-hours, and identified performance
+            bottlenecks in the parallel code.
           - >-
-            Benchmarked new features on TACC's Frontera supercomputer (about
-            10,000 node-hours) to find performance bottlenecks.
+            Calibrated Paramo parameters against Fermi-LAT observations using
+            gradient-based optimization, comparing simulation output with data
+            and updating the model automatically; supervised a graduate
+            student on the same problem.
           - >-
-            Calibrated Paramo against Fermi-LAT spectra with gradient-based
-            optimization; supervised a graduate student on the same problem.
-          - >-
-            Co-authored 2 papers from a multi-institution study of binary
-            neutron-star mergers.
+            Collaborated on a multi-institutional HPC project on binary
+            neutron star mergers, resulting in 2 publications.
 
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
@@ -141,17 +143,22 @@ sections:
           gamma-ray burst afterglows).
         bullets:
           - >-
-            Architected Paramo, an open-source Fortran 95 Fokker–Planck and
-            radiative-transfer library; parallelized and optimized it with
-            OpenMP to run about 20× faster than serial on 5 cores.
+            Designed and wrote Paramo, an open-source Fortran 95 library that
+            solves the Fokker–Planck equation for relativistic particle
+            distributions coupled to radiative transfer. OpenMP gives about
+            20× speedup on 5 cores; GPU offload tested with OpenACC.
           - >-
-            Paramo has been adopted by other research groups, including in
-            Combi & Siegel (2023).
+            Implemented implicit PDE solvers, numerical integration, and
+            arbitrary-shape particle distributions without slowing the
+            simulation.
           - >-
-            Co-I on two NASA Fermi Guest Investigator proposals; one was
-            funded ($68K) to model blazar radiation.
+            Wrote Python tools to analyze Paramo output and run parameter
+            optimization; other groups have adopted Paramo, including Combi &
+            Siegel (2023).
           - >-
-            Mentored 3 graduate students, co-authoring papers with each.
+            Co-I on two NASA Fermi Guest Investigator proposals, one funded
+            ($68K) to model blazar radiation; mentored 3 graduate students and
+            published 2 peer-reviewed papers.
 
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
@@ -159,9 +166,13 @@ sections:
         sub_right: Morelia, Mexico
         bullets:
           - >-
-            Studied how magnetization of shocked plasma shapes the radiation
-            spectra of relativistic internal shocks, using the C-SPEV
-            simulation code.
+            Developed a Python pipeline to process black hole simulation
+            outputs from the GRTrans numerical code, generating SVM training
+            data for radio image prediction.
+          - >-
+            Built open-source data analysis and visualization tools in Python
+            for radiative transfer phenomena in relativistic astrophysics
+            scenarios.
 
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
@@ -169,15 +180,12 @@ sections:
         sub_right: Valencia, Spain
         bullets:
           - >-
-            Automated runs of the C-SPEV radiative-transfer code with Shell
-            and Python pipelines: 10–60 simulations per project and tens of
-            GB of HDF5 output.
-          - >-
-            Extended C-SPEV to compute discrete and continuous spectra from
-            particle distributions of arbitrary shape.
-          - Published 2 first-author papers in MNRAS.
+            Studied how magnetization of shocked plasma shapes the radiation
+            spectra of relativistic internal shocks, using the C-SPEV
+            simulation code.
 
   - title: Projects
+    file: projects_resume
     entries:
       - heading: Blazar Population ML
         right: Jan 2026 – Present
@@ -197,6 +205,7 @@ sections:
             model fine-tuned on Tleco-generated synthetic light curves.
 
   - title: Selected Publications (9 peer-reviewed articles, 3 first-author)
+    file: publications_short
     list:
       - >-
         Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D. *Tleco: A Toolkit
@@ -215,6 +224,7 @@ sections:
         [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
 
   - title: Education
+    file: education_resume
     entries:
       - heading: Universitat de València
         right: Valencia, Spain
