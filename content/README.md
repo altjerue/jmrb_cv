@@ -34,7 +34,7 @@ the `moderncvstyle*.sty` files, not in the YAML.
 
 ## Build
 
-From `tools/`:
+From the repo root (or from `tools/`):
 
 ```bash
 npm run build:resume   # resume only
@@ -260,6 +260,8 @@ pdflatex <output>.tex
   update: a stale personal format file is overriding the system one. Check
   with `kpsewhich -engine=pdftex pdflatex.fmt`; if it points into
   `~/Library/texlive/...`, delete that file so the system format is used.
+- **`npm error enoent Could not read package.json`**: you are outside the
+  repo; `cd` into it (the root `package.json` forwards to `tools/`).
 - **`Cannot find module 'docx'` or `'js-yaml'`**: run `npm install` in
   `tools/`.
 - **YAML error with a line number**: usually an unquoted value that starts
