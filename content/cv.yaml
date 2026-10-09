@@ -22,8 +22,8 @@ sections:
       relativistic plasmas. Author of the open-source Paramo library for kinetic
       particle evolution and radiative transfer. Experience with MHD codes on
       leadership-class HPC systems and with machine learning for calibrating
-      physical models. Peer-reviewed publications, competitive grants, and
-      collaboration across interdisciplinary teams.
+      physical models. Nine peer-reviewed publications, Co-I on a funded NASA
+      grant, and mentor to three graduate students.
 
   - title: Skills
     skills:
@@ -31,9 +31,9 @@ sections:
         text: >-
           Kinetic plasma modeling (Fokker–Planck), radiative processes
           (synchrotron, inverse Compton), radiative transfer, relativistic
-          MHD, Lagrangian particle dynamics, numerical PDEs (advection–diffusion,
-          Fokker–Planck), finite-difference/finite-volume methods,
-          numerical linear algebra, parameter estimation, uncertainty
+          MHD, hydrodynamics (SPH), Lagrangian particle dynamics, numerical PDEs
+          (advection–diffusion, Fokker–Planck), finite-difference/finite-volume
+          methods, numerical linear algebra, parameter estimation, uncertainty
           quantification, synthetic dataset generation
       - label: HPC & Parallel
         text: OpenMP, MPI, OpenACC, SLURM, PBS, HDF5
@@ -100,11 +100,11 @@ sections:
             move prototype tools into production.
 
       - heading: Independent Researcher & Open-Source Developer
-        right: Jan 2024 – May 2025
+        right: Jan 2024 – Present
         sub: Self-directed
         sub_right: Seattle, WA
         intro: >-
-          Continued simulation research and open-source development between
+          Simulation research and open-source development, ongoing alongside
           industry roles.
         bullets:
           - >-
@@ -113,8 +113,12 @@ sections:
             coupled to radiative transfer; published in ApJ (2024) [9].
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
-            library that simulates wind-driven spore dispersal over forested,
-            hilly terrain, parallelized with RcppParallel and OpenMP.
+            library of Lagrangian particle models for turbulent transport over
+            forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+          - >-
+            Used AI coding assistants in the most recent stages of development;
+            changes were accepted only if they passed the unit-test suite and,
+            for some functions, matched reference solutions.
           - >-
             Invited talk on machine learning in environmental science at the
             University of Washington (2024).
@@ -144,19 +148,19 @@ sections:
         sub: Rochester Institute of Technology
         sub_right: Rochester, NY
         intro: >-
-          HPC simulations of supermassive black-hole binaries in an
+          HPC simulations of supermassive black hole binaries in an
           NSF-funded project.
         bullets:
           - >-
             Led a 7-person team upgrading PatchworkMHD, a C code for
-            magnetohydrodynamic simulations of supermassive black-hole
+            magnetohydrodynamic simulations of supermassive black hole
             binaries.
           - >-
-            Added black-hole spin to the simulations with under 5% runtime
+            Added black hole spin to the simulations with under 5% runtime
             overhead.
           - >-
             Designed and ran benchmark simulations of the new features on
-            TACC's Frontera supercomputer (about 1,200 node-hours),
+            TACC's Frontera supercomputer (about 10,000 node-hours),
             identifying performance optimization opportunities.
           - >-
             Calibrated Paramo model parameters against Fermi-LAT gamma-ray
@@ -164,8 +168,9 @@ sections:
             graduate student applying gradient descent to the same problem.
           - >-
             Co-authored 2 papers from a multi-institution study of binary
-            neutron-star mergers [6, 7] and a third on blazar heating and
-            cooling [8].
+            neutron star mergers [6, 7] and a third, a Fokker–Planck model of
+            relativistic turbulent heating balanced by radiative cooling with
+            transport coefficients from PIC simulations [8].
 
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
@@ -178,8 +183,7 @@ sections:
           - >-
             Architected Paramo, an open-source Fortran 95 library that solves
             the Fokker–Planck equation coupled to radiative transfer;
-            parallelized and optimized it with OpenMP, making it about 20×
-            faster than the original serial code on 5 cores.
+            parallelized and optimized it with OpenMP.
           - >-
             Paramo has been adopted by other research groups, including in
             Combi & Siegel (2023).
@@ -207,8 +211,8 @@ sections:
         sub_right: Morelia, Mexico
         bullets:
           - >-
-            Built a Python pipeline that turned GRTrans black-hole simulation
-            images into training data for an SVM classifier of black-hole
+            Built a Python pipeline that turned GRTrans black hole simulation
+            images into training data for an SVM classifier of black hole
             spin (grayscale conversion, intensity normalization, spatial
             feature extraction).
           - >-
@@ -224,6 +228,10 @@ sections:
         sub: Universitat de València
         sub_right: Valencia, Spain
         bullets:
+          - >-
+            Studied how magnetization of shocked plasma shapes the radiation
+            spectra of relativistic internal shocks, using the C-SPEV
+            simulation code.
           - >-
             Automated runs of the C-SPEV radiative-transfer code with Shell
             and Python pipelines: 10–60 simulations per project and tens of
@@ -252,7 +260,6 @@ sections:
         sub_right: Valencia, Spain
         details:
           - Excellent *cum laude*
-          - "Advisors: Prof. Miguel A. Aloy and Dr. Petar Mimica"
           - >-
             Thesis: [Numerical treatment of radiation processes in the
             internal shocks of magnetized relativistic outflows](http://roderic.uv.es/handle/10550/60003)
@@ -261,8 +268,9 @@ sections:
         sub: Universidad Michoacana de San Nicolás de Hidalgo
         sub_right: Morelia, Mexico
         details:
-          - "Advisor: Prof. José A. Cervera"
-          - "Thesis: *Study of TOV stars with the SPH method*"
+          - >-
+            Thesis: Study of TOV stars with the SPH method (wrote an SPH
+            hydrodynamics code to study the stability of relativistic stars).
       - heading: B.Sc. in Physics
         right: Aug 2004 – Dec 2008
         sub: Universidad Autónoma del Estado de México
@@ -422,16 +430,15 @@ sections:
         sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
         bullets:
           - >-
-            Applying classical ML and Bayesian inference to the Fermi-LAT
-            4LAC-DR3 catalog (3,407 sources) to recover physical jet
-            parameters from multi-wavelength data.
+            Applying classical ML (PCA, UMAP, Gaussian mixture models,
+            HDBSCAN) to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to test
+            whether jet baryon-loading constraints from my 2021 simulation
+            study can be recovered from observables; Gaussian process
+            regression on a 334-source MOJAVE subsample in progress.
           - >-
-            Building a neural network that maps physical jet parameters to
-            observable spectral energy distributions accurately enough to
-            compare with Tleco results.
-          - >-
-            Forecasting blazar gamma-ray flares with a time-series foundation
-            model fine-tuned on Tleco-generated synthetic light curves.
+            Planned next stage: a neural emulator of Tleco trained on
+            synthetic spectra, then flare forecasting on Tleco-generated
+            light curves.
       - heading: WindsOfChange
         right: Aug 2024 – Present
         sub: Lagrangian particle-dispersion library (C++/R)
@@ -442,6 +449,10 @@ sections:
             over hilly terrain with forest canopy, based on analytical models
             (Massman & Weil 1999; Finnigan & Belcher 2004); designed to scale
             to tens of thousands of particles over kilometer-scale domains.
+          - >-
+            Used AI coding assistants in the most recent stages of development;
+            changes were accepted only if they passed the unit-test suite and,
+            for some functions, matched reference solutions.
       - heading: Tleco
         right: Jan 2024 – Sep 2024
         sub: Radiative-transfer toolkit (Rust/Python)
@@ -458,8 +469,7 @@ sections:
         bullets:
           - >-
             Fokker–Planck and radiative-transfer solver for relativistic
-            particle distributions; about 20× faster than the original serial
-            code on 5 cores after OpenMP parallelization and optimization;
+            particle distributions; parallelized and optimized with OpenMP;
             used by other groups, including Combi & Siegel (2023).
       - heading: PatchworkMHD
         right: Feb 2021 – Apr 2022
@@ -467,7 +477,7 @@ sections:
         bullets:
           - >-
             Led a 7-person upgrade of this production C code for HPC
-            environments, adding black-hole spin with under 5% runtime
+            environments, adding black hole spin with under 5% runtime
             overhead.
 
   - title: Awards

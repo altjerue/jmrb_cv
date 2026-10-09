@@ -18,25 +18,25 @@ contact:
 sections:
   - title: Professional Summary
     paragraph: >-
-      Computational physicist with a PhD in Physics and ten years of experience
+      Computational physicist with a PhD in Physics and 10+ years of experience
       building and running simulation codes for relativistic plasmas. Author of
       Paramo, an open-source Fortran library that solves the Fokker-Planck
-      equation coupled to radiative transfer. Led an upgrade of the PatchworkMHD
-      code on Frontera and used gradient-based optimization to calibrate model
-      parameters against observations. Nine publications and a NASA grant won
-      and led as a postdoc.
+      equation coupled to radiative transfer. Led a 7-person upgrade of the
+      PatchworkMHD code and benchmarked it on Frontera. Used gradient-based
+      optimization to calibrate model parameters against observations.
+    #  Nine peer-reviewed publications, 3 as first author.
 
   - title: Skills
     skills:
       - label: Simulation
         text: >-
-          Kinetic plasma modeling (Fokker–Planck), radiative processes
+          Kinetic plasma modeling (Fokker-Planck), radiative processes
           (synchrotron, inverse Compton), radiative transfer, relativistic
-          MHD, Lagrangian particle dynamics, numerical PDEs,
-          finite-difference/finite-volume methods, numerical linear algebra,
-          parameter estimation, uncertainty quantification
+          MHD, hydrodynamics (SPH), Lagrangian particle dynamics, numerical
+          PDEs, finite-difference/finite-volume methods, numerical linear
+          algebra, parameter estimation, uncertainty quantification
       - label: HPC & Parallel
-        text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
+        text: OpenMP, MPI, OpenACC (prototyped GPU offloading), SLURM, PBS, HDF5
       - label: ML & Data
         text: >-
           Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
@@ -80,21 +80,26 @@ sections:
             model, reaching >75% accuracy.
 
       - heading: Independent Researcher & Open-Source Developer
-        right: Jan 2024 – May 2025
+        right: Jan 2024 – Present
         sub: Self-directed
         sub_right: Seattle, WA
         intro: >-
-          Continued simulation research and open-source development between
+          Simulation research and open-source development, ongoing alongside
           industry roles.
         bullets:
           - >-
             Co-developed Tleco, a Rust/Python toolkit that models radiation
-            from relativistic outflows by solving the Fokker–Planck equation
+            from relativistic outflows by solving the Fokker-Planck equation
             coupled to radiative transfer; published in ApJ (2024).
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
-            library that simulates wind-driven spore dispersal over forested,
-            hilly terrain, parallelized with RcppParallel and OpenMP.
+            library of Lagrangian particle models for turbulent transport over
+            forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+          - >-
+            Used AI coding assistants in the most recent stages of
+            development; changes were accepted only if they passed the
+            unit-test suite and, for some functions, matched reference
+            solutions.
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
@@ -111,25 +116,29 @@ sections:
         sub: Rochester Institute of Technology
         sub_right: Rochester, NY
         intro: >-
-          HPC simulations of supermassive black-hole binaries in an
+          HPC simulations of supermassive black hole binaries in an
           NSF-funded project.
         bullets:
           - >-
-            Led a 7-person team upgrading PatchworkMHD, a C code for
-            magnetohydrodynamic simulations of supermassive black-hole
-            binaries.
+            Led a 7-person team upgrading PatchworkMHD, a C code for general
+            relativistic magnetohydrodynamic simulations of supermassive black
+            hole binaries.
           - >-
-            Added black-hole spin to the simulations with under 5% runtime
+            Added black hole spin to the simulations with under 5% runtime
             overhead.
           - >-
-            Benchmarked new features on TACC's Frontera supercomputer (about
-            10,000 node-hours) to find performance bottlenecks.
+            Benchmarked new features on TACC's Frontera supercomputer (~10,000
+            node-hours) to find performance bottlenecks.
           - >-
             Calibrated Paramo against Fermi-LAT spectra with gradient-based
             optimization; supervised a graduate student on the same problem.
           - >-
-            Co-authored 2 papers from a multi-institution study of binary
-            neutron-star mergers.
+            Co-authored a Fokker-Planck model of relativistic turbulent heating
+            balanced by radiative cooling, with transport coefficients from
+            PIC simulations (MNRAS 2022).
+          # - >-
+          #   Co-authored 2 papers from a multi-institution study of binary
+          #   neutron star mergers.
 
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
@@ -140,9 +149,9 @@ sections:
           gamma-ray burst afterglows).
         bullets:
           - >-
-            Architected Paramo, an open-source Fortran 95 Fokker–Planck and
-            radiative-transfer library; parallelized and optimized it with
-            OpenMP to run about 20× faster than serial on 5 cores.
+            Architected Paramo, an open-source Fortran 95 Fokker-Planck and
+            radiative-transfer library; parallelized and optimized with
+            OpenMP.
           - >-
             Paramo has been adopted by other research groups, including in
             Combi & Siegel (2023).
@@ -158,15 +167,23 @@ sections:
         sub_right: Morelia, Mexico
         bullets:
           - >-
-            Studied how magnetization of shocked plasma shapes the radiation
-            spectra of relativistic internal shocks, using the C-SPEV
-            simulation code.
+            Built a Python pipeline that turned GRTrans black hole simulation
+            images into training data for an SVM classifier of black hole
+            spin.
+          - >-
+            Released an open-source Python tool for computing
+            radiative-transfer spectra and light curves in relativistic
+            astrophysics.
 
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
         sub: Universitat de València
         sub_right: Valencia, Spain
         bullets:
+          - >-
+            Studied how magnetization of shocked plasma shapes the radiation
+            spectra of relativistic internal shocks, using the C-SPEV
+            simulation code.
           - >-
             Automated runs of the C-SPEV radiative-transfer code with Shell
             and Python pipelines: 10–60 simulations per project and tens of
@@ -176,6 +193,28 @@ sections:
             particle distributions of arbitrary shape.
           - Published 2 first-author papers in MNRAS.
 
+  - title: Education
+    entries:
+      - heading: Universitat de València
+        right: Valencia, Spain
+        sub: Ph.D. in Physics, Excellent Cum Laude
+        sub_right: "2017"
+        details:
+          - >-
+            Thesis: [Numerical treatment of radiation processes in the
+            internal shocks of magnetized relativistic outflows](http://roderic.uv.es/handle/10550/60003)
+      - heading: Universidad Michoacana de San Nicolás de Hidalgo
+        right: Morelia, Mexico
+        sub: M.Sc. in Physics
+        sub_right: "2011"
+        details:
+          - >-
+            Thesis: Study of TOV stars with the SPH method (wrote an SPH
+            hydrodynamics code to study the stability of relativistic stars).
+      # - heading: Universidad Autónoma del Estado de México
+      #   right: Toluca, Mexico
+      #   sub: B.Sc. in Physics
+
   - title: Projects
     entries:
       - heading: Blazar Population ML
@@ -184,16 +223,15 @@ sections:
         sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
         bullets:
           - >-
-            Applying classical ML and Bayesian inference to the Fermi-LAT
-            4LAC-DR3 catalog (3,407 sources) to recover physical jet
-            parameters from multi-wavelength data.
+            Applying classical ML (PCA, UMAP, Gaussian mixture models,
+            HDBSCAN) to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to test
+            whether jet baryon-loading constraints from my 2021 simulation
+            study can be recovered from observables; Gaussian process
+            regression on a 334-source MOJAVE subsample in progress.
           - >-
-            Building a neural network that maps physical jet parameters to
-            observable spectral energy distributions accurately enough to
-            compare with Tleco results.
-          - >-
-            Forecasting blazar gamma-ray flares with a time-series foundation
-            model fine-tuned on Tleco-generated synthetic light curves.
+            Planned next stage: a neural emulator of Tleco trained on
+            synthetic spectra, then flare forecasting on Tleco-generated
+            light curves.
 
   - title: Selected Publications (9 peer-reviewed articles, 3 first-author)
     list:
@@ -202,6 +240,11 @@ sections:
         for Modeling Radiative Signatures from Relativistic Outflows*,
         [ApJ 976, 182 (2024)](https://doi.org/10.3847/1538-4357/ad8bc2),
         [arXiv:2405.17581](https://arxiv.org/abs/2405.17581).
+      - >-
+        Davis, Z., **Rueda-Becerril, J. M.**, & Giannios, D. *Balancing
+        Turbulent Heating with Radiative Cooling in Blazars*,
+        [MNRAS 513, 5766–5779 (2022)](https://doi.org/10.1093/mnras/stac1282),
+        [arXiv:2201.07790](https://arxiv.org/abs/2201.07790).
       - >-
         **Rueda-Becerril, J. M.**, Harrison, A. O., & Giannios, D. *Blazar jets
         launched with similar energy per baryon, independently of their
@@ -212,16 +255,3 @@ sections:
         of a hybrid thermal–non-thermal distribution in the internal shocks
         model for blazars*, [MNRAS 468, 1169–1182 (2017)](https://doi.org/10.1093/mnras/stx476),
         [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
-
-  - title: Education
-    entries:
-      - heading: Universitat de València
-        right: Valencia, Spain
-        sub: Ph.D. in Physics, Excellent Cum Laude
-        sub_right: "2017"
-      - heading: Universidad Michoacana de San Nicolás de Hidalgo
-        right: Morelia, Mexico
-        sub: M.Sc. in Physics
-      - heading: Universidad Autónoma del Estado de México
-        right: Toluca, Mexico
-        sub: B.Sc. in Physics

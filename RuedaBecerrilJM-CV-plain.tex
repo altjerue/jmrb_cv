@@ -37,10 +37,10 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational physicist with a PhD in Physics and 10+ years developing high-performance numerical algorithms and simulation software for relativistic plasmas. Author of the open-source Paramo library for kinetic particle evolution and radiative transfer. Experience with MHD codes on leadership-class HPC systems and with machine learning for calibrating physical models. Peer-reviewed publications, competitive grants, and collaboration across interdisciplinary teams.\par
+Computational physicist with a PhD in Physics and 10+ years developing high-performance numerical algorithms and simulation software for relativistic plasmas. Author of the open-source Paramo library for kinetic particle evolution and radiative transfer. Experience with MHD codes on leadership-class HPC systems and with machine learning for calibrating physical models. Nine peer-reviewed publications, Co-I on a funded NASA grant, and mentor to three graduate students.\par
 
 \cvsection{Skills}
-\textbf{Simulation:} Kinetic plasma modeling (Fokker–Planck), radiative processes (synchrotron, inverse Compton), radiative transfer, relativistic MHD, Lagrangian particle dynamics, numerical PDEs (advection–diffusion, Fokker–Planck), finite-difference/finite-volume methods, numerical linear algebra, parameter estimation, uncertainty quantification, synthetic dataset generation\par
+\textbf{Simulation:} Kinetic plasma modeling (Fokker–Planck), radiative processes (synchrotron, inverse Compton), radiative transfer, relativistic MHD, hydrodynamics (SPH), Lagrangian particle dynamics, numerical PDEs (advection–diffusion, Fokker–Planck), finite-difference/finite-volume methods, numerical linear algebra, parameter estimation, uncertainty quantification, synthetic dataset generation\par
 \textbf{HPC \& Parallel:} OpenMP, MPI, OpenACC, SLURM, PBS, HDF5\par
 \textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, random forest, SVM, neural networks, gradient-based optimization, parameter estimation\par
 \textbf{Geospatial \& Remote Sensing:} Sentinel-1/2 multispectral imagery, DEM terrain analysis, raster/vector pipelines, QGIS, geospatial feature engineering\par
@@ -69,12 +69,13 @@ Built geospatial ML pipelines and optimized terrain-analysis code for wetland ma
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Independent Researcher \& Open-Source Developer}}{Jan 2024 – May 2025}\nopagebreak
+\leftright{\textbf{Independent Researcher \& Open-Source Developer}}{Jan 2024 – Present}\nopagebreak
 \leftright{\textit{Self-directed}}{Seattle, WA}\nopagebreak
-Continued simulation research and open-source development between industry roles.\par\nopagebreak
+Simulation research and open-source development, ongoing alongside industry roles.\par\nopagebreak
 \begin{itemize}
   \item{} Co-developed Tleco, a Rust/Python toolkit that models radiation from relativistic outflows by solving the Fokker–Planck equation coupled to radiative transfer; published in ApJ (2024) [9].
-  \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library that simulates wind-driven spore dispersal over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+  \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library of Lagrangian particle models for turbulent transport over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+  \item{} Used AI coding assistants in the most recent stages of development; changes were accepted only if they passed the unit-test suite and, for some functions, matched reference solutions.
   \item{} Invited talk on machine learning in environmental science at the University of Washington (2024).
 \end{itemize}
 \entrygap
@@ -92,13 +93,13 @@ Built and tested data-integration services between enterprise systems and Oracle
 
 \leftright{\textbf{Postdoctoral Research Associate}}{Feb 2021 – Apr 2022}\nopagebreak
 \leftright{\textit{Rochester Institute of Technology}}{Rochester, NY}\nopagebreak
-HPC simulations of supermassive black-hole binaries in an NSF-funded project.\par\nopagebreak
+HPC simulations of supermassive black hole binaries in an NSF-funded project.\par\nopagebreak
 \begin{itemize}
-  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black-hole binaries.
-  \item{} Added black-hole spin to the simulations with under 5\% runtime overhead.
-  \item{} Designed and ran benchmark simulations of the new features on TACC's Frontera supercomputer (about 1,200 node-hours), identifying performance optimization opportunities.
+  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black hole binaries.
+  \item{} Added black hole spin to the simulations with under 5\% runtime overhead.
+  \item{} Designed and ran benchmark simulations of the new features on TACC's Frontera supercomputer (about 10,000 node-hours), identifying performance optimization opportunities.
   \item{} Calibrated Paramo model parameters against Fermi-LAT gamma-ray spectra with gradient-based optimization, and supervised a graduate student applying gradient descent to the same problem.
-  \item{} Co-authored 2 papers from a multi-institution study of binary neutron-star mergers [6, 7] and a third on blazar heating and cooling [8].
+  \item{} Co-authored 2 papers from a multi-institution study of binary neutron star mergers [6, 7] and a third, a Fokker–Planck model of relativistic turbulent heating balanced by radiative cooling with transport coefficients from PIC simulations [8].
 \end{itemize}
 \entrygap
 
@@ -106,7 +107,7 @@ HPC simulations of supermassive black-hole binaries in an NSF-funded project.\pa
 \leftright{\textit{Purdue University}}{West Lafayette, IN}\nopagebreak
 Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst afterglows).\par\nopagebreak
 \begin{itemize}
-  \item{} Architected Paramo, an open-source Fortran 95 library that solves the Fokker–Planck equation coupled to radiative transfer; parallelized and optimized it with OpenMP, making it about 20× faster than the original serial code on 5 cores.
+  \item{} Architected Paramo, an open-source Fortran 95 library that solves the Fokker–Planck equation coupled to radiative transfer; parallelized and optimized it with OpenMP.
   \item{} Paramo has been adopted by other research groups, including in Combi \& Siegel (2023).
   \item{} Co-I on two NASA Fermi Guest Investigator proposals; one was funded (\$68K) and supported the finding that blazar jets are launched with similar energy per baryon, independently of their power [5].
   \item{} Added numerical-integration and OpenMP features to Paramo and built Python tools to compute energy losses and spectra of high-energy particles in gamma-ray burst afterglows [4].
@@ -118,7 +119,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textbf{Postdoctoral Research Fellow}}{Jan 2018 – Sep 2018}\nopagebreak
 \leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
 \begin{itemize}
-  \item{} Built a Python pipeline that turned GRTrans black-hole simulation images into training data for an SVM classifier of black-hole spin (grayscale conversion, intensity normalization, spatial feature extraction).
+  \item{} Built a Python pipeline that turned GRTrans black hole simulation images into training data for an SVM classifier of black hole spin (grayscale conversion, intensity normalization, spatial feature extraction).
   \item{} Released an open-source Python tool for computing radiative-transfer spectra and light curves in relativistic astrophysics.
   \item{} Organized an HDF5 workshop to train graduate students in high-volume data storage.
 \end{itemize}
@@ -127,6 +128,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textbf{Graduate Research Assistant}}{Oct 2011 – Jul 2017}\nopagebreak
 \leftright{\textit{Universitat de València}}{Valencia, Spain}\nopagebreak
 \begin{itemize}
+  \item{} Studied how magnetization of shocked plasma shapes the radiation spectra of relativistic internal shocks, using the C-SPEV simulation code.
   \item{} Automated runs of the C-SPEV radiative-transfer code with Shell and Python pipelines: 10–60 simulations per project and tens of GB of HDF5 output, with data-quality checks for downstream analysis.
   \item{} Analyzed multi-wavelength observations from the NASA Fermi-LAT telescope and the Very Long Baseline Array (VLBA), including cross-matching sources across catalogs by sky coordinates and fitting log-parabola spectra.
   \item{} Fit C-SPEV simulation models to telescope data, identifying spectral and light-curve patterns that quantify the magnetization of plasma in blazars.
@@ -140,14 +142,12 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \leftright{\textbf{Ph.D. in Physics}}{Oct 2011 – Jul 2017}\nopagebreak
 \leftright{\textit{Universitat de València}}{Valencia, Spain}\nopagebreak
 Excellent \textit{cum laude}\par\nopagebreak
-Advisors: Prof. Miguel A. Aloy and Dr. Petar Mimica\par\nopagebreak
 Thesis: \href{http://roderic.uv.es/handle/10550/60003}{Numerical treatment of radiation processes in the internal shocks of magnetized relativistic outflows}\par
 \entrygap
 
 \leftright{\textbf{M.Sc. in Physics}}{Aug 2009 – Sep 2011}\nopagebreak
 \leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
-Advisor: Prof. José A. Cervera\par\nopagebreak
-Thesis: \textit{Study of TOV stars with the SPH method}\par
+Thesis: Study of TOV stars with the SPH method (wrote an SPH hydrodynamics code to study the stability of relativistic stars).\par
 \entrygap
 
 \leftright{\textbf{B.Sc. in Physics}}{Aug 2004 – Dec 2008}\nopagebreak
@@ -220,9 +220,8 @@ PI: D. Giannios; Co-I: J. M. Rueda-Becerril\par
 \leftright{\textbf{Blazar Population ML}}{Jan 2026 – Present}\nopagebreak
 \leftright{\textit{Scientific ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
 \begin{itemize}
-  \item{} Applying classical ML and Bayesian inference to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to recover physical jet parameters from multi-wavelength data.
-  \item{} Building a neural network that maps physical jet parameters to observable spectral energy distributions accurately enough to compare with Tleco results.
-  \item{} Forecasting blazar gamma-ray flares with a time-series foundation model fine-tuned on Tleco-generated synthetic light curves.
+  \item{} Applying classical ML (PCA, UMAP, Gaussian mixture models, HDBSCAN) to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to test whether jet baryon-loading constraints from my 2021 simulation study can be recovered from observables; Gaussian process regression on a 334-source MOJAVE subsample in progress.
+  \item{} Planned next stage: a neural emulator of Tleco trained on synthetic spectra, then flare forecasting on Tleco-generated light curves.
 \end{itemize}
 \entrygap
 
@@ -230,6 +229,7 @@ PI: D. Giannios; Co-I: J. M. Rueda-Becerril\par
 \leftright{\textit{Lagrangian particle-dispersion library (C++/R)}}{\href{https://github.com/UW-ForestMycobiomeLab/WindSporesHills}{github.com/UW-ForestMycobiomeLab/WindSporesHills}}\nopagebreak
 \begin{itemize}
   \item{} Simulates particle dispersion, atmospheric turbulence, and flow over hilly terrain with forest canopy, based on analytical models (Massman \& Weil 1999; Finnigan \& Belcher 2004); designed to scale to tens of thousands of particles over kilometer-scale domains.
+  \item{} Used AI coding assistants in the most recent stages of development; changes were accepted only if they passed the unit-test suite and, for some functions, matched reference solutions.
 \end{itemize}
 \entrygap
 
@@ -243,14 +243,14 @@ PI: D. Giannios; Co-I: J. M. Rueda-Becerril\par
 \leftright{\textbf{Paramo}}{Oct 2018 – Apr 2022}\nopagebreak
 \leftright{\textit{Radiative-transfer library (Fortran 95, OpenMP)}}{\href{https://github.com/altjerue/paramo}{github.com/altjerue/paramo}}\nopagebreak
 \begin{itemize}
-  \item{} Fokker–Planck and radiative-transfer solver for relativistic particle distributions; about 20× faster than the original serial code on 5 cores after OpenMP parallelization and optimization; used by other groups, including Combi \& Siegel (2023).
+  \item{} Fokker–Planck and radiative-transfer solver for relativistic particle distributions; parallelized and optimized with OpenMP; used by other groups, including Combi \& Siegel (2023).
 \end{itemize}
 \entrygap
 
 \leftright{\textbf{PatchworkMHD}}{Feb 2021 – Apr 2022}\nopagebreak
 \textit{Large-scale MHD simulation code (NSF project)}\par\nopagebreak
 \begin{itemize}
-  \item{} Led a 7-person upgrade of this production C code for HPC environments, adding black-hole spin with under 5\% runtime overhead.
+  \item{} Led a 7-person upgrade of this production C code for HPC environments, adding black hole spin with under 5\% runtime overhead.
 \end{itemize}
 \entrygap
 
