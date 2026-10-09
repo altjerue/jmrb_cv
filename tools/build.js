@@ -1,293 +1,50 @@
-// Builds a plain single-column LaTeX file and a Word file from one YAML
-// content file, so both versions always carry identical text.
+// Generates every version of a document from one YAML content file:
 //
-//   node tools/build.js content/resume.yaml
+//   - <output>.tex           plain single-column LaTeX (lib/plain-tex.js)
+//   - <output>.docx          Word (lib/docx.js)
+//   - <moderncv.output>.tex  moderncv main file, plus Sections/<file>.tex for
+//                            each section (lib/moderncv.js), if the YAML has a
+//                            `moderncv:` block
 //
-// Writes <output>.tex and <output>.docx next to the content/ directory
-// (i.e. the repo root), then compiles the .tex with pdflatex. The aux, out and
-// log files go to the hidden folder .tex_tmp/; only the PDF is copied back to
-// the repo root. Pass --no-pdf to skip the compile step.
+//   node tools/build.js content/resume.yaml [--no-pdf]
+//
+// All paths are relative to the repo root (the parent of content/). Every
+// generated file is overwritten. Then each main .tex is compiled with
+// pdflatex; the aux, out and log files go to the hidden folder .tex_tmp/ and
+// only the PDF is copied back to the repo root. --no-pdf skips compiling.
 
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const yaml = require('js-yaml');
-const {
-  Document, Packer, Paragraph, TextRun, ExternalHyperlink, AlignmentType,
-  HeadingLevel, LevelFormat, BorderStyle, Tab, TabStopType,
-} = require('docx');
+const { Packer } = require('docx');
+const { buildPlainTex } = require('./lib/plain-tex');
+const { buildDocx } = require('./lib/docx');
+const { buildModerncv } = require('./lib/moderncv');
+const { resolveCitations } = require('./lib/markup');
 
-// --------------------------------------------------------------- inline markup
-
-// Splits "**bold**, *italic*, [text](url)" into styled segments.
-function parseInline(str) {
-  const segments = [];
-  const re = /\*\*(.+?)\*\*|\*(.+?)\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
-  let last = 0;
-  let m;
-  while ((m = re.exec(str)) !== null) {
-    if (m.index > last) segments.push({ text: str.slice(last, m.index) });
-    if (m[1] !== undefined) segments.push({ text: m[1], bold: true });
-    else if (m[2] !== undefined) segments.push({ text: m[2], italic: true });
-    else segments.push({ text: m[3], url: m[4] });
-    last = re.lastIndex;
+// Compiles <root>/<base>.tex (twice, so references settle) with the aux files
+// in .tex_tmp/, and copies the PDF back next to the .tex.
+function compilePdf(root, base) {
+  const tmp = path.join(root, '.tex_tmp');
+  fs.mkdirSync(tmp, { recursive: true });
+  for (let pass = 0; pass < 2; pass++) {
+    const r = spawnSync('pdflatex', [
+      '-interaction=nonstopmode', `-output-directory=${tmp}`, `${base}.tex`,
+    ], { cwd: root, stdio: 'ignore' });
+    if (r.error) throw new Error(`could not run pdflatex: ${r.error.message}`);
   }
-  if (last < str.length) segments.push({ text: str.slice(last) });
-  return segments;
+  const pdf = path.join(tmp, `${base}.pdf`);
+  if (!fs.existsSync(pdf)) throw new Error(`pdflatex failed on ${base}.tex; see .tex_tmp/${base}.log`);
+  fs.copyFileSync(pdf, path.join(root, `${base}.pdf`));
+  const log = fs.readFileSync(path.join(tmp, `${base}.log`), 'latin1');
+  const errors = (log.match(/^! /gm) || []).length;
+  const overfull = (log.match(/^Overfull/gm) || []).length;
+  // the log wraps long lines at 79 columns, so match across line breaks
+  const pages = (log.match(/Output written on[\s\S]*?\((\d+)\s+pages?/) || [])[1];
+  const issues = errors || overfull ? `  <-- ${errors} errors, ${overfull} overfull boxes; see .tex_tmp/${base}.log` : '';
+  console.log(`  ${base}.pdf (${pages} pages)${issues}`);
 }
-
-// ----------------------------------------------------------------------- LaTeX
-
-const TEX_ESCAPES = {
-  '\\': '\\textbackslash{}', '&': '\\&', '%': '\\%', '$': '\\$', '#': '\\#',
-  '_': '\\_', '{': '\\{', '}': '\\}', '~': '\\textasciitilde{}',
-  '^': '\\textasciicircum{}',
-};
-const texEscape = (s) => s.replace(/[\\&%$#_{}~^]/g, (c) => TEX_ESCAPES[c]);
-const texUrl = (u) => u.replace(/[%#]/g, (c) => '\\' + c);
-
-function tex(str) {
-  if (!str) return '';
-  return parseInline(String(str)).map((s) => {
-    const t = texEscape(s.text);
-    if (s.url) return `\\href{${texUrl(s.url)}}{${t}}`;
-    if (s.bold) return `\\textbf{${t}}`;
-    if (s.italic) return `\\textit{${t}}`;
-    return t;
-  }).join('');
-}
-
-// \leftright puts the right-hand text (dates, location) on the same line when
-// it fits, otherwise flush right on the next line, never broken or touching
-// the left text.
-const lineWithRight = (left, right) =>
-  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}\\par`);
-
-function texEntry(e) {
-  // The heading lines are glued (\nopagebreak) to whatever follows them in the
-  // same entry, but nothing is glued after the entry's last line: otherwise
-  // consecutive short entries (e.g. Education) chain into one unbreakable block.
-  const head = [lineWithRight(`\\textbf{${tex(e.heading)}}`, e.right)];
-  if (e.sub || e.sub_right) head.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right));
-  if (e.intro) head.push(`${tex(e.intro)}\\par`);
-  const body = (e.details || []).map((d) => `${tex(d)}\\par`);
-  if (e.bullets && e.bullets.length) {
-    body.push(['\\begin{itemize}', ...e.bullets.map((b) => `  \\item{} ${tex(b)}`), '\\end{itemize}'].join('\n'));
-  }
-  return [...head, ...body].join('\\nopagebreak\n') + '\n\\entrygap\n';
-}
-
-// Content shared by sections and subsections.
-function texBody(s) {
-  const out = [];
-  if (s.paragraph) out.push(`${tex(s.paragraph)}\\par`);
-  if (s.skills) {
-    for (const k of s.skills) out.push(`\\textbf{${tex(k.label)}:} ${tex(k.text)}\\par`);
-  }
-  if (s.entries) for (const e of s.entries) out.push(texEntry(e));
-  if (s.list) {
-    // unbulleted lists (e.g. publications that carry their own [n] labels)
-    // get a hanging indent instead of a bullet
-    out.push(s.unbulleted
-      ? '\\begin{itemize}[label={}, leftmargin=1.5em, itemindent=-1.5em, labelwidth=0pt, labelsep=0pt]'
-      : '\\begin{itemize}');
-    for (const item of s.list) out.push(`  \\item{} ${tex(item)}`);
-    out.push('\\end{itemize}');
-  }
-  for (const sub of s.subsections || []) {
-    out.push(`\\cvsubsection{${tex(sub.title)}}`, texBody(sub));
-  }
-  return out.join('\n');
-}
-
-const texSection = (s) => `\\cvsection{${tex(s.title)}}\n${texBody(s)}`;
-
-// `contact` is either one list (one line) or a list of lists (several lines)
-const contactLines = (contact) => (Array.isArray(contact[0]) ? contact : [contact]);
-
-function buildTex(doc) {
-  const header = `${texEscape(doc.name)}, ${texEscape(doc.credentials)}`;
-  return `% Generated by tools/build.js from content/ -- edit the YAML, not this file.
-\\documentclass[10pt,letterpaper]{article}
-\\usepackage[T1]{fontenc}
-\\usepackage[utf8]{inputenc}
-\\usepackage{lmodern}
-\\usepackage{textcomp}
-\\usepackage[margin=0.6in]{geometry}
-\\usepackage{enumitem}
-\\usepackage[hidelinks]{hyperref}
-\\hypersetup{pdftitle={${header}}, pdfauthor={${texEscape(doc.name)}}}
-% map every glyph (including ligatures) to Unicode so text extraction is exact
-\\input{glyphtounicode}
-\\pdfgentounicode=1
-
-\\pagestyle{empty}
-\\setlength{\\parindent}{0pt}
-\\setlength{\\parskip}{0pt}
-\\setlength{\\emergencystretch}{3em}
-\\setlist[itemize]{leftmargin=1.3em, topsep=1pt, itemsep=0.5pt, parsep=0pt}
-\\newcommand{\\cvsection}[1]{%
-  \\vspace{5pt}{\\large\\bfseries #1}\\par\\nopagebreak\\vspace{2pt}\\hrule
-  \\nopagebreak\\vspace{3pt}\\nopagebreak}
-\\newcommand{\\cvsubsection}[1]{%
-  \\vspace{3pt}{\\bfseries #1}\\par\\nopagebreak\\vspace{2pt}\\nopagebreak}
-\\newcommand{\\entrygap}{\\vspace{3pt}}
-% left text, then right text flush right on the same line if there is at
-% least 1em to spare, otherwise flush right on the next line (TeXbook \\signed)
-\\newcommand{\\leftright}[2]{{#1\\unskip\\nobreak\\hfil\\penalty50\\hskip1em\\hbox{}%
-  \\nobreak\\hfil\\mbox{#2}\\parfillskip=0pt\\par}}
-
-\\begin{document}
-
-\\begin{center}
-  {\\LARGE\\bfseries ${header}}\\\\[3pt]
-  ${contactLines(doc.contact).map((line) => line.map(tex).join(' \\textbar{} ')).join('\\\\\n  ')}
-\\end{center}
-
-${doc.sections.map(texSection).join('\n\n')}
-
-\\end{document}
-`;
-}
-
-// ------------------------------------------------------------------------ Word
-
-const FONT = 'Calibri';
-const BODY_SIZE = 20; // half-points: 10 pt
-const MARGIN = 864; // 0.6 in, in DXA (1440 per inch)
-const TEXT_WIDTH = 12240 - 2 * MARGIN; // US Letter width minus margins
-
-function runs(str, base = {}) {
-  if (!str) return [];
-  return parseInline(String(str)).map((s) => {
-    const opts = { text: s.text, bold: base.bold || s.bold, italics: base.italics || s.italic };
-    if (s.url) return new ExternalHyperlink({ link: s.url, children: [new TextRun(opts)] });
-    return new TextRun(opts);
-  });
-}
-
-// A plain right-aligned tab stop at the right margin. (Word's "positional
-// tab" is ignored by LibreOffice and some converters, which then run the date
-// into the title.)
-function lineParagraph(left, right, leftStyle, keepNext = true) {
-  const children = [...runs(left, leftStyle)];
-  if (right) children.push(new TextRun({ children: [new Tab()] }), ...runs(right));
-  return new Paragraph({
-    children, keepNext, spacing: { after: 0 },
-    tabStops: [{ type: TabStopType.RIGHT, position: TEXT_WIDTH }],
-  });
-}
-
-const bullet = (text) => new Paragraph({
-  children: runs(text), numbering: { reference: 'bullets', level: 0 }, spacing: { after: 10 },
-});
-
-// Unbulleted list item with a hanging indent (mirrors the LaTeX version).
-const plainItem = (text) => new Paragraph({
-  children: runs(text), indent: { left: 300, hanging: 300 }, spacing: { after: 20 },
-});
-
-// Content shared by sections and subsections.
-function docxBody(s) {
-  const out = [];
-  if (s.paragraph) out.push(new Paragraph({ children: runs(s.paragraph) }));
-  if (s.skills) {
-    for (const k of s.skills) {
-      out.push(new Paragraph({
-        children: [new TextRun({ text: `${k.label}: `, bold: true }), ...runs(k.text)],
-        spacing: { after: 20 },
-      }));
-    }
-  }
-  if (s.entries) {
-    for (const e of s.entries) {
-      out.push(lineParagraph(e.heading, e.right, { bold: true }));
-      if (e.sub || e.sub_right) out.push(lineParagraph(e.sub, e.sub_right, { italics: true }));
-      if (e.intro) out.push(new Paragraph({ children: runs(e.intro), keepNext: true, spacing: { after: 20 } }));
-      for (const d of e.details || []) out.push(new Paragraph({ children: runs(d), spacing: { after: 0 } }));
-      for (const b of e.bullets || []) out.push(bullet(b));
-      out.push(new Paragraph({ children: [], spacing: { after: 0 }, style: 'EntryGap' }));
-    }
-  }
-  if (s.list) for (const item of s.list) out.push(s.unbulleted ? plainItem(item) : bullet(item));
-  for (const sub of s.subsections || []) {
-    out.push(new Paragraph({ text: sub.title, heading: HeadingLevel.HEADING_2 }), ...docxBody(sub));
-  }
-  return out;
-}
-
-const docxSection = (s) => [
-  new Paragraph({ text: s.title, heading: HeadingLevel.HEADING_1 }), ...docxBody(s),
-];
-
-function buildDocx(doc) {
-  const header = `${doc.name}, ${doc.credentials}`;
-  const contactParagraphs = contactLines(doc.contact).map((line, n, all) => {
-    const children = [];
-    line.forEach((c, i) => {
-      if (i) children.push(new TextRun({ text: '  |  ' }));
-      children.push(...runs(c));
-    });
-    return new Paragraph({
-      alignment: AlignmentType.CENTER, spacing: { after: n === all.length - 1 ? 60 : 0 }, children,
-    });
-  });
-  return new Document({
-    creator: doc.name,
-    title: header,
-    styles: {
-      // line: 230 (~0.96 x single) offsets Calibri's tall default line
-      // height so the Word resume fits the same 2 pages as the LaTeX one
-      default: { document: { run: { font: FONT, size: BODY_SIZE }, paragraph: { spacing: { line: 230 } } } },
-      paragraphStyles: [
-        {
-          id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true,
-          run: { font: FONT, size: 24, bold: true, color: '000000' },
-          paragraph: {
-            spacing: { before: 140, after: 60 }, keepNext: true, outlineLevel: 0,
-            border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: '000000', space: 1 } },
-          },
-        },
-        {
-          id: 'Heading2', name: 'Heading 2', basedOn: 'Normal', next: 'Normal', quickFormat: true,
-          run: { font: FONT, size: BODY_SIZE, bold: true, color: '000000' },
-          paragraph: { spacing: { before: 80, after: 40 }, keepNext: true, outlineLevel: 1 },
-        },
-        {
-          id: 'EntryGap', name: 'Entry Gap', basedOn: 'Normal',
-          run: { size: 8 }, paragraph: { spacing: { before: 0, after: 0, line: 120 } },
-        },
-      ],
-    },
-    numbering: {
-      config: [{
-        reference: 'bullets',
-        levels: [{
-          level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT,
-          style: { paragraph: { indent: { left: 300, hanging: 220 } } },
-        }],
-      }],
-    },
-    sections: [{
-      properties: {
-        page: {
-          size: { width: 12240, height: 15840 }, // US Letter
-          margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN },
-        },
-      },
-      children: [
-        new Paragraph({
-          alignment: AlignmentType.CENTER, spacing: { after: 40 },
-          children: [new TextRun({ text: header, bold: true, size: 36 })],
-        }),
-        ...contactParagraphs,
-        ...doc.sections.flatMap(docxSection),
-      ],
-    }],
-  });
-}
-
-// ------------------------------------------------------------------------ main
 
 async function main() {
   const args = process.argv.slice(2);
@@ -298,27 +55,27 @@ async function main() {
     process.exit(1);
   }
   const doc = yaml.load(fs.readFileSync(src, 'utf8'));
-  const outBase = path.resolve(path.dirname(src), '..', doc.output);
-  fs.writeFileSync(`${outBase}.tex`, buildTex(doc));
-  fs.writeFileSync(`${outBase}.docx`, await Packer.toBuffer(buildDocx(doc)));
-  console.log(`wrote ${outBase}.tex and ${outBase}.docx`);
-  if (!skipPdf) compilePdf(outBase);
-}
+  const root = path.resolve(path.dirname(src), '..');
+  const srcName = path.relative(root, path.resolve(src));
+  const written = [];
+  const write = (rel, data) => {
+    const abs = path.join(root, rel);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    fs.writeFileSync(abs, data);
+    written.push(rel);
+  };
 
-function compilePdf(outBase) {
-  const root = path.dirname(outBase);
-  const tmp = path.join(root, '.tex_tmp');
-  fs.mkdirSync(tmp, { recursive: true });
-  const r = spawnSync('pdflatex', [
-    '-interaction=nonstopmode', `-output-directory=${tmp}`, `${outBase}.tex`,
-  ], { cwd: root, stdio: 'inherit' });
-  const pdf = path.join(tmp, `${path.basename(outBase)}.pdf`);
-  if (r.error || !fs.existsSync(pdf)) {
-    console.error('pdflatex failed; see .tex_tmp/ for the log');
-    process.exit(1);
+  // the plain and Word versions print citations as [n]; moderncv uses \cite
+  const resolved = resolveCitations(doc);
+  write(`${doc.output}.tex`, buildPlainTex(resolved, srcName));
+  write(`${doc.output}.docx`, await Packer.toBuffer(buildDocx(resolved)));
+  const mains = [doc.output];
+  if (doc.moderncv) {
+    for (const f of buildModerncv(doc, srcName)) write(f.path, f.content);
+    mains.push(doc.moderncv.output);
   }
-  fs.copyFileSync(pdf, `${outBase}.pdf`);
-  console.log(`wrote ${outBase}.pdf (aux/out/log in ${tmp})`);
+  console.log(`${srcName} ->\n  ${written.join('\n  ')}`);
+  if (!skipPdf) for (const base of mains) compilePdf(root, base);
 }
 
-main().catch((err) => { console.error(err); process.exit(1); });
+main().catch((err) => { console.error(err.message || err); process.exit(1); });

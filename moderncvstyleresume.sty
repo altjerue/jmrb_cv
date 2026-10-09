@@ -53,16 +53,14 @@
 \moderncvhead{3}
 \moderncvbody{4}
 
-% moderncvheadiii's \makehead breaks the line between the name/title and the
-% single-line \extrainfo contact row with a plain "\\", whose interline glue
-% ends up much larger than that short addressfont line needs (independent of
-% \namefont/\titlefont, since \firstnamestyle/\titlestyle apply those fonts
-% inside their own local group, which closes -- and so no longer affects
-% \baselineskip -- before the "\\" is reached). \addressfont is the first
-% thing invoked on the line below the break, so a leading negative \vspace
-% there closes most of that gap (\vspace in horizontal mode defers via
-% \vadjust to the next line break, i.e. exactly this one).
-\renewcommand*{\addressfont}{\vspace{-10pt}\normalsize\mdseries\upshape}
+% moderncvheadiii's \makehead lays the contact details out in a box
+% 0.8\textwidth wide. The one-line contact row is a little wider than that, and
+% when a detail doesn't fit, \makehead first emits an *empty* line, which put
+% a large gap under the name. Widen the box so the row fits on the first try.
+% (This replaces an earlier \vspace{-10pt} in \addressfont that only cancelled
+% out that empty line.)
+\patchcmd{\makehead}{0.8\textwidth}{0.9\textwidth}{}%
+  {\PackageWarning{moderncvstyleresume}{could not widen the header details box}}
 
 % moderncvbodyiv's \cventry always appends a "." after the title box, even
 % when #4/#5/#6 (the fields normally inline-appended after the title) are all
@@ -89,7 +87,9 @@
   \end{minipage}\strut%
   \ifx&#7&%
     \else{%
-      \newline{}%
+      % end the heading as its own paragraph and forbid a page break before
+      % the description, so a heading is never stranded at the bottom of a page
+      \par\nopagebreak\noindent%
       \strut%
       \begin{minipage}[t]{\maincolumnwidth}%
         \small%

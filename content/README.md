@@ -1,23 +1,25 @@
-# Plain resume and CV from YAML
+# Resume and CV from YAML
 
-Each YAML file here is the single source for one plain, ATS-friendly document:
+Each YAML file here is the single source of wording for one document. One
+build writes every version of it, all with identical text:
 
-| Content file  | Generates                                   |
-|---------------|---------------------------------------------|
-| `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx` (2-page resume) |
-| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx` (full CV) |
+| Content file  | Generates |
+|---------------|-----------|
+| `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-resume.tex/.pdf` with its `Sections/*.tex` files |
+| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-CV.tex/.pdf` with its `Sections/*.tex` files (except the hand-edited `Sections/publications.tex`) |
 
-One command turns a YAML file into two files with identical text:
-
-- `<output>.tex` (then `.pdf`): single-column LaTeX, `article` class, no
-  tables
+- `<output>.tex` (then `.pdf`): plain single-column LaTeX, `article` class,
+  no tables
 - `<output>.docx`: Word version for application portals that ask for one
+- moderncv version (when the YAML has a `moderncv:` block): the main `.tex`
+  plus one `Sections/<file>.tex` per section, in the look set by the
+  `moderncvstyle*.sty` file
 
-Both are written to the repo root. **Edit the YAML, not the generated `.tex`**:
-the `.tex` is overwritten on every build.
-
-The moderncv documents (`RuedaBecerrilJM-resume.tex`, `RuedaBecerrilJM-CV.tex`)
-are separate and are not affected by any of this.
+Everything is written relative to the repo root. **Edit the YAML, never the
+generated `.tex` files**: they are all overwritten on every build, and each
+one starts with a comment saying which YAML it came from. The layout itself
+(fonts, spacing, header) lives in the generators under `tools/lib/` and in
+the `moderncvstyle*.sty` files, not in the YAML.
 
 ## Requirements
 
@@ -32,7 +34,7 @@ are separate and are not affected by any of this.
 
 ## Build
 
-From `tools/`:
+From the repo root (or from `tools/`):
 
 ```bash
 npm run build:resume   # resume only
@@ -40,15 +42,18 @@ npm run build:cv       # CV only
 npm run build          # both
 ```
 
-Each one generates the `.tex` and `.docx`, then runs `pdflatex` to produce the
-PDF. The aux, out and log files go to the hidden folder `.tex_tmp/`; only the
-PDF is copied to the repo root. To run it by hand from the repo root:
+Each one generates all the `.tex` files and the `.docx`, then compiles every
+main `.tex` with `pdflatex` (two passes, so citations settle). The aux, out
+and log files go to the hidden folder `.tex_tmp/`; only the PDFs are copied
+to the repo root, and the build prints each PDF's page count plus any LaTeX
+errors or overfull boxes. To run it by hand from the repo root:
 
 ```bash
 node tools/build.js content/resume.yaml            # add --no-pdf to skip pdflatex
 ```
 
-Commit the YAML together with the regenerated `.tex`, `.pdf`, and `.docx`.
+Commit the YAML together with every regenerated file (`.tex`, `Sections/*.tex`,
+`.pdf`, `.docx`).
 
 ## Editing the YAML
 
@@ -61,6 +66,7 @@ Commit the YAML together with the regenerated `.tex`, `.pdf`, and `.docx`.
 | `credentials` | Shown after the name: `Jesús M. Rueda-Becerril, Ph.D.`          |
 | `contact`     | Items joined with `\|` under the name (see below)              |
 | `sections`    | List of sections, rendered in order                            |
+| `moderncv`    | Optional: also generate the moderncv version (see below)       |
 
 `contact` is either one list (one line) or a list of lists (one line each):
 
@@ -74,6 +80,46 @@ contact:                      # two lines
     - "[jm.ruebe@gmail.com](mailto:jm.ruebe@gmail.com)"
   - - "[github.com/altjerue](https://github.com/altjerue)"
 ```
+
+### The moderncv version
+
+```yaml
+moderncv:
+  output: RuedaBecerrilJM-resume   # main moderncv .tex (no extension)
+  style: resume                    # moderncvstyle<style>.sty to use
+  sections_dir: Sections           # where the section files go
+```
+
+With this block, every section also needs a `file:` naming its moderncv
+section file, e.g. `file: experience_resume` writes
+`Sections/experience_resume.tex`. The main file `\input`s them in the order
+the sections appear in the YAML. The moderncv header fits at most two
+contact lines.
+
+A section can instead say `manual: <file>`: the moderncv version then
+`\input`s that hand-edited `Sections/<file>.tex` unchanged and never
+overwrites it, while the plain and Word versions still render the section
+from the YAML. The CV does this for `publications`, whose bibliography uses
+its own macros. Keep the two in sync by hand: same papers, same order, and
+the same `key:` as the `\bibitem`/`\mybibitem` key (see Citations below).
+
+`preamble:` (a list of raw LaTeX lines, not escaped) is added to the moderncv
+main file; the CV uses it for the macros `publications.tex` needs:
+
+```yaml
+moderncv:
+  preamble:
+    - \input{bib_setup3}
+    - \input{newmacros}
+```
+
+Supported styles, each mapping the generic entry fields onto that style's
+`\cventry` arguments in `tools/lib/moderncv.js`:
+
+| `style`    | Style file                  | Used by |
+|------------|-----------------------------|---------|
+| `resume`   | `moderncvstyleresume.sty`   | resume  |
+| `banking2` | `moderncvstylebanking2.sty` | CV      |
 
 ### Sections
 
@@ -109,14 +155,27 @@ Every section has a `title` and one or more kinds of content:
     - title: Articles
       unbulleted: true        # hanging indent, no bullet
       list:
-        - >-
-          [2] Item that carries its own label.
+        - key: Davis:2024ru   # optional; makes the item citable
+          text: >-
+            [2] Item that carries its own label.
 ```
 
 Use `unbulleted: true` for lists whose items carry their own labels, like the
-CV's numbered publications (`[12]` … `[1]`). The numbers are plain text, so
-when you add a paper, renumber the list and any references to it (the CV's
-Experience and Teaching entries cite papers as `[5]`, `[8, 9]`).
+CV's numbered publications (`[12]` … `[1]`). A list item is either plain text
+or a `key:` + `text:` pair; the key lets other text cite it.
+
+### Citations
+
+Write `[@Davis:2024ru]`, or `[@Murguia:2021no, @Lopez:2022et]` for several,
+anywhere in a text field:
+
+- moderncv version: `\cite{Davis:2024ru}`, numbered by the bibliography
+- plain and Word versions: the label at the start of that item's text, e.g.
+  `[9]`, or `[6, 7]`
+
+So when you add a paper, renumber the labels in the YAML list (and the
+hand-edited bibliography); every citation follows automatically. A key that
+no list item defines stops the build with an error.
 
 ### Entries
 
@@ -154,6 +213,7 @@ Any text field accepts:
 | `**Rueda-Becerril, J. M.**`   | bold                   |
 | `*Tleco: A Toolkit*`          | italic                 |
 | `[arXiv:2405.17581](https://arxiv.org/abs/2405.17581)` | link |
+| `[@Davis:2024ru]`             | citation (see Citations) |
 
 Write plain Unicode characters (`–`, `×`, `²`, `é`). LaTeX special characters
 (`& % $ # _ ~ ^ \ { }`) are escaped automatically, so write `$68K` and
@@ -200,6 +260,8 @@ pdflatex <output>.tex
   update: a stale personal format file is overriding the system one. Check
   with `kpsewhich -engine=pdftex pdflatex.fmt`; if it points into
   `~/Library/texlive/...`, delete that file so the system format is used.
+- **`npm error enoent Could not read package.json`**: you are outside the
+  repo; `cd` into it (the root `package.json` forwards to `tools/`).
 - **`Cannot find module 'docx'` or `'js-yaml'`**: run `npm install` in
   `tools/`.
 - **YAML error with a line number**: usually an unquoted value that starts

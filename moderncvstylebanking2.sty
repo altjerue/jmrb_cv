@@ -1,0 +1,129 @@
+%% start of file `moderncvstylebanking2.sty'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstylebanking2}[2015/07/28 v2.0.0 modern curriculum vitae and letter style scheme: banking2]
+
+% body rules type options: "fullrules", "shortrules", "mixedrules" (default) or "norules"
+\@initializecommand{\moderncvstylebodyoptions}{}
+\DeclareOption{fullrules}    {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,fullrules}}
+\DeclareOption{shortrules}   {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,shortrules}}
+\DeclareOption{mixedrules}   {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,mixedrules}}
+\DeclareOption{norules}      {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,norules}}
+
+% body section alignment options: "left" (default), "center" or "right"
+\DeclareOption{left}         {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,left}}
+\DeclareOption{center}       {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,center}}
+\DeclareOption{right}        {\edef\moderncvstylebodyoptions{\moderncvstylebodyoptions,right}}
+
+\DeclareOption*{}% avoid choking on unknown options
+\ExecuteOptions{mixedrules,left}
+\ProcessOptions*\relax% \ProcessOptions* processes the options in the order provided (i.e., with the later ones possibly overriding the former ones), while \ProcessOptions processes them in the order of the package
+
+
+%-------------------------------------------------------------------------------
+%                fonts & icons
+%-------------------------------------------------------------------------------
+% TeX Gyre Pagella font
+%\ifxetexorluatex
+%  \setmainfont{Tex-Gyre Pagella}
+%  \setsansfont{Tex-Gyre Pagella}
+%  \setmathfont{Tex-Gyre Pagella}
+%  \setmathfont[range=\mathit,\mathsfit]{Tex-Gyre Pagella Italic}
+%  \setmathfont[range=\mathbfup,\mathbfsfup]{Tex-Gyre Pagella Bold}
+%  \setmathfont[range=\mathbfit,\mathbfsfit]{Tex-Gyre Pagella Bold Italic}
+%\else
+  \IfFileExists{tgpagella.sty}%
+    {%
+      \RequirePackage{tgpagella}%
+      \renewcommand*{\familydefault}{\rmdefault}}%
+    {}
+%\fi
+
+% symbols
+% 'awesome' draws the contact-detail and bullet icons with FontAwesome glyphs,
+% which extract from the PDF as stray characters that confuse ATS parsers
+\moderncvicons{letters}
+% 'letters' draws list bullets with a marvosym glyph that has no Unicode
+% mapping and extracts as "{"; \textbullet extracts as a real U+2022 bullet
+\renewcommand*{\labelitemi}{\strut\textbullet}
+
+
+%-------------------------------------------------------------------------------
+%                header, body & footer
+%-------------------------------------------------------------------------------
+% head 3 is a single centered block (name, then contact lines below); head 1
+% puts the contact details in a column beside the name, so text extraction
+% reads them before the name
+\moderncvhead{3}
+\moderncvbody[\moderncvstylebodyoptions]{3}
+
+% moderncvheadiii lays the contact details out in a 0.8\textwidth box; a
+% contact line wider than that makes \makehead emit an empty line first, which
+% left a large gap under the name. Widen the box (same fix as in
+% moderncvstyleresume.sty; it replaces an earlier \vspace{-10pt} workaround).
+\patchcmd{\makehead}{0.8\textwidth}{0.9\textwidth}{}%
+  {\PackageWarning{moderncvstylebanking2}{could not widen the header details box}}
+
+% left text, then right text flush right on the same line if there is at least
+% 1em to spare, otherwise flush right on the next line, never broken
+\newcommand*{\cvleftright}[2]{{#1\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}%
+  \nobreak\hfil\mbox{#2}\parfillskip=0pt\par}}
+
+% Same look as moderncvbodyiii's \cventry (bold #4 / #5 line, italic #3 / #2
+% line, small description), but built from paragraphs instead of a tabular*,
+% so long titles wrap instead of running off the line, the description can
+% break across pages, and the heading lines stay with the description.
+%   \cventry[spacing]{#2 right of line 2}{#3 line 2}{#4 line 1}{#5 right of line 1}{#6 appended to #3}{#7 description}
+\renewcommand*{\cventry}[7][.25em]{%
+  \par
+  \ifboolexpr{test {\ifstrempty{#4}} and test {\ifstrempty{#5}}}{}%
+    {\cvleftright{\bfseries #4}{\bfseries #5}\nopagebreak}%
+  \ifboolexpr{test {\ifstrempty{#3}} and test {\ifstrempty{#2}}}{}%
+    {\cvleftright{\itshape #3\ifstrempty{#6}{}{, #6}}{\itshape #2}}%
+  \ifx&#7&\else\nopagebreak{\small #7\par}\fi
+  \par\addvspace{#1}}
+
+% the default (mixedrules) subsection rule is a row of "." characters, which
+% extracts from the PDF as a long string of periods after every subsection
+% title; draw the same dotted line with tiny rules instead, which carry no text
+\renewcommand*{\subsectionrule}{\leavevmode{\color{bodyrulecolor}%
+  \xleaders\hbox to 0.35em{\hss\rule[0.2ex]{0.45pt}{0.45pt}\hss}\hfill}}
+
+
+%-------------------------------------------------------------------------------
+%                colors (same palette as moderncv's own banking style)
+%-------------------------------------------------------------------------------
+% head and footer
+\colorlet{lastnamecolor}{color1}
+\colorlet{namecolor}{lastnamecolor}
+\colorlet{headrulecolor}{lastnamecolor!50}
+\colorlet{firstnamecolor}{lastnamecolor!60}
+\colorlet{titlecolor}{color2!85}
+\colorlet{addresscolor}{color2}
+\colorlet{quotecolor}{color1}
+\colorlet{pictureframecolor}{color1}
+% body
+\colorlet{bodyrulecolor}{color1}
+\colorlet{sectioncolor}{color1}
+\colorlet{subsectioncolor}{color1}
+\colorlet{hintstylecolor}{color0}
+% letter
+\colorlet{letterclosingcolor}{color2}
+% skillmatrix
+\colorlet{skillmatrixfullcolor}{color1}
+\colorlet{skillmatrixemptycolor}{color2!30}
+
+
+\endinput
+
+
+%% end of file `moderncvstylebanking2.sty'.

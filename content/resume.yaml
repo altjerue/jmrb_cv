@@ -6,6 +6,12 @@
 # escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
 output: RuedaBecerrilJM-resume-plain
+# moderncv version: writes <output>.tex plus <sections_dir>/<file>.tex for
+# each section below (every section needs a `file:`).
+moderncv:
+  output: RuedaBecerrilJM-resume
+  style: resume
+  sections_dir: Sections
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -17,6 +23,7 @@ contact:
 
 sections:
   - title: Professional Summary
+    file: profile_resume
     paragraph: >-
       Physicist with a Ph.D. in Physics and over ten years of research
       experience in computational astrophysics, numerical methods, and
@@ -27,6 +34,7 @@ sections:
       on collaborative problem-solving.
 
   - title: Teaching and Mentoring
+    file: teaching_resume
     entries:
       - heading: Thermodynamics (graduate level)
         right: Jun 2018
@@ -54,6 +62,7 @@ sections:
         #   - Co-authored paper [4]
 
   - title: Education
+    file: education_resume
     entries:
       - heading: Universitat de València
         right: Jul 2017
@@ -69,6 +78,7 @@ sections:
         # sub_right: Toluca, Mexico
 
   - title: Experience
+    file: experience_resume
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
@@ -114,6 +124,7 @@ sections:
             scenarios.
 
   - title: Skills
+    file: skills_resume
     skills:
       - label: Physics
         text: >-
@@ -136,4 +147,5 @@ sections:
       #   text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, Paraview, VisIt
 
   - title: Selected Publications (9 total, 3 first-author)
+    file: publications_resume
     paragraph: Full list available on request.
