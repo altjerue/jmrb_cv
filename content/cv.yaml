@@ -99,9 +99,9 @@ sections:
             derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving
             its computational performance.
           - >-
-            Engineered features from Sentinel-1/2 imagery and terrain
-            derivatives for ML land-cover and wetland models; built Python
-            tools and QGIS visualizations.
+            Engineered features from Sentinel-1/2 multispectral imagery and
+            terrain derivatives for ML land-cover and wetland models; built
+            Python tools and QGIS visualizations.
           - >-
             Presented results to managers and decision-makers, trained 2
             colleagues on the WIP tool, and worked with software engineers to
@@ -124,6 +124,9 @@ sections:
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
             library that simulates wind-driven spore dispersal over forested,
             hilly terrain, parallelized with RcppParallel and OpenMP.
+          - >-
+            Invited talk on machine learning in environmental science at the
+            University of Washington (2024).
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
@@ -150,7 +153,7 @@ sections:
         sub: Rochester Institute of Technology
         sub_right: Rochester, NY
         intro: >-
-          HPC simulations of supermassive black-hole binaries in an
+          HPC simulations of supermassive black hole binaries in an
           NSF-funded project.
         bullets:
           - >-
@@ -170,7 +173,7 @@ sections:
             graduate student applying gradient descent to the same problem.
           - >-
             Co-authored 2 papers from a multi-institution study of binary
-            neutron-star mergers [@Murguia:2021no, @Lopez:2022et] and a third
+            neutron star mergers [@Murguia:2021no, @Lopez:2022et] and a third
             on blazar heating and cooling [@Davis:2021ru].
 
       - heading: Postdoctoral Research Fellow
@@ -187,8 +190,8 @@ sections:
             parallelized and optimized it with OpenMP, making it about 20×
             faster than the original serial code on 5 cores.
           - >-
-            Paramo has been adopted by other groups, including Combi & Siegel
-            (2023).
+            Paramo has been adopted by other research groups, including Combi &
+            Siegel (2023).
           - >-
             Co-I on two NASA Fermi Guest Investigator proposals; one was
             funded ($68K) and supported the finding that blazar jets are
@@ -204,7 +207,7 @@ sections:
             papers with each.
           - >-
             Modeled the COVID-19 outbreak in Mexico (Python) and co-wrote
-            Spanish-language infographics against misinformation.
+            Spanish-language infographics in a campaign against misinformation.
 
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
@@ -212,8 +215,8 @@ sections:
         sub_right: Morelia, Mexico
         bullets:
           - >-
-            Built a Python pipeline that turned GRTrans black-hole simulation
-            images into training data for an SVM classifier of black-hole spin
+            Built a Python pipeline that turned GRTrans black hole simulation
+            images into training data for an SVM classifier of black hole spin
             (grayscale conversion, intensity normalization, spatial feature
             extraction).
           - >-
@@ -237,8 +240,8 @@ sections:
             cross-matching sources across catalogs and fitting log-parabola
             spectra.
           - >-
-            Fit C-SPEV models to telescope data, finding spectral and
-            light-curve patterns that quantify plasma magnetization in
+            Fit C-SPEV simulation models to telescope data, identifying spectra
+            and light-curve patterns that quantify plasma magnetization in
             blazars.
           - >-
             Extended C-SPEV to compute discrete and continuous spectra from
@@ -493,7 +496,7 @@ sections:
         bullets:
           - >-
             Led a 7-person upgrade of this production C code for HPC
-            environments, adding black-hole spin with under 5% runtime
+            environments, adding black hole spin with under 5% runtime
             overhead.
 
   - title: Awards

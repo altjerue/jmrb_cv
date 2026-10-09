@@ -114,8 +114,8 @@ sections:
         sub: Rochester Institute of Technology
         sub_right: Rochester, NY
         intro: >-
-          HPC simulations of supermassive black-hole binaries in an
-          NSF-funded project.
+          HPC simulations of supermassive black hole binaries in an NSF-funded
+          project.
         bullets:
           - >-
             Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a
