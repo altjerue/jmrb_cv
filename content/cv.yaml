@@ -1,5 +1,9 @@
 # Single source for the plain long-form CV. See content/README.md.
 #   node tools/build.js content/cv.yaml
+#
+# Inline markup (works in every text field): **bold**, *italic*,
+# [link text](https://url). Write plain Unicode (–, ×, ², é); the build
+# escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
 output: RuedaBecerrilJM-CV-plain
 name: Jesús M. Rueda-Becerril
@@ -17,14 +21,40 @@ contact:
 sections:
   - title: Professional Summary
     paragraph: >-
-      Computational Scientist with a PhD in Physics and 10+ years developing
-      high-performance numerical algorithms and physics-based simulations.
-      Expertise in scientific machine learning and geospatial data analysis.
-      Strong mathematical foundations with a track record of architecting
-      open-source simulation libraries, leading funded research projects, and
-      translating complex physical models into production-quality scientific
-      software. Experienced working across cross-functional research and
-      engineering teams.
+      Physicist with a Ph.D. in Physics and over ten years of research
+      experience in computational astrophysics, numerical methods, and
+      high-performance computing. One term of classroom instruction at the
+      graduate level and multi-year experience mentoring graduate researchers
+      through the transition from confusion to independent work. Teaching
+      approach built on intuition and critical thinking over memorization, and
+      on collaborative problem-solving.
+
+  - title: Teaching and Mentoring
+    entries:
+      - heading: Thermodynamics (graduate level)
+        right: Jun 2018
+        sub: >-
+          Instituto de Física y Matemáticas, Universidad Michoacana de San
+          Nicolás de Hidalgo
+        sub_right: Substitute Instructor
+      - heading: Zachary Davis, graduate student
+        right: 2018 – 2022
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored papers [8, 9]
+      - heading: Amanda O. Harrison, graduate student
+        right: 2018 – 2020
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored paper [5]
+      - heading: Hao Zhang, graduate student
+        right: 2018 – 2019
+        sub: Department of Physics and Astronomy, Purdue University
+        sub_right: Mentoring
+        details:
+          - Co-authored paper [4]
 
   - title: Skills
     skills:
@@ -574,33 +604,6 @@ sections:
             right: Jun 2013
             sub: The Innermost Regions of Relativistic Jets and Their Magnetic Fields
             sub_right: Granada, Spain
-
-  - title: Teaching and Mentoring
-    entries:
-      - heading: Zachary Davis, graduate student
-        right: 2018 – 2022
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored papers [8, 9]
-      - heading: Amanda O. Harrison, graduate student
-        right: 2018 – 2020
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored paper [5]
-      - heading: Hao Zhang, graduate student
-        right: 2018 – 2019
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored paper [4]
-      - heading: Thermodynamics (graduate level)
-        right: Jun 2018
-        sub: >-
-          Instituto de Física y Matemáticas, Universidad Michoacana de San
-          Nicolás de Hidalgo
-        sub_right: Substitute Instructor
 
   - title: Professional Development
     entries:
