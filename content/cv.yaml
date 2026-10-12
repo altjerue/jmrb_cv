@@ -32,13 +32,11 @@ sections:
   - title: Professional Summary
     file: profile
     paragraph: >-
-      Physicist with a Ph.D. in Physics and over ten years of research
-      experience in computational astrophysics, numerical methods, and
-      high-performance computing. One term of classroom instruction at the
-      graduate level and multi-year experience mentoring graduate researchers
-      through the transition from confusion to independent work. Teaching
-      approach built on intuition and critical thinking over memorization, and
-      on collaborative problem-solving.
+      Physicist (Ph.D. and M.Sc. in Physics) with ten years of research
+      in computational astrophysics. Taught a graduate thermodynamics course,
+      mentored three graduate researchers who co-authored papers with me, and
+      gave talks to undergraduate physics students. Teaching approach built on
+      intuition, critical thinking, and collaborative problem-solving.
 
   - title: Teaching and Mentoring
     file: teaching
@@ -54,19 +52,19 @@ sections:
         sub: Department of Physics and Astronomy, Purdue University
         sub_right: Mentoring
         details:
-          - Co-authored papers [8, 9]
+          - Co-authored papers [@Davis:2021ru, @Davis:2024ru]
       - heading: Amanda O. Harrison, graduate student
         right: 2018 – 2020
         sub: Department of Physics and Astronomy, Purdue University
         sub_right: Mentoring
         details:
-          - Co-authored paper [5]
+          - Co-authored paper [@RuedaBecerril:2021ha]
       - heading: Hao Zhang, graduate student
         right: 2018 – 2019
         sub: Department of Physics and Astronomy, Purdue University
         sub_right: Mentoring
         details:
-          - Co-authored paper [4]
+          - Co-authored paper [@Zhang:2020ch]
 
   - title: Skills
     file: skills
@@ -641,34 +639,6 @@ sections:
             right: Jun 2013
             sub: The Innermost Regions of Relativistic Jets and Their Magnetic Fields
             sub_right: Granada, Spain
-
-  - title: Teaching and Mentoring
-    file: teaching
-    entries:
-      - heading: Zachary Davis, graduate student
-        right: 2018 – 2022
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored papers [@Davis:2021ru, @Davis:2024ru]
-      - heading: Amanda O. Harrison, graduate student
-        right: 2018 – 2020
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored paper [@RuedaBecerril:2021ha]
-      - heading: Hao Zhang, graduate student
-        right: 2018 – 2019
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        details:
-          - Co-authored paper [@Zhang:2020ch]
-      - heading: Thermodynamics (graduate level)
-        right: Jun 2018
-        sub: >-
-          Instituto de Física y Matemáticas, Universidad Michoacana de San
-          Nicolás de Hidalgo
-        sub_right: Substitute Instructor
 
   - title: Professional Development
     file: profes

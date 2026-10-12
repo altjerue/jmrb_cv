@@ -25,13 +25,11 @@ sections:
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
-      Physicist with a Ph.D. in Physics and over ten years of research
-      experience in computational astrophysics, numerical methods, and
-      high-performance computing. One term of classroom instruction at the
-      graduate level and multi-year experience mentoring graduate researchers
-      through the transition from confusion to independent work. Teaching
-      approach built on intuition and critical thinking over memorization, and
-      on collaborative problem-solving.
+      Physicist (Ph.D. and M.Sc. in Physics) with ten years of research
+      in computational astrophysics. Taught a graduate thermodynamics course
+      and mentored three graduate researchers who co-authored papers with me.
+      Teaching approach built on intuition, critical thinking, and
+      collaborative problem-solving.
 
   - title: Teaching and Mentoring
     file: teaching_resume
@@ -60,6 +58,13 @@ sections:
         sub_right: Mentoring
         # details:
         #   - Co-authored paper [4]
+      # - heading: Talks to undergraduate physics students, in Spanish
+      #   right: Aug – Sep 2020
+      #   sub: Juárez Autonomous University of Tabasco
+      #   sub_right: Outreach
+      #   # earlier two-entry form (titles of the two talks):
+      #   #   Los más rápidos y los más furiosos (The Fastest and the Most Furious), Sep 2020
+      #   #   Una simulación de la física y la astrofísica (A Simulation of Physics and Astrophysics), Aug 2020
 
   - title: Education
     file: education_resume
