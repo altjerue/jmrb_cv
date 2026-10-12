@@ -15,7 +15,11 @@ const STYLES = {
     margin: '0.55in',
     titleGap: '-20pt',
     preamble: '\\setlength{\\hintscolumnwidth}{0pt}',
-    entry: (e) => `\\cventry{${tex(e.right)}}{${tex(e.heading)}}{}{}{}{${entryDescription(e, true)}}`,
+    entry: (e, inline) => {
+      // sub_inline: the employer (sub) follows the heading on the same line
+      const heading = inline && e.sub ? `${tex(e.heading)}, {\\mdseries\\itshape ${tex(e.sub)}}` : tex(e.heading);
+      return `\\cventry{${tex(e.right)}}{${heading}}{}{}{}{${entryDescription(e, true, inline)}}`;
+    },
   },
   // moderncvstylebanking2.sty, with the \cventry redefined there --
   //   \cventry{sub_right}{sub}{heading}{right}{}{description}
@@ -33,9 +37,9 @@ const STYLES = {
 // line, then intro, detail lines and bullets, in the same order as the plain
 // version. moderncv defines \cventry with \renewcommand* (no \par allowed in
 // its arguments), so paragraph ends are written as \endgraf, its synonym.
-function entryDescription(e, withSub) {
+function entryDescription(e, withSub, inline = false) {
   const out = [];
-  if (withSub && (e.sub || e.sub_right)) out.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right, '\\endgraf'));
+  if (withSub && (inline ? e.sub_right : (e.sub || e.sub_right))) out.push(lineWithRight(inline ? '' : `\\textit{${tex(e.sub)}}`, e.sub_right, '\\endgraf'));
   if (e.intro) out.push(`${tex(e.intro)}\\endgraf`);
   for (const d of e.details || []) out.push(`${tex(d)}\\endgraf`);
   if (e.bullets && e.bullets.length) {
@@ -48,7 +52,7 @@ function sectionBody(s, style) {
   const out = [];
   if (s.paragraph) out.push(`\\cvitem{}{${tex(s.paragraph)}}`);
   for (const k of s.skills || []) out.push(`\\cvitem{${tex(k.label)}}{${tex(k.text)}}`);
-  for (const e of s.entries || []) out.push(style.entry(e));
+  for (const e of s.entries || []) out.push(style.entry(e, s.sub_inline));
   // plain itemize, so list bullets match the entry bullets (moderncv's
   // \cvlistitem sizes its bullet column for the icon set's original symbol)
   if (s.list && s.list.length) {

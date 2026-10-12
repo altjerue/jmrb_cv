@@ -2,12 +2,15 @@
 
 const { texEscape, tex, contactLines, LEFTRIGHT_MACRO, lineWithRight } = require('./markup');
 
-function texEntry(e) {
+// `inline` (section key `sub_inline: true`): the sub text goes on the heading
+// line, after a comma; a separate sub line is kept only for sub_right.
+function texEntry(e, inline) {
   // The heading lines are glued (\nopagebreak) to whatever follows them in the
   // same entry, but nothing is glued after the entry's last line: otherwise
   // consecutive short entries (e.g. Education) chain into one unbreakable block.
-  const head = [lineWithRight(`\\textbf{${tex(e.heading)}}`, e.right)];
-  if (e.sub || e.sub_right) head.push(lineWithRight(`\\textit{${tex(e.sub)}}`, e.sub_right));
+  const inlineSub = inline && e.sub;
+  const head = [lineWithRight(`\\textbf{${tex(e.heading)}}${inlineSub ? `, \\textit{${tex(e.sub)}}` : ''}`, e.right)];
+  if (inline ? e.sub_right : (e.sub || e.sub_right)) head.push(lineWithRight(inline ? '' : `\\textit{${tex(e.sub)}}`, e.sub_right));
   if (e.intro) head.push(`${tex(e.intro)}\\par`);
   const body = (e.details || []).map((d) => `${tex(d)}\\par`);
   if (e.bullets && e.bullets.length) {
@@ -23,7 +26,7 @@ function texBody(s) {
   if (s.skills) {
     for (const k of s.skills) out.push(`\\textbf{${tex(k.label)}:} ${tex(k.text)}\\par`);
   }
-  if (s.entries) for (const e of s.entries) out.push(texEntry(e));
+  if (s.entries) for (const e of s.entries) out.push(texEntry(e, s.sub_inline));
   if (s.list) {
     // unbulleted lists (e.g. publications that carry their own [n] labels)
     // get a hanging indent instead of a bullet
