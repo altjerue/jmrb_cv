@@ -119,28 +119,39 @@ sections:
             outputs from the GRTrans numerical code, generating SVM training
             data for radio image prediction.
           - >-
-            Built open-source data analysis and visualization tools in Python
-            for radiative transfer phenomena in relativistic astrophysics
-            scenarios.
+            Built open-source data analysis tools in Python for radiative
+            transfer phenomena in relativistic astrophysics scenarios.
 
   - title: Outreach
     file: outreach_resume
     entries:
+      - heading: >-
+          El origen del universo y el sistema solar (The Origin of the Universe
+          and the Solar System)
+        right: Feb 2026
+        sub: >-
+          Biology students, Facultad de Ciencias, Universidad Autónoma del
+          Estado de México
+        sub_right: Online talk
+      - heading: The Role of Machine Learning in Environmental Science
+        right: Mar 2024
+        sub: Seminar on Climate Change Ecology, University of Washington
+        sub_right: Seattle, WA
       - heading: >-
           Los más rápidos y los más furiosos (The Fastest and the Most
           Furious)
         right: Sep 2020
         sub: >-
           Community of Undergraduate Physics Students, Juárez Autonomous
-          University of Tabasco
+          University of Tabasco, Mexico
         sub_right: Online talk
       - heading: >-
-          Una simulación de la física y la astrofísica (A Simulation of
-          Physics and Astrophysics)
+          Una simulación de la física y la astrofísica (A Simulation of Physics
+          and Astrophysics)
         right: Aug 2020
         sub: >-
           Community of Undergraduate Physics Students, Juárez Autonomous
-          University of Tabasco
+          University of Tabasco, Mexico
         sub_right: Online talk
 
   - title: Skills
