@@ -45,7 +45,7 @@ sections:
         text: Python, C/C++, Fortran 95, Rust, R, Java, SQL, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific ML, hybrid physics–ML modeling, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
+          Scientific ML, hybrid physics–ML modeling, PyTorch, TensorFlow, JAX (introductory coursework), scikit-learn, NumPy, SciPy,
           Pandas, Astropy, ML-assisted parameter estimation, gradient-based
           optimization, SVM, random forest, neural networks
       - label: Geospatial & Remote Sensing

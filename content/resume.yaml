@@ -43,7 +43,7 @@ sections:
       - label: ML & Data
         text: >-
           Scientific machine learning, hybrid physics–ML modeling, PyTorch,
-          TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy,
+          TensorFlow, JAX (introductory coursework), scikit-learn, NumPy, SciPy, Pandas, Astropy,
           ML-assisted parameter estimation, gradient-based optimization,
           neural networks, random forest, SVM
       - label: Modeling
