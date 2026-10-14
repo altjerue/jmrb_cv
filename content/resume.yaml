@@ -207,7 +207,7 @@ sections:
             4LAC-DR3 catalog (3,407 sources) to recover physical jet
             parameters from multi-wavelength data.
           - >-
-            Training a neural-network emulator of the physics-based Tleco model
+            Building a neural-network emulator of the physics-based Tleco model
             that maps physical jet parameters to observable spectral energy
             distributions, validated against Tleco output.
           - >-
