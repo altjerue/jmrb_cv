@@ -35,15 +35,15 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational Scientist with a PhD in Physics and 10+ years developing high-performance numerical algorithms and physics-based simulations. Expertise in scientific machine learning and geospatial data analysis. Strong mathematical foundations with a track record of architecting open-source simulation libraries, leading funded research projects, and translating complex physical models into production-quality scientific software. Experienced working across cross-functional research and engineering teams.\par
+Research engineer and computational scientist with a PhD in Physics and 10+ years of experience building physics-based numerical models (PDE solvers, radiative transfer, MHD) and applying machine learning to physical-science problems. Python-fluent, with GPU and HPC experience and an open-source track record: architected and maintained simulation libraries adopted by other research groups, tested and shipped code through CI/CD with test suites, and mentored students. Strong at pairing physical principles with data-driven models and explaining the results to scientific and engineering audiences.\par
 
 \cvsection{Skills}
-\textbf{Languages:} Python, C/C++, Fortran 95, R, SQL, Shell, Rust, Java, Julia\par
-\textbf{ML \& Data:} Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation, gradient-based optimization, SVM, random forest, neural networks\par
+\textbf{Languages:} Python, C/C++, Fortran 95, Rust, R, Java, SQL, Julia, Shell\par
+\textbf{ML \& Data:} Scientific ML, hybrid physics–ML modeling, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation, gradient-based optimization, SVM, random forest, neural networks\par
 \textbf{Geospatial \& Remote Sensing:} Sentinel-1/2 multispectral processing, raster/vector data pipelines, QGIS, geospatial feature engineering for ML\par
 \textbf{HPC \& Parallel:} OpenMP, MPI, OpenACC, SLURM, PBS, HDF5, large-scale parallel CPU computing\par
 \textbf{Simulation:} Physics simulation (multiscale/multiphysics modeling, radiative transfer, relativistic MHD, Lagrangian particle dynamics), numerical PDEs (advection–diffusion, Fokker–Planck), finite difference/volume methods, numerical linear algebra, synthetic dataset generation, uncertainty quantification, parameter estimation\par
-\textbf{Tools:} Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt\par
+\textbf{Tools:} Git and code review, Docker, Azure, CI/CD (Jenkins), Kafka, Jira, QGIS, ParaView, VisIt\par
 
 \cvsection{Experience}
 \leftright{\textbf{Independent Contractor}}{Jan 2026 – Present}\nopagebreak
@@ -69,7 +69,7 @@ Built geospatial ML pipelines and optimized terrain-analysis code for wetland ma
 \leftright{\textit{Self-directed}}{Seattle, WA}\nopagebreak
 Continued simulation research and open-source development between industry roles.\par\nopagebreak
 \begin{itemize}
-  \item{} Co-developed Tleco, a Rust/Python toolkit that models radiation from relativistic outflows by solving the Fokker–Planck equation coupled to radiative transfer; published in ApJ (2024) [9].
+  \item{} Co-developed Tleco, an open-source Rust/Python toolkit that models radiation from relativistic outflows by solving the Fokker–Planck equation coupled to radiative transfer; published in ApJ (2024) [9].
   \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library that simulates wind-driven spore dispersal over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
   \item{} Invited talk on machine learning in environmental science at the University of Washington (2024).
 \end{itemize}
@@ -213,10 +213,10 @@ PI: D. Giannios; Co-I: J. M. Rueda-Becerril\par
 
 \cvsection{Software and Projects}
 \leftright{\textbf{Blazar Population ML}}{Jan 2026 – Present}\nopagebreak
-\leftright{\textit{Scientific ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
+\leftright{\textit{Physics-informed ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
 \begin{itemize}
   \item{} Applying classical ML and Bayesian inference to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to recover physical jet parameters from multi-wavelength data.
-  \item{} Building a neural network that maps physical jet parameters to observable spectral energy distributions accurately enough to compare with Tleco results.
+  \item{} Training a neural-network emulator of the physics-based Tleco model that maps physical jet parameters to observable spectral energy distributions, validated against Tleco output.
   \item{} Forecasting blazar gamma-ray flares with a time-series foundation model fine-tuned on Tleco-generated synthetic light curves.
 \end{itemize}
 \entrygap
