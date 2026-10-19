@@ -51,11 +51,12 @@ sections:
 
   - title: Experience
     file: experience_resume
+    sub_inline: true   # employer on the same line as the role
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
         sub: Mercor
-        sub_right: Remote
+        # sub_right: Remote
         intro: >-
           Physics subject-matter expert evaluating frontier language models
           for a leading AI lab.
@@ -68,7 +69,7 @@ sections:
       - heading: Spatial Data Scientist
         right: May 2025 – Jan 2026
         sub: TealWaters
-        sub_right: Seattle, WA
+        # sub_right: Seattle, WA
         intro: >-
           Built geospatial ML pipelines and optimized terrain-analysis code
           for wetland mapping.
@@ -85,7 +86,7 @@ sections:
       - heading: Independent Researcher & Open-Source Developer
         right: Jan 2024 – May 2025
         sub: Self-directed
-        sub_right: Seattle, WA
+        # sub_right: Seattle, WA
         intro: >-
           Continued simulation research and open-source development between
           industry roles.
@@ -102,7 +103,7 @@ sections:
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
         sub: Paychex
-        sub_right: Remote
+        # sub_right: Remote
         intro: >-
           Built and tested data-integration services between enterprise
           systems and Oracle E-Business Suite.
@@ -112,7 +113,7 @@ sections:
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
         sub: Rochester Institute of Technology
-        sub_right: Rochester, NY
+        # sub_right: Rochester, NY
         intro: >-
           HPC simulations of supermassive black hole binaries in an NSF-funded
           project.
@@ -137,7 +138,7 @@ sections:
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
         sub: Purdue University
-        sub_right: West Lafayette, IN
+        # sub_right: West Lafayette, IN
         intro: >-
           Radiative-transfer modeling of relativistic jets (blazars and
           gamma-ray burst afterglows).
@@ -163,7 +164,7 @@ sections:
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
         sub: Universidad Michoacana de San Nicolás de Hidalgo
-        sub_right: Morelia, Mexico
+        # sub_right: Morelia, Mexico
         bullets:
           - >-
             Developed a Python pipeline to process black hole simulation
@@ -177,7 +178,7 @@ sections:
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
         sub: Universitat de València
-        sub_right: Valencia, Spain
+        # sub_right: Valencia, Spain
         bullets:
           - >-
             Studied how magnetization of shocked plasma shapes the radiation
@@ -225,14 +226,15 @@ sections:
 
   - title: Education
     file: education_resume
+    sub_inline: true   # degree on the same line as the institution
     entries:
       - heading: Universitat de València
-        right: Valencia, Spain
+        right: "2017"
         sub: Ph.D. in Physics, Excellent Cum Laude
-        sub_right: "2017"
+        # sub_right: Valencia, Spain
       - heading: Universidad Michoacana de San Nicolás de Hidalgo
-        right: Morelia, Mexico
         sub: M.Sc. in Physics
+        # sub_right: Morelia, Mexico
       - heading: Universidad Autónoma del Estado de México
-        right: Toluca, Mexico
         sub: B.Sc. in Physics
+        # sub_right: Toluca, Mexico

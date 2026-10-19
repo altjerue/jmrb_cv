@@ -194,12 +194,31 @@ details (plain lines, one per item, no bullets)
 If a `heading` or `sub` is too long to share its line with `right` or
 `sub_right`, the right-hand text moves to the next line, still flush right.
 
+With `sub_inline: true` on a section, its entries put `sub` on the heading
+line instead, after a comma, and keep a second line only for `sub_right`:
+
+```
+heading (bold), sub (italic)                          right
+                                                  sub_right
+```
+
+```yaml
+- title: Experience
+  file: experience_resume
+  sub_inline: true
+```
+
+Leave `sub_right` out (or comment it out) for the most compact layout; with a
+`sub_right`, the second line holds only that text.
+
 - Experience: `heading` = job title, `right` = dates, `sub` = employer,
-  `sub_right` = location.
+  `sub_right` = location. Both documents use `sub_inline`; the resume
+  comments its locations out, the CV keeps them.
 - Projects: `sub` = short description, `sub_right` = repository link.
-- Education: in the resume, `heading` = institution, `right` = location,
-  `sub` = degree, `sub_right` = year (leave it out to omit the year). In the
-  CV, `heading` = degree and `details` holds the advisor and thesis lines.
+- Education: in the resume, `heading` = institution, `sub` = degree,
+  `right` = year (Ph.D. only). In the CV, `heading` = degree, `sub` =
+  institution, `right` = dates, `sub_right` = location, and `details` holds
+  the advisor and thesis lines. Both use `sub_inline`.
 
 To reorder sections or entries, move them in the file; to remove one, delete
 it or comment it out with `#`.
