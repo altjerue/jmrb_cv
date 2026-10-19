@@ -68,7 +68,6 @@ sections:
 
   - title: Experience
     file: experience
-    sub_inline: true   # employer on the same line as the role
     entries:
       - heading: Independent Contractor
         right: Jan 2026 – Present
@@ -254,7 +253,6 @@ sections:
 
   - title: Education
     file: education
-    sub_inline: true   # institution on the same line as the degree
     entries:
       - heading: Ph.D. in Physics
         right: Oct 2011 – Jul 2017

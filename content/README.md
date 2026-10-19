@@ -212,13 +212,14 @@ Leave `sub_right` out (or comment it out) for the most compact layout; with a
 `sub_right`, the second line holds only that text.
 
 - Experience: `heading` = job title, `right` = dates, `sub` = employer,
-  `sub_right` = location. Both documents use `sub_inline`; the resume
-  comments its locations out, the CV keeps them.
+  `sub_right` = location. The resume uses `sub_inline` and comments its
+  locations out; the CV keeps the two-line layout (role and dates, then
+  employer and location).
 - Projects: `sub` = short description, `sub_right` = repository link.
 - Education: in the resume, `heading` = institution, `sub` = degree,
   `right` = year (Ph.D. only). In the CV, `heading` = degree, `sub` =
   institution, `right` = dates, `sub_right` = location, and `details` holds
-  the advisor and thesis lines. Both use `sub_inline`.
+  the advisor and thesis lines. Only the resume uses `sub_inline`.
 
 To reorder sections or entries, move them in the file; to remove one, delete
 it or comment it out with `#`.
