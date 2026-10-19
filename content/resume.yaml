@@ -115,7 +115,7 @@ sections:
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
             library for wind-driven spore dispersal over hilly forest terrain
-            (RcppParallel, OpenMP), using AI coding assistants validated by a
+            (RcppParallel, OpenMP), using AI coding assistants (Claude), validated by a
             unit-test suite.
 
       - heading: Software Engineer
