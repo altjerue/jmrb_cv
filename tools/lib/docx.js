@@ -23,11 +23,11 @@ function runs(str, base = {}) {
 // A plain right-aligned tab stop at the right margin. (Word's "positional
 // tab" is ignored by LibreOffice and some converters, which then run the date
 // into the title.)
-function lineParagraph(left, right, leftStyle, keepNext = true) {
+function lineParagraph(left, right, leftStyle, keepNext = true, pageBreakBefore = false) {
   const children = [...runs(left, leftStyle)];
   if (right) children.push(new TextRun({ children: [new Tab()] }), ...runs(right));
   return new Paragraph({
-    children, keepNext, spacing: { after: 0 },
+    children, keepNext, pageBreakBefore, spacing: { after: 0 },
     tabStops: [{ type: TabStopType.RIGHT, position: TEXT_WIDTH }],
   });
 }
@@ -60,11 +60,11 @@ function docxBody(s) {
         const children = [...runs(e.heading, { bold: true }), new TextRun({ text: ', ' }), ...runs(e.sub, { italics: true })];
         if (e.right) children.push(new TextRun({ children: [new Tab()] }), ...runs(e.right));
         out.push(new Paragraph({
-          children, keepNext: true, spacing: { after: 0 },
+          children, keepNext: true, pageBreakBefore: !!e.page_break, spacing: { after: 0 },
           tabStops: [{ type: TabStopType.RIGHT, position: TEXT_WIDTH }],
         }));
       } else {
-        out.push(lineParagraph(e.heading, e.right, { bold: true }));
+        out.push(lineParagraph(e.heading, e.right, { bold: true }, true, !!e.page_break));
       }
       if (s.sub_inline ? e.sub_right : (e.sub || e.sub_right)) {
         out.push(lineParagraph(s.sub_inline ? '' : e.sub, e.sub_right, { italics: true }));

@@ -59,7 +59,7 @@ function sectionBody(s, style) {
   const out = [];
   if (s.paragraph) out.push(`\\cvitem{}{${tex(s.paragraph)}}`);
   for (const k of s.skills || []) out.push(`\\cvitem{${tex(k.label)}}{${tex(k.text)}}`);
-  for (const e of s.entries || []) out.push(style.entry(e, s.sub_inline));
+  for (const e of s.entries || []) out.push((e.page_break ? '\\newpage\n' : '') + style.entry(e, s.sub_inline));
   // plain itemize, so list bullets match the entry bullets (moderncv's
   // \cvlistitem sizes its bullet column for the icon set's original symbol)
   if (s.list && s.list.length) {

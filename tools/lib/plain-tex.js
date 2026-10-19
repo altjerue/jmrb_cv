@@ -16,7 +16,7 @@ function texEntry(e, inline) {
   if (e.bullets && e.bullets.length) {
     body.push(['\\begin{itemize}', ...e.bullets.map((b) => `  \\item{} ${tex(b)}`), '\\end{itemize}'].join('\n'));
   }
-  return [...head, ...body].join('\\nopagebreak\n') + '\n\\entrygap\n';
+  return (e.page_break ? '\\newpage\n' : '') + [...head, ...body].join('\\nopagebreak\n') + '\n\\entrygap\n';
 }
 
 // Content shared by sections and subsections.
