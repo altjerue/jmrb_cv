@@ -34,13 +34,14 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational Scientist with a PhD in Physics and over ten years of experience building and running high-performance numerical algorithms and physics-based simulations. Expertise in scientific machine learning and geospatial data analysis. Strong mathematical foundations with a track record of architecting open-source simulation libraries, leading funded research projects, and translating complex physical models into production-quality scientific software. Experienced working across cross-functional research and engineering teams.\par
+Research engineer and computational scientist with a PhD in Physics and over ten years of experience building physics-based numerical models (PDE solvers, radiative transfer, MHD) and applying machine learning to physical-science problems. Python-fluent, with GPU and HPC experience and an open-source track record: architected and maintained simulation libraries adopted by other research groups, tested and shipped code through CI/CD with test suites, and mentored students. Strong at pairing physical principles with data-driven models and explaining the results to scientific and engineering audiences.\par
 
 \cvsection{Skills}
-\textbf{Languages:} C/C++, Python, Fortran 95, Rust, R, Java, SQL, Julia, Shell\par
-\textbf{ML \& Data:} Scientific machine learning, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation, gradient-based optimization, SVM, random forest, neural networks\par
+\textbf{Languages:} Python, C/C++, Fortran 95, Rust, R, Java, SQL, Julia, Shell\par
+\textbf{ML \& Data:} Scientific machine learning, hybrid physics–ML modeling, PyTorch, TensorFlow, JAX (introductory coursework), scikit-learn, NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation, gradient-based optimization, neural networks, random forest, SVM\par
+\textbf{Modeling:} Numerical PDEs (advection–diffusion, Fokker–Planck), finite difference/volume methods, multiphysics simulation, uncertainty quantification\par
 \textbf{HPC \& Parallel:} OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5\par
-\textbf{Tools:} Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt\par
+\textbf{Cloud \& Tools:} Git and code review, Docker, Azure, CI/CD (Jenkins), Kafka, Jira, QGIS, ParaView, VisIt\par
 
 \cvsection{Experience}
 \leftright{\textbf{Independent Contractor}, \textit{Mercor}}{Jan 2026 – Present}\nopagebreak
@@ -61,7 +62,7 @@ Built geospatial ML pipelines and optimized terrain-analysis code for wetland ma
 \leftright{\textbf{Independent Researcher \& Open-Source Developer}, \textit{Self-directed}}{Jan 2024 – May 2025}\nopagebreak
 Continued simulation research and open-source development between industry roles.\par\nopagebreak
 \begin{itemize}
-  \item{} Co-developed Tleco, a Rust/Python toolkit that solves the Fokker–Planck equation coupled to radiative transfer for relativistic outflows (ApJ 2024).
+  \item{} Co-developed Tleco, an open-source Rust/Python toolkit that solves the Fokker–Planck equation coupled to radiative transfer for relativistic outflows (ApJ 2024).
   \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library for wind-driven spore dispersal over hilly forest terrain (RcppParallel, OpenMP).
 \end{itemize}
 \entrygap
@@ -77,7 +78,7 @@ Built and tested data-integration services between enterprise systems and Oracle
 HPC simulations of supermassive black hole binaries in an NSF-funded project.\par\nopagebreak
 \begin{itemize}
   \item{} Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a C code for MHD simulations of supermassive black hole binaries, adding black hole spin with under 5\% runtime overhead.
-  \item{} Ran and benchmarked large production simulations on Frontera (TACC), about 10,000 node-hours, and identified performance bottlenecks in the parallel code.
+  \item{} Ran and benchmarked large production simulations on Frontera (TACC), about 10,000 node-hours, identifying performance bottlenecks in the parallel code to make it run efficiently on HPC clusters.
   \item{} Calibrated Paramo parameters against Fermi-LAT observations using gradient-based optimization, comparing simulation output with data and updating the model automatically; supervised a graduate student on the same problem.
   \item{} Collaborated on a multi-institutional HPC project on binary neutron star mergers, resulting in 2 publications.
 \end{itemize}
@@ -88,7 +89,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 \begin{itemize}
   \item{} Designed and wrote Paramo, an open-source Fortran 95 library that solves the Fokker–Planck equation for relativistic particle distributions coupled to radiative transfer. Optimized with OpenMP; GPU offload tested with OpenACC.
   \item{} Implemented implicit PDE solvers, numerical integration, and arbitrary-shape particle distributions without slowing the simulation.
-  \item{} Wrote Python tools to analyze Paramo output and run parameter optimization; other groups have adopted Paramo, including Combi \& Siegel (2023).
+  \item{} Wrote Python tools to analyze Paramo output and run parameter optimization; released and documented Paramo as open source, and other groups have adopted it, including Combi \& Siegel (2023).
   \item{} Co-I on two NASA Fermi Guest Investigator proposals, one funded (\$68K) to model blazar radiation; mentored 3 graduate students and published 2 peer-reviewed papers.
 \end{itemize}
 \entrygap
@@ -109,7 +110,7 @@ Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst af
 
 \cvsection{Projects}
 \leftright{\textbf{Blazar Population ML}}{Jan 2026 – Present}\nopagebreak
-\leftright{\textit{Scientific ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
+\leftright{\textit{Physics-informed ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
 \begin{itemize}
   \item{} Applying classical ML and Bayesian inference to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to recover physical jet parameters from multi-wavelength data.
   \item{} Building a neural-network emulator of the physics-based Tleco model that maps physical jet parameters to observable spectral energy distributions, to be validated against Tleco output (in progress).

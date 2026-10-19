@@ -28,23 +28,24 @@ sections:
   - title: Professional Summary
     file: profile
     paragraph: >-
-      Computational Scientist with a PhD in Physics and 10+ years developing
-      high-performance numerical algorithms and physics-based simulations.
-      Expertise in scientific machine learning and geospatial data analysis.
-      Strong mathematical foundations with a track record of architecting
-      open-source simulation libraries, leading funded research projects, and
-      translating complex physical models into production-quality scientific
-      software. Experienced working across cross-functional research and
-      engineering teams.
+      Research engineer and computational scientist with a PhD in Physics and
+      10+ years of experience building physics-based numerical models
+      (PDE solvers, radiative transfer, MHD) and applying machine learning to
+      physical-science problems. Python-fluent, with GPU and HPC experience
+      and an open-source track record: architected and maintained simulation
+      libraries adopted by other research groups, tested and shipped code
+      through CI/CD with test suites, and mentored
+      students. Strong at pairing physical principles with data-driven models
+      and explaining the results to scientific and engineering audiences.
 
   - title: Skills
     file: skills
     skills:
       - label: Languages
-        text: Python, C/C++, Fortran 95, R, SQL, Shell, Rust, Java, Julia
+        text: Python, C/C++, Fortran 95, Rust, R, Java, SQL, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
+          Scientific ML, hybrid physics–ML modeling, PyTorch, TensorFlow, JAX (introductory coursework), scikit-learn, NumPy, SciPy,
           Pandas, Astropy, ML-assisted parameter estimation, gradient-based
           optimization, SVM, random forest, neural networks
       - label: Geospatial & Remote Sensing
@@ -64,7 +65,9 @@ sections:
           dataset generation, uncertainty quantification, parameter
           estimation
       - label: Tools
-        text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt
+        text: >-
+          Git and code review, Docker, Azure, CI/CD (Jenkins), Kafka, Jira,
+          QGIS, ParaView, VisIt
 
   - title: Experience
     file: experience
@@ -116,7 +119,7 @@ sections:
           industry roles.
         bullets:
           - >-
-            Co-developed Tleco, a Rust/Python toolkit that models radiation
+            Co-developed Tleco, an open-source Rust/Python toolkit that models radiation
             from relativistic outflows by solving the Fokker–Planck equation
             coupled to radiative transfer; published in ApJ (2024)
             [@Davis:2024ru].
@@ -447,7 +450,7 @@ sections:
     entries:
       - heading: Blazar Population ML
         right: Jan 2026 – Present
-        sub: Scientific ML (Python, scikit-learn, PyTorch)
+        sub: Physics-informed ML (Python, scikit-learn, PyTorch)
         sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
         bullets:
           - >-
