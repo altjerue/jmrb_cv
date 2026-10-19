@@ -210,7 +210,7 @@ sections:
     entries:
       - heading: Blazar Population ML
         right: Jan 2026 – Present
-        sub: Physics-informed ML (Python, scikit-learn, PyTorch)
+        sub: Physics-informed ML (Python, scikit-learn, PyTorch), developed with Claude
         sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
         bullets:
           - >-
