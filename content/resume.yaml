@@ -145,8 +145,8 @@ sections:
           - >-
             Designed and wrote Paramo, an open-source Fortran 95 library that
             solves the Fokker–Planck equation for relativistic particle
-            distributions coupled to radiative transfer. OpenMP gives about
-            20× speedup on 5 cores; GPU offload tested with OpenACC.
+            distributions coupled to radiative transfer. Optimized with OpenMP;
+            GPU offload tested with OpenACC.
           - >-
             Implemented implicit PDE solvers, numerical integration, and
             arbitrary-shape particle distributions without slowing the
@@ -197,9 +197,9 @@ sections:
             4LAC-DR3 catalog (3,407 sources) to recover physical jet
             parameters from multi-wavelength data.
           - >-
-            Building a neural network that maps physical jet parameters to
-            observable spectral energy distributions accurately enough to
-            compare with Tleco results.
+            Building a neural-network emulator of the physics-based Tleco model
+            that maps physical jet parameters to observable spectral energy
+            distributions, to be validated against Tleco output (in progress).
           - >-
             Forecasting blazar gamma-ray flares with a time-series foundation
             model fine-tuned on Tleco-generated synthetic light curves.
