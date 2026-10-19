@@ -221,6 +221,17 @@ Leave `sub_right` out (or comment it out) for the most compact layout; with a
   institution, `right` = dates, `sub_right` = location, and `details` holds
   the advisor and thesis lines. Only the resume uses `sub_inline`.
 
+`page_break: true` on an entry starts a new page right before it, in every
+version (LaTeX `\newpage`, Word "page break before"). Use it to choose where
+a page ends instead of letting an entry split across pages, and check the
+page count afterwards: forcing an earlier break can push the end of the
+document onto an extra page.
+
+```yaml
+- heading: Postdoctoral Research Fellow
+  page_break: true   # start page 2 here
+```
+
 To reorder sections or entries, move them in the file; to remove one, delete
 it or comment it out with `#`.
 

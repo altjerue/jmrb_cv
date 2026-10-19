@@ -136,6 +136,7 @@ sections:
             neutron star mergers, resulting in 2 publications.
 
       - heading: Postdoctoral Research Fellow
+        page_break: true   # start page 2 here
         right: Oct 2018 – Nov 2020
         sub: Purdue University
         # sub_right: West Lafayette, IN
