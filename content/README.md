@@ -217,7 +217,7 @@ Leave `sub_right` out (or comment it out) for the most compact layout; with a
   employer and location).
 - Projects: `sub` = short description, `sub_right` = repository link.
 - Education: in the resume, `heading` = institution, `sub` = degree,
-  `right` = year (Ph.D. only). In the CV, `heading` = degree, `sub` =
+  `right` = graduation month and year. In the CV, `heading` = degree, `sub` =
   institution, `right` = dates, `sub_right` = location, and `details` holds
   the advisor and thesis lines. Only the resume uses `sub_inline`.
 

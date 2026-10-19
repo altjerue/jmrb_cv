@@ -229,12 +229,14 @@ sections:
     sub_inline: true   # degree on the same line as the institution
     entries:
       - heading: Universitat de València
-        right: "2017"
+        right: Jul 2017
         sub: Ph.D. in Physics, Excellent Cum Laude
         # sub_right: Valencia, Spain
       - heading: Universidad Michoacana de San Nicolás de Hidalgo
+        right: Sep 2011
         sub: M.Sc. in Physics
         # sub_right: Morelia, Mexico
       - heading: Universidad Autónoma del Estado de México
+        right: Dec 2008
         sub: B.Sc. in Physics
         # sub_right: Toluca, Mexico
