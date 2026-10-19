@@ -55,8 +55,20 @@ function docxBody(s) {
   }
   if (s.entries) {
     for (const e of s.entries) {
-      out.push(lineParagraph(e.heading, e.right, { bold: true }));
-      if (e.sub || e.sub_right) out.push(lineParagraph(e.sub, e.sub_right, { italics: true }));
+      const inline = s.sub_inline && e.sub;
+      if (inline) {
+        const children = [...runs(e.heading, { bold: true }), new TextRun({ text: ', ' }), ...runs(e.sub, { italics: true })];
+        if (e.right) children.push(new TextRun({ children: [new Tab()] }), ...runs(e.right));
+        out.push(new Paragraph({
+          children, keepNext: true, spacing: { after: 0 },
+          tabStops: [{ type: TabStopType.RIGHT, position: TEXT_WIDTH }],
+        }));
+      } else {
+        out.push(lineParagraph(e.heading, e.right, { bold: true }));
+      }
+      if (s.sub_inline ? e.sub_right : (e.sub || e.sub_right)) {
+        out.push(lineParagraph(s.sub_inline ? '' : e.sub, e.sub_right, { italics: true }));
+      }
       if (e.intro) out.push(new Paragraph({ children: runs(e.intro), keepNext: true, spacing: { after: 20 } }));
       for (const d of e.details || []) out.push(new Paragraph({ children: runs(d), spacing: { after: 0 } }));
       for (const b of e.bullets || []) out.push(bullet(b));
