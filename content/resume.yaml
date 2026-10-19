@@ -25,15 +25,15 @@ sections:
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
-      Research engineer and computational scientist with a PhD in Physics and
-      over ten years of experience building physics-based numerical models
-      (PDE solvers, radiative transfer, MHD) and applying machine learning to
-      physical-science problems. Python-fluent, with GPU and HPC experience
-      and an open-source track record: architected and maintained simulation
-      libraries adopted by other research groups, tested and shipped code
-      through CI/CD with test suites, and mentored
-      students. Strong at pairing physical principles with data-driven models
-      and explaining the results to scientific and engineering audiences.
+      Physicist (PhD) with over ten years of experience building the
+      simulations, datasets, and analysis code that test scientific ideas
+      against data. Currently an expert evaluator of frontier language models:
+      writing hard physics problems that stump them and diagnosing where their
+      reasoning fails. Background in physics-based numerical modeling
+      (PDE solvers, radiative transfer, MHD), scientific machine learning, and
+      open-source research software adopted by other groups. Postdoctoral
+      experience leading teams and mentoring students, and a habit of
+      explaining technical results clearly to mixed audiences.
 
   - title: Skills
     file: skills_resume
@@ -53,6 +53,11 @@ sections:
           quantification
       - label: HPC & Parallel
         text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
+      - label: AI Evaluation
+        text: >-
+          Expert-level problem and benchmark design, prompt writing, failure-mode
+          analysis of LLM reasoning, structured feedback, AI-assisted software
+          development with test-based validation
       - label: Cloud & Tools
         text: >-
           Git and code review, Docker, Azure, CI/CD (Jenkins), Kafka, Jira,
@@ -74,6 +79,9 @@ sections:
             Reviewed 50+ expert-level problems in physics, hydrodynamics,
             astrophysics, and cosmology; wrote original prompts that stumped
             frontier models.
+          - >-
+            Diagnosed failure modes in model reasoning and wrote structured
+            feedback to improve scientific accuracy.
 
       - heading: Spatial Data Scientist
         right: May 2025 – Jan 2026
@@ -107,7 +115,8 @@ sections:
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
             library for wind-driven spore dispersal over hilly forest terrain
-            (RcppParallel, OpenMP).
+            (RcppParallel, OpenMP), using AI coding assistants validated by a
+            unit-test suite.
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
