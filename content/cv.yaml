@@ -222,8 +222,8 @@ sections:
           - >-
             Architected Paramo, an open-source Fortran 95 library that solves
             the Fokker–Planck equation coupled to radiative transfer;
-            parallelized and optimized it with OpenMP, making it about 20×
-            faster than the original serial code on 5 cores.
+            parallelized and optimized it with OpenMP; GPU offload tested with
+            OpenACC.
           - >-
             Paramo has been adopted by other research groups, including Combi &
             Siegel (2023).
@@ -490,9 +490,9 @@ sections:
             4LAC-DR3 catalog (3,407 sources) to recover physical jet
             parameters from multi-wavelength data.
           - >-
-            Building a neural network that maps physical jet parameters to
-            observable spectral energy distributions accurately enough to
-            compare with Tleco results.
+            Building a neural-network emulator of the physics-based Tleco model
+            that maps physical jet parameters to observable spectral energy
+            distributions, to be validated against Tleco output (in progress).
           - >-
             Forecasting blazar gamma-ray flares with a time-series foundation
             model fine-tuned on Tleco-generated synthetic light curves.
@@ -522,9 +522,8 @@ sections:
         bullets:
           - >-
             Fokker–Planck and radiative-transfer solver for relativistic
-            particle distributions; about 20× faster than the original serial
-            code on 5 cores after OpenMP parallelization and optimization;
-            used by other groups, including Combi & Siegel (2023).
+            particle distributions, parallelized with OpenMP; used by other
+            groups, including Combi & Siegel (2023).
       - heading: PatchworkMHD
         right: Feb 2021 – Apr 2022
         sub: Large-scale MHD simulation code (NSF project)

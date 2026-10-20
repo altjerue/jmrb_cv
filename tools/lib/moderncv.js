@@ -29,7 +29,14 @@ const STYLES = {
     margin: '0.6in',
     titleGap: '-20pt',
     preamble: '',
-    entry: (e) => `\\cventry{${tex(e.sub_right)}}{${tex(e.sub)}}{${tex(e.heading)}}{${tex(e.right)}}{}{${entryDescription(e, false)}}`,
+    // sub_inline: the sub text joins the bold heading line (in medium-weight
+    // italics) and line 2 keeps only sub_right; the \cventry in
+    // moderncvstylebanking2.sty skips line 2 when both of its fields are empty.
+    entry: (e, inline) => {
+      const inlineSub = inline && e.sub;
+      const heading = inlineSub ? `${tex(e.heading)}, {\\mdseries\\itshape ${tex(e.sub)}}` : tex(e.heading);
+      return `\\cventry{${tex(e.sub_right)}}{${inlineSub ? '' : tex(e.sub)}}{${heading}}{${tex(e.right)}}{}{${entryDescription(e, false)}}`;
+    },
   },
 };
 
@@ -52,7 +59,7 @@ function sectionBody(s, style) {
   const out = [];
   if (s.paragraph) out.push(`\\cvitem{}{${tex(s.paragraph)}}`);
   for (const k of s.skills || []) out.push(`\\cvitem{${tex(k.label)}}{${tex(k.text)}}`);
-  for (const e of s.entries || []) out.push(style.entry(e, s.sub_inline));
+  for (const e of s.entries || []) out.push((e.page_break ? '\\newpage\n' : '') + style.entry(e, s.sub_inline));
   // plain itemize, so list bullets match the entry bullets (moderncv's
   // \cvlistitem sizes its bullet column for the icon set's original symbol)
   if (s.list && s.list.length) {
