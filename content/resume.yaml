@@ -40,24 +40,29 @@ sections:
           Instituto de Física y Matemáticas, Universidad Michoacana de San
           Nicolás de Hidalgo
         sub_right: Substitute Instructor
-      - heading: Zachary Davis, graduate student
+      - heading: Zachary Davis, Amanda O. Harrison, and Hao Zhang, graduate students
         right: 2018 – 2022
         sub: Department of Physics and Astronomy, Purdue University
         sub_right: Mentoring
-        # details:
-        #   - Co-authored papers [8, 9]
-      - heading: Amanda O. Harrison, graduate student
-        right: 2018 – 2020
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        # details:
-        #   - Co-authored paper [5]
-      - heading: Hao Zhang, graduate student
-        right: 2018 – 2019
-        sub: Department of Physics and Astronomy, Purdue University
-        sub_right: Mentoring
-        # details:
-        #   - Co-authored paper [4]
+      # earlier separate entries:
+      # - heading: Zachary Davis, graduate student
+      #   right: 2018 – 2022
+      #   sub: Department of Physics and Astronomy, Purdue University
+      #   sub_right: Mentoring
+      #   # details:
+      #   #   - Co-authored papers [8, 9]
+      # - heading: Amanda O. Harrison, graduate student
+      #   right: 2018 – 2020
+      #   sub: Department of Physics and Astronomy, Purdue University
+      #   sub_right: Mentoring
+      #   # details:
+      #   #   - Co-authored paper [5]
+      # - heading: Hao Zhang, graduate student
+      #   right: 2018 – 2019
+      #   sub: Department of Physics and Astronomy, Purdue University
+      #   sub_right: Mentoring
+      #   # details:
+      #   #   - Co-authored paper [4]
 
   - title: Education
     file: education_resume
@@ -85,39 +90,58 @@ sections:
         sub: Mercor
         bullets:
           - >-
-            Evaluate physics reasoning in AI model outputs for technical
-            accuracy, identifying failure modes and providing structured
-            feedback.
+            Evaluate physics reasoning in AI model outputs, identifying failure
+            modes and providing structured feedback.
 
-      - heading: Postdoctoral Research Fellow
-        right: Oct 2018 – Nov 2020
-        sub: Purdue University
+      - heading: Spatial Data Scientist
+        right: May 2025 – Jan 2026
+        sub: TealWaters
         bullets:
           - >-
-            Obtained and led a NASA-funded grant studying radiation from active
-            galaxies.
-          - Mentored three graduate researchers; two are now postdoctoral researchers.
-          - Published 3 peer-reviewed papers.
+            Mapped wetland probability with a random-forest model (>75%
+            accuracy) and optimized terrain-analysis code.
+
+      - heading: Independent Researcher & Open-Source Developer
+        right: Jan 2024 – May 2025
+        sub: Self-directed
+        bullets:
+          - >-
+            Co-developed Tleco, a Rust/Python toolkit for radiation from
+            relativistic outflows, published in ApJ (2024).
+
+      - heading: Software Engineer
+        right: Apr 2022 – Jan 2024
+        sub: Paychex
+        bullets:
+          - Developed and tested production data-pipeline software (Java,
+            Python, SQL).
 
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
         sub: Rochester Institute of Technology
         bullets:
           - >-
-            Led an NSF-sponsored project upgrading a high-performance
-            simulation code for modeling black hole binaries.
+            Led an NSF-sponsored upgrade of a simulation code for black hole
+            binaries; collaborated on a multi-institutional study of binary
+            neutron star mergers (2 publications).
+
+      - heading: Postdoctoral Research Fellow
+        right: Oct 2018 – Nov 2020
+        sub: Purdue University
+        bullets:
           - >-
-            Collaborated on a multi-institutional study of binary neutron star
-            mergers, resulting in 2 publications.
+            Co-I in a NASA-funded grant studying radiation from active galaxies;
+            mentored three graduate researchers; published 3 peer-reviewed
+            papers.
 
       - heading: Postdoctoral Research Fellow
         right: Jan – Sep 2018
         sub: Universidad Michoacana de San Nicolás de Hidalgo
         bullets:
-          - >-
-            Developed a Python pipeline to process black hole simulation
-            outputs from the GRTrans numerical code, generating SVM training
-            data for radio image prediction.
+          # - >-
+          #   Developed a Python pipeline to process black hole simulation
+          #   outputs from the GRTrans numerical code, generating SVM training
+          #   data for radio image prediction.
           - >-
             Built open-source data analysis tools in Python for radiative
             transfer phenomena in relativistic astrophysics scenarios.
@@ -137,6 +161,11 @@ sections:
         right: Mar 2024
         sub: Seminar on Climate Change Ecology, University of Washington
         sub_right: Seattle, WA
+      # - heading: Talks to undergraduate physics students, in Spanish
+      #   right: Aug – Sep 2020
+      #   sub: Juárez Autonomous University of Tabasco, Mexico
+      #   sub_right: Online talks
+      # earlier separate entries:
       - heading: >-
           Los más rápidos y los más furiosos (The Fastest and the Most
           Furious)
