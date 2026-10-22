@@ -25,11 +25,12 @@ sections:
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
-      Physicist (Ph.D. and M.Sc. in Physics) with ten years of research
-      in computational astrophysics. Substituted for a graduate thermodynamics
-      course and mentored three graduate researchers who co-authored papers with
-      me. Teaching approach built on intuition, critical thinking, and
-      collaborative problem-solving.
+      Physicist (Ph.D. and M.Sc. in Physics) with ten years of research in
+      computational astrophysics, seeking to teach physics and astronomy.
+      Substitute instructor for a graduate thermodynamics course; mentored
+      three graduate researchers who co-authored papers with me. Bilingual
+      (English/Spanish). Teaching approach built on intuition, critical
+      thinking, and collaborative problem-solving.
 
   - title: Teaching and Mentoring
     file: teaching_resume
@@ -63,6 +64,43 @@ sections:
       #   sub_right: Mentoring
       #   # details:
       #   #   - Co-authored paper [4]
+
+  - title: Talks and Outreach
+    file: outreach_resume
+    entries:
+      - heading: >-
+          El origen del universo y el sistema solar (The Origin of the Universe
+          and the Solar System)
+        right: Feb 2026
+        sub: >-
+          Biology students, Facultad de Ciencias, Universidad Autónoma del
+          Estado de México
+        sub_right: Online talk
+      - heading: The Role of Machine Learning in Environmental Science
+        right: Mar 2024
+        sub: Seminar on Climate Change Ecology, University of Washington
+        sub_right: Seattle, WA
+      # - heading: Talks to undergraduate physics students, in Spanish
+      #   right: Aug – Sep 2020
+      #   sub: Juárez Autonomous University of Tabasco, Mexico
+      #   sub_right: Online talks
+      # earlier separate entries:
+      - heading: >-
+          Los más rápidos y los más furiosos (The Fastest and the Most
+          Furious)
+        right: Sep 2020
+        sub: >-
+          Community of Undergraduate Physics Students, Juárez Autonomous
+          University of Tabasco, Mexico
+        sub_right: Online talk
+      - heading: >-
+          Una simulación de la física y la astrofísica (A Simulation of Physics
+          and Astrophysics)
+        right: Aug 2020
+        sub: >-
+          Community of Undergraduate Physics Students, Juárez Autonomous
+          University of Tabasco, Mexico
+        sub_right: Online talk
 
   - title: Education
     file: education_resume
@@ -105,34 +143,38 @@ sections:
         right: Jan 2024 – May 2025
         sub: Self-directed
         bullets:
-          - >-
-            Co-developed Tleco, a Rust/Python toolkit for radiation from
-            relativistic outflows, published in ApJ (2024).
+          - Co-developed Tleco, a Rust/Python toolkit for relativistic-outflow radiation (ApJ 2024).
+          # - >-
+          #   Co-developed Tleco, a Rust/Python toolkit for radiation from
+          #   relativistic outflows, published in ApJ (2024).
 
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
         sub: Paychex
         bullets:
-          - Developed and tested production data-pipeline software (Java,
-            Python, SQL).
+          - Developed and tested production data pipelines (Java, Python, SQL).
+          # - Developed and tested production data-pipeline software (Java,
+          #   Python, SQL).
 
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
         sub: Rochester Institute of Technology
         bullets:
-          - >-
-            Led an NSF-sponsored upgrade of a simulation code for black hole
-            binaries; collaborated on a multi-institutional study of binary
-            neutron star mergers (2 publications).
+          - Led an NSF-sponsored upgrade of a black hole binary simulation code; 2 publications on neutron star mergers.
+          # - >-
+          #   Led an NSF-sponsored upgrade of a simulation code for black hole
+          #   binaries; collaborated on a multi-institutional study of binary
+          #   neutron star mergers (2 publications).
 
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
         sub: Purdue University
         bullets:
-          - >-
-            Co-I in a NASA-funded grant studying radiation from active galaxies;
-            mentored three graduate researchers; published 3 peer-reviewed
-            papers.
+          - Co-I on a NASA-funded grant on active-galaxy radiation; mentored three graduate researchers; 3 papers.
+          # - >-
+          #   Co-I in a NASA-funded grant studying radiation from active galaxies;
+          #   mentored three graduate researchers; published 3 peer-reviewed
+          #   papers.
 
       - heading: Postdoctoral Research Fellow
         right: Jan – Sep 2018
@@ -146,43 +188,6 @@ sections:
             Built open-source data analysis tools in Python for radiative
             transfer phenomena in relativistic astrophysics scenarios.
 
-  - title: Outreach
-    file: outreach_resume
-    entries:
-      - heading: >-
-          El origen del universo y el sistema solar (The Origin of the Universe
-          and the Solar System)
-        right: Feb 2026
-        sub: >-
-          Biology students, Facultad de Ciencias, Universidad Autónoma del
-          Estado de México
-        sub_right: Online talk
-      - heading: The Role of Machine Learning in Environmental Science
-        right: Mar 2024
-        sub: Seminar on Climate Change Ecology, University of Washington
-        sub_right: Seattle, WA
-      # - heading: Talks to undergraduate physics students, in Spanish
-      #   right: Aug – Sep 2020
-      #   sub: Juárez Autonomous University of Tabasco, Mexico
-      #   sub_right: Online talks
-      # earlier separate entries:
-      - heading: >-
-          Los más rápidos y los más furiosos (The Fastest and the Most
-          Furious)
-        right: Sep 2020
-        sub: >-
-          Community of Undergraduate Physics Students, Juárez Autonomous
-          University of Tabasco, Mexico
-        sub_right: Online talk
-      - heading: >-
-          Una simulación de la física y la astrofísica (A Simulation of Physics
-          and Astrophysics)
-        right: Aug 2020
-        sub: >-
-          Community of Undergraduate Physics Students, Juárez Autonomous
-          University of Tabasco, Mexico
-        sub_right: Online talk
-
   - title: Skills
     file: skills_resume
     skills:
@@ -193,7 +198,7 @@ sections:
       - label: Computing
         text: Python, Fortran, C/C++, high-performance/parallel computing
       - label: Languages
-        text: English (fluent), Spanish (native), Nahuatl (basic)
+        text: English (fluent), Spanish (native; talks and teaching in Spanish), Nahuatl (basic)
       # - label: Languages
       #   text: C/C++, Python, Fortran 95, Rust, R, Java, SQL, Julia, Shell
       # - label: ML & Data
