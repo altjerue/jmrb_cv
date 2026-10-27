@@ -25,29 +25,32 @@ sections:
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
-      Computational Scientist with a PhD in Physics and over ten years of
-      experience building and running high-performance numerical algorithms and
-      physics-based simulations. Expertise in scientific machine learning and
-      geospatial data analysis. Strong mathematical foundations with a track
-      record of architecting open-source simulation libraries, leading funded
-      research projects, and translating complex physical models into
-      production-quality scientific software. Experienced working across
-      cross-functional research and engineering teams.
+      Computational Scientist (PhD, Physics) with 10+ years building
+      high-performance numerical algorithms and physics-based simulations.
+      Expertise in scientific machine learning and geospatial data analysis.
+      Architect of open-source simulation libraries, leader of funded research
+      projects, and translator of complex physical models into
+      production-quality scientific software across cross-functional research
+      and engineering teams.
 
   - title: Skills
     file: skills_resume
     skills:
       - label: Languages
-        text: C/C++, Python, Fortran 95, Rust, R, Java, SQL, Julia, Shell
+        text: Python, C/C++, R, Rust, SQL, Fortran 95, Java, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific machine learning, PyTorch, TensorFlow, scikit-learn,
-          NumPy, SciPy, Pandas, Astropy, ML-assisted parameter estimation,
-          gradient-based optimization, SVM, random forest, neural networks
+          Scientific machine learning, PyTorch, scikit-learn, TensorFlow,
+          random forest, neural networks, SVM, gradient-based optimization,
+          ML-assisted parameter estimation, NumPy, SciPy, Pandas, Astropy
+      - label: Geospatial
+        text: >-
+          Sentinel-1/2 multispectral processing, raster/vector data
+          pipelines, QGIS
       - label: HPC & Parallel
         text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
       - label: Tools
-        text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt
+        text: Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt
 
   - title: Experience
     file: experience_resume
@@ -62,8 +65,8 @@ sections:
           for a leading AI lab.
         bullets:
           - >-
-            Reviewed 50+ expert-level problems in physics, hydrodynamics,
-            astrophysics, and cosmology; wrote original prompts that stumped
+            Review 50+ expert-level problems in physics, hydrodynamics,
+            astrophysics, and cosmology; write original prompts that stump
             frontier models.
 
       - heading: Spatial Data Scientist
@@ -119,18 +122,17 @@ sections:
           project.
         bullets:
           - >-
-            Led a 7-person team in an NSF-sponsored upgrade of PatchworkMHD, a
-            C code for MHD simulations of supermassive black hole binaries,
-            adding black hole spin with under 5% runtime overhead.
+            Led a 7-person team upgrading PatchworkMHD, a C code for MHD
+            simulations of supermassive black hole binaries; added black hole
+            spin with under 5% runtime overhead.
           - >-
             Ran and benchmarked large production simulations on Frontera
             (TACC), about 10,000 node-hours, and identified performance
             bottlenecks in the parallel code.
           - >-
-            Calibrated Paramo parameters against Fermi-LAT observations using
-            gradient-based optimization, comparing simulation output with data
-            and updating the model automatically; supervised a graduate
-            student on the same problem.
+            Calibrated Paramo against Fermi-LAT observations with
+            gradient-based optimization that updates the model automatically;
+            supervised a graduate student on the same problem.
           - >-
             Collaborated on a multi-institutional HPC project on binary
             neutron star mergers, resulting in 2 publications.
@@ -147,8 +149,8 @@ sections:
           - >-
             Designed and wrote Paramo, an open-source Fortran 95 library that
             solves the Fokker–Planck equation for relativistic particle
-            distributions coupled to radiative transfer. Optimized with OpenMP;
-            GPU offload tested with OpenACC.
+            distributions coupled to radiative transfer; optimized it with
+            OpenMP and tested GPU offload with OpenACC.
           - >-
             Implemented implicit PDE solvers, numerical integration, and
             arbitrary-shape particle distributions without slowing the
@@ -158,9 +160,9 @@ sections:
             optimization; other groups have adopted Paramo, including Combi &
             Siegel (2023).
           - >-
-            Co-I on two NASA Fermi Guest Investigator proposals, one funded
-            ($68K) to model blazar radiation; mentored 3 graduate students and
-            published 2 peer-reviewed papers.
+            Served as co-I on two NASA Fermi Guest Investigator proposals, one
+            funded ($68K) to model blazar radiation; mentored 3 graduate
+            students and published 2 peer-reviewed papers.
 
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
