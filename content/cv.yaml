@@ -1,10 +1,10 @@
 # Single source for the plain long-form CV. See content/README.md.
 #   node tools/build.js content/cv.yaml
 
-output: RuedaBecerrilJM-CV-plain
+output: cv-RuedaBecerrilJM-plain
 # moderncv version (see content/README.md)
 moderncv:
-  output: RuedaBecerrilJM-CV
+  output: cv-RuedaBecerrilJM
   style: banking2
   sections_dir: Sections
   # raw LaTeX for the hand-edited Sections/publications.tex: \mybibitem and
