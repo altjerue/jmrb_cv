@@ -28,33 +28,28 @@ sections:
   - title: Professional Summary
     file: profile
     paragraph: >-
-      Computational Scientist with a PhD in Physics and 10+ years developing
+      Computational Scientist (PhD, Physics) with 10+ years building
       high-performance numerical algorithms and physics-based simulations.
       Expertise in scientific machine learning and geospatial data analysis.
-      Strong mathematical foundations with a track record of architecting
-      open-source simulation libraries, leading funded research projects, and
-      translating complex physical models into production-quality scientific
-      software. Experienced working across cross-functional research and
-      engineering teams.
+      Architect of open-source simulation libraries, leader of funded research
+      projects, and translator of complex physical models into
+      production-quality scientific software across cross-functional research
+      and engineering teams.
 
   - title: Skills
     file: skills
     skills:
       - label: Languages
-        text: Python, C/C++, Fortran 95, R, SQL, Shell, Rust, Java, Julia
+        text: Python, C/C++, R, Rust, SQL, Fortran 95, Java, Julia, Shell
       - label: ML & Data
         text: >-
-          Scientific ML, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy,
-          Pandas, Astropy, ML-assisted parameter estimation, gradient-based
-          optimization, SVM, random forest, neural networks
+          Scientific ML, PyTorch, scikit-learn, TensorFlow, random forest,
+          neural networks, SVM, gradient-based optimization, ML-assisted
+          parameter estimation, NumPy, SciPy, Pandas, Astropy
       - label: Geospatial & Remote Sensing
         text: >-
           Sentinel-1/2 multispectral processing, raster/vector data
           pipelines, QGIS, geospatial feature engineering for ML
-      - label: HPC & Parallel
-        text: >-
-          OpenMP, MPI, OpenACC, SLURM, PBS, HDF5, large-scale parallel CPU
-          computing
       - label: Simulation
         text: >-
           Physics simulation (multiscale/multiphysics modeling, radiative
@@ -63,8 +58,12 @@ sections:
           difference/volume methods, numerical linear algebra, synthetic
           dataset generation, uncertainty quantification, parameter
           estimation
+      - label: HPC & Parallel
+        text: >-
+          OpenMP, MPI, OpenACC, SLURM, PBS, HDF5, large-scale parallel CPU
+          computing
       - label: Tools
-        text: Git, Docker, Azure, Jenkins, Kafka, Jira, QGIS, ParaView, VisIt
+        text: Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt
 
   - title: Experience
     file: experience
@@ -75,9 +74,9 @@ sections:
         sub_right: Remote
         bullets:
           - >-
-            Physics expert for a leading AI lab: reviewed 50+ expert-level
-            problems in physics, hydrodynamics, astrophysics, and cosmology;
-            wrote original prompts that stumped frontier models.
+            Review 50+ expert-level physics, hydrodynamics, astrophysics, and
+            cosmology problems for a leading AI lab; write original prompts
+            that stump frontier models.
           - >-
             Diagnose failure modes in model reasoning and write structured
             feedback to improve scientific accuracy.
@@ -116,10 +115,9 @@ sections:
           industry roles.
         bullets:
           - >-
-            Co-developed Tleco, a Rust/Python toolkit that models radiation
-            from relativistic outflows by solving the Fokker–Planck equation
-            coupled to radiative transfer; published in ApJ (2024)
-            [@Davis:2024ru].
+            Co-developed Tleco, a Rust/Python toolkit that solves the
+            Fokker–Planck equation coupled to radiative transfer to model
+            radiation from relativistic outflows (ApJ 2024) [@Davis:2024ru].
           - >-
             Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
             library that simulates wind-driven spore dispersal over forested,
@@ -159,7 +157,7 @@ sections:
           - >-
             Led a 7-person team upgrading PatchworkMHD, a C code for
             magnetohydrodynamic simulations of supermassive black hole
-            binaries, in an NSF-funded project.
+            binaries.
           - >-
             Added black hole spin to the simulations with under 5% runtime
             overhead.
@@ -193,9 +191,9 @@ sections:
             Paramo has been adopted by other research groups, including Combi &
             Siegel (2023).
           - >-
-            Co-I on two NASA Fermi Guest Investigator proposals; one was
-            funded ($68K) and supported the finding that blazar jets are
-            launched with similar energy per baryon, independently of their
+            Served as co-I on two NASA Fermi Guest Investigator proposals;
+            the funded one ($68K) supported the finding that blazar jets
+            launch with similar energy per baryon, independently of their
             power [@RuedaBecerril:2021ha].
           - >-
             Added numerical-integration and OpenMP features to Paramo and
