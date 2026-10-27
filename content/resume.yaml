@@ -5,11 +5,11 @@
 # [link text](https://url). Write plain Unicode (–, ×, ², é); the build
 # escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
-output: RuedaBecerrilJM-resume-plain
+output: resume-RuedaBecerrilJM-plain
 # moderncv version: writes <output>.tex plus <sections_dir>/<file>.tex for
 # each section below (every section needs a `file:`).
 moderncv:
-  output: RuedaBecerrilJM-resume
+  output: resume-RuedaBecerrilJM
   style: resume
   sections_dir: Sections
 name: Jesús M. Rueda-Becerril

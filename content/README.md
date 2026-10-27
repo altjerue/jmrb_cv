@@ -5,8 +5,8 @@ build writes every version of it, all with identical text:
 
 | Content file  | Generates |
 |---------------|-----------|
-| `resume.yaml` | `RuedaBecerrilJM-resume-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-resume.tex/.pdf` with its `Sections/*.tex` files |
-| `cv.yaml`     | `RuedaBecerrilJM-CV-plain.tex/.pdf/.docx`, and the moderncv `RuedaBecerrilJM-CV.tex/.pdf` with its `Sections/*.tex` files (except the hand-edited `Sections/publications.tex`) |
+| `resume.yaml` | `resume-RuedaBecerrilJM-plain.tex/.pdf/.docx`, and the moderncv `resume-RuedaBecerrilJM.tex/.pdf` with its `Sections/*.tex` files |
+| `cv.yaml`     | `cv-RuedaBecerrilJM-plain.tex/.pdf/.docx`, and the moderncv `cv-RuedaBecerrilJM.tex/.pdf` with its `Sections/*.tex` files (except the hand-edited `Sections/publications.tex`) |
 
 - `<output>.tex` (then `.pdf`): plain single-column LaTeX, `article` class,
   no tables
@@ -85,7 +85,7 @@ contact:                      # two lines
 
 ```yaml
 moderncv:
-  output: RuedaBecerrilJM-resume   # main moderncv .tex (no extension)
+  output: resume-RuedaBecerrilJM   # main moderncv .tex (no extension)
   style: resume                    # moderncvstyle<style>.sty to use
   sections_dir: Sections           # where the section files go
 ```
@@ -267,12 +267,12 @@ Write plain Unicode characters (`–`, `×`, `²`, `é`). LaTeX special characte
 
 ## Checking the result
 
-- Page count: `pdfinfo RuedaBecerrilJM-resume-plain.pdf | grep Pages` (the
+- Page count: `pdfinfo resume-RuedaBecerrilJM-plain.pdf | grep Pages` (the
   resume should stay at 2 pages)
 - What an ATS sees (should read top to bottom with no stray characters):
-  `pdftotext RuedaBecerrilJM-resume-plain.pdf - | less`
+  `pdftotext resume-RuedaBecerrilJM-plain.pdf - | less`
 - The Word file: open it in Word, or render it with
-  `soffice --headless --convert-to pdf RuedaBecerrilJM-resume-plain.docx`.
+  `soffice --headless --convert-to pdf resume-RuedaBecerrilJM-plain.docx`.
   The Word version uses a different font (Calibri), so its line breaks and
   page breaks differ slightly from the PDF.
 
