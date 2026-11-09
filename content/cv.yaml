@@ -72,10 +72,13 @@ sections:
         right: Jan 2026 – Present
         sub: Mercor
         sub_right: Remote
+        intro: >-
+          Physics subject-matter expert evaluating frontier language models
+          for multiple leading AI labs.
         bullets:
           - >-
             Review 50+ expert-level physics, hydrodynamics, astrophysics, and
-            cosmology problems for a leading AI lab; write original prompts
+            cosmology problems for leading AI labs; write original prompts
             that stump frontier models.
           - >-
             Diagnose failure modes in model reasoning and write structured
@@ -166,9 +169,9 @@ sections:
             (TACC), about 10,000 node-hours, and identified performance
             bottlenecks in the parallel code.
           - >-
-            Calibrated Paramo model parameters against Fermi-LAT gamma-ray
-            spectra with gradient-based optimization, and supervised a
-            graduate student applying gradient descent to the same problem.
+            Calibrated Paramo against Fermi-LAT gamma-ray spectra with
+            gradient-based optimization that updates the model automatically;
+            supervised a graduate student on the same problem.
           - >-
             Co-authored 2 papers from a multi-institution study of binary
             neutron star mergers [@Murguia:2021no, @Lopez:2022et] and a third
@@ -183,16 +186,16 @@ sections:
           gamma-ray burst afterglows).
         bullets:
           - >-
-            Architected Paramo, an open-source Fortran 95 library that solves
-            the Fokker–Planck equation coupled to radiative transfer;
-            parallelized and optimized it with OpenMP; GPU offload tested with
-            OpenACC.
+            Designed and wrote Paramo, an open-source Fortran 95 library that
+            solves the Fokker–Planck equation for relativistic particle
+            distributions coupled to radiative transfer; optimized it with
+            OpenMP and tested GPU offload with OpenACC.
           - >-
             Paramo has been adopted by other research groups, including Combi &
             Siegel (2023).
           - >-
-            Served as co-I on two NASA Fermi Guest Investigator proposals;
-            the funded one ($68K) supported the finding that blazar jets
+            Served as co-I on two NASA Fermi Guest Investigator grant
+            proposals; the funded one ($68K) supported the finding that blazar jets
             launch with similar energy per baryon, independently of their
             power [@RuedaBecerril:2021ha].
           - >-
