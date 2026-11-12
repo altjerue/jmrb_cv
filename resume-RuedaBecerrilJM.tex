@@ -34,107 +34,178 @@
 \end{center}
 
 \cvsection{Professional Summary}
-Computational Scientist (PhD, Physics) with 10+ years building high-performance numerical algorithms and physics-based simulations. Expertise in scientific machine learning and geospatial data analysis. Architect of open-source simulation libraries, leader of funded research projects, and translator of complex physical models into production-quality scientific software across cross-functional research and engineering teams.\par
+Computational physicist (Ph.D.) with 10+ years writing scientific code, running computational experiments, and validating models against data. Currently evaluates frontier language models on expert-level physics reasoning and builds neural-network surrogates of expensive simulations. Author of open-source scientific libraries (Paramo, Tleco; ApJ 2024) with code review and unit testing, and mentor of graduate students.\par
 
 \cvsection{Skills}
-\textbf{Languages:} Python, C/C++, R, Rust, SQL, Fortran 95, Java, Julia, Shell\par
-\textbf{ML \& Data:} Scientific machine learning, PyTorch, scikit-learn, TensorFlow, random forest, neural networks, SVM, gradient-based optimization, ML-assisted parameter estimation, NumPy, SciPy, Pandas, Astropy\par
-\textbf{Geospatial:} Sentinel-1/2 multispectral processing, raster/vector data pipelines, QGIS\par
-\textbf{HPC \& Parallel:} OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5\par
-\textbf{Tools:} Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt\par
+\textbf{Languages:} Python, C/C++, Fortran 95, R, Rust, Octave, SQL, Java, Julia, Shell\par
+\textbf{Simulation \& Modeling:} High-fidelity physics simulation (multiscale/multiphysics, kinetic plasma modeling, radiative processes (synchrotron, inverse Compton), radiative transfer, relativistic MHD, hydrodynamics (SPH), stochastic particle dynamics, Lagrangian particle dispersion), numerical PDEs (Fokker–Planck, advection–diffusion), finite difference/volume methods, numerical linear algebra, model validation, physics-informed synthetic data generation, uncertainty quantification, parameter estimation\par
+\textbf{ML \& Data:} Scientific ML, language-model evaluation (scientific reasoning), surrogate modeling, Bayesian inference, Gaussian process regression, gradient-based optimization, PyTorch, TensorFlow, scikit-learn, NumPy, SciPy, Pandas, Astropy, neural networks, SVM, random forest, JAX (introductory coursework)\par
+\textbf{HPC \& GPU:} OpenMP, MPI, OpenACC (GPU exploration), SLURM, PBS, HDF5, large-scale parallel computing (Frontera)\par
+\textbf{Geospatial:} QGIS, raster/vector processing, Sentinel-1/2 multispectral data, DEM terrain analysis, terrain and elevation derivatives, geospatial feature engineering for ML\par
+\textbf{Tools:} Git and code review, Docker, Azure, CI/CD (Jenkins, OpenShift), Kafka, Splunk, Jira, QGIS, ParaView, VisIt\par
 
 \cvsection{Experience}
-\leftright{\textbf{Independent Contractor}, \textit{Mercor}}{Jan 2026 – Present}\nopagebreak
+\leftright{\textbf{Independent Contractor}}{Jan 2026 – Present}\nopagebreak
+\leftright{\textit{Mercor}}{Remote}\nopagebreak
 Physics subject-matter expert evaluating frontier language models for multiple leading AI labs.\par\nopagebreak
 \begin{itemize}
-  \item{} Review 50+ expert-level physics, hydrodynamics, astrophysics, and cosmology problems for leading AI labs; write original prompts that stump frontier models and diagnose failure modes in their reasoning.
+  \item{} Review 50+ expert-level physics, hydrodynamics, astrophysics, and cosmology problems for leading AI labs; write original prompts that stump frontier models and co-develop others with fellow writers.
+  \item{} Diagnose failure modes in model reasoning and write structured feedback to improve scientific accuracy.
+  \item{} Benchmark model performance and quality-check solutions to complex STEM problems.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Spatial Data Scientist}, \textit{TealWaters}}{May 2025 – Jan 2026}\nopagebreak
+\leftright{\textbf{Spatial Data Scientist}}{May 2025 – Jan 2026}\nopagebreak
+\leftright{\textit{TealWaters}}{Seattle, WA}\nopagebreak
 Built geospatial ML pipelines and optimized terrain-analysis code for wetland mapping.\par\nopagebreak
 \begin{itemize}
-  \item{} Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
   \item{} Mapped wetland probability across the 2,160 km² Skykomish watershed with the Wetland Intrinsic Potential (WIP) random-forest model, reaching >75\% accuracy.
+  \item{} Optimized the terrain-modeling code that computes elevation derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving its computational performance.
+  \item{} Engineered features from Sentinel-1/2 multispectral imagery and terrain derivatives for ML land-cover and wetland models; built Python tools and QGIS visualizations.
+  \item{} Presented results to managers and decision-makers, trained 2 colleagues on the WIP tool, and worked with software engineers to move prototype tools into production.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Independent Researcher \& Open-Source Developer}, \textit{Self-directed}}{Jan 2024 – May 2025}\nopagebreak
+\leftright{\textbf{Independent Researcher \& Open-Source Developer}}{Jan 2024 – May 2025}\nopagebreak
+\leftright{\textit{Self-directed}}{Seattle, WA}\nopagebreak
 Continued simulation research and open-source development between industry roles.\par\nopagebreak
 \begin{itemize}
-  \item{} Co-developed Tleco, a Rust/Python toolkit that solves the Fokker–Planck equation coupled to radiative transfer to model radiation from relativistic outflows (ApJ 2024).
+  \item{} Co-developed Tleco, an open-source Rust/Python toolkit that solves the Fokker–Planck equation coupled to radiative transfer to model radiation from relativistic outflows (ApJ 2024).
   \item{} Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R library that simulates wind-driven spore dispersal over forested, hilly terrain, parallelized with RcppParallel and OpenMP.
+  \item{} Used AI coding assistants in the most recent stages of development; changes were accepted only if they passed the unit-test suite and, for some functions, matched reference solutions.
+  \item{} Invited talk on machine learning in environmental science at the University of Washington (2024).
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Software Engineer}, \textit{Paychex}}{Apr 2022 – Jan 2024}\nopagebreak
+\leftright{\textbf{Software Engineer}}{Apr 2022 – Jan 2024}\nopagebreak
+\leftright{\textit{Paychex}}{Remote}\nopagebreak
 Built and tested data-integration services between enterprise systems and Oracle E-Business Suite.\par\nopagebreak
 \begin{itemize}
-  \item{} Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
+  \item{} Built Java Kafka consumers that moved data between enterprise databases, deployed through Jenkins and OpenShift CI/CD pipelines.
+  \item{} Created Splunk dashboards tracking the 200–400 users shared between enterprise systems and Oracle EBS, with alerts that flagged production incidents.
+  \item{} Prepared, validated, and analyzed Oracle EBS data with SQL.
+  \item{} Wrote full test suites for 5+ Python services in the CI pipeline, keeping production defect rates low.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Postdoctoral Research Associate}, \textit{Rochester Institute of Technology}}{Feb 2021 – Apr 2022}\nopagebreak
+\leftright{\textbf{Postdoctoral Research Associate}}{Feb 2021 – Apr 2022}\nopagebreak
+\leftright{\textit{Rochester Institute of Technology}}{Rochester, NY}\nopagebreak
 HPC simulations of supermassive black hole binaries in an NSF-funded project.\par\nopagebreak
 \begin{itemize}
-  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for MHD simulations of supermassive black hole binaries; added black hole spin with under 5\% runtime overhead.
+  \item{} Led a 7-person team upgrading PatchworkMHD, a C code for magnetohydrodynamic simulations of supermassive black hole binaries.
+  \item{} Added black hole spin to the simulations with under 5\% runtime overhead.
   \item{} Ran and benchmarked large production simulations on Frontera (TACC), about 10,000 node-hours, and identified performance bottlenecks in the parallel code.
-  \item{} Calibrated Paramo against Fermi-LAT gamma-ray spectra with gradient-based optimization that updates the model automatically; supervised a graduate student on the same problem.
-  \item{} Co-authored 2 papers from a multi-institution study of binary neutron star mergers.
+  \item{} Calibrated Paramo parameters against Fermi-LAT gamma-ray spectra with gradient-based optimization, comparing simulation output with data and updating the model automatically; supervised a graduate student on the same problem.
+  \item{} Co-authored 2 papers from a multi-institution study of binary neutron star mergers and a third on blazar heating and cooling.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Postdoctoral Research Fellow}, \textit{Purdue University}}{Oct 2018 – Nov 2020}\nopagebreak
+\leftright{\textbf{Postdoctoral Research Fellow}}{Oct 2018 – Nov 2020}\nopagebreak
+\leftright{\textit{Purdue University}}{West Lafayette, IN}\nopagebreak
 Radiative-transfer modeling of relativistic jets (blazars and gamma-ray burst afterglows).\par\nopagebreak
 \begin{itemize}
   \item{} Designed and wrote Paramo, an open-source Fortran 95 library that solves the Fokker–Planck equation for relativistic particle distributions coupled to radiative transfer; optimized it with OpenMP and tested GPU offload with OpenACC.
-  \item{} Implemented implicit PDE solvers, numerical integration, and arbitrary-shape particle distributions without slowing the simulation.
-  \item{} Wrote Python tools to analyze Paramo output and run parameter optimization; other groups have adopted Paramo, including Combi \& Siegel (2023).
-  \item{} Served as co-I on two NASA Fermi Guest Investigator grant proposals, one funded (\$68K) to model blazar radiation; mentored 3 graduate students and published 2 peer-reviewed papers.
+  \item{} Paramo has been adopted by other research groups, including Combi \& Siegel (2023).
+  \item{} Served as co-I on two NASA Fermi Guest Investigator grant proposals; the funded one (\$68K) supported the finding that blazar jets launch with similar energy per baryon, independently of their power.
+  \item{} Added numerical-integration and OpenMP features to Paramo and built Python tools to compute energy losses and spectra of high-energy particles in gamma-ray burst afterglows.
+  \item{} Mentored 3 graduate students (1 M.S., 2 Ph.D.), co-authoring papers with each.
+  \item{} Wrote Python scripts for statistical modeling of the COVID-19 outbreak in Mexico with a multidisciplinary group, and co-wrote Spanish-language infographics and blog posts against misinformation.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Postdoctoral Research Fellow}, \textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Jan 2018 – Sep 2018}\nopagebreak
+\leftright{\textbf{Postdoctoral Research Fellow}}{Jan 2018 – Sep 2018}\nopagebreak
+\leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
 \begin{itemize}
-  \item{} Developed a Python pipeline to process black hole simulation outputs from the GRTrans numerical code, generating SVM training data for radio image prediction.
-  \item{} Built open-source data analysis and visualization tools in Python for radiative transfer phenomena in relativistic astrophysics scenarios.
+  \item{} Built a Python pipeline that turned GRTrans black hole simulation images into training data for an SVM classifier of black hole spin (grayscale conversion, intensity normalization, spatial feature extraction).
+  \item{} Released an open-source Python tool for radiative-transfer spectra and light curves.
+  \item{} Organized an HDF5 workshop to train graduate students in high-volume data storage.
 \end{itemize}
 \entrygap
 
-\leftright{\textbf{Graduate Research Assistant}, \textit{Universitat de València}}{Oct 2011 – Jul 2017}\nopagebreak
+\leftright{\textbf{Graduate Research Assistant}}{Oct 2011 – Jul 2017}\nopagebreak
+\leftright{\textit{Universitat de València}}{Valencia, Spain}\nopagebreak
 \begin{itemize}
+  \item{} Automated runs of the C-SPEV radiative-transfer code with Shell and Python pipelines: 10–60 simulations per project and tens of GB of HDF5 output, with data-quality checks for downstream analysis.
   \item{} Studied how magnetization of shocked plasma shapes the radiation spectra of relativistic internal shocks, using the C-SPEV simulation code.
+  \item{} Analyzed multi-wavelength observations from the NASA Fermi-LAT telescope and the Very Long Baseline Array (VLBA), including cross-matching sources across catalogs by sky coordinates and fitting log-parabola spectra.
+  \item{} Fit C-SPEV simulation models to telescope data, identifying spectra and light-curve patterns that quantify plasma magnetization in blazars.
+  \item{} Extended C-SPEV to compute discrete and continuous spectra from particle distributions of arbitrary shape, without affecting simulation runtime.
+  \item{} Published 2 first-author papers in MNRAS.
 \end{itemize}
 \entrygap
 
 
 \cvsection{Education}
-\leftright{\textbf{Universitat de València}, \textit{Ph.D. in Physics, Excellent Cum Laude}}{Jul 2017}
+\leftright{\textbf{Ph.D. in Physics}}{Oct 2011 – Jul 2017}\nopagebreak
+\leftright{\textit{Universitat de València}}{Valencia, Spain}\nopagebreak
+Excellent \textit{cum laude}\par\nopagebreak
+Advisors: Prof. Miguel A. Aloy and Dr. Petar Mimica\par\nopagebreak
+Thesis: \href{http://roderic.uv.es/handle/10550/60003}{Numerical treatment of radiation processes in the internal shocks of magnetized relativistic outflows}\par
 \entrygap
 
-\leftright{\textbf{Universidad Michoacana de San Nicolás de Hidalgo}, \textit{M.Sc. in Physics}}{Sep 2011}
+\leftright{\textbf{M.Sc. in Physics}}{Aug 2009 – Sep 2011}\nopagebreak
+\leftright{\textit{Universidad Michoacana de San Nicolás de Hidalgo}}{Morelia, Mexico}\nopagebreak
+Advisor: Prof. José A. Cervera\par\nopagebreak
+Thesis: \textit{Study of TOV stars with the SPH method} (wrote an SPH hydrodynamics code to study the stability of relativistic stars)\par
 \entrygap
 
-\leftright{\textbf{Universidad Autónoma del Estado de México}, \textit{B.Sc. in Physics}}{Dec 2008}
+\leftright{\textbf{B.Sc. in Physics}}{Aug 2004 – Dec 2008}\nopagebreak
+\leftright{\textit{Universidad Autónoma del Estado de México}}{Toluca, Mexico}\nopagebreak
+Advisor: Prof. Francisco S. Guzmán\par\nopagebreak
+Thesis: \textit{Numerical solution of null geodesics for the generation of gravitational lenses produced by spherically-symmetric and static spacetimes}\par\nopagebreak
+Lic. Juan Josafat Pichardo Cruz Award\par
 \entrygap
 
 
-\cvsection{Projects}
-\leftright{\textbf{Blazar Population ML}}{Jan 2026 – Present}\nopagebreak
-\leftright{\textit{Scientific ML (Python, scikit-learn, PyTorch)}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
+\cvsection{Software and Projects}
+\leftright{\textbf{WindsOfChange}}{Aug 2024 – Present}\nopagebreak
+\leftright{\textit{Lagrangian particle-dispersion library (C++/R)}}{\href{https://github.com/UW-ForestMycobiomeLab/WindSporesHills}{github.com/UW-ForestMycobiomeLab/WindSporesHills}}\nopagebreak
 \begin{itemize}
-  \item{} Applying classical ML and Bayesian inference to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to recover physical jet parameters from multi-wavelength data.
-  \item{} Building a neural-network emulator of the physics-based Tleco model that maps physical jet parameters to observable spectral energy distributions, to be validated against Tleco output (in progress).
-  \item{} Forecasting blazar gamma-ray flares with a time-series foundation model fine-tuned on Tleco-generated synthetic light curves.
+  \item{} Translated an existing MATLAB code to R and C++, producing a library for Lagrangian particle dispersion over hilly terrain with forest canopy, driven by prescribed wind fields, based on analytical models (Massman \& Weil 1999; Finnigan \& Belcher 2004). Developed with UW collaborators; manuscript in preparation.
+  \item{} Parallelized particle tracking with RcppParallel and OpenMP; designed for scalability to tens of thousands of particles across kilometer-scale domains.
+  \item{} Used AI coding assistants in the most recent stages of development; changes were accepted only if they passed the unit-test suite and, for some functions, matched reference solutions.
+\end{itemize}
+\entrygap
+
+\leftright{\textbf{Blazar Population ML}}{Jan 2026 – Present}\nopagebreak
+\leftright{\textit{Physics-informed ML (Python, scikit-learn, PyTorch), developed with Claude}}{\href{https://github.com/altjerue/ilwikak-ml}{github.com/altjerue/ilwikak-ml}}\nopagebreak
+\begin{itemize}
+  \item{} Applying classical ML (PCA, UMAP, Gaussian mixture models, HDBSCAN) to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to test whether physical jet properties can be recovered from multi-wavelength observables; documented missingness and selection effects feature by feature.
+  \item{} Fitting Gaussian process regression to a lower bound on the jet Lorentz factor for a 334-source MOJAVE cross-matched subsample.
+  \item{} Building a neural-network surrogate of the forward model (jet parameters to observable SEDs), to be benchmarked against Tleco simulations, to enable fast parameter inference.
+  \item{} Forecasting blazar gamma-ray flares with a time-series foundation model fine-tuned on Tleco-generated synthetic light curves (in progress).
+\end{itemize}
+\entrygap
+
+\leftright{\textbf{Tleco}}{Jan 2024 – Sep 2024}\nopagebreak
+\leftright{\textit{Radiative-transfer toolkit (Rust/Python)}}{\href{https://github.com/zkdavis/Tleco}{github.com/zkdavis/Tleco}}\nopagebreak
+\begin{itemize}
+  \item{} Numerical PDE solvers, particle-distribution algorithms, and spectral calculations for relativistic plasmas; successor to Paramo.
+\end{itemize}
+\entrygap
+
+\leftright{\textbf{Paramo}}{Oct 2018 – Apr 2022}\nopagebreak
+\leftright{\textit{Radiative-transfer library (Fortran 95, OpenMP)}}{\href{https://github.com/altjerue/paramo}{github.com/altjerue/paramo}}\nopagebreak
+\begin{itemize}
+  \item{} Fokker–Planck and radiative-transfer solver for relativistic particle distributions, parallelized with OpenMP; used by other groups, including Combi \& Siegel (2023).
+\end{itemize}
+\entrygap
+
+\leftright{\textbf{PatchworkMHD}}{Feb 2021 – Apr 2022}\nopagebreak
+\textit{Large-scale MHD simulation code (NSF project)}\par\nopagebreak
+\begin{itemize}
+  \item{} Led a 7-person upgrade of this production C code for HPC environments, adding black hole spin with under 5\% runtime overhead.
 \end{itemize}
 \entrygap
 
 
-\cvsection{Selected Publications (9 peer-reviewed articles, 3 first-author)}
+\cvsection{Selected Publications (9 published articles, 3 first-author; 3 in preparation)}
 \begin{itemize}
   \item{} Davis, Z., \textbf{Rueda-Becerril, J. M.}, \& Giannios, D. \textit{Tleco: A Toolkit for Modeling Radiative Signatures from Relativistic Outflows}, \href{https://doi.org/10.3847/1538-4357/ad8bc2}{ApJ 976, 182 (2024)}, \href{https://arxiv.org/abs/2405.17581}{arXiv:2405.17581}.
+  \item{} Davis, Z., \textbf{Rueda-Becerril, J. M.}, \& Giannios, D. \textit{Balancing Turbulent Heating with Radiative Cooling in Blazars}, \href{https://doi.org/10.1093/mnras/stac1282}{MNRAS 513, 5766–5779 (2022)}, \href{https://arxiv.org/abs/2201.07790}{arXiv:2201.07790}.
   \item{} \textbf{Rueda-Becerril, J. M.}, Harrison, A. O., \& Giannios, D. \textit{Blazar jets launched with similar energy per baryon, independently of their power}, \href{https://doi.org/10.1093/mnras/staa3925}{MNRAS 501, 4092–4102 (2021)}, \href{https://arxiv.org/abs/2009.02273}{arXiv:2009.02273}.
   \item{} \textbf{Rueda-Becerril, J. M.}, Mimica, P., \& Aloy, M. A. \textit{On the influence of a hybrid thermal–non-thermal distribution in the internal shocks model for blazars}, \href{https://doi.org/10.1093/mnras/stx476}{MNRAS 468, 1169–1182 (2017)}, \href{https://arxiv.org/abs/1612.06383}{arXiv:1612.06383}.
+  \item{} Guzmán, F. S., \& \textbf{Rueda-Becerril, J. M.} \textit{Spherical boson stars as black hole mimickers}, \href{https://doi.org/10.1103/PhysRevD.80.084023}{Phys. Rev. D 80, 084023 (2009)}, \href{https://arxiv.org/abs/1009.1250}{arXiv:1009.1250}.
 \end{itemize}
 
 \end{document}

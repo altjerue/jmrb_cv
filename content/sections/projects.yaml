@@ -1,18 +1,69 @@
-title: Projects
+title: Software and Projects
 entries:
+  - heading: WindsOfChange
+    right: Aug 2024 – Present
+    sub: Lagrangian particle-dispersion library (C++/R)
+    sub_right: "[github.com/UW-ForestMycobiomeLab/WindSporesHills](https://github.com/UW-ForestMycobiomeLab/WindSporesHills)"
+    bullets:
+      - >-
+        Translated an existing MATLAB code to R and C++, producing a library
+        for Lagrangian particle dispersion over hilly terrain with forest
+        canopy, driven by prescribed wind fields, based on analytical models
+        (Massman & Weil 1999; Finnigan & Belcher 2004). Developed with UW
+        collaborators; manuscript in preparation.
+      - >-
+        Parallelized particle tracking with RcppParallel and OpenMP;
+        designed for scalability to tens of thousands of particles across
+        kilometer-scale domains.
+      - >-
+        Used AI coding assistants in the most recent stages of development;
+        changes were accepted only if they passed the unit-test suite and,
+        for some functions, matched reference solutions.
   - heading: Blazar Population ML
     right: Jan 2026 – Present
-    sub: Scientific ML (Python, scikit-learn, PyTorch)
+    sub: Physics-informed ML (Python, scikit-learn, PyTorch), developed with Claude
     sub_right: "[github.com/altjerue/ilwikak-ml](https://github.com/altjerue/ilwikak-ml)"
     bullets:
       - >-
-        Applying classical ML and Bayesian inference to the Fermi-LAT
-        4LAC-DR3 catalog (3,407 sources) to recover physical jet
-        parameters from multi-wavelength data.
+        Applying classical ML (PCA, UMAP, Gaussian mixture models, HDBSCAN)
+        to the Fermi-LAT 4LAC-DR3 catalog (3,407 sources) to test whether
+        physical jet properties can be recovered from multi-wavelength
+        observables; documented missingness and selection effects feature by
+        feature.
       - >-
-        Building a neural-network emulator of the physics-based Tleco model
-        that maps physical jet parameters to observable spectral energy
-        distributions, to be validated against Tleco output (in progress).
+        Fitting Gaussian process regression to a lower bound on the jet
+        Lorentz factor for a 334-source MOJAVE cross-matched subsample.
+      - >-
+        Building a neural-network surrogate of the forward model (jet
+        parameters to observable SEDs), to be benchmarked against Tleco
+        simulations, to enable fast parameter inference.
       - >-
         Forecasting blazar gamma-ray flares with a time-series foundation
-        model fine-tuned on Tleco-generated synthetic light curves.
+        model fine-tuned on Tleco-generated synthetic light curves (in
+        progress).
+  - heading: Tleco
+    right: Jan 2024 – Sep 2024
+    sub: Radiative-transfer toolkit (Rust/Python)
+    sub_right: "[github.com/zkdavis/Tleco](https://github.com/zkdavis/Tleco)"
+    bullets:
+      - >-
+        Numerical PDE solvers, particle-distribution algorithms, and
+        spectral calculations for relativistic plasmas; successor to
+        Paramo [@Davis:2024ru].
+  - heading: Paramo
+    right: Oct 2018 – Apr 2022
+    sub: Radiative-transfer library (Fortran 95, OpenMP)
+    sub_right: "[github.com/altjerue/paramo](https://github.com/altjerue/paramo)"
+    bullets:
+      - >-
+        Fokker–Planck and radiative-transfer solver for relativistic
+        particle distributions, parallelized with OpenMP; used by other
+        groups, including Combi & Siegel (2023).
+  - heading: PatchworkMHD
+    right: Feb 2021 – Apr 2022
+    sub: Large-scale MHD simulation code (NSF project)
+    bullets:
+      - >-
+        Led a 7-person upgrade of this production C code for HPC
+        environments, adding black hole spin with under 5% runtime
+        overhead.

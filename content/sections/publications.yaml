@@ -1,5 +1,4 @@
 title: Publications
-# MARK: Articles
 subsections:
   - title: Articles (9 published, 3 first-author; 3 in preparation)
     unbulleted: true
@@ -79,7 +78,6 @@ subsections:
           stars as black hole mimickers*,
           [Phys. Rev. D 80, 084023 (2009)](https://doi.org/10.1103/PhysRevD.80.084023),
           [arXiv:1009.1250](https://arxiv.org/abs/1009.1250).
-  # MARK: Proceedings
   - title: Conference Proceedings
     unbulleted: true
     list:
