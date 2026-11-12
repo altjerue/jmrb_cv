@@ -25,6 +25,7 @@ contact:
     - "[Google Scholar](https://scholar.google.com/citations?user=hrld5zgAAAAJ)"
 
 sections:
+  # MARK: - Profile
   - title: Professional Summary
     file: profile
     paragraph: >-
@@ -36,6 +37,7 @@ sections:
       production-quality scientific software across cross-functional research
       and engineering teams.
 
+  # MARK: - Skills
   - title: Skills
     file: skills
     skills:
@@ -65,9 +67,11 @@ sections:
       - label: Tools
         text: Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt
 
+  # MARK: - Experience
   - title: Experience
     file: experience
     entries:
+      # MARK: Mercor
       - heading: Independent Contractor
         right: Jan 2026 – Present
         sub: Mercor
@@ -84,6 +88,7 @@ sections:
             Diagnose failure modes in model reasoning and write structured
             feedback to improve scientific accuracy.
 
+      # MARK: TealWaters
       - heading: Spatial Data Scientist
         right: May 2025 – Jan 2026
         sub: TealWaters
@@ -109,6 +114,7 @@ sections:
             colleagues on the WIP tool, and worked with software engineers to
             move prototype tools into production.
 
+      # MARK: Indi
       - heading: Independent Researcher & Open-Source Developer
         right: Jan 2024 – May 2025
         sub: Self-directed
@@ -129,6 +135,7 @@ sections:
             Invited talk on machine learning in environmental science at the
             University of Washington (2024).
 
+      # MARK: Paychex
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
         sub: Paychex
@@ -149,6 +156,7 @@ sections:
             Wrote full test suites for 5+ Python services in the CI pipeline,
             keeping production defect rates low.
 
+      # MARK: RIT
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
         sub: Rochester Institute of Technology
@@ -177,6 +185,7 @@ sections:
             neutron star mergers [@Murguia:2021no, @Lopez:2022et] and a third
             on blazar heating and cooling [@Davis:2021ru].
 
+      # MARK: Purdue
       - heading: Postdoctoral Research Fellow
         right: Oct 2018 – Nov 2020
         sub: Purdue University
@@ -210,6 +219,7 @@ sections:
             Modeled the COVID-19 outbreak in Mexico (Python) and co-wrote
             Spanish-language infographics in a campaign against misinformation.
 
+      # MARK: UMSNH
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
         sub: Universidad Michoacana de San Nicolás de Hidalgo
@@ -227,6 +237,7 @@ sections:
             Organized an HDF5 workshop to train graduate students in
             high-volume data storage.
 
+      # MARK: UValència
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
         sub: Universitat de València
@@ -252,6 +263,7 @@ sections:
             Published 2 first-author papers in MNRAS [@RuedaBecerril:2014mi,
             @RuedaBecerril:2017mi].
 
+  # MARK: - Education
   - title: Education
     file: education
     entries:
@@ -284,9 +296,11 @@ sections:
             static spacetimes*
           - Lic. Juan Josafat Pichardo Cruz Award
 
+  # MARK: - Publications
   - title: Publications
     # the moderncv CV uses the hand-edited bibliography instead of this list
     manual: publications
+    # MARK: Articles
     subsections:
       - title: Articles (9 published, 3 first-author; 3 in preparation)
         unbulleted: true
@@ -366,6 +380,7 @@ sections:
               stars as black hole mimickers*,
               [Phys. Rev. D 80, 084023 (2009)](https://doi.org/10.1103/PhysRevD.80.084023),
               [arXiv:1009.1250](https://arxiv.org/abs/1009.1250).
+      # MARK: Proceedings
       - title: Conference Proceedings
         unbulleted: true
         list:
@@ -405,6 +420,7 @@ sections:
               [J. Phys.: Conf. Ser. 454, 012001 (2013)](https://doi.org/10.1088/1742-6596/454/1/012001),
               [arXiv:1211.1794](https://arxiv.org/abs/1211.1794).
 
+  # MARK: - Grants
   - title: Grants and Fellowships
     file: grants
     subsections:
@@ -443,7 +459,8 @@ sections:
             right: Jun 2007 – Aug 2007
             sub: Mexican Academy of Sciences
 
-  - title: Software and Projects
+  # MARK: - Projects
+  - title: Projects
     file: projects
     entries:
       - heading: Blazar Population ML
@@ -499,6 +516,7 @@ sections:
             environments, adding black hole spin with under 5% runtime
             overhead.
 
+  # MARK: - Awards
   - title: Awards
     file: awards
     entries:
@@ -515,6 +533,7 @@ sections:
             For defending a licentiate thesis within a year of completing
             the undergraduate coursework.
 
+  # MARK: - Presentations
   - title: Presentations
     file: meetings
     subsections:
@@ -605,6 +624,7 @@ sections:
             sub: The Innermost Regions of Relativistic Jets and Their Magnetic Fields
             sub_right: Granada, Spain
 
+  # MARK: - Teaching
   - title: Teaching and Mentoring
     file: teaching
     entries:
@@ -633,6 +653,7 @@ sections:
           Nicolás de Hidalgo
         sub_right: Substitute Instructor
 
+  # MARK: - ProfeDev
   - title: Professional Development
     file: profes
     entries:
@@ -683,6 +704,7 @@ sections:
         sub: HLRS, University of Stuttgart, Germany
         sub_right: Workshop, 33 hours
 
+  # MARK: - Outreach
   - title: Outreach
     file: outreach
     entries:
@@ -743,6 +765,7 @@ sections:
         sub: Facultad de Ciencias, Universidad Autónoma del Estado de México
         sub_right: Talk
 
+  # MARK: - Service
   - title: Service
     file: other
     entries:
@@ -755,6 +778,7 @@ sections:
         sub: Universidad Autónoma del Estado de México
         sub_right: Toluca, Mexico
 
+  # MARK: - Languages
   - title: Languages
     file: languages
     paragraph: >-

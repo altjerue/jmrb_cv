@@ -22,6 +22,7 @@ contact:
   - "[altjerue.github.io](https://altjerue.github.io)"
 
 sections:
+  # MARK: - Profile
   - title: Professional Summary
     file: profile_resume
     paragraph: >-
@@ -33,6 +34,7 @@ sections:
       production-quality scientific software across cross-functional research
       and engineering teams.
 
+  # MARK: - Skills
   - title: Skills
     file: skills_resume
     skills:
@@ -52,10 +54,12 @@ sections:
       - label: Tools
         text: Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt
 
+  # MARK: - Experience
   - title: Experience
     file: experience_resume
     sub_inline: true   # employer on the same line as the role
     entries:
+      # MARK: Mercor
       - heading: Independent Contractor
         right: Jan 2026 – Present
         sub: Mercor
@@ -70,6 +74,7 @@ sections:
             that stump frontier models and diagnose failure modes in their
             reasoning.
 
+      # MARK: TealWaters
       - heading: Spatial Data Scientist
         right: May 2025 – Jan 2026
         sub: TealWaters
@@ -87,6 +92,7 @@ sections:
             watershed with the Wetland Intrinsic Potential (WIP) random-forest
             model, reaching >75% accuracy.
 
+      # MARK: Indi
       - heading: Independent Researcher & Open-Source Developer
         right: Jan 2024 – May 2025
         sub: Self-directed
@@ -104,6 +110,7 @@ sections:
             library that simulates wind-driven spore dispersal over forested,
             hilly terrain, parallelized with RcppParallel and OpenMP.
 
+      # MARK: Paychex
       - heading: Software Engineer
         right: Apr 2022 – Jan 2024
         sub: Paychex
@@ -114,6 +121,7 @@ sections:
         bullets:
           - Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
 
+      # MARK: RIT
       - heading: Postdoctoral Research Associate
         right: Feb 2021 – Apr 2022
         sub: Rochester Institute of Technology
@@ -138,8 +146,9 @@ sections:
             Co-authored 2 papers from a multi-institution study of binary
             neutron star mergers.
 
+      # MARK: Purdue
       - heading: Postdoctoral Research Fellow
-        page_break: true   # start page 2 here
+        page_break: false   # start page 2 here
         right: Oct 2018 – Nov 2020
         sub: Purdue University
         # sub_right: West Lafayette, IN
@@ -165,6 +174,7 @@ sections:
             proposals, one funded ($68K) to model blazar radiation; mentored 3
             graduate students and published 2 peer-reviewed papers.
 
+      # MARK: UMSNH
       - heading: Postdoctoral Research Fellow
         right: Jan 2018 – Sep 2018
         sub: Universidad Michoacana de San Nicolás de Hidalgo
@@ -179,6 +189,7 @@ sections:
             for radiative transfer phenomena in relativistic astrophysics
             scenarios.
 
+      # MARK: UValència
       - heading: Graduate Research Assistant
         right: Oct 2011 – Jul 2017
         sub: Universitat de València
@@ -189,6 +200,25 @@ sections:
             spectra of relativistic internal shocks, using the C-SPEV
             simulation code.
 
+  # MARK: - Education
+  - title: Education
+    file: education_resume
+    sub_inline: true   # degree on the same line as the institution
+    entries:
+      - heading: Universitat de València
+        right: Jul 2017
+        sub: Ph.D. in Physics, Excellent Cum Laude
+        # sub_right: Valencia, Spain
+      - heading: Universidad Michoacana de San Nicolás de Hidalgo
+        right: Sep 2011
+        sub: M.Sc. in Physics
+        # sub_right: Morelia, Mexico
+      - heading: Universidad Autónoma del Estado de México
+        right: Dec 2008
+        sub: B.Sc. in Physics
+        # sub_right: Toluca, Mexico
+
+  # MARK: - Projects
   - title: Projects
     file: projects_resume
     entries:
@@ -209,6 +239,7 @@ sections:
             Forecasting blazar gamma-ray flares with a time-series foundation
             model fine-tuned on Tleco-generated synthetic light curves.
 
+  # MARK: - Publications
   - title: Selected Publications (9 peer-reviewed articles, 3 first-author)
     file: publications_resume
     list:
@@ -227,20 +258,3 @@ sections:
         of a hybrid thermal–non-thermal distribution in the internal shocks
         model for blazars*, [MNRAS 468, 1169–1182 (2017)](https://doi.org/10.1093/mnras/stx476),
         [arXiv:1612.06383](https://arxiv.org/abs/1612.06383).
-
-  - title: Education
-    file: education_resume
-    sub_inline: true   # degree on the same line as the institution
-    entries:
-      - heading: Universitat de València
-        right: Jul 2017
-        sub: Ph.D. in Physics, Excellent Cum Laude
-        # sub_right: Valencia, Spain
-      - heading: Universidad Michoacana de San Nicolás de Hidalgo
-        right: Sep 2011
-        sub: M.Sc. in Physics
-        # sub_right: Morelia, Mexico
-      - heading: Universidad Autónoma del Estado de México
-        right: Dec 2008
-        sub: B.Sc. in Physics
-        # sub_right: Toluca, Mexico
