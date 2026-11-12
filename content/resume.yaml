@@ -1,17 +1,13 @@
-# Single source for the plain resume. `node tools/build.js content/resume.yaml`
-# writes <output>.tex and <output>.docx from it.
+# Main file for the resume: header plus the list of sections to include. The
+# wording of every section lives in content/sections/ and is shared with the CV.
+# `node tools/build.js content/resume.yaml` writes <output>.tex and
+# <output>.docx from it.
 #
 # Inline markup (works in every text field): **bold**, *italic*,
 # [link text](https://url). Write plain Unicode (–, ×, ², é); the build
 # escapes LaTeX special characters (& % $ # _ ~ ^ \ { }) itself.
 
-output: resume-RuedaBecerrilJM-plain
-# moderncv version: writes <output>.tex plus <sections_dir>/<file>.tex for
-# each section below (every section needs a `file:`).
-moderncv:
-  output: resume-RuedaBecerrilJM
-  style: resume
-  sections_dir: Sections
+output: resume-RuedaBecerrilJM
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -22,20 +18,9 @@ contact:
   - "[altjerue.github.io](https://altjerue.github.io)"
 
 sections:
-  # MARK: - Profile
-  - !include resume/profile.yaml
-
-  # MARK: - Skills
-  - !include resume/skills.yaml
-
-  # MARK: - Experience
-  - !include resume/experience.yaml
-
-  # MARK: - Education
-  - !include resume/education.yaml
-
-  # MARK: - Projects
-  - !include resume/projects.yaml
-
-  # MARK: - Publications
-  - !include resume/publications.yaml
+  - !include sections/profile.yaml
+  - !include sections/skills.yaml
+  - !include sections/experience.yaml
+  - !include sections/education.yaml
+  - !include sections/projects.yaml
+  - !include sections/selected-publications.yaml

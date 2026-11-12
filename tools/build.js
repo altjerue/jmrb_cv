@@ -1,17 +1,15 @@
-// Generates every version of a document from one YAML content file:
+// Generates every version of a document from one main YAML file (which pulls
+// its sections in with !include, see lib/load-yaml.js):
 //
-//   - <output>.tex           plain single-column LaTeX (lib/plain-tex.js)
-//   - <output>.docx          Word (lib/docx.js)
-//   - <moderncv.output>.tex  moderncv main file, plus Sections/<file>.tex for
-//                            each section (lib/moderncv.js), if the YAML has a
-//                            `moderncv:` block
+//   - <output>.tex   plain single-column LaTeX (lib/plain-tex.js)
+//   - <output>.docx  Word (lib/docx.js)
 //
 //   node tools/build.js content/resume.yaml [--no-pdf]
 //
 // All paths are relative to the repo root (the parent of content/). Every
-// generated file is overwritten. Then each main .tex is compiled with
-// pdflatex; the aux, out and log files go to the hidden folder .tex_tmp/ and
-// only the PDF is copied back to the repo root. --no-pdf skips compiling.
+// generated file is overwritten. Then the .tex is compiled with pdflatex; the
+// aux, out and log files go to the hidden folder .tex_tmp/ and only the PDF is
+// copied back to the repo root. --no-pdf skips compiling.
 
 const fs = require('fs');
 const path = require('path');
@@ -20,7 +18,6 @@ const { loadYaml } = require('./lib/load-yaml');
 const { Packer } = require('docx');
 const { buildPlainTex } = require('./lib/plain-tex');
 const { buildDocx } = require('./lib/docx');
-const { buildModerncv } = require('./lib/moderncv');
 const { resolveCitations } = require('./lib/markup');
 
 // Compiles <root>/<base>.tex (twice, so references settle) with the aux files
@@ -65,17 +62,12 @@ async function main() {
     written.push(rel);
   };
 
-  // the plain and Word versions print citations as [n]; moderncv uses \cite
+  // citations print as [n] in both outputs
   const resolved = resolveCitations(doc);
   write(`${doc.output}.tex`, buildPlainTex(resolved, srcName));
   write(`${doc.output}.docx`, await Packer.toBuffer(buildDocx(resolved)));
-  const mains = [doc.output];
-  if (doc.moderncv) {
-    for (const f of buildModerncv(doc, srcName)) write(f.path, f.content);
-    mains.push(doc.moderncv.output);
-  }
   console.log(`${srcName} ->\n  ${written.join('\n  ')}`);
-  if (!skipPdf) for (const base of mains) compilePdf(root, base);
+  if (!skipPdf) compilePdf(root, doc.output);
 }
 
 main().catch((err) => { console.error(err.message || err); process.exit(1); });

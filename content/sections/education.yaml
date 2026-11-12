@@ -1,5 +1,4 @@
 title: Education
-file: education_resume
 sub_inline: true   # degree on the same line as the institution
 entries:
   - heading: Universitat de València

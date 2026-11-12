@@ -1,17 +1,9 @@
-# Single source for the plain long-form CV. See content/README.md.
+# Main file for the long-form CV: header plus the list of sections to include.
+# The wording of every section lives in content/sections/ and is shared with the
+# resume. See content/README.md.
 #   node tools/build.js content/cv.yaml
 
-output: cv-RuedaBecerrilJM-plain
-# moderncv version (see content/README.md)
-moderncv:
-  output: cv-RuedaBecerrilJM
-  style: banking2
-  sections_dir: Sections
-  # raw LaTeX for the hand-edited Sections/publications.tex: \mybibitem and
-  # the journal abbreviations (\apj, \mnras, ...)
-  preamble:
-    - \input{bib_setup3}
-    - \input{newmacros}
+output: cv-RuedaBecerrilJM
 name: Jesús M. Rueda-Becerril
 credentials: Ph.D.
 contact:
@@ -25,44 +17,17 @@ contact:
     - "[Google Scholar](https://scholar.google.com/citations?user=hrld5zgAAAAJ)"
 
 sections:
-  # MARK: - Profile
-  - !include cv/profile.yaml
-
-  # MARK: - Skills
-  - !include cv/skills.yaml
-
-  # MARK: - Experience
-  - !include cv/experience.yaml
-
-  # MARK: - Education
-  - !include cv/education.yaml
-
-  # MARK: - Publications
-  - !include cv/publications.yaml
-
-  # MARK: - Grants
-  - !include cv/grants.yaml
-
-  # MARK: - Projects
-  - !include cv/projects.yaml
-
-  # MARK: - Awards
-  - !include cv/awards.yaml
-
-  # MARK: - Presentations
-  - !include cv/meetings.yaml
-
-  # MARK: - Teaching
-  - !include cv/teaching.yaml
-
-  # MARK: - ProfeDev
-  - !include cv/profes.yaml
-
-  # MARK: - Outreach
-  - !include cv/outreach.yaml
-
-  # MARK: - Service
-  - !include cv/other.yaml
-
-  # MARK: - Languages
-  - !include cv/languages.yaml
+  - !include sections/profile.yaml
+  - !include sections/skills.yaml
+  - !include sections/experience.yaml
+  - !include sections/education.yaml
+  - !include sections/publications.yaml
+  - !include sections/grants.yaml
+  - !include sections/projects.yaml
+  - !include sections/awards.yaml
+  - !include sections/presentations.yaml
+  - !include sections/teaching.yaml
+  - !include sections/professional-development.yaml
+  - !include sections/outreach.yaml
+  - !include sections/service.yaml
+  - !include sections/languages.yaml
