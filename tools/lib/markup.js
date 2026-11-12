@@ -1,8 +1,8 @@
 // Inline markup and LaTeX escaping shared by every output format.
 
 // Splits "**bold**, *italic*, [text](url), [@key, @key]" into styled segments.
-// Citations only reach here in the moderncv output; the plain and Word outputs
-// get them already replaced by their [n] labels (see resolveCitations).
+// Citations are already replaced by their [n] labels before this runs (see
+// resolveCitations).
 function parseInline(str) {
   const segments = [];
   const re = /\[@([^\]]+)\]|\*\*(.+?)\*\*|\*(.+?)\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
@@ -53,9 +53,8 @@ const contactLines = (contact) => (Array.isArray(contact[0]) ? contact : [contac
 const LEFTRIGHT_MACRO = `\\newcommand{\\leftright}[2]{{#1\\unskip\\nobreak\\hfil\\penalty50\\hskip1em\\hbox{}%
   \\nobreak\\hfil\\mbox{#2}\\parfillskip=0pt\\par}}`;
 
-// `par` lets moderncv pass \endgraf, since \cventry's arguments reject \par.
-const lineWithRight = (left, right, par = '\\par') =>
-  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}${par}`);
+const lineWithRight = (left, right) =>
+  (right ? `\\leftright{${left}}{${tex(right)}}` : `${left}\\par`);
 
 // Returns a copy of the document for the plain and Word outputs: list items
 // written as { key, text } become plain strings, and every [@key] citation is

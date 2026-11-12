@@ -1,0 +1,48 @@
+title: Professional Development
+entries:
+  - heading: High Performance Computing on Frontera
+    right: May – Jun 2021
+    sub: Jason Allison et al., TACC, Austin, TX
+    sub_right: Lecture series
+  - heading: Writing Winning Grants
+    right: Nov 2019
+    sub: Dr. Lauren Broyles, Purdue University
+    sub_right: Lecture
+  - heading: "XSEDE HPC Workshop: Summer Boot Camp"
+    right: Jun 2019
+    sub: John Urbanic, Purdue University
+    sub_right: Workshop
+  - heading: Data Analysis and Machine Learning with Python
+    right: Feb 2017
+    sub: Dr. Alejandro Torres, Universitat de València
+    sub_right: Workshop
+  - heading: >-
+      Numerical Relativity Simulations of BBH Coalescence Using the
+      Einstein Toolkit
+    right: Jul 2016
+    sub: Dr. Vassilios Mewes, Universitat de València
+    sub_right: Workshop, 8 hours
+  - heading: The Universe in the Light of PLANCK and BICEP2
+    right: May 2014
+    sub: Prof. Nick Mavromatos, Universitat de València
+    sub_right: Lecture series, 2 credits
+  - heading: Dark Matter
+    right: Sep 2013
+    sub: Prof. Alejandro Ibarra, Universitat de València
+    sub_right: Lecture series, 2 credits
+  - heading: International Cargèse School on Cosmic Accelerators
+    right: Apr – May 2013
+    sub: Institut d'Études Scientifiques de Cargèse, France
+    sub_right: Summer school
+  - heading: Introduction to C++ Programming
+    right: Apr 2012
+    sub: Dr. Jacek Generowicz, Universitat de València
+    sub_right: Workshop, 6 credits
+  - heading: Numerical Relativistic Astrophysics
+    right: Mar – Apr 2012
+    sub: Prof. Luciano Rezzolla, Universitat de València
+    sub_right: Lecture series, 9 hours
+  - heading: Fortran for Scientific Computing
+    right: Mar 2012
+    sub: HLRS, University of Stuttgart, Germany
+    sub_right: Workshop, 33 hours
