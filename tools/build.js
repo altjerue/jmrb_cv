@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('js-yaml');
+const { loadYaml } = require('./lib/load-yaml');
 const { Packer } = require('docx');
 const { buildPlainTex } = require('./lib/plain-tex');
 const { buildDocx } = require('./lib/docx');
@@ -54,7 +54,7 @@ async function main() {
     console.error('usage: node tools/build.js content/<file>.yaml [--no-pdf]');
     process.exit(1);
   }
-  const doc = yaml.load(fs.readFileSync(src, 'utf8'));
+  const doc = loadYaml(src);
   const root = path.resolve(path.dirname(src), '..');
   const srcName = path.relative(root, path.resolve(src));
   const written = [];

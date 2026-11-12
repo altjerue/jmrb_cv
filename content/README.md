@@ -57,6 +57,25 @@ Commit the YAML together with every regenerated file (`.tex`, `Sections/*.tex`,
 
 ## Editing the YAML
 
+### Splitting a file with `!include`
+
+`resume.yaml` and `cv.yaml` are main files: the header (name, contact,
+`moderncv:`) plus a `sections:` list in which each section lives in its own
+file, `content/resume/<section>.yaml` or `content/cv/<section>.yaml`:
+
+```yaml
+sections:
+  # MARK: - Experience
+  - !include resume/experience.yaml
+```
+
+An included file holds what would otherwise sit under that list item (a
+mapping starting with `title:`). The path is relative to the file containing
+the tag, `!include` works anywhere a value can go, includes can nest, and a
+circular include is an error. To share a section between documents, point both
+main files at the same file (for example `shared/education.yaml`); the build
+output is identical to a single-file layout.
+
 ### Top-level keys
 
 | Key           | Meaning                                                        |
