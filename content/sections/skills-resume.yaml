@@ -1,0 +1,17 @@
+title: Skills
+skills:
+  - label: Languages
+    text: Python, C/C++, R, Rust, SQL, Fortran 95, Java, Julia, Shell
+  - label: ML & Data
+    text: >-
+      Scientific machine learning, PyTorch, scikit-learn, TensorFlow,
+      random forest, neural networks, SVM, gradient-based optimization,
+      ML-assisted parameter estimation, NumPy, SciPy, Pandas, Astropy
+  - label: Geospatial
+    text: >-
+      Sentinel-1/2 multispectral processing, raster/vector data
+      pipelines, QGIS
+  - label: HPC & Parallel
+    text: OpenMP, OpenACC (GPU offloading), MPI, SLURM, PBS, HDF5
+  - label: Tools
+    text: Git, Docker, Azure, Jenkins, Kafka, Jira, ParaView, VisIt

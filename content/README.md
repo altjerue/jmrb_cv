@@ -29,9 +29,11 @@ content/
 ```
 
 A section that only one document needs (grants, awards, talks…) is simply
-listed in that document's main file only. If one document needs a variation of
-a section (say, a page break in the resume but not in the CV), make that change
-on its own branch rather than keeping two copies of the section on `master`.
+listed in that document's main file only. Four sections have a shorter resume
+version next to the full one, named with a `-resume` suffix: `skills-resume.yaml`,
+`experience-resume.yaml`, `education-resume.yaml` and `projects-resume.yaml`.
+The CV uses the full files; the resume uses the `-resume` ones. Any other
+variation (say, a page break) goes on its own branch.
 
 ## Requirements
 

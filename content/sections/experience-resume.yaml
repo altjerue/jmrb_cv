@@ -1,0 +1,143 @@
+title: Experience
+sub_inline: true   # employer on the same line as the role
+entries:
+  # MARK: Mercor
+  - heading: Independent Contractor
+    right: Jan 2026 – Present
+    sub: Mercor
+    # sub_right: Remote
+    intro: >-
+      Physics subject-matter expert evaluating frontier language models
+      for multiple leading AI labs.
+    bullets:
+      - >-
+        Review 50+ expert-level physics, hydrodynamics, astrophysics, and
+        cosmology problems for leading AI labs; write original prompts
+        that stump frontier models and diagnose failure modes in their
+        reasoning.
+
+  # MARK: TealWaters
+  - heading: Spatial Data Scientist
+    right: May 2025 – Jan 2026
+    sub: TealWaters
+    # sub_right: Seattle, WA
+    intro: >-
+      Built geospatial ML pipelines and optimized terrain-analysis code
+      for wetland mapping.
+    bullets:
+      - >-
+        Optimized the terrain-modeling code that computes elevation
+        derivatives from 1 m, 3 m, and 10 m DEMs over 20 tiles, improving
+        its computational performance.
+      - >-
+        Mapped wetland probability across the 2,160 km² Skykomish
+        watershed with the Wetland Intrinsic Potential (WIP) random-forest
+        model, reaching >75% accuracy.
+
+  # MARK: Indi
+  - heading: Independent Researcher & Open-Source Developer
+    right: Jan 2024 – May 2025
+    sub: Self-directed
+    # sub_right: Seattle, WA
+    intro: >-
+      Continued simulation research and open-source development between
+      industry roles.
+    bullets:
+      - >-
+        Co-developed Tleco, a Rust/Python toolkit that solves the
+        Fokker–Planck equation coupled to radiative transfer to model
+        radiation from relativistic outflows (ApJ 2024).
+      - >-
+        Developing WindsOfChange with the UW Forest Mycobiome Lab: a C++/R
+        library that simulates wind-driven spore dispersal over forested,
+        hilly terrain, parallelized with RcppParallel and OpenMP.
+
+  # MARK: Paychex
+  - heading: Software Engineer
+    right: Apr 2022 – Jan 2024
+    sub: Paychex
+    # sub_right: Remote
+    intro: >-
+      Built and tested data-integration services between enterprise
+      systems and Oracle E-Business Suite.
+    bullets:
+      - Developed and tested production data-pipeline software (Java, Python, SQL) with CI/CD.
+
+  # MARK: RIT
+  - heading: Postdoctoral Research Associate
+    right: Feb 2021 – Apr 2022
+    sub: Rochester Institute of Technology
+    # sub_right: Rochester, NY
+    intro: >-
+      HPC simulations of supermassive black hole binaries in an NSF-funded
+      project.
+    bullets:
+      - >-
+        Led a 7-person team upgrading PatchworkMHD, a C code for MHD
+        simulations of supermassive black hole binaries; added black hole
+        spin with under 5% runtime overhead.
+      - >-
+        Ran and benchmarked large production simulations on Frontera
+        (TACC), about 10,000 node-hours, and identified performance
+        bottlenecks in the parallel code.
+      - >-
+        Calibrated Paramo against Fermi-LAT gamma-ray spectra with
+        gradient-based optimization that updates the model automatically;
+        supervised a graduate student on the same problem.
+      - >-
+        Co-authored 2 papers from a multi-institution study of binary
+        neutron star mergers.
+
+  # MARK: Purdue
+  - heading: Postdoctoral Research Fellow
+    page_break: false   # start page 2 here
+    right: Oct 2018 – Nov 2020
+    sub: Purdue University
+    # sub_right: West Lafayette, IN
+    intro: >-
+      Radiative-transfer modeling of relativistic jets (blazars and
+      gamma-ray burst afterglows).
+    bullets:
+      - >-
+        Designed and wrote Paramo, an open-source Fortran 95 library that
+        solves the Fokker–Planck equation for relativistic particle
+        distributions coupled to radiative transfer; optimized it with
+        OpenMP and tested GPU offload with OpenACC.
+      - >-
+        Implemented implicit PDE solvers, numerical integration, and
+        arbitrary-shape particle distributions without slowing the
+        simulation.
+      - >-
+        Wrote Python tools to analyze Paramo output and run parameter
+        optimization; other groups have adopted Paramo, including Combi &
+        Siegel (2023).
+      - >-
+        Served as co-I on two NASA Fermi Guest Investigator grant
+        proposals, one funded ($68K) to model blazar radiation; mentored 3
+        graduate students and published 2 peer-reviewed papers.
+
+  # MARK: UMSNH
+  - heading: Postdoctoral Research Fellow
+    right: Jan 2018 – Sep 2018
+    sub: Universidad Michoacana de San Nicolás de Hidalgo
+    # sub_right: Morelia, Mexico
+    bullets:
+      - >-
+        Developed a Python pipeline to process black hole simulation
+        outputs from the GRTrans numerical code, generating SVM training
+        data for radio image prediction.
+      - >-
+        Built open-source data analysis and visualization tools in Python
+        for radiative transfer phenomena in relativistic astrophysics
+        scenarios.
+
+  # MARK: UValència
+  - heading: Graduate Research Assistant
+    right: Oct 2011 – Jul 2017
+    sub: Universitat de València
+    # sub_right: Valencia, Spain
+    bullets:
+      - >-
+        Studied how magnetization of shocked plasma shapes the radiation
+        spectra of relativistic internal shocks, using the C-SPEV
+        simulation code.
