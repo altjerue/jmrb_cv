@@ -1,5 +1,6 @@
-# Main file for the resume: header plus the list of sections to include. The
-# wording of every section lives in content/sections/ and is shared with the CV.
+# Main file for the resume: header plus the list of sections to include. Most
+# sections are shared with the CV; skills, experience, education and projects
+# have shorter resume versions (sections/*-resume.yaml).
 # `node tools/build.js content/resume.yaml` writes <output>.tex and
 # <output>.docx from it.
 #
@@ -19,8 +20,8 @@ contact:
 
 sections:
   - !include sections/profile.yaml
-  - !include sections/skills.yaml
-  - !include sections/experience.yaml
-  - !include sections/education.yaml
-  - !include sections/projects.yaml
+  - !include sections/skills-resume.yaml
+  - !include sections/experience-resume.yaml
+  - !include sections/education-resume.yaml
+  - !include sections/projects-resume.yaml
   - !include sections/selected-publications.yaml

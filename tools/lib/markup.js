@@ -59,7 +59,8 @@ const lineWithRight = (left, right) =>
 // Returns a copy of the document for the plain and Word outputs: list items
 // written as { key, text } become plain strings, and every [@key] citation is
 // replaced by the label that starts the cited item's text ("[9] Davis, ..."),
-// so [@Davis:2021ru, @Davis:2024ru] reads "[8, 9]". Unknown keys are errors.
+// so [@Davis:2021ru, @Davis:2024ru] reads "[8, 9]". Unknown keys are errors,
+// unless the document has no keyed items at all (then citations are removed).
 function resolveCitations(doc) {
   const labels = {};
   const collect = (node) => {
@@ -73,7 +74,10 @@ function resolveCitations(doc) {
     Object.values(node).forEach(collect);
   };
   collect(doc);
-  const replace = (str) => str.replace(/\[@([^\]]+)\]/g, (_, inner) => `[${citeKeys(inner).map((k) => {
+  // a document with no numbered list (the resume) has nothing to cite, so its
+  // citations are dropped instead of being errors
+  const noList = Object.keys(labels).length === 0;
+  const replace = (str) => noList ? str.replace(/ ?\[@[^\]]+\]/g, '') : str.replace(/\[@([^\]]+)\]/g, (_, inner) => `[${citeKeys(inner).map((k) => {
     if (!(k in labels)) throw new Error(`unknown citation key "${k}"`);
     return labels[k];
   }).join(', ')}]`);

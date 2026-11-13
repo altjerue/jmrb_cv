@@ -1,5 +1,11 @@
 title: Teaching and Mentoring
 entries:
+  - heading: Thermodynamics (graduate level)
+    right: Jun 2018
+    sub: >-
+      Instituto de Física y Matemáticas, Universidad Michoacana de San
+      Nicolás de Hidalgo
+    sub_right: Substitute Instructor
   - heading: Zachary Davis, graduate student
     right: 2018 – 2022
     sub: Department of Physics and Astronomy, Purdue University
@@ -18,9 +24,19 @@ entries:
     sub_right: Mentoring
     details:
       - Co-authored paper [@Zhang:2020ch]
-  - heading: Thermodynamics (graduate level)
-    right: Jun 2018
+  - heading: Supervised graduate student (Paramo calibration)
+    right: 2021 – 2022
+    sub: Rochester Institute of Technology
+    sub_right: Mentoring
+  - heading: HDF5 workshop for graduate students
+    right: 2018
+    sub: Universidad Michoacana de San Nicolás de Hidalgo
+    sub_right: Organizer
+  - heading: >-
+      El origen del universo y el sistema solar (The Origin of the Universe
+      and the Solar System)
+    right: Feb 2026
     sub: >-
-      Instituto de Física y Matemáticas, Universidad Michoacana de San
-      Nicolás de Hidalgo
-    sub_right: Substitute Instructor
+      Biology students, Facultad de Ciencias, Universidad Autónoma del
+      Estado de México
+    sub_right: Talk

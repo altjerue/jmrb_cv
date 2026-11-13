@@ -30,4 +30,5 @@ sections:
   - !include sections/professional-development.yaml
   - !include sections/outreach.yaml
   - !include sections/service.yaml
+  - !include sections/certifications.yaml
   - !include sections/languages.yaml
